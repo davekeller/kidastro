@@ -1,2 +1,2 @@
 # davekeller.github.io
-oh hai# kidastro
+oh hai

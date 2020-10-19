@@ -1,0 +1,265 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ----- THANKS FOR CHECKING OUT MY HAND WRITTEN STYLE SHEETS -----*/
+
+/* ------------------- BREAKPOINTS --------------------------
+---------------------------------------------------------- */
+
+/* IPAD --------------------- */
+
+@media (max-width: 1025px) {
+  html {
+    background: #e0e7f2;
+  }
+  h1 {
+    font-size: 3rem;
+    letter-spacing: normal;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+
+  .break.top {
+    padding: 8rem 0 0;
+  }
+  img.downarrow {
+    margin-bottom: 0;
+  }
+
+  .section {
+    height: 23rem;
+  }
+  .description {
+    max-width: 80vw;
+  }
+  .rodio .description,
+  .rocket .description,
+  .bnbfinder .description,
+  .timebomb .description,
+  .amhappy .description,
+  .abm .description,
+  .puppy .description,
+  .forfun .description {
+    top: 19rem;
+    left: 10vw;
+  }
+
+  .break {
+    margin-bottom: 3rem !important;
+    text-align: center !important;
+  }
+  .break.logos {
+    margin-top: 16rem;
+  }
+  .break.something {
+    margin-top: 12rem;
+  }
+  .break.achievements {
+    margin-top: 18rem;
+  }
+
+  .timebomb .description {
+    bottom: -13rem;
+  }
+  .break.funny {
+    margin-top: 17rem;
+  }
+
+  .amhappy .description {
+    bottom: -13rem;
+  }
+  .break.fam {
+    margin-top: 16rem;
+  }
+
+  .break.things {
+    margin-top: 20rem;
+  }
+
+  .puppy .description {
+    bottom: -8rem;
+  }
+  .break.abyss {
+    margin-top: 13rem;
+  }
+
+  .forfun .description {
+    bottom: -10rem;
+  }
+  .break.end {
+    margin-top: 16rem;
+  }
+
+  .intro {
+    padding: 4.5rem 3rem 2rem;
+  }
+
+  .end {
+    padding: 3rem 2rem;
+  }
+
+  ul.tweets {
+    display: block;
+  }
+  ul.tweets li {
+    font-size: 1.2rem;
+  }
+}
+
+/* IPAD MINI --------------------- */
+
+@media (max-width: 769px) {
+  .timebomb .description {
+    bottom: -15rem;
+  }
+
+  .break.something {
+    margin-top: 14rem;
+  }
+  .break.something {
+    margin-top: 14rem;
+  }
+  .break.achievements {
+    margin-top: 20rem;
+  }
+  .break.funny {
+    margin-top: 18rem;
+  }
+
+  .amhappy .description {
+    bottom: -13rem;
+  }
+  .break.fam {
+    margin-top: 17rem;
+  }
+
+  .puppy .description {
+    bottom: -10rem;
+  }
+  .break.abyss {
+    margin-top: 13rem;
+  }
+}
+
+/* ANDROID --------------------- */
+
+@media (max-width: 421px) {
+  body {
+    background-image: none;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+
+  .section {
+    height: 10rem;
+  }
+  .description {
+    max-width: 85vw;
+  }
+  .rodio .description,
+  .rocket .description,
+  .bnbfinder .description,
+  .timebomb .description,
+  .amhappy .description,
+  .abm .description,
+  .puppy .description,
+  .forfun .description {
+    top: 19rem;
+    left: 7.5vw;
+  }
+
+  .break.logos {
+    margin-top: 24rem;
+  }
+  .break.something {
+    margin-top: 19rem;
+  }
+  .break.achievements {
+    margin-top: 31rem;
+    display: block;
+  }
+  .achievement {
+    margin: 1rem 0;
+  }
+
+  .timebomb .description {
+    bottom: -25rem;
+  }
+  .break.funny {
+    margin-top: 29rem;
+  }
+
+  .amhappy .description {
+    bottom: -20rem;
+  }
+  .break.fam {
+    margin-top: 23rem;
+  }
+  .break.things {
+    margin-top: 32rem;
+  }
+
+  .puppy .description {
+    bottom: -19rem;
+  }
+  .break.abyss {
+    margin-top: 23rem;
+  }
+
+  .forfun .description {
+    bottom: -18rem;
+  }
+  .break.end {
+    margin-top: 24rem;
+  }
+}
+
+/* IPHONE --------------------- */
+
+@media (max-width: 376px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .break.logos {
+    margin-top: 28rem;
+  }
+  .break.something {
+    margin-top: 22rem;
+  }
+  .break.achievements {
+    margin-top: 35rem;
+  }
+  .timebomb .description {
+    bottom: -27rem;
+  }
+  .break.funny {
+    margin-top: 31rem;
+  }
+
+  .amhappy .description {
+    bottom: -23rem;
+  }
+  .break.fam {
+    margin-top: 26rem;
+  }
+  .break.things {
+    margin-top: 35rem;
+  }
+}
