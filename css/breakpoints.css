@@ -1,3 +1,5 @@
+/** @format */
+
 @charset "UTF-8";
 /* CSS Document */
 
@@ -235,7 +237,11 @@
 
 @media (max-width: 376px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .intro h1,
+  .end h1 {
+    margin-bottom: 1rem;
   }
   .break.logos {
     margin-top: 28rem;
