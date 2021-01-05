@@ -35,7 +35,7 @@
 }
 
 .intro h1 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* ---- RODIO ---- */
@@ -44,7 +44,7 @@
   background: url(../imgs/rodio.jpg) center / cover;
 }
 
-.rodio .description {
+.rodio .info {
   top: -5rem;
   left: 17%;
 }
@@ -59,7 +59,7 @@
   background: url(../imgs/rocket.jpg) center / cover;
 }
 
-.rocket .description {
+.rocket .info {
   top: -6rem;
   left: 13%;
 }
@@ -70,21 +70,21 @@
   background: url(../imgs/bnbfinder.jpg) center / cover;
 }
 
-.bnbfinder .description {
+.bnbfinder .info {
   top: -7.5rem;
   right: 9%;
 }
 
-/* ---- achievements ---- */
+/* ---- accomplishments ---- */
 
-.break.achievements {
+.break.accomplishments {
   text-align: left;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem 3rem;
 }
 
-.achievements h3 {
+.accomplishments h3 {
   margin: 2rem 0 1rem;
 }
 
@@ -105,7 +105,7 @@
   background: url(../imgs/timebomb.jpg) center / cover;
 }
 
-.timebomb .description {
+.timebomb .info {
   bottom: -8rem;
   right: 20%;
 }
@@ -148,7 +148,7 @@ ul.tweets li {
   background: url(../imgs/amhappy.jpg) center / cover;
 }
 
-.amhappy .description {
+.amhappy .info {
   bottom: -5rem;
   left: 30%;
 }
@@ -159,7 +159,7 @@ ul.tweets li {
   background: url(../imgs/abm.jpg) center / cover;
 }
 
-.abm .description {
+.abm .info {
   top: -6rem;
   right: 7%;
 }
@@ -172,7 +172,7 @@ ul.tweets li {
   background: url(../imgs/puppy.jpg) center / cover;
 }
 
-.puppy .description {
+.puppy .info {
   bottom: -7rem;
   left: 14%;
 }
@@ -183,7 +183,7 @@ ul.tweets li {
   background: url(../imgs/forfun.jpg) center / cover;
 }
 
-.forfun .description {
+.forfun .info {
   bottom: -6rem;
   right: 16.5%;
 }
@@ -197,10 +197,6 @@ ul.tweets li {
   top: -1.75rem;
   left: 50%;
   margin-left: -25px;
-}
-
-.break h1 {
-  margin-bottom: 2rem;
 }
 
 /* footer */

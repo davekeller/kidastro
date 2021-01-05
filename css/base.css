@@ -42,17 +42,16 @@ a:hover {
 }
 
 h1 {
-  font-family: 'Pacifico', 'Shrikhand', Georgia, serif;
+  font-family: 'Shrikhand', Georgia, serif;
   font-size: 4.2rem;
   letter-spacing: 3px;
   line-height: 110%;
   color: #ffffff;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1rem;
 }
 
 h1.teal {
-  text-shadow: none;
+  box-shadow: none;
 }
 
 h2 {
@@ -197,7 +196,7 @@ h4 {
   z-index: 2;
 }
 
-.description {
+.info {
   position: absolute;
   background: #ffffff;
   border-radius: 0.5rem;
@@ -208,45 +207,45 @@ h4 {
   text-align: left;
 }
 
-.description h2 {
+.info h2 {
   margin-bottom: -0.5rem;
 }
 
-.description p {
+.info p {
   font-size: 1rem;
   margin-top: 1rem;
 }
 
 /* ----- colors ----- */
 
-.section.rodio .description h2 {
+.section.rodio .info h2 {
   color: #1a9cdb;
 }
 
-.section.rocket .description h2 {
+.section.rocket .info h2 {
   color: #471e3f;
 }
 
-.section.bnbfinder .description h2 {
+.section.bnbfinder .info h2 {
   color: #cc555b;
 }
 
-.section.timebomb .description h2 {
+.section.timebomb .info h2 {
   color: #f00965;
 }
 
-.section.amhappy .description h2 {
+.section.amhappy .info h2 {
   color: #304d58;
 }
 
-.section.abm .description h2 {
+.section.abm .info h2 {
   color: #e14282;
 }
 
-.section.puppy .description h2 {
+.section.puppy .info h2 {
   color: #57586d;
 }
 
-.section.guarded .description h2 {
+.section.guarded .info h2 {
   color: #4f5689;
 }
