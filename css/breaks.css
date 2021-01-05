@@ -1,0 +1,56 @@
+/** @format */
+
+@charset "UTF-8";
+/* CSS Document */
+
+.break {
+  position: relative;
+  max-width: 90%;
+  margin: 1rem auto;
+  padding: 6rem 0;
+  z-index: 2;
+  background: url('../imgs/breaks/break1.svg') center center / cover;
+}
+
+@media (max-width: 1024px) {
+  .break {
+    padding: 2rem 0;
+  }
+}
+
+.break.bg2 {
+  background: url('../imgs/breaks/break2.svg') center center / cover;
+}
+
+.break.bg3 {
+  background: url('../imgs/breaks/break3.svg') center center / cover;
+}
+
+.break.no_bg {
+  background: none;
+}
+
+.break h1 {
+  margin-bottom: 2rem;
+}
+
+.break h3 {
+  opacity: 0.2;
+}
+
+.break ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.break ul li {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0 2rem;
+  opacity: 0.2;
+}
+
+.break_bg {
+  display: absolute;
+  top: 0;
+}

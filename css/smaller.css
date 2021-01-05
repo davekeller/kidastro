@@ -1,0 +1,53 @@
+/** @format */
+
+@charset "UTF-8";
+/* CSS Document */
+
+/* guarded --------------- */
+
+.guarded {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'guarded1 guarded1 guardedA';
+}
+
+.guardedA {
+  grid-area: guardedA;
+}
+
+.guarded1 {
+  grid-area: guarded1;
+}
+
+@media (max-width: 1024px) {
+  .guarded {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'guardedA'
+      'guarded1';
+  }
+}
+
+/* puppywise --------------- */
+
+.puppy {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'puppyA puppy1 puppy1';
+}
+
+.puppyA {
+  grid-area: puppyA;
+  text-align: right;
+}
+
+.puppy1 {
+  grid-area: puppy1;
+}
+
+@media (max-width: 1024px) {
+  .puppy {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'puppyA'
+      'puppy1';
+  }
+}
