@@ -30,14 +30,6 @@
   background: none;
 }
 
-.break h1 {
-  margin-bottom: 2rem;
-}
-
-.break h3 {
-  opacity: 0.2;
-}
-
 .break ul {
   display: flex;
   justify-content: space-evenly;

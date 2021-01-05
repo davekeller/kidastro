@@ -66,6 +66,13 @@
   list-style-type: '▵';
 }
 
+@media (max-width: 640px) {
+  .info ul li {
+    list-style-type: '‣';
+    margin: 0.5rem 0;
+  }
+}
+
 /* overlay ----- */
 
 .overlay {

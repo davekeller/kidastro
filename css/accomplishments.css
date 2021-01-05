@@ -8,32 +8,20 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem 6rem;
   text-align: left;
-  max-width: 80%;
-  margin: 8rem auto;
+  width: 80%;
+  margin: 6rem auto;
 }
 
-h1.titleFull {
+h2.titleFull {
   grid-column: 1 / -1;
   color: rgba(255, 255, 255, 1);
-  font-size: 3rem;
-}
-
-.accomplishments h3 {
-  margin: 2rem 0 1rem;
 }
 
 /* breakpoints */
 
 @media (max-width: 1024px) {
   .accomplishments {
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-  }
-
-  .achieve3 {
-    grid-column: 1 / -1;
-    width: 70%;
-    margin: 0 auto;
+    width: 85%;
   }
 }
 
@@ -41,6 +29,7 @@ h1.titleFull {
   .accomplishments {
     grid-template-columns: 1fr;
     text-align: left;
+    margin: 2rem auto;
   }
   h1.titleFull {
     font-size: 2.5rem;
