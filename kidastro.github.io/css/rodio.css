@@ -1,0 +1,97 @@
+/** @format */
+
+@charset "UTF-8";
+/* CSS Document */
+
+.rodio {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    'rodioA rodioA rodio1 rodio1 rodio1 rodio1'
+    'rodio2 rodio2 rodio2 rodio2 rodio3 rodio3'
+    'rodio4 rodio4 rodioB rodioB rodio5 rodio5';
+}
+
+.rodioA {
+  grid-area: rodioA;
+  text-align: right;
+  padding: 2rem 0 2rem 4rem;
+}
+.rodioB {
+  grid-area: rodioB;
+}
+.rodio1 {
+  grid-area: rodio1;
+}
+.rodio2 {
+  grid-area: rodio2;
+}
+.rodio3 {
+  position: relative;
+  grid-area: rodio3;
+}
+.rodio4 {
+  position: relative;
+  grid-area: rodio4;
+}
+.rodio5 {
+  position: relative;
+  grid-area: rodio5;
+}
+
+/* right */
+.rodio2,
+.rodio4 {
+  border-radius: 0 5px 5px 0;
+}
+
+/* left */
+.rodio3,
+.rodio5 {
+  border-radius: 5px 0 0 5px;
+}
+
+/* breakpoints ========== */
+
+@media (max-width: 1024px) {
+  .rodio {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'rodioA rodioA'
+      'rodio1 rodio1'
+      'rodio2 rodio2'
+      'rodio3 rodioB'
+      'rodio4 rodio5';
+  }
+
+  .rodioA,
+  .rodioB {
+    padding: 2rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .rodio {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'rodioA'
+      'rodio1'
+      'rodio2'
+      'rodio3'
+      'rodio4'
+      'rodioB'
+      'rodio5';
+  }
+
+  .rodio3,
+  .rodio4,
+  .rodio5 {
+    max-height: 15rem;
+    overflow: hidden;
+  }
+
+  .rodioA,
+  .rodioB {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,80 @@
+/** @format */
+
+@charset "UTF-8";
+/* CSS Document */
+
+.intro {
+  margin: 12vh auto;
+  max-width: 700px;
+}
+
+@media (max-width: 1024px) {
+  .intro {
+    margin: 8vh auto;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 640px) {
+  .intro {
+    margin: 4rem auto;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 425px) {
+  .intro {
+    margin: 2vh auto;
+    max-width: 90%;
+  }
+}
+
+.intro h1 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.intro p {
+  margin: 2rem auto 1rem;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.intro img.downarrow {
+  margin-top: 4rem;
+  opacity: 0.3;
+}
+
+@media (max-width: 640px) {
+  .logo {
+    width: 100px;
+  }
+
+  .intro img.downarrow {
+    margin-top: 2rem;
+  }
+}
+
+/* contact top */
+
+.contactTop {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 640px) {
+  .contactTop {
+    display: none;
+  }
+}
+
+.contactTop a {
+  font-size: 0.8rem;
+  padding: 1rem;
+}
