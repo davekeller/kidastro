@@ -62,13 +62,12 @@
 
 .info ul li {
   padding: 0.5rem 1rem;
-  margin: 0.5rem 1.5rem;
-  list-style-type: '▵';
+  margin: 0.5rem 1rem;
+  list-style-type: '+';
 }
 
 @media (max-width: 640px) {
   .info ul li {
-    list-style-type: '‣';
     margin: 0.5rem 0;
   }
 }
