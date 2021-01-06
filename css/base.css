@@ -8,16 +8,7 @@
 html {
   height: 100%;
   width: 100%;
-  /* background: #031e27; */
-  background: url('../imgs/bg.svg') center,
-    linear-gradient(-45deg, #000000 -60%, #063341 55%, #000000 100%) fixed top
-      center;
-}
-
-@media (max-width: 640px) {
-  html {
-    min-height: 100%;
-  }
+  background: #031e27;
 }
 
 body {
@@ -29,8 +20,17 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  background: url('../imgs/bg.svg') fixed center,
+    linear-gradient(-45deg, #000000 -60%, #063341 55%, #000000 100%) fixed top
+      center;
   /* background: url('../imgs/bg.svg') fixed center,
-    linear-gradient(-45deg, #000, #063341, #000) no-repeat fixed top center; */
+  linear-gradient(-45deg, #000, #063341, #000) no-repeat fixed top center; */
+}
+
+@media (max-width: 640px) {
+  body {
+    min-height: 100%;
+  }
 }
 
 /* ---- TEXT ------*/
