@@ -8,6 +8,7 @@
 html {
   height: 100%;
   width: 100%;
+  background: #031e27;
 }
 
 body {
@@ -19,13 +20,14 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background: url('../imgs/bg.svg') fixed center center,
-    linear-gradient(-45deg, #000, #063341, #000) no-repeat fixed;
+  background: url('../imgs/bg.svg') fixed center,
+    linear-gradient(-45deg, #000, #063341, #000) no-repeat center;
+  height: 100%;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 640px) {
   body {
-    background-color: #063341;
+    min-height: 100%;
   }
 }
 
@@ -170,6 +172,15 @@ h6 {
 .bar_teal,
 .bar_yellow {
   width: 12.5%;
+}
+
+@media (max-width: 640px) {
+  .bar_blue,
+  .bar_pink,
+  .bar_teal,
+  .bar_yellow {
+    width: 100%;
+  }
 }
 
 .bar_blue {
