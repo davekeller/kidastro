@@ -28,7 +28,8 @@
       'dance2';
   }
 
-  .puppyA {
+  .danceA {
     text-align: left;
+    padding: 0 1rem;
   }
 }

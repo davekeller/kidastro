@@ -25,6 +25,10 @@
       'guardedA'
       'guarded1';
   }
+
+  .guardedA {
+    padding: 0 1rem;
+  }
 }
 
 /* puppywise --------------- */
@@ -49,5 +53,10 @@
     grid-template-areas:
       'puppyA'
       'puppy1';
+  }
+
+  .puppyA {
+    text-align: left;
+    padding: 0 1rem;
   }
 }
