@@ -8,6 +8,7 @@
 html {
   height: 100%;
   width: 100%;
+  background-color: #031e27;
 }
 
 body {
@@ -19,15 +20,15 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background: url('../imgs/bg.svg') fixed center top / cover,
+  background: url('../imgs/bg.svg') fixed center 0 / cover,
     linear-gradient(-45deg, #000000 -40%, #063341 52%, #000000 100%) fixed 0
       center;
   /* background: url('../imgs/bg.svg') fixed center,
     linear-gradient(-45deg, #000, #063341, #000) no-repeat fixed top center; */
 }
 
-@media (max-width: 640px) {
-  html {
+@media (max-width: 425px) {
+  body {
     background: url('../imgs/bg.svg') fixed center top / cover, #031e27;
   }
 }
