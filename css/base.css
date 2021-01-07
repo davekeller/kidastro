@@ -27,13 +27,13 @@ body {
       linear-gradient(-45deg, #000, #063341, #000) fixed center 0 / 100% 100%;
 }
 
-/* @media (max-width: 425px) {
+@media (max-width: 425px) {
   body {
     background: url('../imgs/bg.svg') fixed center -1rem,
       linear-gradient(-45deg, #031e27, #063341, #031e27) fixed center 0 / 100%
         100%;
   }
-} */
+}
 
 /* ---- TEXT ------*/
 
