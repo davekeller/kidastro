@@ -66,7 +66,7 @@
   }
 
   .bnbA {
-    padding: 2rem;
+    padding: 0;
     text-align: left;
   }
 }
@@ -82,10 +82,5 @@
       'bnbB'
       'bnb4'
       'bnb5';
-  }
-
-  .bnbA,
-  .bnbB {
-    padding: 0 1rem;
   }
 }

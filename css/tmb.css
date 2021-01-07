@@ -13,7 +13,7 @@
 .tmbA {
   grid-area: tmbA;
   text-align: right;
-  padding: 2rem 4rem;
+  padding: 1rem 1rem 1rem 4rem;
 }
 
 .tmb1 {
@@ -37,12 +37,6 @@
 
   .tmbA {
     text-align: left;
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .tmbA {
-    padding: 0 1rem;
+    padding: 0;
   }
 }

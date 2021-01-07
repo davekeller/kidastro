@@ -8,14 +8,6 @@
 html {
   height: 100%;
   width: 100%;
-  background: url('../imgs/bg.svg') fixed center top,
-    linear-gradient(-45deg, #000000 -40%, #063341 52%, #000000 100%) fixed 0
-      center;
-  background-color: #031e27;
-}
-
-@media (max-width: 640px) {
-  min-height: 100vh;
 }
 
 body {
@@ -27,12 +19,17 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  min-height: 100%;
-  /* background: url('../imgs/bg.svg') fixed center,
+  background: url('../imgs/bg.svg') fixed center top / cover,
     linear-gradient(-45deg, #000000 -40%, #063341 52%, #000000 100%) fixed 0
-      center; */
+      center;
   /* background: url('../imgs/bg.svg') fixed center,
     linear-gradient(-45deg, #000, #063341, #000) no-repeat fixed top center; */
+}
+
+@media (max-width: 640px) {
+  html {
+    background: url('../imgs/bg.svg') fixed center top / cover, #031e27;
+  }
 }
 
 /* ---- TEXT ------*/

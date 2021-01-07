@@ -25,10 +25,6 @@
       'guardedA'
       'guarded1';
   }
-
-  .guardedA {
-    padding: 0 1rem;
-  }
 }
 
 /* puppywise --------------- */
@@ -57,6 +53,5 @@
 
   .puppyA {
     text-align: left;
-    padding: 0 1rem;
   }
 }

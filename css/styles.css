@@ -22,7 +22,7 @@
 
 @media (max-width: 640px) {
   .section {
-    width: 90%;
+    width: 88%;
   }
 }
 
@@ -40,12 +40,6 @@
   padding: 0 2rem;
 }
 
-@media (max-width: 1024px) {
-  .info {
-    padding: 0 12%;
-  }
-}
-
 @media (max-width: 640px) {
   .info {
     padding: 0;
@@ -61,17 +55,18 @@
 }
 
 .info ul li {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 1rem;
-  list-style-type: '▵';
+  padding: 0.5rem 0.5rem 0.5rem 1.75rem;
+  margin: 0.5rem 0;
+  /* list-style-type: '▵'; */
+  background: url('../imgs/bullet.svg') 0 14px no-repeat;
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   .info ul li {
-    padding-left: 0.5rem;
+    padding-left: 0.35rem;
     list-style-type: disc;
   }
-}
+} */
 
 /* overlay ----- */
 

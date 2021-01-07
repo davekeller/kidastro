@@ -65,7 +65,7 @@
 
   .rodioA,
   .rodioB {
-    padding: 2rem;
+    padding: 0;
     text-align: left;
   }
 }
@@ -88,10 +88,5 @@
   .rodio5 {
     max-height: 15rem;
     overflow: hidden;
-  }
-
-  .rodioA,
-  .rodioB {
-    padding: 0 1rem;
   }
 }
