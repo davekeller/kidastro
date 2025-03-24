@@ -4,8 +4,8 @@
 /* CSS Document */
 
 .intro {
-  margin: 12vh auto;
-  max-width: 786px;
+  margin: 0 auto;
+  max-width: 660px;
 }
 
 @media (max-width: 1024px) {

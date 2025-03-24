@@ -1,0 +1,72 @@
+/** @format */
+
+@charset "UTF-8";
+/* CSS Document */
+
+.quotapath {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    '. qpA qpA qpA qpA .'
+    'qp1 qp1 qp1 qp2 qp2 qp2'
+    'qp3 qp3 qp3 qp3 qp4 qp4'
+    'qp5 qp5 qp6 qp6 qp6 qp6';
+}
+
+.qpA {
+  grid-area: qpA;
+  padding-left: 3rem;
+  padding-bottom: 1rem;
+}
+.qp1 {
+  grid-area: qp1;
+}
+.qp2 {
+  grid-area: qp2;
+}
+.qp3 {
+  grid-area: qp3;
+}
+.qp4 {
+  grid-area: qp4;
+}
+.qp5 {
+  grid-area: qp5;
+}
+.qp6 {
+  grid-area: qp6;
+}
+
+/* breakpoints ========== */
+
+@media (max-width: 1024px) {
+  .quotapath {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'qpA qpA'
+      'qp1 qp2'
+      'qp3 qp3'
+      'qp4 qp5'
+      'qp6 qp6';
+  }
+
+  .qpA,
+  .qpB {
+    padding: 0;
+    text-align: left;
+  }
+}   
+
+@media (max-width: 420px) {
+  .quotapath {
+    grid-template-columns: 1fr;
+    text-align: center;
+    grid-template-areas:
+      'qpA'
+      'qp1'
+      'qp2'
+      'qp3'
+      'qp4'
+      'qp5'
+      'qp6';
+  }
+}

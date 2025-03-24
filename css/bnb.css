@@ -6,7 +6,7 @@
 .bnb {
   grid-template-columns: repeat(6, 1fr);
   grid-template-areas:
-    '. bnbA bnbA bnbA . .'
+    '. bnbA bnbA bnbA bnbA .'
     'bnb1 bnb1 bnb1 bnb2 bnb2 bnb2'
     'bnb3 bnb3 bnb3 bnbB bnbB bnbB'
     'bnb4 bnb4 bnb4 bnb5 bnb5 bnb5';
@@ -16,6 +16,7 @@
 .bnbA {
   grid-area: bnbA;
   padding-left: 3rem;
+  padding-bottom: 1rem;
 }
 .bnbB {
   grid-area: bnbB;
