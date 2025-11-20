@@ -5,17 +5,17 @@
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 6, 51, 65;
   
-  /* Sophisticated Color Palette */
-  --color-1: #5eb3d6; /* Sky Blue */
-  --color-2: #e879f9; /* Orchid */
-  --color-3: #6ee7b7; /* Mint */
+  /* Accomplishments-Inspired Palette */
+  --color-1: #f4fd7b; /* Yellow from "30+ Products" */
+  --color-2: #39d5cb; /* Teal from "#1 iPhone App" */
+  --color-3: #e4416f; /* Pink from "Millions of Users" */
   --color-4: #fcd34d; /* Gold */
-  --color-5: #a78bfa; /* Lavender */
+  --color-5: #6ee7b7; /* Mint */
   --color-6: #fb7185; /* Rose */
-  --color-7: #34d399; /* Emerald */
-  --color-8: #fbbf24; /* Amber */
-  --color-9: #818cf8; /* Indigo */
-  --color-10: #f472b6; /* Pink */
+  --color-7: #a78bfa; /* Lavender */
+  --color-8: #5eb3d6; /* Sky Blue */
+  --color-9: #e879f9; /* Orchid */
+  --color-10: #34d399; /* Emerald */
 }
 
 body {
