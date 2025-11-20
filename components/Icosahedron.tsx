@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
-const Particles = ({ color }: { color: THREE.Color }) => {
+const Particles = ({ colorRef }: { colorRef: React.MutableRefObject<THREE.Color> }) => {
   const count = 112; // Reduced by 50% from 225
   const mesh = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
@@ -67,7 +67,7 @@ const Particles = ({ color }: { color: THREE.Color }) => {
       
       if (mesh.current) {
         mesh.current.setMatrixAt(i, dummy.matrix);
-        mesh.current.setColorAt(i, color);
+        mesh.current.setColorAt(i, colorRef.current);
       }
     });
     
@@ -89,7 +89,7 @@ const IcosahedronShape = () => {
   const groupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const materialRef = useRef<any>(null);
-  const [currentColor, setCurrentColor] = useState(new THREE.Color('#f4fd7b'));
+  const colorRef = useRef(new THREE.Color('#f4fd7b'));
 
   // Color palette
   const colors = useMemo(() => [
@@ -120,7 +120,7 @@ const IcosahedronShape = () => {
       if (materialRef.current.material && materialRef.current.material.color) {
          materialRef.current.material.color.copy(newColor);
       }
-      setCurrentColor(newColor);
+      colorRef.current.copy(newColor);
     }
   });
 
@@ -155,7 +155,7 @@ const IcosahedronShape = () => {
           />
         </group>
       </Float>
-      <Particles color={currentColor} />
+      <Particles colorRef={colorRef} />
     </>
   );
 };

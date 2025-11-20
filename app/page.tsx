@@ -14,7 +14,10 @@ export default function Home() {
       {/* QUOTAPATH */}
       <AnimatedSection className="quotapath grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <h2 className="text-4xl font-bold mb-2">Quotapath</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-4xl font-bold">Quotapath</h2>
+            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          </div>
           <h4 className="text-[var(--color-2)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">an industry leading sales commission saas platform</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             At Quotapath, I led design for multiple product teams — crafting new product features monthly, as well as a brand new product called the Compensation Hub — helping sales teams explore, compare, and customize commission plans.
@@ -46,7 +49,10 @@ export default function Home() {
       {/* RODIO */}
       <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <h2 className="text-4xl font-bold mb-2">Rodio</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-4xl font-bold">Rodio</h2>
+            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          </div>
           <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">workforce communication for big retail</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I led design from early ideas through revenue for this mid-size startup – concepting, facilitating design sprints, architecting UX, prototyping, and creating production-ready UI&apos;s across our native web, iOS and Android apps.
@@ -101,7 +107,10 @@ export default function Home() {
       {/* BNB */}
       <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <h2 className="text-4xl font-bold mb-2">Bnbfinder</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-4xl font-bold">Bnbfinder</h2>
+            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          </div>
           <h4 className="text-[var(--color-4)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a platform for niche travel listings (now Savvy.com)</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             Led design and front-end development on this platform for multiple travel listing verticals, starting with bnbfinder. The platform included a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
@@ -154,7 +163,10 @@ export default function Home() {
       {/* ROCKET */}
       <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <h2 className="text-4xl font-bold mb-2">Rocket</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-4xl font-bold">Rocket</h2>
+            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          </div>
           <h4 className="text-[var(--color-5)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             Over the better part of a decade, I co-founded, helped grow the business, and led design for Rocket — a 2-person indie dev shop we grew into a 20-person digital agency. We specialized in concepting, prototyping and building apps and websites for early-stage startups to household names.
@@ -207,7 +219,10 @@ export default function Home() {
       {/* TIMEBOMB */}
       <AnimatedSection className="tmb grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <h2 className="text-4xl font-bold mb-2">Timebomb</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-4xl font-bold">Timebomb</h2>
+            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          </div>
           <h4 className="text-[var(--color-1)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a conditional messaging app</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I Co-Founded and led design for this conditional messaging app (native iOS and Android) from whiteboard sketches through a 2.0 release with a team of 10.
@@ -229,7 +244,10 @@ export default function Home() {
       {/* PUPPYWISE */}
       <AnimatedSection className="puppy grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <h2 className="text-4xl font-bold mb-2">Puppywise</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-4xl font-bold">Puppywise</h2>
+            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          </div>
           <h4 className="text-[var(--color-2)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a web app to find reputable breeders</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I consulted for this puppy breeder client, including: conception and design of their breed and breeder search UX, details views, and admin views.
@@ -245,7 +263,10 @@ export default function Home() {
       {/* DANCEFIGHT */}
       <AnimatedSection className="dance grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <h2 className="text-4xl font-bold mb-2">Dancefight</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-4xl font-bold">Dancefight</h2>
+            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          </div>
           <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a social voting app</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I consulted for this seed-round startup and helped with UX flows and final UIs for onboaring/tutorials, the main feed, the voting UX, tournament creation, and tournament brackets.
