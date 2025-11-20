@@ -3,8 +3,10 @@ import Image from 'next/image';
 
 const Accomplishments = () => {
   return (
-    <div className="section accomplishments grid gap-8 py-20">
-      <h2 className="titleFull col-span-full text-center text-4xl font-bold text-white mb-12">accomplishments</h2>
+    <div className="accomplishments grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-x-24 text-left w-[88%] lg:w-[80%] mx-auto my-8 sm:my-0 items-start">
+      <h2 className="titleFull col-span-1 sm:col-span-3 text-3xl sm:text-4xl font-bold text-white">
+        Accomplishments
+      </h2>
 
       <div className="achieve1 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />

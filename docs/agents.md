@@ -14,7 +14,7 @@ At the end of each phase of the implementation (e.g., after porting components, 
 1.  **Test Build**: Run `npm run build` to ensure the application builds successfully.
 2.  **Fix Errors**: Resolve any build errors, linting issues, or Prettier formatting errors.
 3.  **Commit**: Stage all changes and commit with a meaningful, short, descriptive message.
-    *   Example: `git commit -am "feat: port intro section to tailwind"`
+    *   Example: `git commit -am "dk-feat: port intro section to tailwind"`
 4.  **Push**: Push the changes to the current branch.
     *   Command: `git push origin <branch-name>`
 
