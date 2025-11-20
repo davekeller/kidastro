@@ -37,7 +37,7 @@ const Project = ({ title, subtitle, description, images, highlights, className =
 
       {highlights && (
         <div className="info highlights mt-8 px-8">
-          <h3 className="text-2xl font-semibold text-teal-400 mb-4 tracking-wider">highlights</h3>
+          <h3 className="text-2xl font-semibold text-teal-400 mb-4 tracking-wider">Highlights:</h3>
           <ul className="list-none space-y-2">
             {highlights.map((highlight, index) => (
               <li key={index} className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">
