@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Intro from '@/components/Intro';
 import AnimatedSection from '@/components/AnimatedSection';
-import Break from '@/components/Break';
+import AnimatedBreak from '@/components/AnimatedBreak';
 import Accomplishments from '@/components/Accomplishments';
 import Footer from '@/components/Footer';
 
@@ -44,22 +44,36 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <Break symbols={['+', '▵', '+']} />
+      <AnimatedBreak />
 
       {/* RODIO */}
-      <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
-        <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <div className="flex items-start justify-between mb-2">
-            <h2 className="text-4xl font-bold">Rodio</h2>
-            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+      <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-center">
+          {/* Description */}
+          <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+            <div className="flex items-start justify-between mb-2">
+              <h2 className="text-4xl font-bold">Rodio</h2>
+              <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+            </div>
+            <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">workforce communication for big retail</h4>
+            <p className="mb-4 text-lg leading-8 text-white/90">
+              I led design from early ideas through revenue for this mid-size startup – concepting, facilitating design sprints, architecting UX, prototyping, and creating production-ready UI&apos;s across our native web, iOS and Android apps.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90">
+              Within two years, we signed MarketSource/Allegis (the employee staffing agency for Target and Best Buy), and integrated with Kronos (a Fortune-100 workforce management software company).
+            </p>
           </div>
-          <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">workforce communication for big retail</h4>
-          <p className="mb-4 text-lg leading-8 text-white/90">
-            I led design from early ideas through revenue for this mid-size startup – concepting, facilitating design sprints, architecting UX, prototyping, and creating production-ready UI&apos;s across our native web, iOS and Android apps.
-          </p>
-          <p className="mb-4 text-lg leading-8 text-white/90">
-            Within two years, we signed MarketSource/Allegis (the employee staffing agency for Target and Best Buy), and integrated with Kronos (a Fortune-100 workforce management software company).
-          </p>
+
+          {/* Highlights */}
+          <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+            <h3 className="text-2xl font-semibold text-[var(--color-3)] mb-4 tracking-wider">highlights</h3>
+            <ul className="list-none space-y-2">
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Led design for a product team of 20 (web, iOS and Android)</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Facilitated design sprints to define problems, brainstorm solutions, and protoype ideas</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Created and maintained a design system with master, web, iOS and Android component libraries</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Pitched a demo that solidified an integration partnership with a Fortune-100</li>
+            </ul>
+          </div>
         </div>
 
         <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">
@@ -90,34 +104,37 @@ export default function Home() {
             </div>
            <Image src="/imgs/rodio/rodio4.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
-
-        <div className="info col-span-1 md:col-span-1 lg:col-span-2 px-8">
-          <h3 className="text-2xl font-semibold text-[var(--color-3)] mb-4 tracking-wider">highlights</h3>
-          <ul className="list-none space-y-2">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Led design for a product team of 20 (web, iOS and Android)</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Facilitated design sprints to define problems, brainstorm solutions, and protoype ideas</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Created and maintained a design system with master, web, iOS and Android component libraries</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Pitched a demo that solidified an integration partnership with a Fortune-100</li>
-          </ul>
-        </div>
       </AnimatedSection>
 
-      <Break symbols={['+', '▵', '+']} />
+      <AnimatedBreak />
 
       {/* BNB */}
-      <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
-        <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <div className="flex items-start justify-between mb-2">
-            <h2 className="text-4xl font-bold">Bnbfinder</h2>
-            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+      <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-center">
+          {/* Description */}
+          <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+            <div className="flex items-start justify-between mb-2">
+              <h2 className="text-4xl font-bold">Bnbfinder</h2>
+              <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+            </div>
+            <h4 className="text-[var(--color-4)] text-lg font-bold italic border-2 border-white/10 pb-4 mb-4">a platform for niche travel listings (now Savvy.com)</h4>
+            <p className="mb-4 text-lg leading-8 text-white/90">
+              Led design and front-end development on this platform for multiple travel listing verticals, starting with bnbfinder. The platform included a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90">
+              We built the platform and the first travel site, from whiteboards to 8k subscribers (4k paid), with a team of 3, in under a year.
+            </p>
           </div>
-          <h4 className="text-[var(--color-4)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a platform for niche travel listings (now Savvy.com)</h4>
-          <p className="mb-4 text-lg leading-8 text-white/90">
-            Led design and front-end development on this platform for multiple travel listing verticals, starting with bnbfinder. The platform included a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
-          </p>
-          <p className="mb-4 text-lg leading-8 text-white/90">
-            We built the platform and the first travel site, from whiteboards to 8k subscribers (4k paid), with a team of 3, in under a year.
-          </p>
+
+          {/* Highlights */}
+          <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+            <h3 className="text-2xl font-semibold text-[var(--color-4)] mb-4 tracking-wider">highlights</h3>
+            <ul className="list-none space-y-2">
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Concepted, designed and wrote front-end code for this a platform (consumer, owner and admin apps) from scratch on the tech stack: Elixir &gt; React / Next.js &gt; Custom front-end Framework / Tailwind CSS</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Created and helped manage our agile development process using Jira and Trello</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Presented bi-weekly development updates to the management, sales and marketing teams</li>
+            </ul>
+          </div>
         </div>
 
         <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
@@ -134,15 +151,6 @@ export default function Home() {
            <Image src="/imgs/bnb/bnb3.jpg" alt="bnbfinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
 
-        <div className="info col-span-1 md:col-span-2 lg:col-span-3 px-8">
-          <h3 className="text-2xl font-semibold text-[var(--color-4)] mb-4 tracking-wider">highlights</h3>
-          <ul className="list-none space-y-2">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Concepted, designed and wrote front-end code for this a platform (consumer, owner and admin apps) from scratch on the tech stack: Elixir &gt; React / Next.js &gt; Custom front-end Framework / Tailwind CSS</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Created and helped manage our agile development process using Jira and Trello</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Presented bi-weekly development updates to the management, sales and marketing teams</li>
-          </ul>
-        </div>
-
         <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
            <Image src="/imgs/bnb/bnb4.png" alt="bnbfinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
@@ -154,23 +162,38 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <Break symbols={['+', '/', '△', '/', '+']} />
+      <AnimatedBreak />
 
       <Accomplishments />
 
-      <Break symbols={['▽', '\\', '+', '/', '▽']} />
+      <AnimatedBreak />
 
       {/* ROCKET */}
-      <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
-        <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
-          <div className="flex items-start justify-between mb-2">
-            <h2 className="text-4xl font-bold">Rocket</h2>
-            <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+      <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-center">
+          {/* Description */}
+          <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+            <div className="flex items-start justify-between mb-2">
+              <h2 className="text-4xl font-bold">Rocket</h2>
+              <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+            </div>
+            <h4 className="text-[var(--color-5)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a boutique digital agency</h4>
+            <p className="mb-4 text-lg leading-8 text-white/90">
+              Over the better part of a decade, I co-founded, helped grow the business, and led design for Rocket — a 2-person indie dev shop we grew into a 20-person digital agency. We specialized in concepting, prototyping and building apps and websites for early-stage startups to household names.
+            </p>
           </div>
-          <h4 className="text-[var(--color-5)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a boutique digital agency</h4>
-          <p className="mb-4 text-lg leading-8 text-white/90">
-            Over the better part of a decade, I co-founded, helped grow the business, and led design for Rocket — a 2-person indie dev shop we grew into a 20-person digital agency. We specialized in concepting, prototyping and building apps and websites for early-stage startups to household names.
-          </p>
+
+          {/* Highlights */}
+          <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+            <h3 className="text-2xl font-semibold text-[var(--color-5)] mb-4 tracking-wider">highlights</h3>
+            <ul className="list-none space-y-2">
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Managed marketing/sales and accounts for dozens of client projects</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Hired, managed and grew a product team of back-end, front-end, iOS and Android developers</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Concepted, designed and delivered custom apps and websites for 30+ client projects</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Designed and launched a #1 Paid iTunes App through a 2.0 release</li>
+               <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Created a multi-million dollar CRM/CMS platform for one of the largest (and most intense) auto sales organizations in the US</li>
+            </ul>
+          </div>
         </div>
 
         <div className="col-span-1 md:col-span-2 lg:col-span-4 lg:row-start-1 relative">
@@ -188,17 +211,6 @@ export default function Home() {
            <Image src="/imgs/rkt/rkt4.jpg" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
 
-        <div className="info col-span-1 md:col-span-1 lg:col-span-3 px-8">
-          <h3 className="text-2xl font-semibold text-[var(--color-5)] mb-4 tracking-wider">highlights</h3>
-          <ul className="list-none space-y-2">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Managed marketing/sales and accounts for dozens of client projects</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Hired, managed and grew a product team of back-end, front-end, iOS and Android developers</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Concepted, designed and delivered custom apps and websites for 30+ client projects</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Designed and launched a #1 Paid iTunes App through a 2.0 release</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Created a multi-million dollar CRM/CMS platform for one of the largest (and most intense) auto sales organizations in the US</li>
-          </ul>
-        </div>
-
         <div className="col-span-1 md:col-span-2 lg:col-span-3 lg:col-start-4">
              <div className="clients flex flex-wrap justify-center gap-8 p-8 bg-white/5 rounded-xl">
               <Image src="/imgs/rkt/client1.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
@@ -214,7 +226,7 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <Break bg="bg2" symbols={['▽', '/', '△', '/', '▽']} />
+      <AnimatedBreak />
 
       {/* TIMEBOMB */}
       <AnimatedSection className="tmb grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
@@ -239,7 +251,7 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <Break symbols={['▽', '/', '△', '/', '▽']} />
+      <AnimatedBreak />
 
       {/* PUPPYWISE */}
       <AnimatedSection className="puppy grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -258,7 +270,7 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      <Break bg="bg2" symbols={['+', '△', '+']} />
+      <AnimatedBreak />
 
       {/* DANCEFIGHT */}
       <AnimatedSection className="dance grid grid-cols-1 md:grid-cols-3 gap-8 items-center">

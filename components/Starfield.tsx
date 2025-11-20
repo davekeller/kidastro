@@ -96,7 +96,7 @@ const Starfield = () => {
         x: startX,
         y: Math.random() * canvas.height * 0.3,
         len: Math.random() * 80 + 40,
-        speed: Math.random() * 15 + 10,
+        speed: Math.random() * 10 + 7,
         angle: angle,
         opacity: 1,
         size: Math.random() * 1 + 1.5,
