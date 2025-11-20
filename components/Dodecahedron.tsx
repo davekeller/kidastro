@@ -22,6 +22,7 @@ const DodecahedronMesh = () => {
         <meshBasicMaterial
           color="#5eb3d6"
           wireframe={true}
+          wireframeLinewidth={2}
           transparent={true}
           opacity={0.8}
         />
