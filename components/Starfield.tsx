@@ -41,8 +41,18 @@ const Starfield = () => {
       opacity: number;
     }
 
+    interface UFO {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      scale: number;
+      wobblePhase: number;
+      lightsPhase: number;
+    }
+
     const stars: Star[] = [];
-    const numStars = 200;
+    const numStars = 500; // Increased from 200
     
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -58,6 +68,7 @@ const Starfield = () => {
     }
 
     const shootingStars: ShootingStar[] = [];
+    const ufos: UFO[] = [];
 
     const createShootingStar = () => {
       shootingStars.push({
@@ -70,11 +81,28 @@ const Starfield = () => {
       });
     };
 
+    const createUFO = () => {
+      const startLeft = Math.random() > 0.5;
+      ufos.push({
+        x: startLeft ? -50 : canvas.width + 50,
+        y: Math.random() * (canvas.height * 0.6), // Keep in upper 60%
+        vx: (startLeft ? 1 : -1) * (Math.random() * 1 + 0.5),
+        vy: (Math.random() - 0.5) * 0.2,
+        scale: Math.random() * 0.5 + 0.5,
+        wobblePhase: 0,
+        lightsPhase: 0,
+      });
+    };
+
     // Initial shooting star
-    setTimeout(createShootingStar, Math.random() * 3000);
+    setTimeout(createShootingStar, Math.random() * 2000);
+    
+    // Initial UFO maybe?
+    if (Math.random() > 0.5) setTimeout(createUFO, 5000);
 
     let animationFrameId: number;
     let lastShootingStarTime = Date.now();
+    let lastUFOTime = Date.now();
 
     const animate = () => {
       if (!ctx || !canvas) return;
@@ -135,11 +163,73 @@ const Starfield = () => {
         }
       });
 
-      // Create new shooting stars occasionally
+      // Draw and update UFOs
+      ufos.forEach((ufo, index) => {
+        ufo.x += ufo.vx;
+        ufo.y += ufo.vy + Math.sin(ufo.wobblePhase) * 0.2;
+        ufo.wobblePhase += 0.05;
+        ufo.lightsPhase += 0.1;
+
+        const scale = ufo.scale;
+        
+        ctx.save();
+        ctx.translate(ufo.x, ufo.y);
+        ctx.rotate(Math.sin(ufo.wobblePhase) * 0.1); // Slight tilt
+        ctx.scale(scale, scale);
+
+        // Dome
+        ctx.beginPath();
+        ctx.ellipse(0, -5, 15, 10, 0, Math.PI, 0);
+        ctx.fillStyle = 'rgba(200, 230, 255, 0.6)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Body
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 30, 10, 0, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(100, 100, 100, 0.8)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(200, 200, 200, 1)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Lights
+        const numLights = 5;
+        for (let i = 0; i < numLights; i++) {
+          const angle = (i / numLights) * Math.PI + Math.PI; // Bottom half
+          const lx = Math.cos(angle) * 20;
+          const ly = Math.sin(angle) * 6;
+          
+          // Blinking effect
+          const blink = Math.sin(ufo.lightsPhase + i * 1.5) > 0;
+          
+          ctx.beginPath();
+          ctx.arc(lx, ly, 2, 0, Math.PI * 2);
+          ctx.fillStyle = blink ? '#f4fd7b' : '#e4416f'; // Yellow/Pink lights
+          ctx.fill();
+        }
+
+        ctx.restore();
+
+        // Remove if off screen
+        if (ufo.x < -100 || ufo.x > canvas.width + 100) {
+          ufos.splice(index, 1);
+        }
+      });
+
+      // Create new shooting stars occasionally (more frequent)
       const now = Date.now();
-      if (now - lastShootingStarTime > 5000 && Math.random() > 0.95) {
+      if (now - lastShootingStarTime > 2000 && Math.random() > 0.97) {
         createShootingStar();
         lastShootingStarTime = now;
+      }
+
+      // Create UFOs occasionally
+      if (now - lastUFOTime > 15000 && Math.random() > 0.995) {
+        createUFO();
+        lastUFOTime = now;
       }
 
       animationFrameId = requestAnimationFrame(animate);

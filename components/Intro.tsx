@@ -14,7 +14,7 @@ const Intro = () => {
           Hi, I'm Dave and I've been crafting app experiences for 15+ years. From early iPhone apps to enterprise SaaS platforms serving millions, I've helped many startups turn whiteboard ideas into products people actually love using.
         </p>
         <p className="mb-8 max-w-[700px] leading-loose">
-          I love prototyping in code, collaborating with smart people, and work hard until things feel intuitive and simple. Thanks for checking out my work!
+          I love prototyping in code, collaborating with smart people, and stress making things feel intuitive and simple. Thanks for checking out my work!
         </p>
         <Image
           src="/imgs/down.svg"
