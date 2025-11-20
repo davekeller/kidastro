@@ -5,12 +5,17 @@
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 6, 51, 65;
   
-  /* Muted Vibrant Palette */
-  --neon-blue: #5eb3d6;
-  --neon-pink: #e879f9;
-  --neon-green: #6ee7b7;
-  --neon-yellow: #fcd34d;
-  --neon-purple: #a78bfa;
+  /* Sophisticated Color Palette */
+  --color-1: #5eb3d6; /* Sky Blue */
+  --color-2: #e879f9; /* Orchid */
+  --color-3: #6ee7b7; /* Mint */
+  --color-4: #fcd34d; /* Gold */
+  --color-5: #a78bfa; /* Lavender */
+  --color-6: #fb7185; /* Rose */
+  --color-7: #34d399; /* Emerald */
+  --color-8: #fbbf24; /* Amber */
+  --color-9: #818cf8; /* Indigo */
+  --color-10: #f472b6; /* Pink */
 }
 
 body {
