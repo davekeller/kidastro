@@ -6,7 +6,7 @@ import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 const DodecahedronMesh = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -17,16 +17,17 @@ const DodecahedronMesh = () => {
 
   return (
     <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.4}>
-      <mesh ref={meshRef}>
-        <dodecahedronGeometry args={[3.75, 0]} />
-        <meshBasicMaterial
-          color="#5eb3d6"
-          wireframe={true}
-          wireframeLinewidth={3}
-          transparent={true}
-          opacity={0.6}
-        />
-      </mesh>
+      <group ref={meshRef}>
+        <mesh>
+          <dodecahedronGeometry args={[3.75, 0]} />
+          <meshBasicMaterial
+            color="#5eb3d6"
+            wireframe={true}
+            transparent={true}
+            opacity={0.8}
+          />
+        </mesh>
+      </group>
     </Float>
   );
 };
