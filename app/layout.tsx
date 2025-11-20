@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Pacifico } from "next/font/google";
+import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import ColorBar from "@/components/ColorBar";
+import Starfield from "@/components/Starfield";
 
-const inter = Inter({ subsets: ["latin"] });
-const pacifico = Pacifico({ weight: "400", subsets: ["latin"], variable: "--font-pacifico" });
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
-  title: "Dave Keller + Product Designer + Austin Texas",
-  description: "Dave Keller is a product designer in Austin, Texas",
-  keywords: "Dave Keller, User Experience Designer, User Interface Designer, UX Designer, UI Designer, UX/UI",
-  openGraph: {
-    images: ["https://kidastro.com/imgs/thumbnail.jpg"],
-  },
+  title: "Dave Keller - Product Designer",
+  description: "Portfolio of Dave Keller, a product designer with 15+ years of experience",
 };
 
 export default function RootLayout({
@@ -22,7 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${pacifico.variable} bg-black text-white`}>
+      <body className={`${inter.variable} ${bricolage.variable} antialiased`}>
+        <Starfield />
         <ColorBar />
         {children}
       </body>

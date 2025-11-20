@@ -1,19 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
 import Intro from '@/components/Intro';
-import Section from '@/components/Section';
+import AnimatedSection from '@/components/AnimatedSection';
 import Break from '@/components/Break';
 import Accomplishments from '@/components/Accomplishments';
 import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden">
+    <main className="relative flex min-h-screen flex-col items-center justify-between overflow-x-hidden z-10">
       <Break bg="no_bg" symbols={[]} />
       <Intro />
 
       {/* QUOTAPATH */}
-      <Section className="quotapath grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
+      <AnimatedSection className="quotapath grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-2 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Quotapath</h2>
           <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">an industry leading sales commission saas platform</h4>
@@ -40,12 +40,12 @@ export default function Home() {
         <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">
            <Image src="/imgs/quotapath/qp6.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
-      </Section>
+      </AnimatedSection>
 
       <Break symbols={['+', '▵', '+']} />
 
       {/* RODIO */}
-      <Section className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
+      <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-2 text-left text-white px-8 py-4 lg:text-right lg:pl-16">
           <h2 className="text-4xl font-bold mb-2">Rodio</h2>
           <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">workforce communication for big retail</h4>
@@ -95,12 +95,12 @@ export default function Home() {
             </div>
            <Image src="/imgs/rodio/rodio5.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
-      </Section>
+      </AnimatedSection>
 
       <Break symbols={['+', '▵', '+']} />
 
       {/* BNB */}
-      <Section className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
+      <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-2 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Bnbfinder</h2>
           <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a platform for niche travel listings (now Savvy.com)</h4>
@@ -144,7 +144,7 @@ export default function Home() {
             </div>
            <Image src="/imgs/bnb/bnb5.jpg" alt="bnbfinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
-      </Section>
+      </AnimatedSection>
 
       <Break symbols={['+', '/', '△', '/', '+']} />
 
@@ -153,7 +153,7 @@ export default function Home() {
       <Break symbols={['▽', '\\', '+', '/', '▽']} />
 
       {/* ROCKET */}
-      <Section className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
+      <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-5 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
           <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a boutique digital agency</h4>
@@ -201,12 +201,12 @@ export default function Home() {
               <Image src="/imgs/rkt/client9.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
             </div>
         </div>
-      </Section>
+      </AnimatedSection>
 
       <Break bg="bg2" symbols={['▽', '/', '△', '/', '▽']} />
 
       {/* TIMEBOMB */}
-      <Section className="tmb grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <AnimatedSection className="tmb grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
          <div className="col-span-1 relative">
             <Image src="/imgs/tmb/tmb1.jpg" alt="tmb website" width={800} height={600} className="w-full rounded shadow-2xl" />
          </div>
@@ -223,12 +223,12 @@ export default function Home() {
         <div className="col-span-1 relative">
             <Image src="/imgs/tmb/tmb2.jpg" alt="timebomb website" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
-      </Section>
+      </AnimatedSection>
 
       <Break symbols={['▽', '/', '△', '/', '▽']} />
 
       {/* PUPPYWISE */}
-      <Section className="puppy grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <AnimatedSection className="puppy grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div className="info col-span-1 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Puppywise</h2>
           <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a web app to find reputable breeders</h4>
@@ -239,12 +239,12 @@ export default function Home() {
         <div className="col-span-1 relative">
              <Image src="/imgs/puppy/puppy1.png" alt="puppy breeder" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
-      </Section>
+      </AnimatedSection>
 
       <Break bg="bg2" symbols={['+', '△', '+']} />
 
       {/* DANCEFIGHT */}
-      <Section className="dance grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <AnimatedSection className="dance grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
          <div className="col-span-1 relative">
             <Image src="/imgs/dance/dance1.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
          </div>
@@ -258,7 +258,10 @@ export default function Home() {
         <div className="col-span-1 relative">
             <Image src="/imgs/dance/dance2.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
-      </Section>
+        <div className="col-span-1 md:col-span-3 relative">
+            <Image src="/imgs/dance/dance3.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
+        </div>
+      </AnimatedSection>
 
       <Footer />
     </main>

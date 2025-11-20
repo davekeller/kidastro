@@ -4,28 +4,51 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 6, 51, 65;
+  
+  /* Muted Vibrant Palette */
+  --neon-blue: #5eb3d6;
+  --neon-pink: #e879f9;
+  --neon-green: #6ee7b7;
+  --neon-yellow: #fcd34d;
+  --neon-purple: #a78bfa;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      -45deg,
-      #000000 -40%,
-      #063341 52%,
+      180deg,
+      #000000 0%,
+      #0a0e1b 25%,
+      #0d1220 50%,
+      #0a0e1b 75%,
       #000000 100%
     )
     fixed center 0 / 100% 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-bricolage), sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-pacifico), cursive;
+  font-family: var(--font-bricolage), sans-serif;
+  font-weight: 700;
 }
 
 h1 {
-    font-family: var(--font-pacifico), cursive;
+  font-family: var(--font-bricolage), sans-serif;
+  font-weight: 700;
 }
 
-h2, h3, h4, h5, h6 {
-    font-family: inherit;
+h2, h3 {
+  font-weight: 600;
+}
+
+h4, h5, h6 {
+  font-weight: 500;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
 }
