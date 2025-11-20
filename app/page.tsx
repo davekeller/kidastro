@@ -15,7 +15,7 @@ export default function Home() {
       <AnimatedSection className="quotapath grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-2 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Quotapath</h2>
-          <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">an industry leading sales commission saas platform</h4>
+          <h4 className="text-[var(--color-2)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">an industry leading sales commission saas platform</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             At Quotapath, I led design for multiple product teams — crafting new product features monthly, as well as a brand new product called the Compensation Hub — helping sales teams explore, compare, and customize commission plans.
           </p>
@@ -47,7 +47,7 @@ export default function Home() {
       <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-2 text-left text-white px-8 py-4 lg:text-right lg:pl-16">
           <h2 className="text-4xl font-bold mb-2">Rodio</h2>
-          <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">workforce communication for big retail</h4>
+          <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">workforce communication for big retail</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I led design from early ideas through revenue for this mid-size startup – concepting, facilitating design sprints, architecting UX, prototyping, and creating production-ready UI&apos;s across our native web, iOS and Android apps.
           </p>
@@ -79,12 +79,12 @@ export default function Home() {
         </div>
 
         <div className="info col-span-1 md:col-span-1 lg:col-span-2 px-8">
-          <h3 className="text-2xl font-semibold text-teal-400 mb-4 tracking-wider">highlights</h3>
+          <h3 className="text-2xl font-semibold text-[var(--color-3)] mb-4 tracking-wider">highlights</h3>
           <ul className="list-none space-y-2">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Led design for a product team of 20 (web, iOS and Android)</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Facilitated design sprints to define problems, brainstorm solutions, and protoype ideas</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Created and maintained a design system with master, web, iOS and Android component libraries</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Pitched a demo that solidified an integration partnership with a Fortune-100</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Led design for a product team of 20 (web, iOS and Android)</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Facilitated design sprints to define problems, brainstorm solutions, and protoype ideas</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Created and maintained a design system with master, web, iOS and Android component libraries</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Pitched a demo that solidified an integration partnership with a Fortune-100</li>
           </ul>
         </div>
 
@@ -102,7 +102,7 @@ export default function Home() {
       <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-2 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Bnbfinder</h2>
-          <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a platform for niche travel listings (now Savvy.com)</h4>
+          <h4 className="text-[var(--color-4)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a platform for niche travel listings (now Savvy.com)</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             Led design and front-end development on this platform for multiple travel listing verticals, starting with bnbfinder. The platform included a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
           </p>
@@ -126,11 +126,11 @@ export default function Home() {
         </div>
 
         <div className="info col-span-1 md:col-span-2 lg:col-span-3 px-8">
-          <h3 className="text-2xl font-semibold text-teal-400 mb-4 tracking-wider">highlights</h3>
+          <h3 className="text-2xl font-semibold text-[var(--color-4)] mb-4 tracking-wider">highlights</h3>
           <ul className="list-none space-y-2">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Concepted, designed and wrote front-end code for this a platform (consumer, owner and admin apps) from scratch on the tech stack: Elixir &gt; React / Next.js &gt; Custom front-end Framework / Tailwind CSS</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Created and helped manage our agile development process using Jira and Trello</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Presented bi-weekly development updates to the management, sales and marketing teams</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Concepted, designed and wrote front-end code for this a platform (consumer, owner and admin apps) from scratch on the tech stack: Elixir &gt; React / Next.js &gt; Custom front-end Framework / Tailwind CSS</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Created and helped manage our agile development process using Jira and Trello</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-4)] before:rounded-full">Presented bi-weekly development updates to the management, sales and marketing teams</li>
           </ul>
         </div>
 
@@ -155,7 +155,7 @@ export default function Home() {
       <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
         <div className="info col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-5 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
-          <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a boutique digital agency</h4>
+          <h4 className="text-[var(--color-5)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             Over the better part of a decade, I co-founded, helped grow the business, and led design for Rocket — a 2-person indie dev shop we grew into a 20-person digital agency. We specialized in concepting, prototyping and building apps and websites for early-stage startups to household names.
           </p>
@@ -177,13 +177,13 @@ export default function Home() {
         </div>
 
         <div className="info col-span-1 md:col-span-1 lg:col-span-3 px-8">
-          <h3 className="text-2xl font-semibold text-teal-400 mb-4 tracking-wider">highlights</h3>
+          <h3 className="text-2xl font-semibold text-[var(--color-5)] mb-4 tracking-wider">highlights</h3>
           <ul className="list-none space-y-2">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Managed marketing/sales and accounts for dozens of client projects</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Hired, managed and grew a product team of back-end, front-end, iOS and Android developers</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Concepted, designed and delivered custom apps and websites for 30+ client projects</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Designed and launched a #1 Paid iTunes App through a 2.0 release</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-teal-400 before:rounded-full">Created a multi-million dollar CRM/CMS platform for one of the largest (and most intense) auto sales organizations in the US</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Managed marketing/sales and accounts for dozens of client projects</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Hired, managed and grew a product team of back-end, front-end, iOS and Android developers</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Concepted, designed and delivered custom apps and websites for 30+ client projects</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Designed and launched a #1 Paid iTunes App through a 2.0 release</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-5)] before:rounded-full">Created a multi-million dollar CRM/CMS platform for one of the largest (and most intense) auto sales organizations in the US</li>
           </ul>
         </div>
 
@@ -211,7 +211,7 @@ export default function Home() {
          </div>
          <div className="info col-span-1 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Timebomb</h2>
-          <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a conditional messaging app</h4>
+          <h4 className="text-[var(--color-1)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a conditional messaging app</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I Co-Founded and led design for this conditional messaging app (native iOS and Android) from whiteboard sketches through a 2.0 release with a team of 10.
           </p>
@@ -230,7 +230,7 @@ export default function Home() {
       <AnimatedSection className="puppy grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div className="info col-span-1 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Puppywise</h2>
-          <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a web app to find reputable breeders</h4>
+          <h4 className="text-[var(--color-2)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a web app to find reputable breeders</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I consulted for this puppy breeder client, including: conception and design of their breed and breeder search UX, details views, and admin views.
           </p>
@@ -249,7 +249,7 @@ export default function Home() {
          </div>
          <div className="info col-span-1 text-left text-white px-8 py-4">
           <h2 className="text-4xl font-bold mb-2">Dancefight</h2>
-          <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a social voting app</h4>
+          <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a social voting app</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I consulted for this seed-round startup and helped with UX flows and final UIs for onboaring/tutorials, the main feed, the voting UX, tournament creation, and tournament brackets.
           </p>

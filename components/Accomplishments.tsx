@@ -10,7 +10,7 @@ const Accomplishments = () => {
 
       <div className="achieve1 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="text-[#f4fd7b] text-2xl font-semibold mb-4">30+ Products</h3>
+        <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">30+ Products</h3>
         <p className="text-white/90 leading-8 max-w-md">
           Leading design at an agency and multiple startups over the two decades, I&apos;ve created intuitive experiences from telemedicine, to puzzle games, to entertainment, to interactive education, to travel.
         </p>
@@ -23,7 +23,7 @@ const Accomplishments = () => {
 
       <div className="achieve2 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon2.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="text-[#39d5cb] text-2xl font-semibold mb-4">#1 iPhone App</h3>
+        <h3 className="text-[var(--color-2)] text-2xl font-semibold mb-4">#1 iPhone App</h3>
         <p className="text-white/90 leading-8 max-w-md">
           Shortly after launching the photo editing app we created for A Beautiful Mess (shown below), it shot to #1 in the iTunes App Store.
         </p>
@@ -35,7 +35,7 @@ const Accomplishments = () => {
 
       <div className="achieve3 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon3.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="text-[#e4416f] text-2xl font-semibold mb-4">Millions of Users</h3>
+        <h3 className="text-[var(--color-3)] text-2xl font-semibold mb-4">Millions of Users</h3>
         <p className="text-white/90 leading-8 max-w-md">
           I&apos;ve concepted and designed apps that have garnered millions of downloads for Ellen, A Beautiful Mess, Dancefight, and more.
         </p>
