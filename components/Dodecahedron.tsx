@@ -41,8 +41,33 @@ const DodecahedronMesh = ({ position }: { position: [number, number, number] }) 
 
 const Dodecahedron = () => {
   const [position, setPosition] = useState<[number, number, number]>([0, 0, 0]);
-  const [velocity, setVelocity] = useState<[number, number, number]>([0.02, 0.015, 0]);
+  const [velocity, setVelocity] = useState<[number, number, number]>([0.03, 0.02, 0]);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [bounds, setBounds] = useState({ x: 8, y: 4 });
+
+  useEffect(() => {
+    const updateBounds = () => {
+      if (containerRef.current) {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        // Calculate bounds based on viewport size and camera FOV
+        const aspect = width / height;
+        const vFOV = (75 * Math.PI) / 180; // Default camera FOV
+        const distance = 10; // Camera z position
+        const vHeight = 2 * Math.tan(vFOV / 2) * distance;
+        const vWidth = vHeight * aspect;
+        
+        setBounds({
+          x: vWidth / 2 - 1.5, // Subtract dodecahedron radius
+          y: vHeight / 2 - 1.5
+        });
+      }
+    };
+
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    return () => window.removeEventListener('resize', updateBounds);
+  }, []);
 
   useEffect(() => {
     const animate = () => {
@@ -55,11 +80,11 @@ const Dodecahedron = () => {
         
         const newVel: [number, number, number] = [...velocity];
         
-        // Bounce off walls (adjust bounds based on viewport)
-        if (newPos[0] > 4 || newPos[0] < -4) {
+        // Bounce off walls using calculated bounds
+        if (newPos[0] > bounds.x || newPos[0] < -bounds.x) {
           newVel[0] = -velocity[0];
         }
-        if (newPos[1] > 3 || newPos[1] < -3) {
+        if (newPos[1] > bounds.y || newPos[1] < -bounds.y) {
           newVel[1] = -velocity[1];
         }
         
@@ -72,11 +97,11 @@ const Dodecahedron = () => {
     
     const animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, [velocity]);
+  }, [velocity, bounds]);
 
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full h-full pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 10] }}>
+    <div ref={containerRef} className="fixed inset-0 w-full h-screen pointer-events-none z-0">
+      <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         <DodecahedronMesh position={position} />

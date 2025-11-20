@@ -1,11 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import Dodecahedron from './Dodecahedron';
 
 const Intro = () => {
   return (
     <div className="relative flex flex-col items-center justify-center bg-transparent text-center min-h-screen">
-      <Dodecahedron />
       <div className="intro flex flex-col items-center max-w-[700px] mx-auto px-6 z-10">
         <h1 className="mb-8 text-6xl md:text-8xl text-white tracking-tight font-extrabold">
           so nice to meet you
