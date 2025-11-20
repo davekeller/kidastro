@@ -52,7 +52,7 @@ const Starfield = () => {
     }
 
     const stars: Star[] = [];
-    const numStars = 500; // Increased from 200
+    const numStars = 800; // Increased from 500
     
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -86,19 +86,19 @@ const Starfield = () => {
       ufos.push({
         x: startLeft ? -50 : canvas.width + 50,
         y: Math.random() * (canvas.height * 0.6), // Keep in upper 60%
-        vx: (startLeft ? 1 : -1) * (Math.random() * 1 + 0.5),
-        vy: (Math.random() - 0.5) * 0.2,
-        scale: Math.random() * 0.5 + 0.5,
+        vx: (startLeft ? 1 : -1) * (Math.random() * 2 + 1), // Faster UFOs
+        vy: (Math.random() - 0.5) * 0.5,
+        scale: Math.random() * 0.4 + 0.6, // Slightly larger
         wobblePhase: 0,
         lightsPhase: 0,
       });
     };
 
     // Initial shooting star
-    setTimeout(createShootingStar, Math.random() * 2000);
+    setTimeout(createShootingStar, 1000);
     
-    // Initial UFO maybe?
-    if (Math.random() > 0.5) setTimeout(createUFO, 5000);
+    // Initial UFO
+    setTimeout(createUFO, 2000);
 
     let animationFrameId: number;
     let lastShootingStarTime = Date.now();
@@ -221,13 +221,13 @@ const Starfield = () => {
 
       // Create new shooting stars occasionally (more frequent)
       const now = Date.now();
-      if (now - lastShootingStarTime > 2000 && Math.random() > 0.97) {
+      if (now - lastShootingStarTime > 800 && Math.random() > 0.95) {
         createShootingStar();
         lastShootingStarTime = now;
       }
 
-      // Create UFOs occasionally
-      if (now - lastUFOTime > 15000 && Math.random() > 0.995) {
+      // Create UFOs occasionally (much more frequent)
+      if (now - lastUFOTime > 7000 && Math.random() > 0.98) {
         createUFO();
         lastUFOTime = now;
       }
