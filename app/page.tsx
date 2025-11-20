@@ -9,7 +9,6 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between overflow-x-hidden z-10">
-      <Break bg="no_bg" symbols={[]} />
       <Intro />
 
       {/* QUOTAPATH */}

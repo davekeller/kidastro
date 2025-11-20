@@ -22,7 +22,7 @@ const DodecahedronMesh = () => {
         <meshBasicMaterial
           color="#5eb3d6"
           wireframe={true}
-          wireframeLinewidth={2}
+          wireframeLinewidth={3}
           transparent={true}
           opacity={0.6}
         />
@@ -33,7 +33,7 @@ const DodecahedronMesh = () => {
 
 const Dodecahedron = () => {
   return (
-    <div className="w-[240px] h-[240px] mb-8">
+    <div className="w-[240px] h-[240px] mb-4">
       <Canvas camera={{ position: [0, 0, 8] }}>
         <DodecahedronMesh />
       </Canvas>
