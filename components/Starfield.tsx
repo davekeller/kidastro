@@ -20,7 +20,7 @@ const Starfield = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Create stars
+    // Interfaces
     interface Star {
       x: number;
       y: number;
@@ -51,8 +51,27 @@ const Starfield = () => {
       lightsPhase: number;
     }
 
+    interface Nebula {
+      x: number;
+      y: number;
+      radius: number;
+      color: string;
+      opacity: number;
+      pulsePhase: number;
+      pulseSpeed: number;
+    }
+
+    interface Nova {
+      x: number;
+      y: number;
+      radius: number;
+      maxRadius: number;
+      opacity: number;
+      color: string;
+    }
+
     const stars: Star[] = [];
-    const numStars = 800; // Increased from 500
+    const numStars = 800;
     
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -69,6 +88,22 @@ const Starfield = () => {
 
     const shootingStars: ShootingStar[] = [];
     const ufos: UFO[] = [];
+    const nebulas: Nebula[] = [];
+    const novas: Nova[] = [];
+
+    // Create initial nebulas
+    const nebulaColors = ['#f4fd7b', '#39d5cb', '#e4416f', '#6ee7b7', '#fcd34d'];
+    for (let i = 0; i < 3; i++) {
+      nebulas.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 150 + 100,
+        color: nebulaColors[Math.floor(Math.random() * nebulaColors.length)],
+        opacity: 0.03 + Math.random() * 0.02,
+        pulsePhase: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.005 + 0.002,
+      });
+    }
 
     const createShootingStar = () => {
       shootingStars.push({
@@ -85,42 +120,73 @@ const Starfield = () => {
       const startLeft = Math.random() > 0.5;
       ufos.push({
         x: startLeft ? -50 : canvas.width + 50,
-        y: Math.random() * (canvas.height * 0.6), // Keep in upper 60%
-        vx: (startLeft ? 1 : -1) * (Math.random() * 2 + 1), // Faster UFOs
+        y: Math.random() * (canvas.height * 0.6),
+        vx: (startLeft ? 1 : -1) * (Math.random() * 2 + 1),
         vy: (Math.random() - 0.5) * 0.5,
-        scale: Math.random() * 0.4 + 0.6, // Slightly larger
+        scale: Math.random() * 0.4 + 0.6,
         wobblePhase: 0,
         lightsPhase: 0,
       });
     };
 
-    // Initial shooting star
+    const createNova = () => {
+      novas.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: 0,
+        maxRadius: Math.random() * 40 + 30,
+        opacity: 1,
+        color: nebulaColors[Math.floor(Math.random() * nebulaColors.length)],
+      });
+    };
+
+    // Initial elements
     setTimeout(createShootingStar, 1000);
-    
-    // Initial UFO
     setTimeout(createUFO, 2000);
+    setTimeout(createNova, 5000);
 
     let animationFrameId: number;
     let lastShootingStarTime = Date.now();
     let lastUFOTime = Date.now();
+    let lastNovaTime = Date.now();
 
     const animate = () => {
       if (!ctx || !canvas) return;
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Draw nebulas
+      nebulas.forEach((nebula) => {
+        nebula.pulsePhase += nebula.pulseSpeed;
+        const pulse = Math.sin(nebula.pulsePhase) * 0.3 + 0.7;
+        
+        const gradient = ctx.createRadialGradient(
+          nebula.x, nebula.y, 0,
+          nebula.x, nebula.y, nebula.radius * pulse
+        );
+        gradient.addColorStop(0, `${nebula.color}${Math.floor(nebula.opacity * 255).toString(16).padStart(2, '0')}`);
+        gradient.addColorStop(0.5, `${nebula.color}${Math.floor(nebula.opacity * 0.5 * 255).toString(16).padStart(2, '0')}`);
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillRect(
+          nebula.x - nebula.radius * pulse,
+          nebula.y - nebula.radius * pulse,
+          nebula.radius * 2 * pulse,
+          nebula.radius * 2 * pulse
+        );
+      });
+
       // Draw and update regular stars
       stars.forEach((star) => {
         star.x += star.vx;
         star.y += star.vy;
 
-        // Wrap around screen
         if (star.x < 0) star.x = canvas.width;
         if (star.x > canvas.width) star.x = 0;
         if (star.y < 0) star.y = canvas.height;
         if (star.y > canvas.height) star.y = 0;
 
-        // Twinkle effect
         star.twinklePhase += star.twinkleSpeed;
         const twinkle = Math.sin(star.twinklePhase) * 0.3 + 0.7;
 
@@ -128,6 +194,36 @@ const Starfield = () => {
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity * twinkle})`;
         ctx.fill();
+      });
+
+      // Draw and update novas (exploding stars)
+      novas.forEach((nova, index) => {
+        nova.radius += 1.5;
+        nova.opacity -= 0.015;
+
+        // Draw expanding ring
+        const gradient = ctx.createRadialGradient(
+          nova.x, nova.y, nova.radius * 0.7,
+          nova.x, nova.y, nova.radius
+        );
+        gradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
+        gradient.addColorStop(0.5, `${nova.color}${Math.floor(nova.opacity * 255).toString(16).padStart(2, '0')}`);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.beginPath();
+        ctx.arc(nova.x, nova.y, nova.radius, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Draw bright center
+        ctx.beginPath();
+        ctx.arc(nova.x, nova.y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${nova.opacity})`;
+        ctx.fill();
+
+        if (nova.opacity <= 0 || nova.radius > nova.maxRadius) {
+          novas.splice(index, 1);
+        }
       });
 
       // Draw and update shooting stars
@@ -152,12 +248,10 @@ const Starfield = () => {
         ctx.lineTo(x2, y2);
         ctx.stroke();
 
-        // Update shooting star position
         shootingStar.x += Math.cos(shootingStar.angle) * shootingStar.speed;
         shootingStar.y += Math.sin(shootingStar.angle) * shootingStar.speed;
         shootingStar.opacity -= 0.015;
 
-        // Remove if off screen or faded
         if (shootingStar.opacity <= 0 || shootingStar.x > canvas.width || shootingStar.y > canvas.height) {
           shootingStars.splice(index, 1);
         }
@@ -174,7 +268,7 @@ const Starfield = () => {
         
         ctx.save();
         ctx.translate(ufo.x, ufo.y);
-        ctx.rotate(Math.sin(ufo.wobblePhase) * 0.1); // Slight tilt
+        ctx.rotate(Math.sin(ufo.wobblePhase) * 0.1);
         ctx.scale(scale, scale);
 
         // Dome
@@ -198,38 +292,41 @@ const Starfield = () => {
         // Lights
         const numLights = 5;
         for (let i = 0; i < numLights; i++) {
-          const angle = (i / numLights) * Math.PI + Math.PI; // Bottom half
+          const angle = (i / numLights) * Math.PI + Math.PI;
           const lx = Math.cos(angle) * 20;
           const ly = Math.sin(angle) * 6;
           
-          // Blinking effect
           const blink = Math.sin(ufo.lightsPhase + i * 1.5) > 0;
           
           ctx.beginPath();
           ctx.arc(lx, ly, 2, 0, Math.PI * 2);
-          ctx.fillStyle = blink ? '#f4fd7b' : '#e4416f'; // Yellow/Pink lights
+          ctx.fillStyle = blink ? '#f4fd7b' : '#e4416f';
           ctx.fill();
         }
 
         ctx.restore();
 
-        // Remove if off screen
         if (ufo.x < -100 || ufo.x > canvas.width + 100) {
           ufos.splice(index, 1);
         }
       });
 
-      // Create new shooting stars occasionally (more frequent)
+      // Create new elements
       const now = Date.now();
+      
       if (now - lastShootingStarTime > 800 && Math.random() > 0.95) {
         createShootingStar();
         lastShootingStarTime = now;
       }
 
-      // Create UFOs occasionally (much more frequent)
       if (now - lastUFOTime > 7000 && Math.random() > 0.98) {
         createUFO();
         lastUFOTime = now;
+      }
+
+      if (now - lastNovaTime > 12000 && Math.random() > 0.97) {
+        createNova();
+        lastNovaTime = now;
       }
 
       animationFrameId = requestAnimationFrame(animate);
