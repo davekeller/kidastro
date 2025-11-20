@@ -11,10 +11,10 @@ const Intro = () => {
           so nice to meet you
         </h1>
         <p className="mb-8 max-w-[700px] leading-loose">
-          Hi, I&apos;m Dave and I&apos;ve been designing app experiences for 15+ years. From early iPhone apps to enterprise SaaS platforms serving millions, I&apos;ve helped many startups turn whiteboard ideas into products people actually love using.
+          Hi, I&apos;m Dave and I&apos;ve been designing app experiences for 15+ years — from early iPhone apps to SaaS platforms serving millions.
         </p>
         <p className="mb-8 max-w-[700px] leading-loose">
-          I love prototyping in code, collaborating with smart people, and stress making things feel intuitive and simple. Thanks for checking out my work!
+          I love prototyping in code, collaborating with smart people, and making user experiences feel intuitive and simple. Thanks for checking out my work!
         </p>
         <Image
           src="/imgs/down.svg"

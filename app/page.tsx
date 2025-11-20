@@ -13,7 +13,7 @@ export default function Home() {
 
       {/* QUOTAPATH */}
       <AnimatedSection className="quotapath grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
-        <div className="info col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-2 text-left text-white px-8 py-4">
+        <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
           <h2 className="text-4xl font-bold mb-2">Quotapath</h2>
           <h4 className="text-[var(--color-2)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">an industry leading sales commission saas platform</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -45,7 +45,7 @@ export default function Home() {
 
       {/* RODIO */}
       <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
-        <div className="info col-span-1 md:col-span-2 lg:col-span-2 text-left text-white px-8 py-4 lg:text-right lg:pl-16">
+        <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
           <h2 className="text-4xl font-bold mb-2">Rodio</h2>
           <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">workforce communication for big retail</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -60,6 +60,13 @@ export default function Home() {
            <Image src="/imgs/rodio/rodio1.png" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
 
+        <div className="col-span-1 md:col-span-1 lg:col-span-2 relative lg:rounded-l-md overflow-hidden">
+             <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/95 p-3 rounded shadow-xl z-10 text-center">
+              <h5 className="text-[#063241] font-bold">pitch decks</h5>
+            </div>
+           <Image src="/imgs/rodio/rodio5.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
+        </div>
+
         <div className="col-span-1 md:col-span-2 lg:col-span-4 relative lg:rounded-r-md overflow-hidden">
            <Image src="/imgs/rodio/rodio2.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
@@ -71,7 +78,7 @@ export default function Home() {
            <Image src="/imgs/rodio/rodio3.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
 
-        <div className="col-span-1 md:col-span-1 lg:col-span-2 relative lg:rounded-r-md overflow-hidden">
+        <div className="col-span-1 md:col-span-2 lg:col-span-4 relative lg:rounded-r-md overflow-hidden">
             <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/95 p-3 rounded shadow-xl z-10 text-center">
               <h5 className="text-[#063241] font-bold">ux flows</h5>
             </div>
@@ -87,20 +94,13 @@ export default function Home() {
              <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full">Pitched a demo that solidified an integration partnership with a Fortune-100</li>
           </ul>
         </div>
-
-        <div className="col-span-1 md:col-span-1 lg:col-span-2 relative lg:rounded-l-md overflow-hidden">
-             <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/95 p-3 rounded shadow-xl z-10 text-center">
-              <h5 className="text-[#063241] font-bold">pitch decks</h5>
-            </div>
-           <Image src="/imgs/rodio/rodio5.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
-        </div>
       </AnimatedSection>
 
       <Break symbols={['+', '▵', '+']} />
 
       {/* BNB */}
       <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
-        <div className="info col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-2 text-left text-white px-8 py-4">
+        <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
           <h2 className="text-4xl font-bold mb-2">Bnbfinder</h2>
           <h4 className="text-[var(--color-4)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a platform for niche travel listings (now Savvy.com)</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -153,7 +153,7 @@ export default function Home() {
 
       {/* ROCKET */}
       <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-center">
-        <div className="info col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-5 text-left text-white px-8 py-4">
+        <div className="info col-span-1 md:col-span-2 lg:col-span-6 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
           <h4 className="text-[var(--color-5)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -206,10 +206,7 @@ export default function Home() {
 
       {/* TIMEBOMB */}
       <AnimatedSection className="tmb grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-         <div className="col-span-1 relative">
-            <Image src="/imgs/tmb/tmb1.jpg" alt="tmb website" width={800} height={600} className="w-full rounded shadow-2xl" />
-         </div>
-         <div className="info col-span-1 text-left text-white px-8 py-4">
+        <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
           <h2 className="text-4xl font-bold mb-2">Timebomb</h2>
           <h4 className="text-[var(--color-1)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a conditional messaging app</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -219,6 +216,9 @@ export default function Home() {
             The hip and user-friendly experience helped us raise two investment rounds with some big name investors and marketing partners.
           </p>
         </div>
+         <div className="col-span-1 relative">
+            <Image src="/imgs/tmb/tmb1.jpg" alt="tmb website" width={800} height={600} className="w-full rounded shadow-2xl" />
+         </div>
         <div className="col-span-1 relative">
             <Image src="/imgs/tmb/tmb2.jpg" alt="timebomb website" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>
@@ -228,7 +228,7 @@ export default function Home() {
 
       {/* PUPPYWISE */}
       <AnimatedSection className="puppy grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div className="info col-span-1 text-left text-white px-8 py-4">
+        <div className="info col-span-1 md:col-span-2 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
           <h2 className="text-4xl font-bold mb-2">Puppywise</h2>
           <h4 className="text-[var(--color-2)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a web app to find reputable breeders</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -244,16 +244,16 @@ export default function Home() {
 
       {/* DANCEFIGHT */}
       <AnimatedSection className="dance grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-         <div className="col-span-1 relative">
-            <Image src="/imgs/dance/dance1.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
-         </div>
-         <div className="info col-span-1 text-left text-white px-8 py-4">
+        <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-8">
           <h2 className="text-4xl font-bold mb-2">Dancefight</h2>
           <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">a social voting app</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I consulted for this seed-round startup and helped with UX flows and final UIs for onboaring/tutorials, the main feed, the voting UX, tournament creation, and tournament brackets.
           </p>
         </div>
+         <div className="col-span-1 relative">
+            <Image src="/imgs/dance/dance1.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         </div>
         <div className="col-span-1 relative">
             <Image src="/imgs/dance/dance2.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
         </div>

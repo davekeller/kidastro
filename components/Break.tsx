@@ -8,7 +8,7 @@ interface BreakProps {
 const Break = ({ symbols }: BreakProps) => {
   return (
     <div className="break flex w-full justify-center py-16 md:py-32 bg-transparent">
-      <ul className="flex space-x-6 md:space-x-12 text-2xl md:text-3xl font-bold text-white/20">
+      <ul className="flex space-x-6 md:space-x-12 text-2xl md:text-3xl font-bold">
         {symbols.map((symbol, index) => (
           <li key={index}>{symbol}</li>
         ))}
