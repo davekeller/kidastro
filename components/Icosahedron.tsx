@@ -6,7 +6,7 @@ import { Float, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
 const Particles = ({ color }: { color: THREE.Color }) => {
-  const count = 225; // Decreased by 25% (was 300)
+  const count = 112; // Reduced by 50% from 225
   const mesh = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   
@@ -79,13 +79,13 @@ const Particles = ({ color }: { color: THREE.Color }) => {
 
   return (
     <instancedMesh key={count} ref={mesh} args={[undefined, undefined, count]}>
-      <dodecahedronGeometry args={[0.15, 0]} /> 
+      <icosahedronGeometry args={[0.05, 0]} /> 
       <meshBasicMaterial transparent opacity={0.8} />
     </instancedMesh>
   );
 };
 
-const OctahedronShape = () => {
+const IcosahedronShape = () => {
   const groupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const materialRef = useRef<any>(null);
@@ -125,7 +125,7 @@ const OctahedronShape = () => {
   });
 
   const points = useMemo(() => {
-    const geom = new THREE.IcosahedronGeometry(2.835, 0); // Reduced size by another 10% (3.15 * 0.9 = 2.835)
+    const geom = new THREE.IcosahedronGeometry(4.532, 0); // Increased size by 10% (4.12 * 1.1 = 4.532)
     const edges = new THREE.EdgesGeometry(geom);
     const positions = edges.attributes.position.array;
     const pts = [];
@@ -160,14 +160,14 @@ const OctahedronShape = () => {
   );
 };
 
-const Dodecahedron = () => {
+const Icosahedron = () => {
   return (
-    <div className="w-[500px] h-[500px] mb-4">
+    <div className="w-full h-[500px] mb-4 overflow-hidden">
       <Canvas camera={{ position: [0, 0, 22] }}>
-        <OctahedronShape />
+        <IcosahedronShape />
       </Canvas>
     </div>
   );
 };
 
-export default Dodecahedron;
+export default Icosahedron;
