@@ -12,7 +12,7 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">30+ Products</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Leading design at an agency and multiple startups over the two decades, I&apos;ve created intuitive experiences from telemedicine, to puzzle games, to entertainment, to interactive education, to travel.
+          Having led design at an agency and multiple startups, I&apos;ve created intuitive experiences from telemedicine, to puzzle games, to entertainment, to interactive education, to travel.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">

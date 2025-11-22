@@ -4,7 +4,6 @@ import Image from 'next/image';
 const Footer = () => {
   return (
     <footer className="footer text-center text-white py-16 pb-32 max-w-[50%] lg:max-w-[90%] mx-auto mt-12">
-      <h2 className="text-4xl font-bold mb-4">let&apos;s connect</h2>
       <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks so much</h1>
       <p className="mb-12 text-lg text-white/90">
         And if you&apos;re in the market for design help, please don&apos;t hesitate to{' '}

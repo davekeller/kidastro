@@ -30,32 +30,32 @@ const Rocket = () => {
         </div>
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/rkt/rkt2.png" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
+      <div className="col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-2 relative">
+         <Image src="/imgs/rkt/rkt4.jpg" alt="rocket example" width={800} height={600} className="w-full h-full object-cover rounded shadow-2xl" />
       </div>
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
          <Image src="/imgs/rkt/rkt3.png" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/rkt/rkt4.jpg" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
-      </div>
-
-      <div className="col-span-1 md:col-span-2 lg:col-span-3 lg:col-start-4">
+      <div className="col-span-1 md:col-span-2 lg:col-span-3">
            <div className="clients grid grid-cols-3 gap-12 p-8">
-            <Image src="/imgs/rkt/client1.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client2.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client3.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client4.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client5.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client6.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client7.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client8.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client9.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client1.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client2.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client3.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client4.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client5.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client6.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client7.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client8.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+            <Image src="/imgs/rkt/client9.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
           </div>
       </div>
 
-      <div className="col-span-1 md:col-span-2 lg:col-span-3 lg:col-start-4 relative">
+      <div className="col-span-1 md:col-span-1 lg:col-span-2 relative">
+         <Image src="/imgs/rkt/rkt5.jpg" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+
+      <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">
          <Image src="/imgs/rkt/rkt1.jpg" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
     </AnimatedSection>
