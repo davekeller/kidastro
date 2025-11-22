@@ -4,8 +4,8 @@ import AnimatedSection from '@/components/AnimatedSection';
 
 const Rocket = () => {
   return (
-    <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start">
-      <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-start">
+    <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
+      <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
@@ -42,7 +42,7 @@ const Rocket = () => {
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3 lg:col-start-4">
-           <div className="clients grid grid-cols-3 gap-8 p-8">
+           <div className="clients grid grid-cols-3 gap-12 p-8">
             <Image src="/imgs/rkt/client1.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
             <Image src="/imgs/rkt/client2.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
             <Image src="/imgs/rkt/client3.svg" alt="client logo" width={100} height={50} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />

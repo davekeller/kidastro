@@ -4,8 +4,8 @@ import AnimatedSection from '@/components/AnimatedSection';
 
 const Rodio = () => {
   return (
-    <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-start">
-      <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-start">
+    <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
+      <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
           <h2 className="text-4xl font-bold mb-2">Rodio</h2>
@@ -38,33 +38,30 @@ const Rodio = () => {
          <Image src="/imgs/rodio/rodio1.png" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-
-      {/* <div className="col-span-1 md:col-span-1 lg:col-span-3 relative lg:rounded-l-md overflow-hidden">
-          <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-[#000000] p-3 rounded shadow-xl z-10 text-center">
-          <h5 className="text-white font-bold">rodio design system</h5>
-          </div>
-          <Image src="/imgs/rodio/rodio3.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
-          </div> */}
-
       <div className="col-span-1 md:col-span-2 lg:col-span-3 relative lg:rounded-r-md overflow-hidden">
-          <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-[#000000] p-3 rounded shadow-xl z-10 text-center">
-            <h5 className="text-white font-bold">ux flows</h5>
+          <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+            <h5 className="text-black font-extrabold text-xl">ux flows</h5>
           </div>
          <Image src="/imgs/rodio/rodio4.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative lg:rounded-l-md overflow-hidden">
-           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-[#000000] p-3 rounded shadow-xl z-10 text-center">
-            <h5 className="text-white font-bold">pitch decks</h5>
-          </div>
-         <Image src="/imgs/rodio/rodio5.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
+        <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+        <h5 className="text-black font-bold text-xl">pitch decks</h5>
+        </div>
+        <Image src="/imgs/rodio/rodio5.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+      
+      <div className="col-span-1 md:col-span-1 lg:col-span-2 relative lg:rounded-l-md overflow-hidden">
+        <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+        <h5 className="text-black font-bold text-xl">rodio design system</h5>
+        </div>
+        <Image src="/imgs/rodio/rodio3.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-          <div className="col-span-1 md:col-span-2 lg:col-span-6 relative lg:rounded-r-md overflow-hidden">
-             <Image src="/imgs/rodio/rodio2.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
-          </div>
-
-
+      <div className="col-span-1 md:col-span-2 lg:col-span-4 relative lg:rounded-r-md overflow-hidden">
+          <Image src="/imgs/rodio/rodio2.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
 
     </AnimatedSection>
   );

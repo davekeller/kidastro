@@ -1,6 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
+
 import Icosahedron from './Icosahedron';
+import AnimatedBreak from './AnimatedBreak';
 
 const Intro = () => {
   return (
@@ -16,13 +17,9 @@ const Intro = () => {
         <p className="mb-8 max-w-[700px] leading-loose">
           I love prototyping in code, collaborating with smart people, and making user experiences feel intuitive and simple. Thanks for checking out my work!
         </p>
-        <Image
-          src="/imgs/down.svg"
-          alt="down arrow"
-          width={30}
-          height={30}
-          className="downarrow opacity-30 hover:opacity-100 transition-opacity cursor-pointer"
-        />
+        <div className="rotate-180 transform -mt-32">
+          <AnimatedBreak />
+        </div>
       </div>
     </div>
   );
