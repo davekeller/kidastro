@@ -17,7 +17,7 @@ const Intro = () => {
         <p className="mb-8 max-w-[700px] leading-loose">
           I love prototyping in code, collaborating with smart people, and making user experiences feel intuitive and simple. Thanks for checking out my work!
         </p>
-        <div className="rotate-180 transform -mt-32">
+        <div className="-mt-32">
           <AnimatedBreak />
         </div>
       </div>

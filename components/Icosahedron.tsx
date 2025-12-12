@@ -85,7 +85,7 @@ const Particles = ({ colorRef }: { colorRef: React.MutableRefObject<THREE.Color>
   );
 };
 
-const IcosahedronShape = () => {
+const IcosahedronShape = ({ isDragging, dragDelta }: { isDragging: boolean; dragDelta: { x: number; y: number } }) => {
   const groupRef = useRef<THREE.Group>(null);
   const floatGroupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -95,6 +95,10 @@ const IcosahedronShape = () => {
   // Store target mouse position for smooth lerping
   const mouseTarget = useRef({ x: 0, y: 0 });
   const currentMouse = useRef({ x: 0, y: 0 });
+
+  // Store drag rotation offset
+  const dragRotation = useRef({ x: 0, y: 0 });
+  const autoRotationOffset = useRef({ x: 0, y: 0 });
 
   // Color palette
   const colors = useMemo(() => [
@@ -107,9 +111,20 @@ const IcosahedronShape = () => {
 
   useFrame((state) => {
     if (groupRef.current) {
-      // Slow rotation
-      groupRef.current.rotation.x = state.clock.getElapsedTime() * 0.15;
-      groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.2;
+      if (isDragging) {
+        // Apply drag rotation
+        dragRotation.current.x += dragDelta.y * 0.01;
+        dragRotation.current.y += dragDelta.x * 0.01;
+        // Store current auto rotation so we can resume from here
+        autoRotationOffset.current.x = state.clock.getElapsedTime() * 0.15;
+        autoRotationOffset.current.y = state.clock.getElapsedTime() * 0.2;
+      }
+
+      // Combine auto rotation with drag rotation
+      const autoX = state.clock.getElapsedTime() * 0.15 - autoRotationOffset.current.x;
+      const autoY = state.clock.getElapsedTime() * 0.2 - autoRotationOffset.current.y;
+      groupRef.current.rotation.x = autoX + dragRotation.current.x;
+      groupRef.current.rotation.y = autoY + dragRotation.current.y;
     }
 
     // Subtle mouse following for the whole shape
@@ -183,10 +198,42 @@ const IcosahedronShape = () => {
 };
 
 const Icosahedron = () => {
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [dragDelta, setDragDelta] = React.useState({ x: 0, y: 0 });
+  const lastMousePos = useRef({ x: 0, y: 0 });
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    setIsDragging(true);
+    lastMousePos.current = { x: e.clientX, y: e.clientY };
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    setIsDragging(false);
+    setDragDelta({ x: 0, y: 0 });
+    (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (isDragging) {
+      const deltaX = e.clientX - lastMousePos.current.x;
+      const deltaY = e.clientY - lastMousePos.current.y;
+      setDragDelta({ x: deltaX, y: deltaY });
+      lastMousePos.current = { x: e.clientX, y: e.clientY };
+    }
+  };
+
   return (
-    <div className="w-full h-[500px] mb-4 overflow-hidden">
+    <div
+      className="w-full h-[500px] mb-4 overflow-hidden"
+      style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerUp}
+    >
       <Canvas camera={{ position: [0, 0, 22] }}>
-        <IcosahedronShape />
+        <IcosahedronShape isDragging={isDragging} dragDelta={dragDelta} />
       </Canvas>
     </div>
   );

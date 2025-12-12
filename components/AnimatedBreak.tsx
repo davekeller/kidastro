@@ -39,9 +39,9 @@ const AnimatedBreak = () => {
       const normalizedX = (e.clientX - centerX) / (window.innerWidth / 2);
       const normalizedY = (e.clientY - centerY) / (window.innerHeight / 2);
 
-      // Set target with movement range
+      // Set target with movement range (horizontal only)
       targetRef.current.x = normalizedX * 30; // 30px max horizontal
-      targetRef.current.y = normalizedY * 20; // 20px max vertical
+      targetRef.current.y = 0; // No vertical movement to avoid overlapping content
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -81,8 +81,8 @@ const AnimatedBreak = () => {
         >
           /
         </span>
-        <span 
-          className="text-2xl md:text-3xl animate-float opacity-80 transition-colors duration-[2000ms]" 
+        <span
+          className="text-2xl md:text-3xl animate-float-triangle opacity-80 transition-colors duration-[2000ms]"
           style={{ animationDelay: '0.4s', color: colors[colorIndex] }}
         >
           ▵
@@ -122,9 +122,23 @@ const AnimatedBreak = () => {
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
-        
+
         .animate-float-delayed {
           animation: float-delayed 3s ease-in-out infinite;
+        }
+
+        .animate-float-triangle {
+          animation: float-triangle 3s ease-in-out infinite;
+          display: inline-block;
+        }
+
+        @keyframes float-triangle {
+          0%, 100% {
+            transform: translateY(0px) rotate(180deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(185deg);
+          }
         }
       `}</style>
     </div>
