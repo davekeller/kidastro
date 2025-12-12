@@ -15,12 +15,9 @@ const Dancefight = () => {
           I consulted for this seed-round startup and helped with UX flows and final UIs for onboaring/tutorials, the main feed, the voting UX, tournament creation, and tournament brackets.
         </p>
       </div>
-       <div className="col-span-1 relative">
+       <div className="col-span-1 md:col-span-2 relative">
           <Image src="/imgs/dance/dance1.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
        </div>
-      <div className="col-span-1 relative">
-          <Image src="/imgs/dance/dance2.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
-      </div>
       <div className="col-span-1 md:col-span-3 relative">
           <Image src="/imgs/dance/dance3.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>

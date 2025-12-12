@@ -5,7 +5,6 @@ import Quotapath from '@/components/Quotapath';
 import Bnbfinder from '@/components/Bnbfinder';
 import Rocket from '@/components/Rocket';
 import Timebomb from '@/components/Timebomb';
-import Puppywise from '@/components/Puppywise';
 import Dancefight from '@/components/Dancefight';
 import AnimatedBreak from '@/components/AnimatedBreak';
 import Accomplishments from '@/components/Accomplishments';
@@ -42,11 +41,6 @@ export default function Home() {
 
       {/* TIMEBOMB */}
       <Timebomb />
-
-      <AnimatedBreak />
-
-      {/* PUPPYWISE */}
-      <Puppywise />
 
       <AnimatedBreak />
 
