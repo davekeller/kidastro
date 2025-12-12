@@ -10,12 +10,11 @@ const Footer = () => {
   const currentRef = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number | null>(null);
 
-  // Animation loop for smooth lerping
+  // Animation loop for smooth lerping - horizontal only
   const animate = useCallback(() => {
     currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.05;
-    currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.05;
 
-    setMouseOffset({ x: currentRef.current.x, y: currentRef.current.y });
+    setMouseOffset({ x: currentRef.current.x, y: 0 });
     animationRef.current = requestAnimationFrame(animate);
   }, []);
 
