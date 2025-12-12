@@ -87,9 +87,14 @@ const Particles = ({ colorRef }: { colorRef: React.MutableRefObject<THREE.Color>
 
 const IcosahedronShape = () => {
   const groupRef = useRef<THREE.Group>(null);
+  const floatGroupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const materialRef = useRef<any>(null);
   const colorRef = useRef(new THREE.Color('#f4fd7b'));
+
+  // Store target mouse position for smooth lerping
+  const mouseTarget = useRef({ x: 0, y: 0 });
+  const currentMouse = useRef({ x: 0, y: 0 });
 
   // Color palette
   const colors = useMemo(() => [
@@ -105,6 +110,21 @@ const IcosahedronShape = () => {
       // Slow rotation
       groupRef.current.rotation.x = state.clock.getElapsedTime() * 0.15;
       groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.2;
+    }
+
+    // Subtle mouse following for the whole shape
+    if (floatGroupRef.current) {
+      // Update target based on mouse position
+      mouseTarget.current.x = state.mouse.x * 4; // Horizontal movement
+      mouseTarget.current.y = state.mouse.y * 3; // Vertical movement
+
+      // Smooth lerp towards target
+      currentMouse.current.x += (mouseTarget.current.x - currentMouse.current.x) * 0.05;
+      currentMouse.current.y += (mouseTarget.current.y - currentMouse.current.y) * 0.05;
+
+      // Apply position offset
+      floatGroupRef.current.position.x = currentMouse.current.x;
+      floatGroupRef.current.position.y = currentMouse.current.y;
     }
 
     if (materialRef.current) {
@@ -137,24 +157,26 @@ const IcosahedronShape = () => {
 
   return (
     <>
-      <Float 
-        speed={2} // Faster animation speed
-        rotationIntensity={1.5} // More rotation
-        floatIntensity={2} // Stronger floating effect
-        floatingRange={[-0.5, 0.5]} // Wider floating range
-      >
-        <group ref={groupRef}>
-          <Line
-            points={points}
-            color="#f4fd7b" // Initial color
-            lineWidth={3} // Thick lines
-            segments // Render as segments (pairs of points)
-            transparent
-            opacity={0.8}
-            ref={materialRef}
-          />
-        </group>
-      </Float>
+      <group ref={floatGroupRef}>
+        <Float
+          speed={2} // Faster animation speed
+          rotationIntensity={1.5} // More rotation
+          floatIntensity={2} // Stronger floating effect
+          floatingRange={[-0.5, 0.5]} // Wider floating range
+        >
+          <group ref={groupRef}>
+            <Line
+              points={points}
+              color="#f4fd7b" // Initial color
+              lineWidth={3} // Thick lines
+              segments // Render as segments (pairs of points)
+              transparent
+              opacity={0.8}
+              ref={materialRef}
+            />
+          </group>
+        </Float>
+      </group>
       <Particles colorRef={colorRef} />
     </>
   );
