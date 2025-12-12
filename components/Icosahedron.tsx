@@ -85,7 +85,7 @@ const Particles = ({ colorRef }: { colorRef: React.MutableRefObject<THREE.Color>
   );
 };
 
-const IcosahedronShape = ({ isDragging, dragDelta }: { isDragging: boolean; dragDelta: { x: number; y: number } }) => {
+const IcosahedronShape = ({ isDragging, dragDelta, velocity }: { isDragging: boolean; dragDelta: { x: number; y: number }; velocity: { x: number; y: number } }) => {
   const groupRef = useRef<THREE.Group>(null);
   const floatGroupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -96,9 +96,10 @@ const IcosahedronShape = ({ isDragging, dragDelta }: { isDragging: boolean; drag
   const mouseTarget = useRef({ x: 0, y: 0 });
   const currentMouse = useRef({ x: 0, y: 0 });
 
-  // Store drag rotation offset
+  // Store drag rotation offset and momentum
   const dragRotation = useRef({ x: 0, y: 0 });
   const autoRotationOffset = useRef({ x: 0, y: 0 });
+  const momentumVelocity = useRef({ x: 0, y: 0 });
 
   // Color palette
   const colors = useMemo(() => [
@@ -118,6 +119,19 @@ const IcosahedronShape = ({ isDragging, dragDelta }: { isDragging: boolean; drag
         // Store current auto rotation so we can resume from here
         autoRotationOffset.current.x = state.clock.getElapsedTime() * 0.15;
         autoRotationOffset.current.y = state.clock.getElapsedTime() * 0.2;
+        // Store velocity for momentum
+        momentumVelocity.current.x = velocity.y * 0.01;
+        momentumVelocity.current.y = velocity.x * 0.01;
+      } else {
+        // Apply momentum with friction
+        dragRotation.current.x += momentumVelocity.current.x;
+        dragRotation.current.y += momentumVelocity.current.y;
+        // Decay velocity (friction)
+        momentumVelocity.current.x *= 0.96;
+        momentumVelocity.current.y *= 0.96;
+        // Stop when very slow
+        if (Math.abs(momentumVelocity.current.x) < 0.0001) momentumVelocity.current.x = 0;
+        if (Math.abs(momentumVelocity.current.y) < 0.0001) momentumVelocity.current.y = 0;
       }
 
       // Combine auto rotation with drag rotation
@@ -200,15 +214,31 @@ const IcosahedronShape = ({ isDragging, dragDelta }: { isDragging: boolean; drag
 const Icosahedron = () => {
   const [isDragging, setIsDragging] = React.useState(false);
   const [dragDelta, setDragDelta] = React.useState({ x: 0, y: 0 });
+  const [velocity, setVelocity] = React.useState({ x: 0, y: 0 });
   const lastMousePos = useRef({ x: 0, y: 0 });
+  const lastTime = useRef(Date.now());
+  const velocityHistory = useRef<{ x: number; y: number }[]>([]);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);
     lastMousePos.current = { x: e.clientX, y: e.clientY };
+    lastTime.current = Date.now();
+    velocityHistory.current = [];
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
   };
 
   const handlePointerUp = (e: React.PointerEvent) => {
+    // Calculate average velocity from recent history for smoother momentum
+    if (velocityHistory.current.length > 0) {
+      const avgVel = velocityHistory.current.reduce(
+        (acc, v) => ({ x: acc.x + v.x, y: acc.y + v.y }),
+        { x: 0, y: 0 }
+      );
+      setVelocity({
+        x: avgVel.x / velocityHistory.current.length,
+        y: avgVel.y / velocityHistory.current.length,
+      });
+    }
     setIsDragging(false);
     setDragDelta({ x: 0, y: 0 });
     (e.target as HTMLElement).releasePointerCapture(e.pointerId);
@@ -216,10 +246,25 @@ const Icosahedron = () => {
 
   const handlePointerMove = (e: React.PointerEvent) => {
     if (isDragging) {
+      const now = Date.now();
+      const dt = Math.max(now - lastTime.current, 1); // Avoid division by zero
       const deltaX = e.clientX - lastMousePos.current.x;
       const deltaY = e.clientY - lastMousePos.current.y;
+
+      // Calculate instantaneous velocity
+      const velX = (deltaX / dt) * 16; // Normalize to ~60fps
+      const velY = (deltaY / dt) * 16;
+
+      // Keep last 5 velocity samples for averaging
+      velocityHistory.current.push({ x: velX, y: velY });
+      if (velocityHistory.current.length > 5) {
+        velocityHistory.current.shift();
+      }
+
       setDragDelta({ x: deltaX, y: deltaY });
+      setVelocity({ x: velX, y: velY });
       lastMousePos.current = { x: e.clientX, y: e.clientY };
+      lastTime.current = now;
     }
   };
 
@@ -233,7 +278,7 @@ const Icosahedron = () => {
       onPointerLeave={handlePointerUp}
     >
       <Canvas camera={{ position: [0, 0, 22] }}>
-        <IcosahedronShape isDragging={isDragging} dragDelta={dragDelta} />
+        <IcosahedronShape isDragging={isDragging} dragDelta={dragDelta} velocity={velocity} />
       </Canvas>
     </div>
   );
