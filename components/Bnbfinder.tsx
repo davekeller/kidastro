@@ -31,7 +31,7 @@ const Bnbfinder = () => {
         </div>
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-6 relative">
+      <div className="col-span-1 md:col-span-1 lg:col-span-5 relative">
          <Image src="/imgs/bnb/bnb1.png" alt="bnbfinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
@@ -49,7 +49,7 @@ const Bnbfinder = () => {
          <Image src="/imgs/bnb/bnb5.jpg" alt="bnbfinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-6 relative">
+      <div className="col-span-1 md:col-span-1 lg:col-span-5 lg:col-start-2 relative">
          <Image src="/imgs/bnb/bnb4.png" alt="bnbfinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
