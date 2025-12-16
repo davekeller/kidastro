@@ -20,13 +20,13 @@ const NorthernLights = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Brand colors
+    // Aurora colors - orange, pink, blue, purple
     const colors = [
-      { r: 244, g: 253, b: 123 }, // Yellow #f4fd7b
-      { r: 57, g: 213, b: 203 },  // Teal #39d5cb
-      { r: 228, g: 65, b: 111 },  // Pink #e4416f
-      { r: 252, g: 211, b: 77 },  // Gold #fcd34d
-      { r: 110, g: 231, b: 183 }, // Mint #6ee7b7
+      { r: 255, g: 140, b: 50 },  // Orange #ff8c32
+      { r: 236, g: 72, b: 153 }, // Pink #ec4899
+      { r: 59, g: 130, b: 246 },  // Blue #3b82f6
+      { r: 168, g: 85, b: 247 }, // Purple #a855f7
+      { r: 244, g: 114, b: 182 }, // Light pink #f472b6
     ];
 
     // 2-4 aurora shapes visible at a time
@@ -94,8 +94,8 @@ const NorthernLights = () => {
         const secondaryDrift = Math.sin(waveTime * driftSpeed * 0.7 + phaseOffset * 2) * (canvas.width * 0.1);
         const centerX = aurora.baseX + drift + secondaryDrift;
 
-        // Pulsing intensity
-        const pulse = 0.14 + Math.sin(waveTime * 0.4 + phaseOffset) * 0.07;
+        // Pulsing intensity - subtle
+        const pulse = 0.07 + Math.sin(waveTime * 0.4 + phaseOffset) * 0.035;
 
         // Create gradient from above canvas (bright) to bottom (diffused/transparent)
         const gradient = ctx.createLinearGradient(0, -100, 0, auroraHeight + 100);
