@@ -47,10 +47,12 @@ h4, h6 {
   font-weight: 500;
 }
 
-p {
-  font-size: 1.125rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+@layer base {
+  p {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+  }
 }
 
 
