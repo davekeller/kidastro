@@ -8,7 +8,7 @@ type Props = {
 const JobEntry = ({ job }: Props) => {
   return (
     <article className="mb-12">
-      <div className="flex flex-row items-baseline gap-4">
+      <div className="flex flex-col items-baseline gap-1 sm:flex-row sm:flex-wrap sm:gap-4">
         <h3 className="text-2xl font-bold text-white">{job.company}</h3>
         <p className="text-sm text-white/40">
           {job.dates} · {job.location}
