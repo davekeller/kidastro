@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './resume/Header';
 import HomeLink from './resume/HomeLink';
-import DownloadButton from './resume/DownloadButton';
 import SectionLabel from './resume/SectionLabel';
 import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
@@ -12,9 +11,6 @@ const Resume = () => {
     <main className="relative z-10 mx-auto max-w-[1100px] px-6 pt-32 pb-24">
       <div className="fixed top-6 left-6 z-20">
         <HomeLink />
-      </div>
-      <div className="fixed top-6 right-6 z-20">
-        <DownloadButton />
       </div>
       <Header />
 

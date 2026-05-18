@@ -5,13 +5,9 @@ import Link from 'next/link';
 const HomeLink = () => {
   return (
     <div className="inline-flex items-center gap-3 text-sm font-medium">
-      <Image
-        src="/imgs/icon.svg"
-        alt=""
-        width={40}
-        height={40}
-        className="opacity-80"
-      />
+      <Link href="/" aria-label="Back to portfolio" className="opacity-80 transition-opacity hover:opacity-100">
+        <Image src="/imgs/icon.svg" alt="" width={40} height={40} />
+      </Link>
       <nav aria-label="Breadcrumb" className="hidden sm:block">
         <ol className="flex items-center gap-2">
           <li>
