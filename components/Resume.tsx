@@ -59,7 +59,16 @@ const Resume = () => {
 
       <section>
         <SectionLabel>Interests</SectionLabel>
-        <p className="text-base leading-snug text-white/85">{interests}</p>
+        <ul className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3 md:grid-rows-2">
+          {interests.map((item, i) => (
+            <li
+              key={i}
+              className="relative pl-6 text-base leading-snug text-white/85 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+']"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );

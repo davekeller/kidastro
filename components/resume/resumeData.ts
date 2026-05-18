@@ -111,5 +111,11 @@ export const skills: string[] = [
   'GitHub / Linear / Notion',
 ];
 
-export const interests =
-  'Guitar & drums · Soccer · Dirt & mountain biking · Traveling South America (fluent in Spanish) · Adventuring with my kids';
+export const interests: string[] = [
+  'Guitar and vocals in a rock band',
+  'Music recording and production',
+  'Indoor soccer and racquetball',
+  'Mountain biking and endurance sports',
+  'International travel (fluent in Spanish)',
+  'Adventures with my kids',
+];
