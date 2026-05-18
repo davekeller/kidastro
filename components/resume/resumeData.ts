@@ -97,7 +97,7 @@ export const condensedJobs: CondensedJob[] = [
 
 export const highlights: string[] = [
   '15+ years leading design on early stage product and dev teams — from indie iOS apps to Series B SaaS platforms serving millions',
-  'Years of experience translating complex user flows into polished, intuitive experiences across SaaS, AI, quantum computing, travel, retail, telemedicine, B2B auctions, gaming, and consumer apps',
+  'A career spent translating complex user flows into polished, intuitive experiences across SaaS, AI, quantum computing, travel, retail, telemedicine, B2B auctions, gaming, and consumer apps',
   'Long-time HTML/CSS/Tailwind expert, now at the forefront of AI-assisted product design — prototyping full front-ends in production code with Cursor, Claude Code, and Codex',
   'Co-founded an agency and a consumer messaging app, raised $3M from angel investors, and shipped 40+ products — including a #1 Paid iPhone App and multiple front-to-back platforms',
 ];
@@ -106,8 +106,7 @@ export const skills: string[] = [
   'AI coding — Cursor, Claude Code, Codex',
   'Next.js / React / Tailwind CSS / TypeScript',
   'HTML / CSS / JS — production-ready front-end',
-  'Figma (expert) — libraries, prototyping, design hand-off',
-  'Design systems — multi-platform component libraries',
+  'Figma & design systems — multi-platform component libraries, prototyping, design hand-off',
   'GitHub / Linear / Notion',
 ];
 

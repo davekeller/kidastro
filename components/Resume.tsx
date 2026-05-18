@@ -55,7 +55,12 @@ const Resume = () => {
 
       <section>
         <SectionLabel>Interests</SectionLabel>
-        <ul className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3 md:grid-rows-2">
+        <ul
+          className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3"
+          style={{
+            gridTemplateRows: `repeat(${Math.ceil(interests.length / 3)}, minmax(0, 1fr))`,
+          }}
+        >
           {interests.map((item, i) => (
             <li
               key={i}
