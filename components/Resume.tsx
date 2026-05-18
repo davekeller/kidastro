@@ -9,7 +9,7 @@ import { fullJobs, condensedJobs, highlights, skills, interests } from './resume
 
 const Resume = () => {
   return (
-    <main className="relative z-10 mx-auto max-w-[960px] px-6 pt-32 pb-24">
+    <main className="relative z-10 mx-auto max-w-[1100px] px-6 pt-32 pb-24">
       <div className="fixed top-6 left-6 z-20">
         <HomeLink />
       </div>

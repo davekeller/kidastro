@@ -22,11 +22,11 @@ export const fullJobs: FullJob[] = [
     location: 'Hybrid / Austin, TX',
     role: 'Director of Product · promoted from Senior Product Designer (Apr 2024)',
     summary:
-      'Leading product strategy and design for a platform at the frontier of AI and quantum computing — helping teams access, run, and understand hybrid quantum-classical workloads.',
+      'Leading strategy and design for the core platform and a suite of data-science workflow apps at the frontier of AI and quantum/HPC computing — helping Fortune 500 science teams formulate complex problems, run compute jobs, and analyze results.',
     bullets: [
-      'Promoted from Senior Product Designer to Director of Product within 6 months, taking on full ownership of the product roadmap, design direction, and cross-functional execution',
-      'Designing and prototyping web app experiences for strangeworks.com, translating complex quantum and AI concepts into clean, intuitive interfaces',
-      'Partnering closely with engineering and leadership to shape the product vision for a platform used by researchers, enterprises, and developers worldwide',
+      'Promoted from Senior Product Designer to Director of Product within 6 months — taking ownership of the product roadmap and design strategy, and driving cross-functional execution',
+      'Design lead embedded with the engineering team — leading design through stand-ups, sprints, and planning meetings, while partnering with leadership and the science team to research, prototype, and execute new product ideas',
+      'Led design across a range of apps — the Strangeworks Portal for managing compute jobs, an AI-assisted data-science workflow app for formulating, running, and analyzing problems on HPC and quantum hardware, and dozens of client apps focused on large optimization problems (staff scheduling, vehicle routing, etc.)',
     ],
   },
   {
@@ -37,20 +37,20 @@ export const fullJobs: FullJob[] = [
     summary:
       'Led design across multiple product teams at this Series B SaaS platform for sales commission modeling, tracking, and analysis.',
     bullets: [
-      'Shaped, validated, and shipped 10+ platform features — from comp modeling to onboarding flows, sandbox environments, and payout workflows',
-      'Designed and launched the Compensation Hub (comp.quotapath.com) — a top-of-funnel plan library and modeling tool that became a key acquisition driver',
-      'Co-created and rolled out the Shape Up product process across 4 product/engineering teams, improving planning clarity and shipping cadence',
+      'Shaped, validated, and shipped platform features monthly — from comp modeling and onboarding flows to sandbox environments and payout workflows',
+      'Designed and launched the Compensation Hub — a top-of-funnel commission plan library and modeling tool that became a key acquisition driver and led to 1.5M+ new leads within a year',
+      'Co-created and rolled out the Shape Up product process across 4 product and engineering teams, improving planning clarity and shipping cadence',
     ],
   },
   {
-    company: 'Assembly (OneAssembly)',
+    company: 'OneAssembly',
     dates: 'Feb 2021 – Jan 2022',
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead · Front-End Developer',
     summary:
-      "R&D'd this B2B device auction platform from idea to $3M+ in the first month of beta ($33M+ in the first year) with a dev team of 3.",
+      'Built this B2B device auction platform from idea to launch in a year on a 3-person dev team — grossing $3M+ in the first month of beta and $33M+ in year one.',
     bullets: [
-      'Architected, designed, and developed the full product from whiteboard to launch — conception through production on a lean 3-person team',
+      'Architected, designed, and developed the full product from whiteboard to production launch',
       'Built the majority of the front-end with React + Tailwind CSS, and designed the branding, marketing site, and go-to-market materials',
     ],
   },
@@ -60,10 +60,10 @@ export const fullJobs: FullJob[] = [
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead · Front-End Developer',
     summary:
-      'Built this niche travel listings platform from idea to 8K subscribers (4K+ paid) in under a year with a dev team of 3.',
+      'Built this niche travel listings platform from idea to 8K subscribers (4K+ paid) in under a year with a 3-person dev team.',
     bullets: [
       'Conceived, designed, and coded the full platform — consumer, owner, and admin apps — using Elixir, React/Next.js, and a custom Tailwind CSS framework',
-      'Developed fully responsive front-end apps across all three product surfaces; drove the agile process using Jira and Trello with bi-weekly stakeholder demos',
+      'Shipped fully responsive front-end apps across all three product surfaces, and drove the agile process with Jira, Trello, and bi-weekly stakeholder demos',
     ],
   },
 ];
@@ -99,7 +99,7 @@ export const highlights: string[] = [
   '15+ years leading design on early stage product and dev teams — from indie iOS apps to Series B SaaS platforms serving millions',
   'Years of experience translating complex user flows into polished, intuitive experiences across SaaS, AI, quantum computing, travel, retail, telemedicine, B2B auctions, gaming, and consumer apps',
   'Long-time HTML/CSS/Tailwind expert, now at the forefront of AI-assisted product design — prototyping full front-ends in production code with Cursor, Claude Code, and Codex',
-  'Co-founded an agency and a consumer messaging app, raised $3M from angel investors, and shipped 30+ products — including a #1 Paid iPhone App',
+  'Co-founded an agency and a consumer messaging app, raised $3M from angel investors, and shipped 40+ products — including a #1 Paid iPhone App and multiple front-to-back platforms',
 ];
 
 export const skills: string[] = [
