@@ -11,12 +11,12 @@ const JobEntry = ({ job }: Props) => {
     <article className="mb-12">
       <JobHeaderRow company={job.company} dates={job.dates} location={job.location} />
       <p className="mt-1 text-base font-semibold text-white">{job.role}</p>
-      <p className="mt-3 text-base leading-relaxed text-white/85">{job.summary}</p>
-      <ul className="mt-4 space-y-2">
+      <p className="mt-3 text-base leading-snug text-white/85">{job.summary}</p>
+      <ul className="mt-4 space-y-4">
         {job.bullets.map((bullet, i) => (
           <li
             key={i}
-            className="relative pl-6 text-base leading-relaxed text-white/80 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+']"
+            className="relative pl-6 text-base leading-snug text-white/80 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+']"
           >
             {bullet}
           </li>

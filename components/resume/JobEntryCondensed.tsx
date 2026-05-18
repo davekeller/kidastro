@@ -11,7 +11,7 @@ const JobEntryCondensed = ({ job }: Props) => {
     <article className="mb-8">
       <JobHeaderRow company={job.company} dates={job.dates} location={job.location} />
       <p className="mt-1 text-sm font-semibold text-white">{job.role}</p>
-      <p className="mt-2 text-base leading-relaxed text-white/80">{job.summary}</p>
+      <p className="mt-2 text-base leading-snug text-white/80">{job.summary}</p>
     </article>
   );
 };

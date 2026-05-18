@@ -4,22 +4,33 @@ import Link from 'next/link';
 
 const HomeLink = () => {
   return (
-    <Link
-      href="/"
-      aria-label="View portfolio"
-      className="group fixed top-6 left-6 z-20 inline-flex items-center gap-3"
-    >
+    <div className="inline-flex items-center gap-3 text-sm font-medium">
       <Image
         src="/imgs/icon.svg"
         alt=""
         width={40}
         height={40}
-        className="opacity-80 transition-opacity group-hover:opacity-100"
+        className="opacity-80"
       />
-      <span className="hidden items-center rounded-full border border-white/15 bg-black/30 px-5 py-2 text-sm font-medium text-white/70 backdrop-blur-md transition-colors group-hover:border-(--color-2) group-hover:text-(--color-2) sm:inline-flex">
-        View Portfolio
-      </span>
-    </Link>
+      <nav aria-label="Breadcrumb" className="hidden sm:block">
+        <ol className="flex items-center gap-2">
+          <li>
+            <Link
+              href="/"
+              className="text-white/60 transition-colors hover:text-(--color-2)"
+            >
+              portfolio
+            </Link>
+          </li>
+          <li aria-hidden="true" className="text-white/30">
+            /
+          </li>
+          <li aria-current="page" className="text-white">
+            resume
+          </li>
+        </ol>
+      </nav>
+    </div>
   );
 };
 

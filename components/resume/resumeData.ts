@@ -24,8 +24,8 @@ export const fullJobs: FullJob[] = [
     summary:
       'Leading product strategy and design for a platform at the frontier of AI and quantum computing — helping teams access, run, and understand hybrid quantum-classical workloads.',
     bullets: [
-      'Promoted from Senior Product Designer to Director of Product within 6 months, taking on full ownership of product roadmap, design direction, and cross-functional execution',
-      'Designing and prototyping web application experiences for strangeworks.com, translating complex quantum and AI concepts into clean, intuitive interfaces',
+      'Promoted from Senior Product Designer to Director of Product within 6 months, taking on full ownership of the product roadmap, design direction, and cross-functional execution',
+      'Designing and prototyping web app experiences for strangeworks.com, translating complex quantum and AI concepts into clean, intuitive interfaces',
       'Partnering closely with engineering and leadership to shape the product vision for a platform used by researchers, enterprises, and developers worldwide',
     ],
   },
@@ -50,8 +50,8 @@ export const fullJobs: FullJob[] = [
     summary:
       "R&D'd this B2B device auction platform from idea to $3M+ in the first month of beta ($33M+ in the first year) with a dev team of 3.",
     bullets: [
-      'Architected, designed and developed the full product from whiteboard through a highly successful launch — conception through production on a lean 3-person team',
-      'Built the majority of the front-end in code: React + Tailwind CSS (HTML/CSS/JS), and also designed the branding, marketing site, and go-to-market materials',
+      'Architected, designed, and developed the full product from whiteboard to launch — conception through production on a lean 3-person team',
+      'Built the majority of the front-end with React + Tailwind CSS, and designed the branding, marketing site, and go-to-market materials',
     ],
   },
   {
@@ -60,10 +60,10 @@ export const fullJobs: FullJob[] = [
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead · Front-End Developer',
     summary:
-      'Built this niche travel listings platform from ideas to 8K subscribers (4K+ paid) in under a year with a dev team of 3.',
+      'Built this niche travel listings platform from idea to 8K subscribers (4K+ paid) in under a year with a dev team of 3.',
     bullets: [
-      'Conceived, designed and coded the full platform — consumer, owner, and admin apps — from scratch using Elixir, React/Next.js, and a custom Tailwind CSS framework',
-      'Developed fully responsive front-end apps across all three product surfaces; drove agile process using Jira and Trello with bi-weekly stakeholder demos',
+      'Conceived, designed, and coded the full platform — consumer, owner, and admin apps — using Elixir, React/Next.js, and a custom Tailwind CSS framework',
+      'Developed fully responsive front-end apps across all three product surfaces; drove the agile process using Jira and Trello with bi-weekly stakeholder demos',
     ],
   },
 ];
@@ -75,7 +75,7 @@ export const condensedJobs: CondensedJob[] = [
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead',
     summary:
-      'Led design for Rodio — a workforce communication platform for large retail. Within two years, partnered with a Fortune-100 (Kronos) and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.',
+      'Led design for Rodio — a workforce communication platform for big retail. Within two years, partnered with a Fortune-100 (Kronos) and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.',
   },
   {
     company: 'Timebomb',
@@ -96,12 +96,10 @@ export const condensedJobs: CondensedJob[] = [
 ];
 
 export const highlights: string[] = [
-  '20 years (since 2005) leading product design — design lead on every team I\'ve joined, from 2-person indie shops to Series B SaaS platforms',
-  'Cross-industry breadth — SaaS, AI / quantum computing, travel, retail, telemedicine, B2B auctions, gaming, entertainment, and consumer apps',
-  'Specialty: translating complex user flows into polished, intuitive web, iOS, and Android experiences',
-  'At the forefront of AI-assisted product design — prototyping full front-ends in production code with Cursor, Claude Code, and Codex',
-  'Design + front-of-front-end hybrid — long-time Tailwind expert, ships production React / Next.js / Tailwind code alongside engineering teams',
-  'Co-founded 2 startups, raised $3M from angel investors (Katy Perry, Warner Bros.), shipped a #1 Paid iPhone App that stayed top-100 for over a year',
+  '15+ years leading design on early stage product and dev teams — from indie iOS apps to Series B SaaS platforms serving millions',
+  'Years of experience translating complex user flows into polished, intuitive experiences across SaaS, AI, quantum computing, travel, retail, telemedicine, B2B auctions, gaming, and consumer apps',
+  'Long-time HTML/CSS/Tailwind expert, now at the forefront of AI-assisted product design — prototyping full front-ends in production code with Cursor, Claude Code, and Codex',
+  'Co-founded an agency and a consumer messaging app, raised $3M from angel investors, and shipped 30+ products — including a #1 Paid iPhone App',
 ];
 
 export const skills: string[] = [
