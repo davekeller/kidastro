@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FullJob } from './resumeData';
+import JobHeaderRow from './JobHeaderRow';
 
 type Props = {
   job: FullJob;
@@ -8,12 +9,7 @@ type Props = {
 const JobEntry = ({ job }: Props) => {
   return (
     <article className="mb-12">
-      <div className="flex flex-col items-baseline gap-1 sm:flex-row sm:flex-wrap sm:gap-4">
-        <h3 className="text-2xl font-bold text-white">{job.company}</h3>
-        <p className="text-sm text-white/40">
-          {job.dates} · {job.location}
-        </p>
-      </div>
+      <JobHeaderRow company={job.company} dates={job.dates} location={job.location} />
       <p className="mt-1 text-base font-semibold text-white">{job.role}</p>
       <p className="mt-3 text-base leading-relaxed text-white/85">{job.summary}</p>
       <ul className="mt-4 space-y-2">
