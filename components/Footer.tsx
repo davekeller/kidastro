@@ -78,6 +78,12 @@ const Footer = () => {
             <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">email</p>
           </a>
         </li>
+        <li className="p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
+          <a href="/resume" className="group flex flex-col items-center">
+            <Image src="/imgs/contact/resume.svg" alt="resume" width={40} height={40} className="mb-2" />
+            <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">resume</p>
+          </a>
+        </li>
       </ul>
       <h4 className="text-xs text-white/20 mt-8">© 2024 Dave Keller</h4>
       <style jsx>{`
