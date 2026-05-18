@@ -19,7 +19,7 @@ export const fullJobs: FullJob[] = [
   {
     company: 'Strangeworks',
     dates: 'Oct 2023 – Present',
-    location: 'Austin, TX',
+    location: 'Hybrid / Austin, TX',
     role: 'Director of Product · promoted from Senior Product Designer (Apr 2024)',
     summary:
       'Leading product strategy and design for a platform at the frontier of AI and quantum computing — helping teams access, run, and understand hybrid quantum-classical workloads.',
@@ -32,7 +32,7 @@ export const fullJobs: FullJob[] = [
   {
     company: 'QuotaPath',
     dates: 'Jan 2022 – Oct 2023',
-    location: 'Austin, TX',
+    location: 'Hybrid / Austin, TX',
     role: 'Senior Product UX/UI Designer',
     summary:
       'Led design across multiple product teams at this Series B SaaS platform for sales commission modeling, tracking, and analysis.',
@@ -95,8 +95,23 @@ export const condensedJobs: CondensedJob[] = [
   },
 ];
 
-export const skills =
-  'Figma · React / Next.js · Tailwind CSS · HTML / CSS / JS · iOS Design · Prototyping · Design Systems · Shape Up · Linear · Notion · GitHub';
+export const highlights: string[] = [
+  '20 years (since 2005) leading product design — design lead on every team I\'ve joined, from 2-person indie shops to Series B SaaS platforms',
+  'Cross-industry breadth — SaaS, AI / quantum computing, travel, retail, telemedicine, B2B auctions, gaming, entertainment, and consumer apps',
+  'Specialty: translating complex user flows into polished, intuitive web, iOS, and Android experiences',
+  'At the forefront of AI-assisted product design — prototyping full front-ends in production code with Cursor, Claude Code, and Codex',
+  'Design + front-of-front-end hybrid — long-time Tailwind expert, ships production React / Next.js / Tailwind code alongside engineering teams',
+  'Co-founded 2 startups, raised $3M from angel investors (Katy Perry, Warner Bros.), shipped a #1 Paid iPhone App that stayed top-100 for over a year',
+];
+
+export const skills: string[] = [
+  'AI coding — Cursor, Claude Code, Codex',
+  'Next.js / React / Tailwind CSS / TypeScript',
+  'HTML / CSS / JS — production-ready front-end',
+  'Figma (expert) — libraries, prototyping, design hand-off',
+  'Design systems — multi-platform component libraries',
+  'GitHub / Linear / Notion',
+];
 
 export const interests =
   'Guitar & drums · Soccer · Dirt & mountain biking · Traveling South America (fluent in Spanish) · Adventuring with my kids';
