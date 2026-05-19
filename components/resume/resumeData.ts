@@ -24,9 +24,9 @@ export const fullJobs: FullJob[] = [
     summary:
       'Leading strategy and design for the core platform and a suite of data-science workflow apps at the frontier of AI and quantum/HPC computing — helping Fortune 500 science teams formulate complex problems, run compute jobs, and analyze results.',
     bullets: [
-      'Promoted from Senior Product Designer to Director of Product within 6 months — taking ownership of the product roadmap and design strategy, and driving cross-functional execution',
-      'Design lead embedded with the engineering team — leading design through stand-ups, sprints, and planning meetings, while partnering with leadership and the science team to research, prototype, and execute new product ideas',
-      'Led design across a range of apps — the Strangeworks Portal for managing compute jobs, an AI-assisted data-science workflow app for formulating, running, and analyzing problems on HPC and quantum hardware, and dozens of client apps focused on large optimization problems (staff scheduling, vehicle routing, etc.)',
+      'Promoted from Senior Product Designer to Director of Product in 6 months — owning the roadmap, design strategy, and cross-functional execution',
+      'Design lead embedded with engineering through stand-ups and sprints — partnering with leadership and the science team to research, prototype, and ship new product ideas',
+      'Led design across the Strangeworks Portal for compute jobs, an AI-assisted workflow app for running data-science problems on HPC and quantum hardware, and dozens of client apps for optimization problems like staff scheduling and vehicle routing',
     ],
   },
   {
@@ -38,7 +38,7 @@ export const fullJobs: FullJob[] = [
       'Led design across multiple product teams at this Series B SaaS platform for sales commission modeling, tracking, and analysis.',
     bullets: [
       'Shaped, validated, and shipped platform features monthly — from comp modeling and onboarding flows to sandbox environments and payout workflows',
-      'Designed and launched the Compensation Hub — a top-of-funnel commission plan library and modeling tool that became a key acquisition driver and led to 1.5M+ new leads within a year',
+      'Designed and launched the Compensation Hub — a top-of-funnel commission plan library and modeling tool that drove $1.5M+ in new pipeline in a year',
       'Co-created and rolled out the Shape Up product process across 4 product and engineering teams, improving planning clarity and shipping cadence',
     ],
   },
@@ -55,7 +55,7 @@ export const fullJobs: FullJob[] = [
     ],
   },
   {
-    company: 'bnbfinder (now Savvy.com)',
+    company: 'BnbFinder (now Savvy.com)',
     dates: 'May 2019 – Feb 2021',
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead · Front-End Developer',

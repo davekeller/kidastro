@@ -2,7 +2,7 @@ import React from 'react';
 import Intro from '@/components/Intro';
 import Rodio from '@/components/Rodio';
 import Quotapath from '@/components/Quotapath';
-import Bnbfinder from '@/components/Bnbfinder';
+import BnbFinder from '@/components/Bnbfinder';
 import Rocket from '@/components/Rocket';
 import Timebomb from '@/components/Timebomb';
 import Dancefight from '@/components/Dancefight';
@@ -26,7 +26,7 @@ export default function Home() {
       <AnimatedBreak />
 
       {/* BNB */}
-      <Bnbfinder />
+      <BnbFinder />
 
       <AnimatedBreak />
 
