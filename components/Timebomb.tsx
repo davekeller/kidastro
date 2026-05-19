@@ -12,10 +12,10 @@ const Timebomb = () => {
         </div>
         <h4 className="text-(--color-1) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A conditional messaging app</h4>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          I Co-Founded and led design for this conditional messaging app (native iOS and Android) from whiteboard sketches through a 2.0 release with a team of 10.
+          Co-founded and led design for this conditional messaging app (native iOS and Android), shipping from whiteboard sketches through a 2.0 release with a team of 10.
         </p>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          The hip and user-friendly experience helped us raise two investment rounds with some big name investors and marketing partners.
+          The hip, playful experience helped us raise $3M from angel investors including Katy Perry and Warner Bros., and land marketing partnerships with Ellen DeGeneres and Warner Bros.
         </p>
       </div>
        <div className="col-span-1 md:col-span-3 lg:w-5/6 lg:ml-auto relative">

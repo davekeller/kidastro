@@ -1,7 +1,7 @@
 import React from 'react';
 import Intro from '@/components/Intro';
 import Rodio from '@/components/Rodio';
-import Quotapath from '@/components/Quotapath';
+import QuotaPath from '@/components/Quotapath';
 import BnbFinder from '@/components/Bnbfinder';
 import Rocket from '@/components/Rocket';
 import Timebomb from '@/components/Timebomb';
@@ -16,7 +16,7 @@ export default function Home() {
       <Intro />
 
       {/* QUOTAPATH */}
-      <Quotapath />
+      <QuotaPath />
 
       <AnimatedBreak />
 

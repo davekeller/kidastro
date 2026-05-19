@@ -11,10 +11,10 @@ const BnbFinder = () => {
           <h2 className="text-4xl font-bold mb-2">BnbFinder</h2>
           <h4 className="text-(--color-4) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A platform for niche travel listings (now Savvy.com)</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Led design and front-end development on this platform for multiple travel listing verticals, starting with BnbFinder. The platform included a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
+            Led design and front-end development on this multi-vertical travel listings platform, starting with BnbFinder — a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
           </p>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            We built the platform and the first travel site, from whiteboards to 8k subscribers (4k paid), with a team of 3, in under a year.
+            Built the platform and first travel site from whiteboards to 8K subscribers (4K+ paid) in under a year with a team of 3.
           </p>
         </div>
 
@@ -24,9 +24,9 @@ const BnbFinder = () => {
           <h4 className="text-xl font-semibold text-(--color-4) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Concepted, designed and wrote front-end code for this a platform (consumer, owner and admin apps) from scratch on the tech stack: Elixir &gt; React / Next.js &gt; Custom front-end Framework / Tailwind CSS</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Created and helped manage our agile development process using Jira and Trello</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Presented bi-weekly development updates to the management, sales and marketing teams</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Conceived, designed, and coded the full platform — consumer, owner, and admin apps — using Elixir, React/Next.js, and a custom Tailwind CSS framework</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Shipped fully responsive front-end apps across all three product surfaces</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Drove the agile process with Jira and Trello, presenting bi-weekly demos to management, sales, and marketing</li>
           </ul>
         </div>
       </div>
