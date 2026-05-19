@@ -4,13 +4,17 @@ import HomeLink from './resume/HomeLink';
 import SectionLabel from './resume/SectionLabel';
 import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
+import DownloadButton from './resume/DownloadButton';
 import { fullJobs, condensedJobs, highlights, skills, interests } from './resume/resumeData';
 
 const Resume = () => {
   return (
-    <main className="relative z-10 mx-auto max-w-[1100px] px-6 pt-32 pb-24">
-      <div className="fixed top-6 left-6 z-20">
+    <main className="relative z-10 mx-auto max-w-[1100px] px-6 pt-32 pb-24 print:max-w-full print:px-0 print:pt-0 print:pb-0">
+      <div className="fixed top-6 left-6 z-20 print:hidden">
         <HomeLink />
+      </div>
+      <div className="fixed top-6 right-6 z-20 print:hidden">
+        <DownloadButton />
       </div>
       <Header />
 
