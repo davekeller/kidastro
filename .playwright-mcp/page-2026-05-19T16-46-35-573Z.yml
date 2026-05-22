@@ -1,0 +1,210 @@
+- generic [active] [ref=e1]:
+  - main [ref=e13]:
+    - generic [ref=e19]:
+      - heading "so nice to meet you" [level=1] [ref=e20]
+      - paragraph [ref=e21]: Hi, I'm Dave — a designer and front-end developer with 15+ years building app experiences, from early iPhone apps to SaaS platforms serving millions.
+      - paragraph [ref=e22]: I love prototyping in code, partnering with smart people, and making complex things feel simple. Thanks for stopping by.
+      - generic [ref=e25]:
+        - generic [ref=e26]: +
+        - generic [ref=e27]: /
+        - generic [ref=e28]: ▵
+        - generic [ref=e29]: \
+        - generic [ref=e30]: +
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - heading "QuotaPath" [level=2] [ref=e35]
+          - heading "An industry-leading sales commission SaaS platform" [level=4] [ref=e36]
+          - paragraph [ref=e37]: Led design across multiple product teams at this Series B SaaS platform — shipping new platform features monthly and designing the Compensation Hub from scratch, helping sales teams explore, compare, and customize commission plans.
+        - generic [ref=e38]:
+          - heading "Lead Product Designer" [level=3] [ref=e39]
+          - heading "Highlights:" [level=4] [ref=e40]
+          - list [ref=e42]:
+            - listitem [ref=e43]: Shaped, validated, and shipped platform features monthly — from comp modeling and onboarding flows to sandbox environments and payout workflows
+            - listitem [ref=e44]: Designed and launched the Compensation Hub — a top-of-funnel commission plan library and modeling tool that drove $1.5M+ in new pipeline in a year
+            - listitem [ref=e45]: Co-created and rolled out the Shape Up product process across 4 product and engineering teams, improving planning clarity and shipping cadence
+            - listitem [ref=e46]: Partnered closely with engineering and product to ship cohesive, high-quality experiences
+      - img "quotapath example" [ref=e48]
+      - img "quotapath example" [ref=e50]
+      - img "quotapath example" [ref=e52]
+      - img "quotapath example" [ref=e54]
+      - img "quotapath example" [ref=e56]
+    - generic [ref=e58]:
+      - generic [ref=e59]: +
+      - generic [ref=e60]: /
+      - generic [ref=e61]: ▵
+      - generic [ref=e62]: \
+      - generic [ref=e63]: +
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - heading "Rodio" [level=2] [ref=e67]
+          - heading "Workforce communication for big retail" [level=4] [ref=e68]
+          - paragraph [ref=e69]: Led design from early ideas through revenue for this mid-size startup — concepting, facilitating design sprints, architecting UX flows, and shipping production-ready UI across native web, iOS, and Android.
+          - paragraph [ref=e70]: Within two years, we partnered with Kronos (a Fortune-100 workforce management company) and signed MarketSource (the staffing agency for Target and Best Buy), reaching millions of daily interactions.
+        - generic [ref=e71]:
+          - heading "Product UX/UI Design Lead" [level=3] [ref=e72]
+          - heading "Highlights:" [level=4] [ref=e73]
+          - list [ref=e75]:
+            - listitem [ref=e76]: Led design for a 20-person product team across web, iOS, and Android
+            - listitem [ref=e77]: Facilitated design sprints to define problems, brainstorm solutions, and prototype ideas
+            - listitem [ref=e78]: Built and maintained a multi-platform design system spanning master, web, iOS, and Android component libraries
+            - listitem [ref=e79]: Pitched the demo that closed our integration partnership with a Fortune-100
+      - img "rodio example" [ref=e81]
+      - generic [ref=e82]:
+        - heading "ux flows" [level=5] [ref=e84]
+        - img "rodio example" [ref=e85]
+      - generic [ref=e86]:
+        - heading "pitch decks" [level=5] [ref=e88]
+        - img "rodio example" [ref=e89]
+      - generic [ref=e90]:
+        - heading "rodio design system" [level=5] [ref=e92]
+        - img "rodio example" [ref=e93]
+      - img "rodio example" [ref=e95]
+    - generic [ref=e97]:
+      - generic [ref=e98]: +
+      - generic [ref=e99]: /
+      - generic [ref=e100]: ▵
+      - generic [ref=e101]: \
+      - generic [ref=e102]: +
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - heading "BnbFinder" [level=2] [ref=e106]
+          - heading "A platform for niche travel listings (now Savvy.com)" [level=4] [ref=e107]
+          - paragraph [ref=e108]: Led design and front-end development on this multi-vertical travel listings platform, starting with BnbFinder — a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
+          - paragraph [ref=e109]: Built the platform and first travel site from whiteboards to 8K subscribers (4K+ paid) in under a year with a team of 3.
+        - generic [ref=e110]:
+          - heading "Product UX/UI Design Lead + Front-End Dev" [level=3] [ref=e111]
+          - heading "Highlights:" [level=4] [ref=e112]
+          - list [ref=e114]:
+            - listitem [ref=e115]: Conceived, designed, and coded the full platform — consumer, owner, and admin apps — using Elixir, React/Next.js, and a custom Tailwind CSS framework
+            - listitem [ref=e116]: Shipped fully responsive front-end apps across all three product surfaces
+            - listitem [ref=e117]: Drove the agile process with Jira and Trello, presenting bi-weekly demos to management, sales, and marketing
+      - img "BnbFinder example" [ref=e119]
+      - generic [ref=e120]:
+        - heading "BnbFinder design system" [level=5] [ref=e122]
+        - img "BnbFinder example" [ref=e123]
+      - generic [ref=e124]:
+        - heading "pitch decks" [level=5] [ref=e126]
+        - img "BnbFinder example" [ref=e127]
+      - img "BnbFinder example" [ref=e129]
+    - generic [ref=e131]:
+      - generic [ref=e132]: +
+      - generic [ref=e133]: /
+      - generic [ref=e134]: ▵
+      - generic [ref=e135]: \
+      - generic [ref=e136]: +
+    - generic [ref=e137]:
+      - heading "Accomplishments" [level=2] [ref=e138]
+      - generic [ref=e139]:
+        - img "icon" [ref=e140]
+        - heading "30+ Products" [level=3] [ref=e141]
+        - paragraph [ref=e142]: Led design at an agency and multiple startups, shipping intuitive experiences across telemedicine, puzzle games, entertainment, interactive education, and travel.
+        - paragraph [ref=e143]: Along the way I've learned how successful product teams work — design sprints, prototype validation, and agile iteration.
+      - generic [ref=e144]:
+        - img "icon" [ref=e145]
+        - heading "#1 iPhone App" [level=3] [ref=e146]
+        - paragraph [ref=e147]: "Shortly after we launched the photo editing app for A Beautiful Mess (shown below), it shot to #1 in the iTunes App Store."
+        - paragraph [ref=e148]: It held a spot in the top 100 paid apps for over a year, earning millions of downloads.
+      - generic [ref=e149]:
+        - img "icon" [ref=e150]
+        - heading "Millions of Users" [level=3] [ref=e151]
+        - paragraph [ref=e152]: Concepted and designed apps that earned millions of downloads for Ellen, A Beautiful Mess, Dancefight, and more.
+        - paragraph [ref=e153]: Also built web apps that thousands of people rely on daily.
+    - generic [ref=e155]:
+      - generic [ref=e156]: +
+      - generic [ref=e157]: /
+      - generic [ref=e158]: ▵
+      - generic [ref=e159]: \
+      - generic [ref=e160]: +
+    - generic [ref=e161]:
+      - generic [ref=e162]:
+        - generic [ref=e163]:
+          - heading "Rocket" [level=2] [ref=e164]
+          - heading "A boutique digital agency" [level=4] [ref=e165]
+          - paragraph [ref=e166]: Co-founded and led design for this boutique digital agency — grown from a 2-person indie dev shop into a 20-person team over a decade. We specialized in concepting, prototyping, and building apps and websites for early-stage startups and household names.
+        - generic [ref=e167]:
+          - heading "Co-Founder + Product Designer + Front-End Developer" [level=3] [ref=e168]
+          - heading "Highlights:" [level=4] [ref=e169]
+          - list [ref=e171]:
+            - listitem [ref=e172]: Hired, managed, and grew a 20-person team across product, back-end, front-end, iOS, and Android
+            - listitem [ref=e173]: Concepted, designed, and delivered custom apps and websites across 30+ client projects
+            - listitem [ref=e174]: Managed sales, marketing, and accounts across dozens of engagements
+            - listitem [ref=e175]: "Designed and launched A Beautiful Mess — a #1 Paid iPhone App that stayed in the top 100 for over a year"
+            - listitem [ref=e176]: Designed and built a multi-million-dollar CRM/CMS platform for one of the largest US auto sales organizations
+      - img "rocket example" [ref=e178]
+      - img "rocket example" [ref=e180]
+      - generic [ref=e182]:
+        - img "client logo" [ref=e183]
+        - img "client logo" [ref=e184]
+        - img "client logo" [ref=e185]
+        - img "client logo" [ref=e186]
+        - img "client logo" [ref=e187]
+        - img "client logo" [ref=e188]
+        - img "client logo" [ref=e189]
+        - img "client logo" [ref=e190]
+        - img "client logo" [ref=e191]
+      - img "rocket example" [ref=e193]
+      - img "rocket example" [ref=e195]
+    - generic [ref=e197]:
+      - generic [ref=e198]: +
+      - generic [ref=e199]: /
+      - generic [ref=e200]: ▵
+      - generic [ref=e201]: \
+      - generic [ref=e202]: +
+    - generic [ref=e203]:
+      - generic [ref=e204]:
+        - generic [ref=e205]:
+          - heading "Timebomb" [level=2] [ref=e206]
+          - generic [ref=e207]: Lead Product Designer
+        - heading "A conditional messaging app" [level=4] [ref=e208]
+        - paragraph [ref=e209]: Co-founded and led design for this conditional messaging app (native iOS and Android), shipping from whiteboard sketches through a 2.0 release with a team of 10.
+        - paragraph [ref=e210]: The hip, playful experience helped us raise $3M from angel investors including Katy Perry and Warner Bros., and land marketing partnerships with Ellen DeGeneres and Warner Bros.
+      - img "tmb website" [ref=e212]
+      - img "timebomb website" [ref=e214]
+    - generic [ref=e216]:
+      - generic [ref=e217]: +
+      - generic [ref=e218]: /
+      - generic [ref=e219]: ▵
+      - generic [ref=e220]: \
+      - generic [ref=e221]: +
+    - generic [ref=e222]:
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - heading "Dancefight" [level=2] [ref=e225]
+          - generic [ref=e226]: Lead Product Designer
+        - heading "A social voting app" [level=4] [ref=e227]
+        - paragraph [ref=e228]: Consulted for this seed-round startup on UX flows and final UIs — onboarding and tutorials, the main feed, the voting UX, and tournament creation and brackets.
+      - img "dancefight example" [ref=e230]
+      - img "dancefight example" [ref=e232]
+    - generic [ref=e233]:
+      - heading "thanks so much" [level=1] [ref=e234]
+      - paragraph [ref=e235]:
+        - text: And if you're in the market for design help, please don't hesitate to
+        - link "hit me up!" [ref=e236] [cursor=pointer]:
+          - /url: mailto:davekeller@me.com?subject=Hey Dave!
+      - list [ref=e237]:
+        - listitem [ref=e238]:
+          - link "linkedin dkells" [ref=e239] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/dkells/
+            - img "linkedin" [ref=e240]
+            - paragraph [ref=e241]: dkells
+        - listitem [ref=e242]:
+          - link "dribbble kidastro" [ref=e243] [cursor=pointer]:
+            - /url: https://dribbble.com/kidastro
+            - img "dribbble" [ref=e244]
+            - paragraph [ref=e245]: kidastro
+        - listitem [ref=e246]:
+          - link "email email" [ref=e247] [cursor=pointer]:
+            - /url: mailto:davekeller@me.com?subject=Hey Dave!
+            - img "email" [ref=e248]
+            - paragraph [ref=e249]: email
+        - listitem [ref=e250]:
+          - link "resume resume" [ref=e251] [cursor=pointer]:
+            - /url: /resume
+            - img "resume" [ref=e252]
+            - paragraph [ref=e253]: resume
+      - heading "© 2024 Dave Keller" [level=4] [ref=e254]
+  - button "Open Next.js Dev Tools" [ref=e260] [cursor=pointer]:
+    - img [ref=e261]
