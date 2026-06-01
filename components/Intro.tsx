@@ -12,10 +12,10 @@ const Intro = () => {
           so nice to meet you
         </h1>
         <p className="mb-8 max-w-[700px] leading-loose">
-          Hi, I&apos;m Dave — a designer and front-end developer with 15+ years building app experiences, from early iPhone apps to SaaS platforms serving millions.
+          Hi, I&apos;m Dave — a product design engineer with 15+ years building app experiences, from early iPhone apps to SaaS platforms serving millions.
         </p>
         <p className="mb-8 max-w-[700px] leading-loose">
-          I love prototyping in code, partnering with smart people, and making complex things feel simple. Thanks for stopping by.
+          I love prototyping in code, partnering with smart people, and making complex things feel simple. Thanks for checking out my work.
         </p>
         <div className="-mt-32">
           <AnimatedBreak />
