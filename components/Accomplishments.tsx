@@ -12,12 +12,11 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">30+ Products</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Having led design at an agency and multiple startups, I&apos;ve created intuitive experiences from telemedicine, to puzzle games, to entertainment, to interactive education, to travel.
+          Led design at an agency and multiple startups, shipping intuitive experiences across telemedicine, puzzle games, entertainment, interactive education, and travel.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          It&apos;s taught me how successful dev teams work &mdash;
-          including design sprints, prototype validation and agile iteration.
+          Along the way I&apos;ve learned how successful product teams work &mdash; design sprints, prototype validation, and agile iteration.
         </p>
       </div>
 
@@ -25,11 +24,11 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon2.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-2)] text-2xl font-semibold mb-4">#1 iPhone App</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Shortly after launching the photo editing app we created for A Beautiful Mess (shown below), it shot to #1 in the iTunes App Store.
+          Shortly after we launched the photo editing app for A Beautiful Mess (shown below), it shot to #1 in the iTunes App Store.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          It then stayed in the top 100 Paid apps for over a year – getting millions of downloads and revenue.
+          It held a spot in the top 100 paid apps for over a year, earning millions of downloads.
         </p>
       </div>
 
@@ -37,11 +36,11 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon3.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-3)] text-2xl font-semibold mb-4">Millions of Users</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          I&apos;ve concepted and designed apps that have garnered millions of downloads for Ellen, A Beautiful Mess, Dancefight, and more.
+          Concepted and designed apps that earned millions of downloads for Ellen, A Beautiful Mess, Dancefight, and more.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          I&apos;ve also built web apps that thousands of people rely on on a daily basis.
+          Also built web apps that thousands of people rely on daily.
         </p>
       </div>
     </div>

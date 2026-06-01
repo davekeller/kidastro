@@ -29,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${bricolage.variable} antialiased`}>
-        <NorthernLights />
-        <Starfield />
-        <ColorBar />
+        <div className="site-chrome">
+          <NorthernLights />
+          <Starfield />
+          <ColorBar />
+        </div>
         {children}
       </body>
     </html>

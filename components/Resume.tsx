@@ -4,24 +4,28 @@ import HomeLink from './resume/HomeLink';
 import SectionLabel from './resume/SectionLabel';
 import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
+import DownloadButton from './resume/DownloadButton';
 import { fullJobs, condensedJobs, highlights, skills, interests } from './resume/resumeData';
 
 const Resume = () => {
   return (
-    <main className="relative z-10 mx-auto max-w-[1100px] px-6 pt-32 pb-24">
-      <div className="fixed top-6 left-6 z-20">
+    <main className="relative z-10 mx-auto max-w-[1100px] px-6 pt-32 pb-24 print:max-w-full print:px-0 print:pt-0 print:pb-0">
+      <div className="fixed top-6 left-6 z-20 print:hidden">
         <HomeLink />
+      </div>
+      <div className="fixed top-6 right-6 z-20 print:hidden">
+        <DownloadButton />
       </div>
       <Header />
 
-      <section className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3">
-        <div className="md:col-span-2">
+      <section className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
+        <div className="md:col-span-2 print:col-span-2">
           <SectionLabel>Highlights</SectionLabel>
-          <ul className="space-y-4">
+          <ul className="space-y-4 print:space-y-1">
             {highlights.map((item, i) => (
               <li
                 key={i}
-                className="relative pl-6 text-base leading-snug text-white/85 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+']"
+                className="relative pl-6 text-base leading-snug text-white/85 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
               >
                 {item}
               </li>
@@ -30,11 +34,11 @@ const Resume = () => {
         </div>
         <div>
           <SectionLabel>Skills &amp; Tools</SectionLabel>
-          <ul className="space-y-4">
+          <ul className="space-y-4 print:space-y-1">
             {skills.map((item, i) => (
               <li
                 key={i}
-                className="relative pl-6 text-base leading-snug text-white/85 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+']"
+                className="relative pl-6 text-base leading-snug text-white/85 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
               >
                 {item}
               </li>
@@ -43,7 +47,7 @@ const Resume = () => {
         </div>
       </section>
 
-      <section className="mb-16">
+      <section className="mb-16 print:mb-8">
         <SectionLabel>Experience</SectionLabel>
         {fullJobs.map((job) => (
           <JobEntry key={job.company} job={job} />
@@ -53,10 +57,10 @@ const Resume = () => {
         ))}
       </section>
 
-      <section>
+      <section className="print:mb-0">
         <SectionLabel>Interests</SectionLabel>
         <ul
-          className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3"
+          className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-1"
           style={{
             gridTemplateRows: `repeat(${Math.ceil(interests.length / 3)}, minmax(0, 1fr))`,
           }}
@@ -64,7 +68,7 @@ const Resume = () => {
           {interests.map((item, i) => (
             <li
               key={i}
-              className="relative pl-6 text-base leading-snug text-white/85 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+']"
+              className="relative pl-6 text-base leading-snug text-white/85 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
             >
               {item}
             </li>

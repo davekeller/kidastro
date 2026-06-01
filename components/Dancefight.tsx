@@ -12,7 +12,7 @@ const Dancefight = () => {
         </div>
         <h4 className="text-(--color-3) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A social voting app</h4>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          I consulted for this seed-round startup and helped with UX flows and final UIs for onboaring/tutorials, the main feed, the voting UX, tournament creation, and tournament brackets.
+          Consulted for this seed-round startup on UX flows and final UIs — onboarding and tutorials, the main feed, the voting UX, and tournament creation and brackets.
         </p>
       </div>
        <div className="col-span-1 md:col-span-3 lg:w-5/6 relative">
