@@ -10,7 +10,7 @@ import { BUNDLE_PATH, INSTAGRAM_URL, PHOTOS, SKILLS, type Photo, type Skill } fr
 type Tile = { kind: 'skill'; skill: Skill } | { kind: 'photo'; photo: Photo };
 
 // Sprinkle the photo tiles in among the skill cards.
-const PHOTO_POSITIONS = [2, 6, 10, 14];
+const PHOTO_POSITIONS = [1, 3, 6, 8, 10, 13, 15, 17, 20, 22];
 
 const buildTiles = (): Tile[] => {
   const tiles: Tile[] = SKILLS.map((skill) => ({ kind: 'skill', skill }));

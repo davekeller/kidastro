@@ -170,11 +170,18 @@ export const SKILLS: Skill[] = [
 
 export const PHOTOS: Photo[] = [
   {
-    src: '/imgs/about/about1@2x.png',
-    alt: 'Dave playing bass on stage with his band',
-    caption: 'band night',
-    width: 660,
-    height: 480,
+    src: '/imgs/ig/show.jpg',
+    alt: 'Dave playing guitar on stage with paper.fang',
+    caption: 'paper.fang live',
+    width: 1080,
+    height: 1080,
+  },
+  {
+    src: '/imgs/ig/cdmx.jpg',
+    alt: 'Selfie at a street market in Mexico City',
+    caption: 'mercado run, cdmx',
+    width: 1080,
+    height: 1080,
   },
   {
     src: '/imgs/about/about2@2x.png',
@@ -184,11 +191,46 @@ export const PHOTOS: Photo[] = [
     height: 640,
   },
   {
+    src: '/imgs/ig/moto.jpg',
+    alt: 'Riding a dirt bike up a hill country trail',
+    caption: 'i like to ride my motor bicycle',
+    width: 1080,
+    height: 1080,
+  },
+  {
+    src: '/imgs/ig/thanksgiving.jpg',
+    alt: 'Thanksgiving with 21 family members in the kitchen',
+    caption: 'thanksgiving, all 21 of us',
+    width: 1080,
+    height: 1080,
+  },
+  {
     src: '/imgs/about/about3@2x.png',
     alt: 'Kayaking on the river with the crew',
     caption: 'on the water',
     width: 660,
     height: 480,
+  },
+  {
+    src: '/imgs/ig/rally.jpg',
+    alt: 'Helmet selfie at the Hill Country 500 adventure rally',
+    caption: 'hill country 500',
+    width: 1080,
+    height: 1080,
+  },
+  {
+    src: '/imgs/ig/summer.jpg',
+    alt: 'Dave with his kids at graduation',
+    caption: 'summer dump pt. 1',
+    width: 1080,
+    height: 1080,
+  },
+  {
+    src: '/imgs/ig/grinduro.jpg',
+    alt: 'Dirt bikes and campers at sunset at Grinduro',
+    caption: 'grinduro sunset',
+    width: 1080,
+    height: 1080,
   },
   {
     src: '/imgs/dave.jpg',
