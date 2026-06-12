@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/build-skills-bundle.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "bundle:skills": "node scripts/build-skills-bundle.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
