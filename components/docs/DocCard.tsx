@@ -89,7 +89,6 @@ const DocCard = ({ card, onSelectSkill }: DocCardProps) => {
           src={embedUrl}
           className="w-full border-0"
           style={{ minHeight: 480 }}
-          allowTransparency
           loading="lazy"
         />
       </div>

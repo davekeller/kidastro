@@ -86,7 +86,9 @@ const DocDetail = ({ doc, onBack }: DocDetailProps) => {
               <strong className="text-white font-semibold">{children}</strong>
             ),
             code: ({ children, className }) => {
-              const isBlock = className?.includes('language-');
+              const isBlock =
+                className?.includes('language-') ||
+                (typeof children === 'string' && children.includes('\n'));
               if (isBlock) {
                 return (
                   <code className="block bg-white/5 rounded-lg p-4 text-sm font-mono text-[#39d5cb] overflow-x-auto mb-4 border border-white/10">
