@@ -46,7 +46,7 @@ const Footer = () => {
   }, [animate]);
 
   return (
-    <footer className="footer text-center text-white py-16 pb-32 max-w-[50%] lg:max-w-[90%] mx-auto mt-12">
+    <footer className="footer text-center text-white py-16 pb-32 max-w-[90%] mx-auto mt-12">
       <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks so much</h1>
       <p className="mb-12 text-lg text-white/90">
         And if you&apos;re in the market for design help, please don&apos;t hesitate to{' '}
@@ -56,30 +56,30 @@ const Footer = () => {
       </p>
       <ul
         ref={containerRef}
-        className="contact mt-12 flex flex-wrap justify-center border-t-2 border-white/10 py-8"
+        className="contact mt-12 grid grid-cols-4 sm:flex sm:flex-wrap sm:justify-center border-t-2 border-white/10 py-8"
         style={{
           transform: `translate(${mouseOffset.x}px, ${mouseOffset.y}px)`,
         }}
       >
-        <li className="p-4 animate-float">
+        <li className="px-1 py-4 sm:p-4 animate-float">
           <a href="https://www.linkedin.com/in/dkells/" className="group flex flex-col items-center">
             <Image src="/imgs/contact/linkedin.svg" alt="linkedin" width={40} height={40} className="mb-2" />
             <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">dkells</p>
           </a>
         </li>
-        <li className="p-4 animate-float-delayed" style={{ animationDelay: '0.15s' }}>
+        <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.15s' }}>
           <a href="https://dribbble.com/kidastro" className="group flex flex-col items-center">
             <Image src="/imgs/contact/dribbble.svg" alt="dribbble" width={40} height={40} className="mb-2" />
             <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">kidastro</p>
           </a>
         </li>
-        <li className="p-4 animate-float" style={{ animationDelay: '0.3s' }}>
+        <li className="px-1 py-4 sm:p-4 animate-float" style={{ animationDelay: '0.3s' }}>
           <a href="mailto:davekeller@me.com?subject=Hey Dave!" className="group flex flex-col items-center">
             <Image src="/imgs/contact/email.svg" alt="email" width={40} height={40} className="mb-2" />
             <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">email</p>
           </a>
         </li>
-        <li className="p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
+        <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
           <Link href="/resume" className="group flex flex-col items-center">
             <Image src="/imgs/contact/resume.svg" alt="resume" width={40} height={40} className="mb-2" />
             <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">resume</p>

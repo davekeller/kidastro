@@ -5,7 +5,7 @@ import AnimatedBreak from './AnimatedBreak';
 
 const Intro = () => {
   return (
-    <div className="relative flex flex-col items-center justify-start bg-transparent text-center -mt-8 pb-48">
+    <div className="relative flex flex-col items-center justify-start bg-transparent text-center -mt-8 pb-0 md:pb-48">
       <Icosahedron />
       <div className="intro flex flex-col items-center max-w-[700px] mx-auto px-6 z-10 -mt-32">
         <h1 className="mb-8 text-4xl md:text-7xl text-white tracking-tight font-extrabold">
