@@ -6,6 +6,11 @@ import { usePathname } from 'next/navigation';
 const PageToggle = () => {
   const pathname = usePathname();
 
+  // Folio/Docs nav intentionally hidden for now — pages stay reachable by
+  // direct URL. Flip to false to restore the toggle.
+  const hidden = true;
+  if (hidden) return null;
+
   return (
     <div className="flex justify-center w-full sticky top-4 z-40 pointer-events-none">
       <nav className="inline-flex gap-1 p-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm pointer-events-auto">
