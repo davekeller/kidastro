@@ -26,7 +26,7 @@ export const fullJobs: FullJob[] = [
       'Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.',
     bullets: [
       'Promoted to Director of Product in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code',
-      'Embedded with engineering, leadership, and the science team to prototype and ship across our compute platform, a new workflow app, docs and multiple marketing sites',
+      'Embedded with engineering, leadership, and the science team to prototype and ship across our compute platform, the Aura workflow app, docs, and multiple marketing sites',
       'Designed an AI-assisted app for data-science problem formulation and computation on HPC/quantum, plus dozens of client apps for optimization problems like staff scheduling and fleet vehicle routing',
     ],
   },
@@ -51,7 +51,7 @@ export const fullJobs: FullJob[] = [
     summary:
       'Designed and built this B2B device auction platform from idea to launch in a year, grossing $3M+ in the first beta month and $33M+ in year one.',
     bullets: [
-      'Designed and built the full product from whiteboard to launch on a 3-person dev team',
+      'Took the product from whiteboard to production launch on a 3-person dev team',
       'Designed most of it directly in code (React, Tailwind), plus the brand, marketing site, and go-to-market',
     ],
   },
@@ -63,7 +63,7 @@ export const fullJobs: FullJob[] = [
     summary:
       'Designed and built this travel listings platform to 8K subscribers (4K+ paid) in under a year on a 3-person team.',
     bullets: [
-      'Designed and built the full platform (consumer, owner, admin) on a custom Tailwind framework in Elixir and React/Next.js',
+      'Built the consumer, owner, and admin apps in Elixir and React/Next.js on a custom Tailwind framework',
       'Shipped responsive front-ends across all three surfaces, demoing to stakeholders every two weeks',
     ],
   },
@@ -91,7 +91,7 @@ export const condensedJobs: CondensedJob[] = [
       'Co-founded and designed this conditional messaging app (iOS and Android). Raised $3M from angels including Katy Perry and Warner Bros., with marketing partnerships from Ellen and Warner Bros.',
     bullets: [
       'Led a product team of 10 from concept to launch and 20K+ users',
-      'Designed the pitch that helped raise $3M from angel investors and Warner Bros.',
+      'Designed the pitch decks behind the $3M raise',
     ],
   },
   {
@@ -102,7 +102,7 @@ export const condensedJobs: CondensedJob[] = [
     summary:
       'Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, Dreamworks, and The Economist. Became an ideation and prototyping lab for Warner Bros.',
     bullets: [
-      'Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid in the App Store and held top-100 for over a year',
+      'Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year',
       'Designed and prototyped apps for 30+ clients, from Ellen and Dreamworks to early-stage startups',
     ],
   },

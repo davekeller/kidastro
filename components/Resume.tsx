@@ -23,8 +23,8 @@ const Resume = () => {
         <Header />
       </FadeUp>
 
-      <FadeUp className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
-        <div className="md:col-span-2 print:col-span-2">
+      <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
+        <FadeUp className="md:col-span-2 print:col-span-2">
           <SectionLabel>Highlights</SectionLabel>
           <ul className="space-y-4 print:space-y-1">
             {highlights.map((item, i) => (
@@ -36,8 +36,8 @@ const Resume = () => {
               </li>
             ))}
           </ul>
-        </div>
-        <div>
+        </FadeUp>
+        <FadeUp delay={0.15}>
           <SectionLabel>Skills &amp; Tools</SectionLabel>
           <ul className="space-y-4 print:space-y-1">
             {skills.map((item, i) => (
@@ -49,11 +49,13 @@ const Resume = () => {
               </li>
             ))}
           </ul>
-        </div>
-      </FadeUp>
+        </FadeUp>
+      </div>
 
       <section className="mb-16 print:mb-8">
-        <SectionLabel>Experience</SectionLabel>
+        <FadeUp>
+          <SectionLabel>Experience</SectionLabel>
+        </FadeUp>
         {fullJobs.map((job) => (
           <FadeUp key={job.company}>
             <JobEntry job={job} />
