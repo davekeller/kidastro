@@ -117,10 +117,9 @@ export const highlights: string[] = [
 
 export const skills: string[] = [
   'Expert in Figma & design systems — multi-platform component libraries, prototyping, hand-off',
-  'AI-assisted coding — Claude Code, Cursor, Codex (production front-ends, daily)',
-  'React / Next.js / Tailwind CSS / TypeScript',
-  'HTML / CSS / JS — production-ready fundamentals',
-  'GitHub / Linear / Notion',
+  'Designing in front-end (prototypes to production) with Claude Code, Cursor and Tailwind',
+  'Comfortable writing HTML / CSS / JS and working in React / Next.js / Tailwind CSS / TypeScript',
+  'Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs',
 ];
 
 export const interests: string[] = [
