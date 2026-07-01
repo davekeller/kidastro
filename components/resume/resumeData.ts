@@ -100,7 +100,7 @@ export const condensedJobs: CondensedJob[] = [
     location: 'Austin, TX',
     role: 'Co-Founder · Product Designer · Front-End Developer',
     summary:
-      'Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, Dreamworks, and The Economist.',
+      'Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, Dreamworks, and The Economist. Became an ideation and prototyping lab for Warner Bros.',
     bullets: [
       'Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid in the App Store and held top-100 for over a year',
       'Designed and prototyped apps for 30+ clients, from Ellen and Dreamworks to early-stage startups',
