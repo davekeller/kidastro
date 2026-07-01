@@ -68,8 +68,9 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
         {minimal && (
           <li className="px-1 py-4 sm:p-4 animate-float">
             <Link href="/" className="group flex flex-col items-center">
-              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="mb-2 text-[#90a4bc] transition-colors group-hover:text-[#e4416f]">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-2">
+                <circle cx="12" cy="12" r="12" fill="#e4416f" />
+                <path d="M16.5 12H8m0 0 3.5-3.5M8 12l3.5 3.5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">portfolio</p>
             </Link>
