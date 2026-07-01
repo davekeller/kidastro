@@ -15,7 +15,7 @@ const Timebomb = () => {
           I co-founded this messaging app and led design from whiteboard sketches through a 2.0 release. Native iOS and Android, team of 10.
         </p>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          The product helped us raise $3M from angels including Katy Perry and Warner Bros., and land marketing partnerships with Ellen and Warner Bros.
+          The product helped us raise $3M from angels including Katy Perry and Warner Bros., and land a marketing partnership with Ellen.
         </p>
       </div>
        <div className="col-span-1 md:col-span-3 lg:w-5/6 lg:ml-auto relative">

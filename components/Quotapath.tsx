@@ -25,8 +25,8 @@ const QuotaPath = () => {
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Shipped platform features monthly: comp modeling, onboarding, sandboxes, and payouts</li>
              <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and launched the Compensation Hub, a commission-plan library and modeling tool that drove $1.5M+ in new pipeline in a year</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Co-created and rolled out the Shape Up process across 4 product and engineering teams</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Worked in Figma component libraries so design and engineering built from the same components</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Kept design and engineering building from the same Figma component libraries</li>
           </ul>
         </div>
       </div>

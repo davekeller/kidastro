@@ -24,9 +24,9 @@ const BnbFinder = () => {
           <h4 className="text-xl font-semibold text-(--color-4) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and coded the full platform in Elixir, React/Next.js, and a custom Tailwind CSS framework</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Shipped responsive front-end across all three apps: consumer, owner, and admin</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Ran the agile process and demoed every two weeks to leadership, sales, and marketing</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Coded fully responsive front-ends for all three apps in Elixir and React/Next.js</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Iterated from launch through a 2.0 release</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Demoed every two weeks to leadership, sales, and marketing</li>
           </ul>
         </div>
       </div>

@@ -12,11 +12,11 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">40+ Products</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Led design at an agency and multiple startups, shipping across telemedicine, games, entertainment, education, and travel.
+          Led design at an agency and multiple startups, shipping across AI, data science, entertainment, travel, fintech and more.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          And across my career I&apos;ve shipped the front-end too, so I&apos;m hands-on from the first sketch to the code that ships.
+          And I&apos;ve shipped the front-end too — hands-on from first sketch to production code.
         </p>
       </div>
 
