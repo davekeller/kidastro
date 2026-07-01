@@ -6,6 +6,7 @@ import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
 import DownloadButton from './resume/DownloadButton';
 import { fullJobs, condensedJobs, highlights, skills, interests } from './resume/resumeData';
+import Footer from './Footer';
 
 const Resume = () => {
   return (
@@ -75,6 +76,10 @@ const Resume = () => {
           ))}
         </ul>
       </section>
+
+      <div className="mt-12 print:hidden">
+        <Footer minimal />
+      </div>
     </main>
   );
 };

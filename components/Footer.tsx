@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Footer = () => {
+const Footer = ({ minimal = false }: { minimal?: boolean }) => {
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLUListElement>(null);
   const targetRef = useRef({ x: 0, y: 0 });
@@ -47,13 +47,17 @@ const Footer = () => {
 
   return (
     <footer className="footer text-center text-white py-16 pb-32 max-w-[90%] mx-auto mt-12">
-      <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks so much</h1>
-      <p className="mb-12 text-lg text-white/90">
-        And if you&apos;re hiring, or just want to talk shop, please{' '}
-        <a href="mailto:davekeller@me.com?subject=Hey Dave!" className="font-bold text-[#39d5cb] hover:text-[#e4416f] transition-colors">
-          hit me up!
-        </a>
-      </p>
+      {!minimal && (
+        <>
+          <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks so much</h1>
+          <p className="mb-12 text-lg text-white/90">
+            And if you&apos;re hiring, or just want to talk shop, please{' '}
+            <a href="mailto:davekeller@me.com?subject=Hey Dave!" className="font-bold text-[#39d5cb] hover:text-[#e4416f] transition-colors">
+              hit me up!
+            </a>
+          </p>
+        </>
+      )}
       <ul
         ref={containerRef}
         className="contact mt-12 grid grid-cols-4 sm:flex sm:flex-wrap sm:justify-center border-t-2 border-white/10 py-8"
