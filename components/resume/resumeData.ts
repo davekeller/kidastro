@@ -88,7 +88,7 @@ export const condensedJobs: CondensedJob[] = [
     location: 'Austin, TX',
     role: 'Co-Founder · Product UX/UI Design Lead',
     summary:
-      'Co-founded and designed this conditional messaging app (iOS and Android). Raised $3M from angels including Katy Perry and Warner Bros., with marketing partnerships from Ellen and Warner Bros.',
+      'Co-founded and designed this conditional messaging app (iOS and Android). Raised $3M from angels including Katy Perry and Warner Bros., with a marketing partnership from Ellen.',
     bullets: [
       'Led a product team of 10 from concept to launch and 20K+ users',
       'Designed the pitch decks behind the $3M raise',
