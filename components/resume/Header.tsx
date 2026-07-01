@@ -15,13 +15,13 @@ const Header = () => {
         />
         <div>
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl print:text-3xl print:text-black">Dave Keller</h1>
-          <p className="mt-2 text-base text-white/60 print:text-sm print:text-gray-700">
+          <p className="mt-2 text-base text-white/80 print:text-sm print:text-gray-700">
             product designer / design engineer / inventor
           </p>
         </div>
       </div>
 
-      <ul className="text-sm text-white/60 sm:text-right print:text-xs print:text-black">
+      <ul className="text-sm text-white/80 sm:text-right print:text-xs print:text-black">
         <li>512.595.6213</li>
         <li>
           <a

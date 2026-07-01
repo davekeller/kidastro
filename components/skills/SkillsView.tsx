@@ -47,7 +47,7 @@ const SkillsView = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-5 max-w-xl text-lg text-white/60"
+          className="mx-auto mt-5 max-w-xl text-lg text-white/80"
         >
           The Claude Code skills I run every day, the best practices baked into
           them, and a few frames from{' '}
@@ -102,7 +102,7 @@ const SkillsView = () => {
       <footer className="mt-16 text-center">
         <Link
           href="/"
-          className="text-sm text-white/40 transition-colors hover:text-[#39d5cb]"
+          className="text-sm text-white/60 transition-colors hover:text-[#39d5cb]"
         >
           ← back to kidastro.com
         </Link>

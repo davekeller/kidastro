@@ -12,7 +12,7 @@ const Intro = () => {
           so nice to meet you
         </h1>
         <p className="mb-8 max-w-[700px] leading-loose">
-          Hi, I&apos;m Dave — a principal-level product designer and design engineer. For 15+ years I&apos;ve made hard, technical things feel simple, most recently AI and quantum platforms for Fortune 500 science teams.
+          Hi, I&apos;m Dave — a product designer and design engineer. For 15+ years I&apos;ve made hard, technical things feel simple, most recently AI and quantum platforms for Fortune 500 science teams.
         </p>
         <p className="mb-8 max-w-[700px] leading-loose">
           I don&apos;t just hand off a mockup. I design it and ship the front-end too — React, Next.js, Tailwind — now with Claude Code and Cursor in the loop. Thanks for poking around.

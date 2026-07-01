@@ -10,7 +10,7 @@ const Accomplishments = () => {
 
       <div className="achieve1 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">30+ Products</h3>
+        <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">40+ Products</h3>
         <p className="text-white/90 leading-8 max-w-md">
           Led design at an agency and multiple startups, shipping across telemedicine, games, entertainment, education, and travel.
         </p>

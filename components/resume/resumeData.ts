@@ -116,10 +116,10 @@ export const highlights: string[] = [
 ];
 
 export const skills: string[] = [
+  'Expert in Figma & design systems — multi-platform component libraries, prototyping, hand-off',
   'AI-assisted coding — Claude Code, Cursor, Codex (production front-ends, daily)',
   'React / Next.js / Tailwind CSS / TypeScript',
   'HTML / CSS / JS — production-ready fundamentals',
-  'Figma & design systems — multi-platform component libraries, prototyping, hand-off',
   'GitHub / Linear / Notion',
 ];
 

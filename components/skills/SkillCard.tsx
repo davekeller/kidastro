@@ -30,11 +30,11 @@ const SkillCard = ({ skill }: { skill: Skill }) => {
         {skill.command}
       </h2>
 
-      <p className="mt-2 text-base text-white/60">{skill.description}</p>
+      <p className="mt-2 text-base text-white/80">{skill.description}</p>
 
       <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
         {skill.practices.map((practice) => (
-          <li key={practice} className="flex gap-2.5 text-sm leading-relaxed text-white/50">
+          <li key={practice} className="flex gap-2.5 text-sm leading-relaxed text-white/70">
             <span aria-hidden className="mt-px shrink-0" style={{ color: accent }}>
               ▸
             </span>
