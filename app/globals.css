@@ -74,6 +74,12 @@ h4, h6 {
     display: none !important;
   }
 
+  /* Force scroll-animated resume sections visible in print/PDF export. */
+  .motion-print-safe {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   h2, h3 {
     break-after: avoid;
   }

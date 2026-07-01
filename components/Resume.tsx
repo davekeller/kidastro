@@ -5,6 +5,7 @@ import SectionLabel from './resume/SectionLabel';
 import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
 import DownloadButton from './resume/DownloadButton';
+import AnimatedResumeSection from './resume/AnimatedResumeSection';
 import { fullJobs, condensedJobs, highlights, skills, interests } from './resume/resumeData';
 import Footer from './Footer';
 
@@ -19,7 +20,7 @@ const Resume = () => {
       </div>
       <Header />
 
-      <section className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
+      <AnimatedResumeSection className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
         <div className="md:col-span-2 print:col-span-2">
           <SectionLabel>Highlights</SectionLabel>
           <ul className="space-y-4 print:space-y-1">
@@ -46,19 +47,23 @@ const Resume = () => {
             ))}
           </ul>
         </div>
-      </section>
+      </AnimatedResumeSection>
 
       <section className="mb-16 print:mb-8">
         <SectionLabel>Experience</SectionLabel>
         {fullJobs.map((job) => (
-          <JobEntry key={job.company} job={job} />
+          <AnimatedResumeSection key={job.company}>
+            <JobEntry job={job} />
+          </AnimatedResumeSection>
         ))}
         {condensedJobs.map((job) => (
-          <JobEntryCondensed key={job.company} job={job} />
+          <AnimatedResumeSection key={job.company}>
+            <JobEntryCondensed job={job} />
+          </AnimatedResumeSection>
         ))}
       </section>
 
-      <section className="print:mb-0">
+      <AnimatedResumeSection className="print:mb-0">
         <SectionLabel>Interests</SectionLabel>
         <ul
           className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-1"
@@ -75,7 +80,7 @@ const Resume = () => {
             </li>
           ))}
         </ul>
-      </section>
+      </AnimatedResumeSection>
 
       <div className="mt-12 print:hidden">
         <Footer minimal />
