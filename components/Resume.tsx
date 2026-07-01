@@ -5,7 +5,7 @@ import SectionLabel from './resume/SectionLabel';
 import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
 import DownloadButton from './resume/DownloadButton';
-import AnimatedResumeSection from './resume/AnimatedResumeSection';
+import FadeUp from './FadeUp';
 import { fullJobs, condensedJobs, highlights, skills, interests } from './resume/resumeData';
 import Footer from './Footer';
 
@@ -18,9 +18,12 @@ const Resume = () => {
       <div className="fixed top-6 right-6 z-20 print:hidden">
         <DownloadButton />
       </div>
-      <Header />
 
-      <AnimatedResumeSection className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
+      <FadeUp>
+        <Header />
+      </FadeUp>
+
+      <FadeUp className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
         <div className="md:col-span-2 print:col-span-2">
           <SectionLabel>Highlights</SectionLabel>
           <ul className="space-y-4 print:space-y-1">
@@ -47,23 +50,23 @@ const Resume = () => {
             ))}
           </ul>
         </div>
-      </AnimatedResumeSection>
+      </FadeUp>
 
       <section className="mb-16 print:mb-8">
         <SectionLabel>Experience</SectionLabel>
         {fullJobs.map((job) => (
-          <AnimatedResumeSection key={job.company}>
+          <FadeUp key={job.company}>
             <JobEntry job={job} />
-          </AnimatedResumeSection>
+          </FadeUp>
         ))}
         {condensedJobs.map((job) => (
-          <AnimatedResumeSection key={job.company}>
+          <FadeUp key={job.company}>
             <JobEntryCondensed job={job} />
-          </AnimatedResumeSection>
+          </FadeUp>
         ))}
       </section>
 
-      <AnimatedResumeSection className="print:mb-0">
+      <FadeUp className="print:mb-0">
         <SectionLabel>Interests</SectionLabel>
         <ul
           className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-1"
@@ -80,7 +83,7 @@ const Resume = () => {
             </li>
           ))}
         </ul>
-      </AnimatedResumeSection>
+      </FadeUp>
 
       <div className="mt-12 print:hidden">
         <Footer minimal />

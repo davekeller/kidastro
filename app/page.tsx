@@ -8,6 +8,7 @@ import Timebomb from '@/components/Timebomb';
 import Dancefight from '@/components/Dancefight';
 import AnimatedBreak from '@/components/AnimatedBreak';
 import Accomplishments from '@/components/Accomplishments';
+import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
 import PageToggle from '@/components/PageToggle';
 
@@ -34,7 +35,9 @@ export default function Home() {
 
       <AnimatedBreak />
 
-      <Accomplishments />
+      <FadeUp>
+        <Accomplishments />
+      </FadeUp>
 
       <AnimatedBreak />
 
