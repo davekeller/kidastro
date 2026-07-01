@@ -16,7 +16,7 @@ const Header = () => {
         <div>
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl print:text-3xl print:text-black">Dave Keller</h1>
           <p className="mt-2 text-base text-white/60 print:text-sm print:text-gray-700">
-            Design Engineer + Product UX/UI Designer
+            product designer / design engineer / inventor
           </p>
         </div>
       </div>

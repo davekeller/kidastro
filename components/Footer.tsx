@@ -49,7 +49,7 @@ const Footer = () => {
     <footer className="footer text-center text-white py-16 pb-32 max-w-[90%] mx-auto mt-12">
       <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks so much</h1>
       <p className="mb-12 text-lg text-white/90">
-        And if you&apos;re in the market for design help, please don&apos;t hesitate to{' '}
+        And if you&apos;re hiring, or just want to talk shop, please{' '}
         <a href="mailto:davekeller@me.com?subject=Hey Dave!" className="font-bold text-[#39d5cb] hover:text-[#e4416f] transition-colors">
           hit me up!
         </a>
@@ -86,7 +86,7 @@ const Footer = () => {
           </Link>
         </li>
       </ul>
-      <h4 className="text-xs text-white/20 mt-8">© 2024 Dave Keller</h4>
+      <h4 className="text-xs text-white/20 mt-8">© 2026 Dave Keller</h4>
       <style jsx>{`
         @keyframes float {
           0%, 100% {
