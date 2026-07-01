@@ -65,6 +65,16 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
           transform: `translate(${mouseOffset.x}px, ${mouseOffset.y}px)`,
         }}
       >
+        {minimal && (
+          <li className="px-1 py-4 sm:p-4 animate-float">
+            <Link href="/" className="group flex flex-col items-center">
+              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="mb-2 text-[#90a4bc] transition-colors group-hover:text-[#e4416f]">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">portfolio</p>
+            </Link>
+          </li>
+        )}
         <li className="px-1 py-4 sm:p-4 animate-float">
           <a href="https://www.linkedin.com/in/dkells/" className="group flex flex-col items-center">
             <Image src="/imgs/contact/linkedin.svg" alt="linkedin" width={40} height={40} className="mb-2" />
@@ -74,7 +84,7 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
         <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.15s' }}>
           <a href="https://dribbble.com/kidastro" className="group flex flex-col items-center">
             <Image src="/imgs/contact/dribbble.svg" alt="dribbble" width={40} height={40} className="mb-2" />
-            <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">kidastro</p>
+            <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">dribbble</p>
           </a>
         </li>
         <li className="px-1 py-4 sm:p-4 animate-float" style={{ animationDelay: '0.3s' }}>
@@ -83,12 +93,14 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
             <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">email</p>
           </a>
         </li>
-        <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
-          <Link href="/resume" className="group flex flex-col items-center">
-            <Image src="/imgs/contact/resume.svg" alt="resume" width={40} height={40} className="mb-2" />
-            <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">resume</p>
-          </Link>
-        </li>
+        {!minimal && (
+          <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
+            <Link href="/resume" className="group flex flex-col items-center">
+              <Image src="/imgs/contact/resume.svg" alt="resume" width={40} height={40} className="mb-2" />
+              <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">resume</p>
+            </Link>
+          </li>
+        )}
       </ul>
       <h4 className="text-xs text-white/20 mt-8">© 2026 Dave Keller</h4>
       <style jsx>{`
