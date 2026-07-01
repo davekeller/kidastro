@@ -20,14 +20,14 @@ export const fullJobs: FullJob[] = [
   {
     company: 'Strangeworks',
     dates: 'Oct 2023 – Present',
-    location: 'Hybrid / Austin, TX',
+    location: 'Remote / Austin, TX',
     role: 'Director of Product · promoted from Senior Product Designer (Apr 2024)',
     summary:
-      'Lead product strategy and design for the core platform and a suite of AI and quantum/HPC data-science apps, helping Fortune 500 science teams run complex compute jobs and read the results.',
+      'Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.',
     bullets: [
-      'Promoted to Director of Product in 6 months, owning the roadmap and design strategy',
-      'Embedded with engineering, leadership, and the science team to prototype and ship',
-      'Designed the AI-assisted Portal for HPC/quantum data-science, plus dozens of client apps for optimization problems like scheduling and routing',
+      'Promoted to Director of Product in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code',
+      'Embedded with engineering, leadership, and the science team to prototype and ship across our compute platform, a new workflow app, docs and multiple marketing sites',
+      'Designed an AI-assisted app for data-science problem formulation and computation on HPC/quantum, plus dozens of client apps for optimization problems like staff scheduling and fleet vehicle routing',
     ],
   },
   {
