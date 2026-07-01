@@ -1,6 +1,6 @@
 # kidastro.com — copy voice & positioning
 
-The reference for all copy on the site (folio, resume, hidden pages). When writing or editing copy, match this.
+The reference for all copy on the site (folio, resume, hidden pages). When writing or editing copy, match this. Keep it current — when the site copy changes, update the reference examples below.
 
 ## Positioning
 
@@ -44,6 +44,13 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 > - Strategic product thinker, Figma expert, and front-end dev (HTML/CSS, Tailwind, Claude Code). Experienced in validating ideas with design sprints, prototyping end-to-end flows, and refining production UIs in code
 > - Fluent in agile/sprint workflows and in building process for product teams. Helped create a 'Shape Up' process that organized a ~45-developer company into four product teams, building cross-functionally and shipping consistently on a staggered cadence
 > - Shipped 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one. Co-founded a 20-person agency and a messaging app that raised $3M
+
+**Resume skills & tools**
+
+> - Expert in Figma & design systems — multi-platform component libraries, prototyping, hand-off
+> - Designing in front-end (prototypes to production) with Claude Code, Cursor and Tailwind
+> - Comfortable writing HTML / CSS / JS and working in React / Next.js / Tailwind CSS / TypeScript
+> - Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs
 
 ## Where copy lives
 
