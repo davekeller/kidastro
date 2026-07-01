@@ -40,7 +40,7 @@ export const fullJobs: FullJob[] = [
     bullets: [
       'Shipped platform features monthly, from comp modeling and onboarding to sandbox and payout workflows',
       'Designed and launched the Compensation Hub, a commission library and modeling tool that drove $1.5M+ in new pipeline in a year',
-      'Rolled out the Shape Up process across 4 product and engineering teams',
+      'Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it',
     ],
   },
   {
@@ -51,8 +51,8 @@ export const fullJobs: FullJob[] = [
     summary:
       'Designed and built this B2B device auction platform from idea to launch in a year, grossing $3M+ in the first beta month and $33M+ in year one.',
     bullets: [
-      'Designed and developed the full product from whiteboard to production launch',
-      'Built the front-end in React and Tailwind, and designed the brand, marketing site, and go-to-market materials',
+      'Designed and built the full product from whiteboard to launch on a 3-person dev team',
+      'Designed most of it directly in code (React, Tailwind), plus the brand, marketing site, and go-to-market',
     ],
   },
   {
