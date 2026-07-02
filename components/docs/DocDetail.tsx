@@ -22,7 +22,7 @@ const DocDetail = ({ doc, onBack }: DocDetailProps) => {
       {/* Breadcrumb */}
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors mb-6 cursor-pointer"
+        className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white/80 transition-colors mb-6 cursor-pointer"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -53,7 +53,7 @@ const DocDetail = ({ doc, onBack }: DocDetailProps) => {
             Claude Skill
           </div>
           <h1 className="text-3xl font-bold text-white">{doc.title}</h1>
-          <p className="text-white/60 mt-1 !text-base">{doc.subtitle}</p>
+          <p className="text-white/80 mt-1 !text-base">{doc.subtitle}</p>
         </div>
       </div>
 
@@ -71,16 +71,16 @@ const DocDetail = ({ doc, onBack }: DocDetailProps) => {
               <h3 className="text-lg font-semibold text-white/90 mb-2 mt-6">{children}</h3>
             ),
             p: ({ children }) => (
-              <p className="text-white/60 mb-4 leading-relaxed !text-base">{children}</p>
+              <p className="text-white/80 mb-4 leading-relaxed !text-base">{children}</p>
             ),
             ul: ({ children }) => (
-              <ul className="list-disc list-inside space-y-2 mb-4 text-white/60">{children}</ul>
+              <ul className="list-disc list-inside space-y-2 mb-4 text-white/80">{children}</ul>
             ),
             ol: ({ children }) => (
-              <ol className="list-decimal list-inside space-y-2 mb-4 text-white/60">{children}</ol>
+              <ol className="list-decimal list-inside space-y-2 mb-4 text-white/80">{children}</ol>
             ),
             li: ({ children }) => (
-              <li className="text-white/60 text-base">{children}</li>
+              <li className="text-white/80 text-base">{children}</li>
             ),
             strong: ({ children }) => (
               <strong className="text-white font-semibold">{children}</strong>
@@ -109,7 +109,7 @@ const DocDetail = ({ doc, onBack }: DocDetailProps) => {
               <hr className="border-white/10 my-8" />
             ),
             blockquote: ({ children }) => (
-              <blockquote className="border-l-2 border-white/20 pl-4 italic text-white/50 mb-4">
+              <blockquote className="border-l-2 border-white/20 pl-4 italic text-white/70 mb-4">
                 {children}
               </blockquote>
             ),
@@ -122,7 +122,7 @@ const DocDetail = ({ doc, onBack }: DocDetailProps) => {
       {/* Back button */}
       <button
         onClick={onBack}
-        className="mt-8 mb-16 inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors cursor-pointer"
+        className="mt-8 mb-16 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white/80 transition-colors cursor-pointer"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

@@ -9,12 +9,12 @@ const BnbFinder = () => {
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
           <h2 className="text-4xl font-bold mb-2">BnbFinder</h2>
-          <h4 className="text-(--color-4) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A platform for niche travel listings (now Savvy.com)</h4>
+          <h4 className="text-(--color-4) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A niche travel-listings platform (now Savvy.com)</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Led design and front-end development on this multi-vertical travel listings platform, starting with BnbFinder — a consumer app for travelers, a member app for property owners, and a back-office app for administrators.
+            Designed and coded this travel-listings platform end to end: a consumer app for travelers, a member app for property owners, and an admin app behind both. Built it on a design system and custom Tailwind CSS framework of my own.
           </p>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Built the platform and first travel site from whiteboards to 8K subscribers (4K+ paid) in under a year with a team of 3.
+            Whiteboards to 8K subscribers, 4K+ paid, in under a year on a team of 3.
           </p>
         </div>
 
@@ -24,9 +24,9 @@ const BnbFinder = () => {
           <h4 className="text-xl font-semibold text-(--color-4) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Conceived, designed, and coded the full platform — consumer, owner, and admin apps — using Elixir, React/Next.js, and a custom Tailwind CSS framework</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Shipped fully responsive front-end apps across all three product surfaces</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Drove the agile process with Jira and Trello, presenting bi-weekly demos to management, sales, and marketing</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Coded fully responsive front-ends for all three apps in Elixir and React/Next.js</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Iterated from launch through a 2.0 release</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-4) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Demoed every two weeks to leadership, sales, and marketing</li>
           </ul>
         </div>
       </div>

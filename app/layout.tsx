@@ -17,8 +17,8 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Dave Keller - Product Designer",
-  description: "Portfolio of Dave Keller, a product designer with 15+ years of experience",
+  title: "Dave Keller — Product Designer & Design Engineer",
+  description: "Dave Keller — product designer / design engineer. 15+ years designing and shipping front-ends for hard, technical AI and data products.",
 };
 
 export default function RootLayout({

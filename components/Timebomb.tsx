@@ -8,14 +8,14 @@ const Timebomb = () => {
       <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-12">
         <div className="flex items-start justify-between mb-2">
           <h2 className="text-4xl font-bold">Timebomb</h2>
-          <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          <span className="text-sm text-white/70 mt-2">Co-Founder + Lead Product Designer</span>
         </div>
         <h4 className="text-(--color-1) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A conditional messaging app</h4>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          Co-founded and led design for this conditional messaging app (native iOS and Android), shipping from whiteboard sketches through a 2.0 release with a team of 10.
+          I co-founded this messaging app and led design from whiteboard sketches through a 2.0 release. Native iOS and Android, team of 10.
         </p>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          The hip, playful experience helped us raise $3M from angel investors including Katy Perry and Warner Bros., and land marketing partnerships with Ellen DeGeneres and Warner Bros.
+          The product helped us raise $3M from angels including Katy Perry and Warner Bros., and land a marketing partnership with Ellen.
         </p>
       </div>
        <div className="col-span-1 md:col-span-3 lg:w-5/6 lg:ml-auto relative">

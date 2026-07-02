@@ -19,7 +19,7 @@ const PageToggle = () => {
           className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             pathname === '/'
               ? 'bg-white/15 text-white'
-              : 'text-white/50 hover:text-white/80'
+              : 'text-white/70 hover:text-white/80'
           }`}
         >
           Folio
@@ -29,7 +29,7 @@ const PageToggle = () => {
           className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             pathname === '/dk-docs'
               ? 'bg-white/15 text-white'
-              : 'text-white/50 hover:text-white/80'
+              : 'text-white/70 hover:text-white/80'
           }`}
         >
           Docs
