@@ -8,16 +8,16 @@ const Intro = () => {
   return (
     <div className="relative flex flex-col items-center justify-start bg-transparent text-center -mt-8 pb-0 md:pb-48">
       <Icosahedron />
-      <div className="intro flex flex-col items-center max-w-[700px] mx-auto px-6 z-10 -mt-32">
+      <div className="intro flex flex-col items-center max-w-[850px] mx-auto px-6 z-10 -mt-32">
         <FadeUp className="flex flex-col items-center">
         <h1 className="mb-8 text-4xl md:text-7xl text-white tracking-tight font-extrabold">
           so nice to meet you
         </h1>
-        <p className="mb-8 max-w-[700px] leading-loose">
-          Hi, I&apos;m Dave — a product designer and design engineer. For 15+ years I&apos;ve made hard, technical things feel simple, most recently AI and quantum platforms for Fortune 500 science teams.
+        <p className="mb-8 max-w-[800px] text-balance leading-loose">
+          Hi, I&apos;m Dave — a strategic product thinker, Figma expert, and front-end dev (CSS, Tailwind), and I&apos;ve been leading design at early-stage startups for over a decade.
         </p>
-        <p className="mb-8 max-w-[700px] leading-loose">
-          I don&apos;t just hand off a mockup. I design it and ship the front-end too — React, Next.js, Tailwind — now with Claude Code and Cursor in the loop. Thanks for poking around.
+        <p className="mb-8 max-w-[800px] text-balance leading-loose">
+          A lifelong maker, I channel that energy into solving problems with refined user experiences. I love prototyping in code, building design systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
         </p>
         </FadeUp>
         <div className="-mt-32">
