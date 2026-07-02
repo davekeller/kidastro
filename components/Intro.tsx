@@ -17,7 +17,7 @@ const Intro = () => {
           Hi, I&apos;m Dave — a strategic product thinker, Figma expert, and front-end dev (CSS, Tailwind), and I&apos;ve been leading design at early-stage startups for over a decade.
         </p>
         <p className="mb-8 max-w-[800px] text-balance leading-loose">
-          A lifelong maker, I channel that energy into solving problems with refined user experiences. I love prototyping in code, building design systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
+          As a lifelong maker and artist, I&apos;ve learned to channel that energy into user experiences that people love. I enjoy prototyping in code, building design systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
         </p>
         </FadeUp>
         <div className="-mt-32">
