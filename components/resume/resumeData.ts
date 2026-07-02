@@ -36,7 +36,7 @@ export const fullJobs: FullJob[] = [
     location: 'Hybrid / Austin, TX',
     role: 'Senior Product UX/UI Designer',
     summary:
-      'Led design across multiple product teams at this Series B SaaS platform for sales commission tracking and analysis.',
+      'Led design across multiple product teams at this Series B SaaS platform for sales commission planning and tracking.',
     bullets: [
       'Shipped platform features monthly, from comp modeling and onboarding to sandbox and payout workflows',
       'Designed and launched the Compensation Hub, a commission library and modeling tool that drove $1.5M+ in new pipeline in a year',
