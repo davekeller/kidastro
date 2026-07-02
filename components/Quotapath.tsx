@@ -11,7 +11,7 @@ const QuotaPath = () => {
           <div className="flex items-start justify-between mb-2">
             <h2 className="text-4xl font-bold">QuotaPath</h2>
           </div>
-          <h4 className="text-(--color-2) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A Series B SaaS platform for sales commissions</h4>
+          <h4 className="text-(--color-2) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A Series B SaaS platform for sales commission planning, tracking, and analysis</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             Commission plans are a tangle of rates, tiers, and edge cases. I designed across teams to make that math clear, shipping features monthly and building the Compensation Hub from scratch so sales teams could explore, compare, and model plans.
           </p>
