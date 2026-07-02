@@ -20,7 +20,7 @@ const BnbFinder = () => {
 
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl flex flex-col items-start">
-          <h3 className="text-2xl font-bold my-2">Product UX/UI Design Lead + Front-End Dev</h3>
+          <h3 className="text-2xl font-bold my-2">Product UX/UI Design Lead + Front-End Developer</h3>
           <h4 className="text-xl font-semibold text-(--color-4) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
@@ -37,7 +37,7 @@ const BnbFinder = () => {
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3 relative lg:rounded-r-md overflow-hidden">
           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
-            <h5 className="text-black font-bold text-xl">BnbFinder design system</h5>
+            <h5 className="text-black font-bold text-xl">bnbfinder design system</h5>
           </div>
          <Image src="/imgs/bnb/bnb3.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>

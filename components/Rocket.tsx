@@ -11,7 +11,7 @@ const Rocket = () => {
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
           <h4 className="text-(--color-5) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            I co-founded this agency and led design as we grew from two people to twenty over a decade. We designed and built apps and sites for startups and names like Ellen, Dreamworks, and The Economist — and became an ideation and prototyping lab for Warner Bros.
+            I co-founded this agency and led design as we grew from two people to twenty over a decade. We designed and built apps and sites for startups and names like Ellen, DreamWorks, and The Economist — and became an ideation and prototyping lab for Warner Bros.
           </p>
         </div>
 

@@ -28,7 +28,7 @@ const Accomplishments = () => {
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          It held the top 100 paid apps for over a year and earned millions of downloads.
+          It stayed in the top 100 paid apps for over a year and earned millions of downloads.
         </p>
       </div>
 
@@ -36,7 +36,7 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon3.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-3)] text-2xl font-semibold mb-4">Millions of Users</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Designed apps that reached millions of downloads for Ellen, A Beautiful Mess, Dancefight, and more.
+          Designed apps that reached millions of downloads for Ellen, A Beautiful Mess, Dancefight and more.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
