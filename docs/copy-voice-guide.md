@@ -34,7 +34,7 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 >
 > Hi, I'm Dave — a strategic product thinker, Figma expert, and front-end dev (CSS, Tailwind), and I've been leading design at early-stage startups for over a decade.
 >
-> As a lifelong maker and artist, I've learned to channel that energy into user experiences that people love. I enjoy prototyping in code, building design systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
+> As a lifelong maker and artist, I've learned to channel that creative energy into app experiences that people love. I enjoy prototyping in code, building design systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
 
 **Resume tagline:** product designer / design engineer / inventor
 
