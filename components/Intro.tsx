@@ -14,7 +14,7 @@ const Intro = () => {
           so nice to meet you
         </h1>
         <p className="mb-8 max-w-[800px] text-balance leading-loose">
-          Hi, I&apos;m Dave — a strategic product thinker, Figma expert, and front-end dev (CSS, Tailwind). In 10+ years of leading design at early-stage startups, I&apos;ve developed a superpower: the ability to refine complex workflows into polished app experiences.
+          Hi, I&apos;m Dave — a strategic product thinker, Figma expert, and front-end dev (CSS, Tailwind). In 10+ years of leading design at early-stage startups, I&apos;ve developed a superpower: crafting complex workflows into polished app experiences.
         </p>
         <p className="mb-8 max-w-[800px] text-balance leading-loose">
           I enjoy the creative process, prototyping in code, architecting design systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
