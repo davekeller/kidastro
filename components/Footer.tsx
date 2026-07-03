@@ -49,9 +49,9 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
     <footer className="footer text-center text-white py-16 pb-32 max-w-[90%] mx-auto mt-12">
       {!minimal && (
         <>
-          <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks so much</h1>
+          <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks for stopping by</h1>
           <p className="mb-12 text-lg text-white/90">
-            And if you&apos;re hiring, or just want to talk shop, please{' '}
+            And if you&apos;re looking for design help, please{' '}
             <a href="mailto:davekeller@me.com?subject=Hey Dave!" className="font-bold text-[#39d5cb] hover:text-[#e4416f] transition-colors">
               hit me up!
             </a>
@@ -97,7 +97,10 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
         {!minimal && (
           <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
             <Link href="/resume" className="group flex flex-col items-center">
-              <Image src="/imgs/contact/resume.svg" alt="resume" width={40} height={40} className="mb-2" />
+              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-2">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="#e4416f" strokeWidth="2" />
+                <path d="M7.5 12H16m0 0-3.5-3.5M16 12l-3.5 3.5" fill="none" stroke="#e4416f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
               <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">resume</p>
             </Link>
           </li>
