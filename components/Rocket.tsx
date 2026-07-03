@@ -11,7 +11,7 @@ const Rocket = () => {
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
           <h4 className="text-(--color-5) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Co-founded and led design for this boutique digital agency — grown from a 2-person indie dev shop into a 20-person team over a decade. We specialized in concepting, prototyping, and building apps and websites for early-stage startups and household names.
+            I co-founded this agency and led design as we grew from two people to twenty over a decade. We designed and built apps and sites for startups and names like Ellen, DreamWorks, and The Economist — and became an ideation and prototyping lab for Warner Bros.
           </p>
         </div>
 
@@ -21,11 +21,11 @@ const Rocket = () => {
           <h4 className="text-xl font-semibold text-(--color-5) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Hired, managed, and grew a 20-person team across product, back-end, front-end, iOS, and Android</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Concepted, designed, and delivered custom apps and websites across 30+ client projects</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Managed sales, marketing, and accounts across dozens of engagements</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and launched A Beautiful Mess — a #1 Paid iPhone App that stayed in the top 100 for over a year</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and built a multi-million-dollar CRM/CMS platform for one of the largest US auto sales organizations</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Hired and led a 20-person team across product, back-end, front-end, iOS, and Android</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and shipped custom apps and websites across 30+ client projects</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Ran sales, marketing, and accounts across dozens of engagements</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and built A Beautiful Mess, the photo editor that hit #1 Paid on the App Store</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and built a multi-million-dollar CRM/CMS for one of the largest US auto-sales organizations</li>
           </ul>
         </div>
       </div>

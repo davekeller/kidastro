@@ -8,11 +8,11 @@ const Dancefight = () => {
       <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl max-w-3xl mx-auto mb-12">
         <div className="flex items-start justify-between mb-2">
           <h2 className="text-4xl font-bold">Dancefight</h2>
-          <span className="text-sm text-white/50 mt-2">Lead Product Designer</span>
+          <span className="text-sm text-white/70 mt-2">Product Design Consultant</span>
         </div>
         <h4 className="text-(--color-3) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A social voting app</h4>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          Consulted for this seed-round startup on UX flows and final UIs — onboarding and tutorials, the main feed, the voting UX, and tournament creation and brackets.
+          I designed the core UX and final UIs for this seed-stage startup: onboarding, the main feed, the voting flow, and tournament brackets.
         </p>
       </div>
        <div className="col-span-1 md:col-span-3 lg:w-5/6 relative">

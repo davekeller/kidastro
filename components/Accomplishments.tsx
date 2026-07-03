@@ -10,13 +10,13 @@ const Accomplishments = () => {
 
       <div className="achieve1 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">30+ Products</h3>
+        <h3 className="text-[var(--color-1)] text-2xl font-semibold mb-4">40+ Products</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Led design at an agency and multiple startups, shipping intuitive experiences across telemedicine, puzzle games, entertainment, interactive education, and travel.
+          Led design at an agency and multiple startups, shipping across AI, data science, entertainment, travel, fintech and more.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          Along the way I&apos;ve learned how successful product teams work &mdash; design sprints, prototype validation, and agile iteration.
+          And I&apos;ve shipped the front-end too — hands-on from first sketch to production code.
         </p>
       </div>
 
@@ -24,11 +24,11 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon2.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-2)] text-2xl font-semibold mb-4">#1 iPhone App</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Shortly after we launched the photo editing app for A Beautiful Mess (shown below), it shot to #1 in the iTunes App Store.
+          At Rocket I designed A Beautiful Mess, a photo editor that shot to #1 Paid on the App Store right after launch (shown below).
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          It held a spot in the top 100 paid apps for over a year, earning millions of downloads.
+          It stayed in the top 100 paid apps for over a year and earned millions of downloads.
         </p>
       </div>
 
@@ -36,11 +36,11 @@ const Accomplishments = () => {
         <Image src="/imgs/accomplishments/icon3.svg" alt="icon" width={80} height={80} className="mb-4" />
         <h3 className="text-[var(--color-3)] text-2xl font-semibold mb-4">Millions of Users</h3>
         <p className="text-white/90 leading-8 max-w-md">
-          Concepted and designed apps that earned millions of downloads for Ellen, A Beautiful Mess, Dancefight, and more.
+          Designed apps that reached millions of downloads for Ellen, A Beautiful Mess, Dancefight and more.
         </p>
         <br/>
         <p className="text-white/90 leading-8 max-w-md">
-          Also built web apps that thousands of people rely on daily.
+          And built web apps that thousands of people rely on every day.
         </p>
       </div>
     </div>

@@ -20,14 +20,14 @@ export const fullJobs: FullJob[] = [
   {
     company: 'Strangeworks',
     dates: 'Oct 2023 – Present',
-    location: 'Hybrid / Austin, TX',
-    role: 'Director of Product · promoted from Senior Product Designer (Apr 2024)',
+    location: 'Remote / Austin, TX',
+    role: 'Design Engineer / Director of Product · promoted from Senior Product Designer (Apr 2024)',
     summary:
-      'Leading product strategy and design for the core platform and a suite of data-science workflow apps at the frontier of AI and quantum/HPC computing — helping Fortune 500 science teams run complex compute jobs and analyze results.',
+      'Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.',
     bullets: [
-      'Promoted to Director of Product in 6 months — owning the roadmap, design strategy, and cross-functional execution',
-      'Embedded design lead partnering with engineering, leadership, and the science team to research, prototype, and ship',
-      'Led design across the Strangeworks Portal, an AI-assisted workflow app for HPC/quantum data-science, and dozens of client apps for optimization problems like scheduling and routing',
+      'Promoted to Director of Product in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code',
+      'Embedded with engineering, leadership, and the science team to prototype and ship across our compute platform, the Aura workflow app, docs, and multiple marketing sites',
+      'Designed an AI-assisted app for data-science problem formulation and computation on HPC/quantum, plus dozens of client apps for optimization problems like staff scheduling and fleet vehicle routing',
     ],
   },
   {
@@ -36,11 +36,11 @@ export const fullJobs: FullJob[] = [
     location: 'Hybrid / Austin, TX',
     role: 'Senior Product UX/UI Designer',
     summary:
-      'Led design across multiple product teams at this Series B SaaS platform for sales commission tracking and analysis.',
+      'Led design across multiple product teams at this Series B SaaS platform for sales commission planning and tracking.',
     bullets: [
-      'Shipped platform features monthly — from comp modeling and onboarding flows to sandbox environments and payout workflows',
-      'Designed and launched the Compensation Hub — a top-of-funnel commission library and modeling tool that drove $1.5M+ in new pipeline in a year',
-      'Co-created and rolled out the Shape Up process across 4 product and engineering teams, improving planning clarity and shipping cadence',
+      'Shipped platform features monthly, from comp modeling and onboarding to sandbox and payout workflows',
+      'Designed and launched the Compensation Hub, a commission library and modeling tool that drove $1.5M+ in new pipeline in a year',
+      'Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it',
     ],
   },
   {
@@ -49,10 +49,10 @@ export const fullJobs: FullJob[] = [
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead · Front-End Developer',
     summary:
-      'Built this B2B device auction platform from idea to launch in a year — grossing $3M+ in the first beta month and $33M+ in year one.',
+      'Designed and built this B2B device auction platform from idea to launch in a year, grossing $3M+ in the first beta month and $33M+ in year one.',
     bullets: [
-      'Architected, designed, and developed the full product from whiteboard to production launch',
-      'Built the front-end in React + Tailwind CSS, and designed the branding, marketing site, and go-to-market materials',
+      'Took the product from whiteboard to production launch on a 3-person dev team',
+      'Designed most of it directly in code (React, Tailwind), plus the brand, marketing site, and go-to-market',
     ],
   },
   {
@@ -61,10 +61,10 @@ export const fullJobs: FullJob[] = [
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead · Front-End Developer',
     summary:
-      'Built this niche travel listings platform from idea to 8K subscribers (4K+ paid) in under a year on a 3-person team.',
+      'Designed and built this travel listings platform to 8K subscribers (4K+ paid) in under a year on a 3-person team.',
     bullets: [
-      'Designed and built the full platform — consumer, owner, and admin apps — in Elixir, React/Next.js, and a custom Tailwind CSS framework',
-      'Shipped responsive front-ends across all three product surfaces and drove the agile process with bi-weekly stakeholder demos',
+      'Built the consumer, owner, and admin apps in Elixir and React/Next.js on a custom Tailwind framework',
+      'Shipped responsive front-ends across all three surfaces, demoing to stakeholders every two weeks',
     ],
   },
 ];
@@ -76,10 +76,10 @@ export const condensedJobs: CondensedJob[] = [
     location: 'Austin, TX',
     role: 'Product UX/UI Design Lead',
     summary:
-      'Led design for Rodio — a workforce communication platform for retail. Partnered with a Fortune-100 (Kronos) and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.',
+      'Designed Rodio, a retail workforce communication platform. Partnered with Fortune-100 Kronos and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.',
     bullets: [
-      'Led a team of 20 to build Rodio (web, iOS and Android) from early ideas through 20K+ paid users',
-      'Designed and pitched a demo that solidified partnership contracts with Kronos and Form.com, and ultimately led to acquisition',
+      'Built Rodio\'s multi-platform design system (master, web, iOS, Android) and led a team of 20 to 20K+ paid users',
+      'Designed and pitched the demo that closed the Kronos and Form.com contracts and led to acquisition',
     ],
   },
   {
@@ -88,10 +88,10 @@ export const condensedJobs: CondensedJob[] = [
     location: 'Austin, TX',
     role: 'Co-Founder · Product UX/UI Design Lead',
     summary:
-      'Co-founded and led design for this conditional messaging app (iOS and Android) — raised $3M from angel investors including Katy Perry and Warner Bros., and landed marketing partnerships with Ellen and Warner Bros.',
+      'Co-founded and designed this conditional messaging app (iOS and Android). Raised $3M from angels including Katy Perry and Warner Bros., with a marketing partnership from Ellen.',
     bullets: [
-      'Led a cross-platform product team of 10 from concept through launch — growing to 20K+ users',
-      'Crafted pitch decks that helped raise $3M from angel investors, including celebrities and Warner Bros.',
+      'Led a product team of 10 from concept to launch and 20K+ users',
+      'Designed the pitch decks behind the $3M raise',
     ],
   },
   {
@@ -100,32 +100,31 @@ export const condensedJobs: CondensedJob[] = [
     location: 'Austin, TX',
     role: 'Co-Founder · Product Designer · Front-End Developer',
     summary:
-      'Co-founded and grew this agency to 20 employees across 30+ projects — including a #1 Paid iPhone App and work for Ellen, Need for Speed, Dreamworks, and The Economist.',
+      'Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.',
     bullets: [
-      'Pitched, designed, and shipped apps for 30+ clients — including a photo editor for A Beautiful Mess that hit #1 Paid in the iTunes Store and held top-100 for over a year',
-      'Designed concepts and prototypes for Ellen, Need for Speed, Dreamworks, The Economist, and many early-stage startups',
+      'Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year',
+      'Designed and prototyped apps for 30+ clients, from Ellen and DreamWorks to early-stage startups',
     ],
   },
 ];
 
 export const highlights: string[] = [
-  '15+ years leading design on early-stage product teams — from indie iOS apps to Series B SaaS platforms serving millions',
-  'Translating complex user flows into polished, intuitive experiences across SaaS, AI, quantum computing, travel, retail, B2B auctions, and consumer apps',
-  'Long-time HTML/CSS/Tailwind dev, now at the forefront of AI-assisted design — shipping production front-ends with Cursor, Claude Code, and Codex',
-  'Co-founded an agency and a messaging app, raised $3M, and shipped 40+ products — including a #1 Paid iPhone App and multiple front-to-back platforms',
+  '15+ years leading design on dev/product teams at early-seed startups, often 0 to 1, with experience across industries — AI, data science, entertainment, messaging, ecommerce, fintech and more',
+  'Strategic product thinker, Figma expert, and front-end dev (HTML/CSS, Tailwind, Claude Code). Experienced in validating ideas with design sprints, prototyping end-to-end flows, and refining production UIs in code',
+  'Fluent in agile/sprint workflows and in building process for product teams. Helped create a \'Shape Up\' process that organized a ~45-developer company into four product teams, building cross-functionally and shipping consistently on a staggered cadence',
+  'Shipped 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one. Co-founded a 20-person agency and a messaging app that raised $3M',
 ];
 
 export const skills: string[] = [
-  'AI coding — Cursor, Claude Code, Codex',
-  'Next.js / React / Tailwind CSS / TypeScript',
-  'HTML / CSS / JS — production-ready front-end',
-  'Figma & design systems — multi-platform component libraries, prototyping, design hand-off',
-  'GitHub / Linear / Notion',
+  'Expert in Figma & design systems — multi-platform component libraries, prototyping, hand-off',
+  'Designing in front-end (prototypes to production) with Claude Code, Cursor and Tailwind',
+  'Comfortable writing HTML / CSS / JS and working in React / Next.js / Tailwind CSS / TypeScript',
+  'Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs',
 ];
 
 export const interests: string[] = [
-  'Guitar and vocals in a rock band',
-  'Music recording and production',
+  'Guitar and vocals in a punk-grunge-metal band',
+  'Recording and mixing in Logic Pro',
   'Indoor soccer and racquetball',
   'Mountain biking and endurance sports',
   'International travel (fluent in Spanish)',

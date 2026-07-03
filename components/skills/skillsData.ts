@@ -184,11 +184,11 @@ export const PHOTOS: Photo[] = [
     height: 1080,
   },
   {
-    src: '/imgs/about/about2@2x.png',
+    src: '/imgs/about/about1@2x.jpg',
     alt: 'Dave at the start line of a bike race',
     caption: 'race day',
-    width: 820,
-    height: 640,
+    width: 660,
+    height: 480,
   },
   {
     src: '/imgs/ig/moto.jpg',
@@ -205,9 +205,9 @@ export const PHOTOS: Photo[] = [
     height: 1080,
   },
   {
-    src: '/imgs/about/about3@2x.png',
-    alt: 'Kayaking on the river with the crew',
-    caption: 'on the water',
+    src: '/imgs/about/about3@2x.jpg',
+    alt: 'Selfie at a family dinner around the table',
+    caption: 'dinner with the fam',
     width: 660,
     height: 480,
   },

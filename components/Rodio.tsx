@@ -11,10 +11,10 @@ const Rodio = () => {
           <h2 className="text-4xl font-bold mb-2">Rodio</h2>
           <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">Workforce communication for big retail</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Led design from early ideas through revenue for this mid-size startup — concepting, facilitating design sprints, architecting UX flows, and shipping production-ready UI across native web, iOS, and Android.
+            Led design from first sketch to revenue at this workforce-comms startup, building one multi-platform design system that kept web, iOS, and Android in sync. I ran the sprints and shipped production UI across all three.
           </p>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Within two years, we partnered with Kronos (a Fortune-100 workforce management company) and signed MarketSource (the staffing agency for Target and Best Buy), reaching millions of daily interactions.
+            Within two years we partnered with Kronos, the Fortune-100 workforce-management company, and signed MarketSource, the staffing agency for Target and Best Buy, reaching millions of daily interactions.
           </p>
         </div>
 
@@ -24,10 +24,10 @@ const Rodio = () => {
           <h4 className="text-xl font-semibold text-[var(--color-3)] mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Led design for a 20-person product team across web, iOS, and Android</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Facilitated design sprints to define problems, brainstorm solutions, and prototype ideas</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Built and maintained a multi-platform design system spanning master, web, iOS, and Android component libraries</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Pitched the demo that closed our integration partnership with a Fortune-100</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Led design for a 20-person team, from early ideas to 20K+ paid users</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Ran design sprints to frame problems and prototype solutions fast</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Built and maintained a multi-platform design system: master, web, iOS, and Android component libraries</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-[var(--color-3)] before:rounded-full text-lg leading-snug text-white/90 font-semibold">Pitched the demo that closed the Fortune-100 partnership and led to acquisition</li>
           </ul>
         </div>
       </div>

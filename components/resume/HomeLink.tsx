@@ -13,7 +13,7 @@ const HomeLink = () => {
           <li>
             <Link
               href="/"
-              className="text-white/60 transition-colors hover:text-(--color-2)"
+              className="text-white/80 transition-colors hover:text-(--color-2)"
             >
               portfolio
             </Link>
