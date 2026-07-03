@@ -8,6 +8,7 @@ import Timebomb from '@/components/Timebomb';
 import Dancefight from '@/components/Dancefight';
 import AnimatedBreak from '@/components/AnimatedBreak';
 import Accomplishments from '@/components/Accomplishments';
+import AboutPhotos from '@/components/AboutPhotos';
 import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
 import PageToggle from '@/components/PageToggle';
@@ -54,6 +55,13 @@ export default function Home() {
 
       {/* DANCEFIGHT */}
       <Dancefight />
+
+      <AnimatedBreak />
+
+      {/* A little personality */}
+      <FadeUp className="w-full">
+        <AboutPhotos />
+      </FadeUp>
 
       <Footer />
     </main>

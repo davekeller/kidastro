@@ -43,13 +43,6 @@ const Accomplishments = () => {
           And built web apps that thousands of people rely on every day.
         </p>
       </div>
-
-      {/* A little personality */}
-      <div className="col-span-1 sm:col-span-3 mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <Image src="/imgs/about/about1@2x.png" alt="Photo of Dave" width={660} height={480} className="w-full aspect-[4/3] object-cover rounded-2xl shadow-2xl" />
-        <Image src="/imgs/about/about2@2x.png" alt="Photo of Dave" width={820} height={640} className="w-full aspect-[4/3] object-cover rounded-2xl shadow-2xl" />
-        <Image src="/imgs/about/about3@2x.png" alt="Photo of Dave" width={660} height={480} className="w-full aspect-[4/3] object-cover rounded-2xl shadow-2xl" />
-      </div>
     </div>
   );
 };
