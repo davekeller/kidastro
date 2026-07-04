@@ -30,7 +30,7 @@ const Resume = () => {
             {highlights.map((item, i) => (
               <li
                 key={i}
-                className="relative pl-6 text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
+                className="relative pl-6 text-pretty text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
               >
                 {item}
               </li>
@@ -43,7 +43,7 @@ const Resume = () => {
             {skills.map((item, i) => (
               <li
                 key={i}
-                className="relative pl-6 text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
+                className="relative pl-6 text-pretty text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
               >
                 {item}
               </li>
@@ -79,7 +79,7 @@ const Resume = () => {
           {interests.map((item, i) => (
             <li
               key={i}
-              className="relative pl-6 text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
+              className="relative pl-6 text-pretty text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
             >
               {item}
             </li>
