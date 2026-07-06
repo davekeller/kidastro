@@ -1,6 +1,6 @@
 # kidastro.com
 
-Dave Keller's portfolio and resume — a product designer / design engineer / inventor. Built with Next.js and shipped as a static site.
+Dave Keller's portfolio and resume — a design engineer / product designer. Built with Next.js and shipped as a static site.
 
 ## Stack
 

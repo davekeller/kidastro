@@ -16,22 +16,12 @@ const Header = () => {
         <div>
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl print:text-3xl print:text-black">Dave Keller</h1>
           <p className="mt-2 text-base text-white/80 print:text-sm print:text-gray-700">
-            product designer / design engineer / inventor
+            design engineer / product designer
           </p>
         </div>
       </div>
 
       <ul className="text-sm text-white/80 sm:text-right print:text-xs print:text-black">
-        <li>
-          <a
-            href="https://www.linkedin.com/in/dkells/"
-            className="transition-colors hover:text-(--color-3) print:text-black"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            linkedin.com/dkells
-          </a>
-        </li>
         <li>
           <a
             href="mailto:davekeller@me.com?subject=Hey Dave!"
@@ -41,6 +31,16 @@ const Header = () => {
           </a>
         </li>
         <li>512.595.6213</li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/dkells/"
+            className="transition-colors hover:text-(--color-3) print:text-black"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/dkells
+          </a>
+        </li>
       </ul>
     </header>
   );

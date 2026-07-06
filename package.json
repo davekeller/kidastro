@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "bundle:skills": "node scripts/build-skills-bundle.mjs"
+    "bundle:skills": "node scripts/build-skills-bundle.mjs",
+    "resume:pdf": "python3 scripts/make-resume-pdf.py"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
