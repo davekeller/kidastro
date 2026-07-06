@@ -17,6 +17,8 @@ from reportlab.lib.enums import TA_RIGHT
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import inch
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     Flowable, HRFlowable, Image, KeepTogether, Paragraph,
     SimpleDocTemplate, Spacer, Table, TableStyle,
@@ -25,6 +27,19 @@ from reportlab.platypus import (
 REPO = Path(__file__).resolve().parent.parent
 AVATAR_SRC = REPO / "public" / "imgs" / "dave.jpg"
 OUT = REPO / "public" / "dave-keller-resume.pdf"
+
+# Emphasis weight for the primary contact link. reportlab's built-in Helvetica
+# ships only Regular and Bold, so embed Helvetica Neue Medium (a true semibold
+# step) when the macOS system font is present; fall back to Bold elsewhere so
+# the script still runs on machines without it (e.g. CI).
+EMPHASIS_FONT = "Helvetica-Bold"
+try:
+    pdfmetrics.registerFont(
+        TTFont("HelveticaNeue-Medium", "/System/Library/Fonts/HelveticaNeue.ttc", subfontIndex=10)
+    )
+    EMPHASIS_FONT = "HelveticaNeue-Medium"
+except Exception:
+    pass
 
 # ---- Style rules -----------------------------------------------------------
 
@@ -158,9 +173,10 @@ def circle_avatar():
 
 TITLE = "design engineer / lead product designer"
 CONTACT = (
-    '<a href="mailto:davekeller@me.com">davekeller@me.com</a><br/>'
-    "512.595.6213<br/>"
-    '<a href="https://www.linkedin.com/in/dkells/">linkedin.com/in/dkells</a>'
+    f'<font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font><br/>'
+    '512.595.6213&nbsp;&nbsp;|&nbsp;&nbsp;'
+    '<a href="https://www.linkedin.com/in/dkells/">linkedin</a><br/>'
+    '<a href="mailto:davekeller@me.com">davekeller@me.com</a>'
 )
 
 highlights = [
