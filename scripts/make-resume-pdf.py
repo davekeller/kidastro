@@ -138,17 +138,18 @@ def circle_avatar():
     """Circle-cropped copy of the site avatar on white, as an in-memory JPEG.
 
     216px = 300 DPI at the rendered 0.72in; JPEG passes through to the PDF
-    untouched (~20KB) where a PNG would be flate-recompressed to ~365KB.
+    untouched where a PNG would be flate-recompressed to ~365KB.
+    Grayscale so the PDF prints cleanly without color (and saves a few KB).
     The mask is drawn at 4x and downsampled for an antialiased edge.
     """
     size = 216
-    src = ImageOps.fit(PILImage.open(AVATAR_SRC).convert("RGB"), (size, size), PILImage.LANCZOS)
+    src = ImageOps.fit(PILImage.open(AVATAR_SRC).convert("L"), (size, size), PILImage.LANCZOS)
     mask = PILImage.new("L", (size * 4, size * 4), 0)
     ImageDraw.Draw(mask).ellipse((0, 0, size * 4, size * 4), fill=255)
-    out = PILImage.new("RGB", (size, size), (255, 255, 255))
+    out = PILImage.new("L", (size, size), 255)
     out.paste(src, (0, 0), mask.resize((size, size), PILImage.LANCZOS))
     buf = io.BytesIO()
-    out.save(buf, "JPEG", quality=90)
+    out.save(buf, "JPEG", quality=85)
     buf.seek(0)
     return buf
 
