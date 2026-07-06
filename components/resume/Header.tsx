@@ -23,14 +23,6 @@ const Header = () => {
 
       <ul className="text-sm text-white/80 sm:text-right print:text-xs print:text-black">
         <li>
-          <a
-            href="/"
-            className="font-semibold transition-colors hover:text-(--color-3) print:text-black"
-          >
-            kidastro.com
-          </a>
-        </li>
-        <li>
           512.595.6213
           <span className="mx-1.5 text-white/40 print:text-gray-400">|</span>
           <a
@@ -48,6 +40,14 @@ const Header = () => {
             className="transition-colors hover:text-(--color-3) print:text-black"
           >
             davekeller@me.com
+          </a>
+        </li>
+        <li>
+          <a
+            href="/"
+            className="font-semibold transition-colors hover:text-(--color-3) print:text-black"
+          >
+            kidastro.com
           </a>
         </li>
       </ul>
