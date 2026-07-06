@@ -156,7 +156,7 @@ def circle_avatar():
 
 # ---- Content (mirrors components/resume/resumeData.ts + Header.tsx) --------
 
-TITLE = "design engineer / product designer"
+TITLE = "design engineer / lead product designer"
 CONTACT = (
     '<a href="mailto:davekeller@me.com">davekeller@me.com</a><br/>'
     "512.595.6213<br/>"
