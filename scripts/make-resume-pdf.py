@@ -8,7 +8,7 @@ update both together, then rerun:
     python3 scripts/make-resume-pdf.py
 """
 
-import tempfile
+import io
 from pathlib import Path
 
 from PIL import Image as PILImage, ImageDraw, ImageOps
@@ -38,13 +38,15 @@ SMALL = 9                     # contact, dates, section titles
 LEADING = 13                  # line height for all body text
 GAP = 4                       # space after a body paragraph
 TOP_GAP = 7                   # space after highlights/skills bullets
-JOB_GAP = 12                  # space before each job entry
+JOB_GAP = 16                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
 SECTION_GAP = 16              # space before each section title
 
 MARGIN = 0.75 * inch
 CONTENT_W = letter[0] - 2 * MARGIN - 12  # frame pads 6pt per side
 DATES_W = 2.4 * inch
 AVATAR_W = 0.72 * inch
+
+NBSP = " "  # non-breaking space; load-bearing in pretty()
 
 def style(name, **kw):
     base = dict(fontName="Helvetica", fontSize=BODY, leading=LEADING, textColor=INK)
@@ -62,12 +64,12 @@ styles = {
     "jobrole": style("jobrole", fontName="Helvetica-Oblique", textColor=GRAY, spaceAfter=2),
 }
 
-FLUSH = TableStyle([
+FLUSH = [
     ("LEFTPADDING", (0, 0), (-1, -1), 0),
     ("RIGHTPADDING", (0, 0), (-1, -1), 0),
     ("TOPPADDING", (0, 0), (-1, -1), 0),
     ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
-])
+]
 
 # ---- Building blocks -------------------------------------------------------
 
@@ -96,12 +98,12 @@ def pretty(text):
     words = text.split(" ")
     if len(words) < 4:
         return text
-    glued = words[-1]
-    i = len(words) - 1
-    while i > len(words) - 3 and len(glued) < 12:
-        i -= 1
-        glued = words[i] + " " + glued
-    return " ".join(words[:i] + [glued])
+    glued = words.pop()
+    for _ in range(2):  # glue at most 2 extra words
+        if len(glued) >= 12 or len(words) < 2:
+            break
+        glued = words.pop() + NBSP + glued
+    return " ".join(words + [glued])
 
 
 def section(title):
@@ -113,18 +115,18 @@ def section(title):
     ]
 
 
-def bullets(items, style="bullet"):
-    return [Paragraph(pretty(item), styles[style], bulletText="+") for item in items]
+def bullets(items, style_name="bullet"):
+    return [Paragraph(pretty(item), styles[style_name], bulletText="+") for item in items]
 
 
 def job(company, dates, location, role, summary, job_bullets):
     head = Table(
         [[Paragraph(company, styles["jobhead"]), Paragraph(dates, styles["jobdates"])]],
         colWidths=[CONTENT_W - DATES_W, DATES_W],
-        style=FLUSH, hAlign="LEFT",
+        style=TableStyle(FLUSH), hAlign="LEFT",
+        spaceBefore=JOB_GAP,  # unlike a Spacer, dropped at the top of a page
     )
     return [KeepTogether([
-        Spacer(1, JOB_GAP),
         head,
         Paragraph(f"{role} &middot; {location}", styles["jobrole"]),
         Paragraph(pretty(summary), styles["body"]),
@@ -133,21 +135,32 @@ def job(company, dates, location, role, summary, job_bullets):
 
 
 def circle_avatar():
-    """Circle-cropped copy of the site avatar, as a temp PNG."""
-    src = ImageOps.fit(PILImage.open(AVATAR_SRC).convert("RGB"), (400, 400), PILImage.LANCZOS)
-    mask = PILImage.new("L", (1600, 1600), 0)
-    ImageDraw.Draw(mask).ellipse((0, 0, 1600, 1600), fill=255)
-    out = PILImage.new("RGBA", (400, 400), (0, 0, 0, 0))
-    out.paste(src, (0, 0), mask.resize((400, 400), PILImage.LANCZOS))
-    path = Path(tempfile.mkdtemp()) / "avatar.png"
-    out.save(path)
-    return path
+    """Circle-cropped copy of the site avatar on white, as an in-memory JPEG.
+
+    216px = 300 DPI at the rendered 0.72in; JPEG passes through to the PDF
+    untouched (~20KB) where a PNG would be flate-recompressed to ~365KB.
+    The mask is drawn at 4x and downsampled for an antialiased edge.
+    """
+    size = 216
+    src = ImageOps.fit(PILImage.open(AVATAR_SRC).convert("RGB"), (size, size), PILImage.LANCZOS)
+    mask = PILImage.new("L", (size * 4, size * 4), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, size * 4, size * 4), fill=255)
+    out = PILImage.new("RGB", (size, size), (255, 255, 255))
+    out.paste(src, (0, 0), mask.resize((size, size), PILImage.LANCZOS))
+    buf = io.BytesIO()
+    out.save(buf, "JPEG", quality=90)
+    buf.seek(0)
+    return buf
 
 
 # ---- Content (mirrors components/resume/resumeData.ts + Header.tsx) --------
 
 TITLE = "design engineer / product designer"
-CONTACT = "davekeller@me.com<br/>512.595.6213<br/>linkedin.com/in/dkells"
+CONTACT = (
+    '<a href="mailto:davekeller@me.com">davekeller@me.com</a><br/>'
+    "512.595.6213<br/>"
+    '<a href="https://www.linkedin.com/in/dkells/">linkedin.com/in/dkells</a>'
+)
 
 highlights = [
     "15+ years leading design on dev/product teams at early-seed startups, often 0 to 1, with experience across industries — AI, data science, entertainment, messaging, ecommerce, fintech and more",
@@ -234,7 +247,7 @@ doc = SimpleDocTemplate(
 
 header = Table(
     [[
-        Image(str(circle_avatar()), width=AVATAR_W, height=AVATAR_W),
+        Image(circle_avatar(), width=AVATAR_W, height=AVATAR_W),
         [
             Paragraph("Dave Keller", styles["name"]),
             Spacer(1, 3),
@@ -243,7 +256,7 @@ header = Table(
         Paragraph(CONTACT, styles["contact"]),
     ]],
     colWidths=[1.0 * inch, CONTENT_W - 1.0 * inch - DATES_W, DATES_W],
-    style=FLUSH.getCommands() + [("VALIGN", (0, 0), (-1, -1), "MIDDLE")],
+    style=TableStyle(FLUSH + [("VALIGN", (0, 0), (-1, -1), "MIDDLE")]),
     hAlign="LEFT",
 )
 
@@ -251,9 +264,9 @@ story = [
     header,
     Spacer(1, GAP),
     *section("Highlights"),
-    *bullets(highlights, style="topbullet"),
+    *bullets(highlights, style_name="topbullet"),
     *section("Skills & Tools"),
-    *bullets(skills, style="topbullet"),
+    *bullets(skills, style_name="topbullet"),
     *section("Experience"),
 ]
 for j in jobs:

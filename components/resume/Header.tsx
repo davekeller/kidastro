@@ -38,7 +38,7 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            linkedin.com/dkells
+            linkedin.com/in/dkells
           </a>
         </li>
       </ul>
