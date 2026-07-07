@@ -248,7 +248,7 @@ jobs = [
 ]
 
 interests = (
-    "Guitar and vocals in a punk-grunge-metal band &middot; Recording and mixing in Logic Pro &middot; "
+    "Guitar and vocals in a rock/metal band &middot; Recording and mixing in Logic Pro &middot; "
     "Indoor soccer and racquetball &middot; Mountain biking and endurance sports &middot; "
     "International travel (fluent in Spanish) &middot; Adventures with my kids"
 )

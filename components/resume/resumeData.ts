@@ -123,7 +123,7 @@ export const skills: string[] = [
 ];
 
 export const interests: string[] = [
-  'Guitar and vocals in a punk-grunge-metal band',
+  'Guitar and vocals in a rock/metal band',
   'Recording and mixing in Logic Pro',
   'Indoor soccer and racquetball',
   'Mountain biking and endurance sports',
