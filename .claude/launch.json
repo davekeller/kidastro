@@ -4,8 +4,9 @@
     {
       "name": "kidastro-dev",
       "runtimeExecutable": "/Users/dk/.nvm/versions/node/v22.14.0/bin/node",
-      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev", "--port", "3457"],
-      "port": 3457
+      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev"],
+      "port": 3457,
+      "autoPort": true
     }
   ]
 }
