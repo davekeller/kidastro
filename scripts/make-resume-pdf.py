@@ -174,7 +174,7 @@ def circle_avatar():
 TITLE = "design engineer / lead product designer"
 CONTACT = (
     '512.595.6213&nbsp;&nbsp;|&nbsp;&nbsp;'
-    '<a href="https://www.linkedin.com/in/dkells/">linkedin</a><br/>'
+    '<a href="https://www.linkedin.com/in/dkells/">linkedin/dkells</a><br/>'
     '<a href="mailto:davekeller@me.com">davekeller@me.com</a><br/>'
     f'<font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font>'
 )
@@ -248,7 +248,7 @@ jobs = [
 ]
 
 interests = (
-    "Guitar and vocals in a punk-grunge-metal band &middot; Recording and mixing in Logic Pro &middot; "
+    "Guitar and vocals in a rock/metal band &middot; Recording and mixing in Logic Pro &middot; "
     "Indoor soccer and racquetball &middot; Mountain biking and endurance sports &middot; "
     "International travel (fluent in Spanish) &middot; Adventures with my kids"
 )
