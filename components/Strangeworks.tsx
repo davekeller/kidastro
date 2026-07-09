@@ -50,7 +50,7 @@ const Strangeworks = () => {
          <Image src="/imgs/strangeworks/strange3.jpg" alt="Figma flow map of the Aura app — projects, research, and formulation flows" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-      <div className="col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-3 relative">
+      <div className="col-span-1 md:col-span-2 lg:col-span-5 lg:col-start-2 relative">
          <Image src="/imgs/strangeworks/strange4.png" alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
