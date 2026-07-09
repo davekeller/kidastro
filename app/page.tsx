@@ -1,5 +1,6 @@
 import React from 'react';
 import Intro from '@/components/Intro';
+import Strangeworks from '@/components/Strangeworks';
 import Rodio from '@/components/Rodio';
 import QuotaPath from '@/components/Quotapath';
 import BnbFinder from '@/components/Bnbfinder';
@@ -21,6 +22,11 @@ export default function Home() {
         <PageToggle />
       </div>
       <Intro />
+
+      {/* STRANGEWORKS */}
+      <Strangeworks />
+
+      <AnimatedBreak />
 
       {/* QUOTAPATH */}
       <QuotaPath />
