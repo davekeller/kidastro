@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const Strangeworks = () => {
@@ -30,9 +31,21 @@ const Strangeworks = () => {
         </div>
       </div>
 
-      {/* TODO: image grid — two rows, spans chosen once screenshots land in
-          public/imgs/strangeworks/ (6-col system, e.g. full-width hero then
-          halves/thirds, like the other sections) */}
+      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+         <Image src="/imgs/strangeworks/strange1.png" alt="Aura app — optimization job details with AI-assisted results analysis" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+
+      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+         <Image src="/imgs/strangeworks/strange2.jpg" alt="Figma flow map of the Aura app — projects, research, and formulation flows" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+
+      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+         <Image src="/imgs/strangeworks/strange3.jpg" alt="Figma wireframe and flow template library" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+
+      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+         <Image src="/imgs/strangeworks/strange4.png" alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
 
     </AnimatedSection>
   );
