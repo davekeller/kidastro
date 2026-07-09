@@ -4,7 +4,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 
 const BnbFinder = () => {
   return (
-    <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
+    <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-center">
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
