@@ -48,11 +48,11 @@ const QuotaPath = () => {
       </div> */}
       
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/quotapath/qp1.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
-      </div>
-      
-      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
          <Image src="/imgs/quotapath/qp2.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+
+      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+         <Image src="/imgs/quotapath/qp1.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
     </AnimatedSection>
