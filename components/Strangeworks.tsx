@@ -14,7 +14,10 @@ const Strangeworks = () => {
           </div>
           <h4 className="text-(--color-2) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A data-science consulting company for Fortune 500 teams running AI, quantum, and HPC compute</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            I lead product design across the platform — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients. Hands-on from business strategy to production code.
+            I lead product design across the platform — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients.
+          </p>
+          <p className="mb-4 text-lg leading-8 text-white/90">
+            Figma expert — and for the past year a design engineer in practice, designing in front-end with Claude Code and shipping both prototypes and production code.
           </p>
         </div>
 
