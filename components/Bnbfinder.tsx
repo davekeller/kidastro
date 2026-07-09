@@ -49,7 +49,7 @@ const BnbFinder = () => {
          <Image src="/imgs/bnb/bnb5.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-5 lg:col-start-2 relative">
+      <div className="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-3 relative">
          <Image src="/imgs/bnb/bnb4.png" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
