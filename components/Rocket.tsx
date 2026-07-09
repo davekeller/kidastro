@@ -7,7 +7,7 @@ const Rocket = () => {
     <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
           <h4 className="text-(--color-5) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -16,16 +16,16 @@ const Rocket = () => {
         </div>
 
         {/* Highlights */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl flex flex-col items-start">
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg flex flex-col items-start">
           <h3 className="text-2xl font-bold my-2">Co-Founder + Product Designer + Front-End Developer</h3>
           <h4 className="text-xl font-semibold text-(--color-5) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Hired and led a 20-person team across product, back-end, front-end, iOS, and Android</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and shipped custom apps and websites across 30+ client projects</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Ran sales, marketing, and accounts across dozens of engagements</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and built A Beautiful Mess, the photo editor that hit #1 Paid on the App Store</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed and built a multi-million-dollar CRM/CMS for one of the largest US auto-sales organizations</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Hired and led a 20-person team across product, back-end, front-end, iOS, and Android</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Designed and shipped custom apps and websites across 30+ client projects</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Ran sales, marketing, and accounts across dozens of engagements</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Designed and built A Beautiful Mess, the photo editor that hit #1 Paid on the App Store</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Designed and built a multi-million-dollar CRM/CMS for one of the largest US auto-sales organizations</li>
           </ul>
         </div>
       </div>

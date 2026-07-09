@@ -1,5 +1,7 @@
 import React from 'react';
 import Intro from '@/components/Intro';
+import OpenCourt from '@/components/Opencourt';
+import Strangeworks from '@/components/Strangeworks';
 import Rodio from '@/components/Rodio';
 import QuotaPath from '@/components/Quotapath';
 import BnbFinder from '@/components/Bnbfinder';
@@ -22,8 +24,18 @@ export default function Home() {
       </div>
       <Intro />
 
+      {/* STRANGEWORKS */}
+      <Strangeworks />
+
+      <AnimatedBreak />
+
       {/* QUOTAPATH */}
       <QuotaPath />
+
+      <AnimatedBreak />
+
+      {/* OPENCOURT */}
+      <OpenCourt />
 
       <AnimatedBreak />
 
@@ -48,13 +60,13 @@ export default function Home() {
 
       <AnimatedBreak />
 
-      {/* TIMEBOMB */}
-      <Timebomb />
+      {/* DANCEFIGHT */}
+      <Dancefight />
 
       <AnimatedBreak />
 
-      {/* DANCEFIGHT */}
-      <Dancefight />
+      {/* TIMEBOMB */}
+      <Timebomb />
 
       <AnimatedBreak />
 
