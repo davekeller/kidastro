@@ -32,7 +32,7 @@ const Strangeworks = () => {
         </div>
       </div>
 
-      <div className="col-span-full relative">
+      <div className="col-span-full w-full max-w-3xl mx-auto relative">
         <ContributionGraph />
       </div>
 

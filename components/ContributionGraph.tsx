@@ -57,7 +57,7 @@ const ContributionGraph = () => {
   return (
     <div className="w-full text-left text-white px-6 py-5 border-2 border-white/10 rounded-lg">
       <div className="flex items-baseline justify-between mb-4">
-        <p className="text-base text-white/90"><span className="font-bold">2,061 contributions</span> in the last year</p>
+        <p className="text-xl text-white/90"><span className="font-bold text-(--color-2)">2,061</span> <span className="font-bold">GitHub contributions</span> in the last year</p>
         <div className="hidden md:flex items-center gap-1 text-xs text-white/50">
           <span className="mr-1">Less</span>
           {LEVELS.map((c) => (
