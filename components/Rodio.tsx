@@ -7,7 +7,7 @@ const Rodio = () => {
     <AnimatedSection className="rodio grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-md">
           <h2 className="text-4xl font-bold mb-2">Rodio</h2>
           <h4 className="text-[var(--color-3)] text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">Workforce communication for big retail</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
@@ -19,7 +19,7 @@ const Rodio = () => {
         </div>
 
         {/* Highlights */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl flex flex-col items-start">
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-md flex flex-col items-start">
           <h3 className="text-2xl font-bold my-2">Product UX/UI Design Lead</h3>
           <h4 className="text-xl font-semibold text-[var(--color-3)] mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
