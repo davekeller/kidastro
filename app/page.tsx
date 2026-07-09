@@ -1,5 +1,6 @@
 import React from 'react';
 import Intro from '@/components/Intro';
+import OpenCourt from '@/components/Opencourt';
 import Strangeworks from '@/components/Strangeworks';
 import Rodio from '@/components/Rodio';
 import QuotaPath from '@/components/Quotapath';
@@ -22,6 +23,11 @@ export default function Home() {
         <PageToggle />
       </div>
       <Intro />
+
+      {/* OPENCOURT */}
+      <OpenCourt />
+
+      <AnimatedBreak />
 
       {/* STRANGEWORKS */}
       <Strangeworks />
