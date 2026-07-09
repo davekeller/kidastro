@@ -36,7 +36,7 @@ const Strangeworks = () => {
         <ContributionGraph />
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+      <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">
          <Image src="/imgs/strangeworks/strange1.png" alt="Aura app — optimization job details with AI-assisted results analysis" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
@@ -54,7 +54,7 @@ const Strangeworks = () => {
          <Image src="/imgs/strangeworks/strange3.jpg" alt="Figma wireframe and flow template library" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+      <div className="col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-3 relative">
          <Image src="/imgs/strangeworks/strange4.png" alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
