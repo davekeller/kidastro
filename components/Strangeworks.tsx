@@ -12,9 +12,9 @@ const Strangeworks = () => {
           <div className="flex items-start justify-between mb-2">
             <h2 className="text-4xl font-bold">Strangeworks</h2>
           </div>
-          <h4 className="text-(--color-2) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">An advanced-compute platform putting AI, quantum, and HPC to work for Fortune 500 science teams</h4>
+          <h4 className="text-(--color-2) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A data-science consulting company for Fortune 500 teams running AI, quantum, and HPC compute</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Real science problems start as whiteboard sketches, not code. I lead product strategy and design at this data-science consulting company — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients. Hands-on from business strategy to production code.
+            I lead product design across the platform — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients. Hands-on from business strategy to production code.
           </p>
         </div>
 
