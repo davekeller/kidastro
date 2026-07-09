@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
+import ContributionGraph from '@/components/ContributionGraph';
 
 const Strangeworks = () => {
   return (
@@ -29,6 +30,10 @@ const Strangeworks = () => {
              <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed an AI-assisted problem-formulation app, plus dozens of client optimization apps — staff scheduling, fleet routing, and more</li>
           </ul>
         </div>
+      </div>
+
+      <div className="col-span-full relative">
+        <ContributionGraph />
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
