@@ -24,11 +24,6 @@ export default function Home() {
       </div>
       <Intro />
 
-      {/* OPENCOURT */}
-      <OpenCourt />
-
-      <AnimatedBreak />
-
       {/* STRANGEWORKS */}
       <Strangeworks />
 
@@ -36,6 +31,11 @@ export default function Home() {
 
       {/* QUOTAPATH */}
       <QuotaPath />
+
+      <AnimatedBreak />
+
+      {/* OPENCOURT */}
+      <OpenCourt />
 
       <AnimatedBreak />
 
