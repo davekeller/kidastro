@@ -14,7 +14,7 @@ const OpenCourt = () => {
         </div>
         <h4 className="text-(--color-5) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A multi-platform app for booking courts, events, and open play at pickleball clubs</h4>
         <p className="mb-4 text-lg leading-8 text-white/90">
-          A six-month consulting engagement focused on the iOS app, delivered through Figma, Loom walkthroughs, and Zoom design reviews. I designed flows for booking courts, player profiles, creating and inviting to events, and checkout with add-on extras.
+          A six-month consulting engagement focused on the iOS app, delivered through Figma, Loom walkthroughs, and Zoom design reviews. I designed flows for booking courts, creating and inviting to events, checkout with add-ons, player profiles and more.
         </p>
       </div>
 
