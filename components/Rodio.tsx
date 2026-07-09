@@ -39,21 +39,21 @@ const Rodio = () => {
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3 relative lg:rounded-r-md overflow-hidden">
-          <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+          <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/25 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
             <h5 className="text-black font-extrabold text-xl">ux flows</h5>
           </div>
          <Image src="/imgs/rodio/rodio4.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative lg:rounded-l-md overflow-hidden">
-        <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+        <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/25 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
         <h5 className="text-black font-bold text-xl">pitch decks</h5>
         </div>
         <Image src="/imgs/rodio/rodio5.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
       
       <div className="col-span-1 md:col-span-1 lg:col-span-2 relative lg:rounded-l-md overflow-hidden">
-        <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+        <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/25 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
         <h5 className="text-black font-bold text-xl">rodio design system</h5>
         </div>
         <Image src="/imgs/rodio/rodio3.jpg" alt="rodio example" width={800} height={600} className="w-full rounded shadow-2xl" />
