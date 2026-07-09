@@ -14,7 +14,7 @@ const Strangeworks = () => {
           </div>
           <h4 className="text-(--color-2) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">An advanced-compute platform putting AI, quantum, and HPC to work for Fortune 500 science teams</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Real science problems start as whiteboard sketches, not code. I lead product strategy and design across the platform, and designed Aura — our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, hands-on from business strategy to production code.
+            Real science problems start as whiteboard sketches, not code. I lead product strategy and design at this data-science consulting company — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients. Hands-on from business strategy to production code.
           </p>
         </div>
 
@@ -32,11 +32,7 @@ const Strangeworks = () => {
         </div>
       </div>
 
-      <div className="col-span-full w-full max-w-3xl mx-auto relative">
-        <ContributionGraph />
-      </div>
-
-      <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">
+      <div className="col-span-1 md:col-span-2 lg:col-span-5 relative">
          <Image src="/imgs/strangeworks/strange1.png" alt="Aura app — optimization job details with AI-assisted results analysis" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
@@ -56,6 +52,10 @@ const Strangeworks = () => {
 
       <div className="col-span-1 md:col-span-2 lg:col-span-4 lg:col-start-3 relative">
          <Image src="/imgs/strangeworks/strange4.png" alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+
+      <div className="col-span-full w-full max-w-3xl mx-auto relative">
+        <ContributionGraph />
       </div>
 
     </AnimatedSection>
