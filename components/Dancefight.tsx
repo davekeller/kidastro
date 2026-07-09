@@ -5,7 +5,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 const Dancefight = () => {
   return (
     <AnimatedSection className="dance grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-      <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-md max-w-3xl mx-auto mb-12">
+      <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg max-w-3xl mx-auto mb-12">
         <div className="flex items-start justify-between mb-2">
           <h2 className="text-4xl font-bold">Dancefight</h2>
           <span className="text-xl font-bold text-right mt-2">Product Design Consultant</span>

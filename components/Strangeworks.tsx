@@ -6,7 +6,7 @@ const Strangeworks = () => {
     <AnimatedSection className="strangeworks grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-center">
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-md">
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
           <div className="flex items-start justify-between mb-2">
             <h2 className="text-4xl font-bold">Strangeworks</h2>
           </div>
@@ -17,7 +17,7 @@ const Strangeworks = () => {
         </div>
 
         {/* Highlights */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-md flex flex-col items-start">
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg flex flex-col items-start">
           <h3 className="text-2xl font-bold my-2">Design Engineer / Director of Product</h3>
           <h4 className="text-xl font-semibold text-(--color-2) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>

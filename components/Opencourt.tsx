@@ -7,7 +7,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 const OpenCourt = () => {
   return (
     <AnimatedSection className="opencourt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
-      <div className="info col-span-full w-full text-left text-white px-8 py-8 border-2 border-white/10 rounded-md max-w-3xl mx-auto mb-12">
+      <div className="info col-span-full w-full text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg max-w-3xl mx-auto mb-12">
         <div className="flex items-start justify-between mb-2">
           <h2 className="text-4xl font-bold">OpenCourt</h2>
           <span className="text-xl font-bold text-right mt-2">Product Design Consultant</span>
