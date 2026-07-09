@@ -1,8 +1,12 @@
-import React from 'react';
+'use client';
 
-// Decorative GitHub-style contribution graph (dark-theme palette). The cell
-// pattern is a seeded approximation of Dave's real graph — deterministic so
-// server and client render identically — while the headline number is real.
+import React, { useEffect, useState } from 'react';
+
+// Decorative GitHub-style contribution graph. The cell pattern is a seeded
+// approximation of Dave's real graph — deterministic so server and client
+// render identically — while the headline number is real. The accent color
+// cycles through the site palette like AnimatedBreak (5s cycle, 2s fade);
+// intensity comes from per-level fill opacity so the ramp survives any hue.
 const CELL = 11;
 const GAP = 3;
 const STEP = CELL + GAP;
@@ -11,7 +15,16 @@ const DAYS = 7;
 const LEFT = 30; // gutter for day labels
 const TOP = 18; // gutter for month labels
 
-const LEVELS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+const EMPTY = '#161b22';
+const OPACITY = [0, 0.3, 0.5, 0.75, 1]; // per contribution level
+
+const COLORS = [
+  '#f4fd7b', // Yellow
+  '#39d5cb', // Teal
+  '#e4416f', // Pink
+  '#fcd34d', // Gold
+  '#6ee7b7', // Mint
+];
 
 // Months as rendered from a July start, with approximate week offsets.
 const MONTHS: [string, number][] = [
@@ -52,16 +65,33 @@ function buildCells() {
 const CELLS = buildCells();
 const W = LEFT + WEEKS * STEP - GAP;
 const H = TOP + DAYS * STEP - GAP;
+const FADE = { transition: 'fill 2000ms' };
 
 const ContributionGraph = () => {
+  const [colorIndex, setColorIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setColorIndex((prev) => (prev + 1) % COLORS.length);
+    }, 5000); // match AnimatedBreak's cycle
+    return () => clearInterval(interval);
+  }, []);
+
+  const accent = COLORS[colorIndex];
+
   return (
     <div className="w-full text-left text-white px-6 py-5 border-2 border-white/10 rounded-lg">
       <div className="flex items-baseline justify-between mb-4">
-        <p className="text-xl text-white/90"><span className="font-bold text-(--color-2)">2,061</span> <span className="font-bold">GitHub contributions</span> in the last year</p>
+        <p className="text-xl text-white/90">
+          <span className="font-bold transition-colors duration-[2000ms]" style={{ color: accent }}>2,061</span>{' '}
+          <span className="font-bold">GitHub contributions</span> in the last year
+        </p>
         <div className="hidden md:flex items-center gap-1 text-xs text-white/50">
           <span className="mr-1">Less</span>
-          {LEVELS.map((c) => (
-            <svg key={c} width="11" height="11"><rect width="11" height="11" rx="2" fill={c} /></svg>
+          {OPACITY.map((o, i) => (
+            <svg key={i} width="11" height="11">
+              <rect width="11" height="11" rx="2" fill={i === 0 ? EMPTY : accent} fillOpacity={i === 0 ? 1 : o} style={FADE} />
+            </svg>
           ))}
           <span className="ml-1">More</span>
         </div>
@@ -81,7 +111,9 @@ const ContributionGraph = () => {
             width={CELL}
             height={CELL}
             rx="2"
-            fill={LEVELS[level]}
+            fill={level === 0 ? EMPTY : accent}
+            fillOpacity={level === 0 ? 1 : OPACITY[level]}
+            style={FADE}
           />
         ))}
       </svg>
