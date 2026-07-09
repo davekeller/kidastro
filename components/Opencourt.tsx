@@ -11,6 +11,7 @@ const OpenCourt = () => {
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-2xl">
           <div className="flex items-start justify-between mb-2">
             <h2 className="text-4xl font-bold">OpenCourt</h2>
+            <span className="text-xl font-bold text-right mt-2">Product Design Consultant</span>
           </div>
           <h4 className="text-(--color-5) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A multi-platform app for booking courts, events, and open play at pickleball clubs</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
