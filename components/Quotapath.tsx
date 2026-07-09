@@ -36,7 +36,7 @@ const QuotaPath = () => {
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">
-          <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/25 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+          <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
             <h5 className="text-black font-bold text-xl">design sprints &amp; prototyping</h5>
           </div>
          <Image src="/imgs/quotapath/qp3.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
