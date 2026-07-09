@@ -4,7 +4,7 @@ import AnimatedSection from '@/components/AnimatedSection';
 
 const BnbFinder = () => {
   return (
-    <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-center">
+    <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
@@ -31,15 +31,8 @@ const BnbFinder = () => {
         </div>
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-4 relative">
+      <div className="col-span-1 md:col-span-1 lg:col-span-5 relative">
          <Image src="/imgs/bnb/bnb1.png" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
-      </div>
-
-      <div className="col-span-1 md:col-span-1 lg:col-span-2 relative lg:rounded-l-md overflow-hidden">
-           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
-            <h5 className="text-black font-bold text-xl">pitch decks</h5>
-          </div>
-         <Image src="/imgs/bnb/bnb5.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3 relative lg:rounded-r-md overflow-hidden">
@@ -49,7 +42,14 @@ const BnbFinder = () => {
          <Image src="/imgs/bnb/bnb3.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
-      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
+      <div className="col-span-1 md:col-span-1 lg:col-span-3 relative lg:rounded-l-md overflow-hidden">
+           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white px-4 py-2 rounded-lg shadow-xl z-10 text-center">
+            <h5 className="text-black font-bold text-xl">pitch decks</h5>
+          </div>
+         <Image src="/imgs/bnb/bnb5.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
+      </div>
+
+      <div className="col-span-1 md:col-span-1 lg:col-span-5 lg:col-start-2 relative">
          <Image src="/imgs/bnb/bnb4.png" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
