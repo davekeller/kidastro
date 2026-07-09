@@ -24,10 +24,10 @@ const Strangeworks = () => {
           <h4 className="text-xl font-semibold text-(--color-2) mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Promoted from Senior Product Designer to Director of Product in 6 months</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Researched internal process and designed the vision for Aura, our workflow app — then helped build it in production code</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Embedded with engineering, leadership, and the science team to ship across the compute platform, docs, and marketing sites</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90 font-semibold">Designed an AI-assisted problem-formulation app, plus dozens of client optimization apps — staff scheduling, fleet routing, and more</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90">Promoted from Senior Product Designer to Director of Product in 6 months</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90">Researched internal process and designed the vision for Aura, our workflow app — then helped build it in production code</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90">Embedded with engineering, leadership, and the science team to ship across the compute platform, docs, and marketing sites</li>
+             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-2) before:rounded-full text-lg leading-snug text-white/90">Designed dozens of client optimization apps — staff scheduling, fleet routing, and more</li>
           </ul>
         </div>
       </div>
