@@ -11,7 +11,7 @@ const BnbFinder = () => {
           <h2 className="text-4xl font-bold mb-2">BnbFinder</h2>
           <h4 className="text-(--color-4) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A niche travel-listings platform (now Savvy.com)</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
-            Designed and coded this travel-listings platform end to end: a consumer app for travelers, a member app for property owners, and an admin app behind both. Built it on a design system and custom Tailwind CSS framework of my own.
+            Designed and coded this travel platform end to end — consumer, owner, and admin apps — on my own design system and custom Tailwind framework.
           </p>
           <p className="mb-4 text-lg leading-8 text-white/90">
             Whiteboards to 8K subscribers, 4K+ paid, in under a year on a team of 3.
@@ -47,10 +47,6 @@ const BnbFinder = () => {
             <h5 className="text-black font-bold text-xl">pitch decks</h5>
           </div>
          <Image src="/imgs/bnb/bnb5.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
-      </div>
-
-      <div className="col-span-1 md:col-span-1 lg:col-span-4 lg:col-start-3 relative">
-         <Image src="/imgs/bnb/bnb4.png" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
     </AnimatedSection>

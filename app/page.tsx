@@ -60,13 +60,13 @@ export default function Home() {
 
       <AnimatedBreak />
 
-      {/* TIMEBOMB */}
-      <Timebomb />
+      {/* DANCEFIGHT */}
+      <Dancefight />
 
       <AnimatedBreak />
 
-      {/* DANCEFIGHT */}
-      <Dancefight />
+      {/* TIMEBOMB */}
+      <Timebomb />
 
       <AnimatedBreak />
 
