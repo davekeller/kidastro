@@ -84,39 +84,22 @@ h4, h6 {
   }
 }
 
-/* Card accent text: one solid color that slowly crossfades through the
-   palette — ~16s hold, ~4s fade per color. No gradient within the text.
-   The keyframes read element-scoped --accent-N vars so .accent-soft can
-   swap in muted values. (color-mix inside @keyframes fails to compile, so
-   the soft palette is precomputed.) */
+/* Accent text (footer buttons): one solid color that slowly crossfades
+   through the palette — ~16s hold, ~4s fade per color, same clock as the
+   bar and aura. Card text is plain white/80 instead — a page of cycling
+   headings read as too much color. */
 @keyframes accent-color-cycle {
-  0%, 16% { color: var(--accent-1); }
-  20%, 36% { color: var(--accent-2); }
-  40%, 56% { color: var(--accent-3); }
-  60%, 76% { color: var(--accent-4); }
-  80%, 96% { color: var(--accent-5); }
-  100% { color: var(--accent-1); }
+  0%, 16% { color: var(--color-1); }
+  20%, 36% { color: var(--color-2); }
+  40%, 56% { color: var(--color-3); }
+  60%, 76% { color: var(--color-4); }
+  80%, 96% { color: var(--color-5); }
+  100% { color: var(--color-1); }
 }
 
 .accent-text {
-  --accent-1: var(--color-1);
-  --accent-2: var(--color-2);
-  --accent-3: var(--color-3);
-  --accent-4: var(--color-4);
-  --accent-5: var(--color-5);
-  color: var(--accent-2);
+  color: var(--color-2);
   animation: accent-color-cycle 100s ease-in-out infinite;
-}
-
-/* Muted variant for card accent text — the full-strength palette reads too
-   vibrant at heading sizes; footer buttons stay fully opaque. Values are
-   the palette colors at 0.5 alpha. */
-.accent-soft {
-  --accent-1: rgb(244 253 123 / 0.5);
-  --accent-2: rgb(57 213 203 / 0.5);
-  --accent-3: rgb(228 65 111 / 0.5);
-  --accent-4: rgb(252 211 77 / 0.5);
-  --accent-5: rgb(110 231 183 / 0.5);
 }
 
 @media (prefers-reduced-motion: reduce) {
