@@ -10,7 +10,7 @@ const Dancefight = () => {
           <h2 className="text-4xl font-bold">Dancefight</h2>
           <span className="text-xl font-bold text-balance md:text-right md:mt-2">Product Design Consultant</span>
         </div>
-        <h4 className="text-white/40 text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A social voting app</h4>
+        <h4 className="text-white/50 text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A social voting app</h4>
         <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
           I designed the core UX and final UIs for this seed-stage startup: onboarding, the main feed, the voting flow, and tournament brackets.
         </p>
