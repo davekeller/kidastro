@@ -60,7 +60,7 @@ h4, h6 {
    full image width loops seamlessly — a slow drift on the site's 25s rhythm. */
 @keyframes color-bar-drift {
   from { background-position: 0% 0; }
-  to { background-position: 200% 0; }
+  to { background-position: 400% 0; }
 }
 
 .color-bar {
@@ -73,9 +73,9 @@ h4, h6 {
     var(--color-5),
     var(--color-1)
   );
-  background-size: 200% 100%;
+  background-size: 400% 100%;
   opacity: 0.5;
-  animation: color-bar-drift 25s linear infinite;
+  animation: color-bar-drift 50s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
