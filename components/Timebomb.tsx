@@ -10,7 +10,7 @@ const Timebomb = () => {
           <h2 className="text-4xl font-bold">Timebomb</h2>
           <span className="text-xl font-bold md:text-right md:mt-2">Co-Founder + Lead Product Designer</span>
         </div>
-        <h4 className="gradient-text text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A conditional messaging app</h4>
+        <h4 className="accent-text text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A conditional messaging app</h4>
         <p className="mb-4 text-lg leading-8 text-white/90">
           I co-founded this messaging app and led design from whiteboard sketches through a 2.0 release. Native iOS and Android, team of 10.
         </p>
