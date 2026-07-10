@@ -10,7 +10,7 @@ const Accomplishments = () => {
 
       <div className="achieve1 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon1.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="accent-text text-2xl font-semibold mb-4">40+ Products</h3>
+        <h3 className="accent-text accent-soft text-2xl font-semibold mb-4">40+ Products</h3>
         <p className="text-white/90 leading-8 max-w-md text-pretty">
           Led design at an agency and multiple startups, shipping across AI, data science, entertainment, travel, fintech and more.
         </p>
@@ -22,7 +22,7 @@ const Accomplishments = () => {
 
       <div className="achieve2 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon2.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="accent-text text-2xl font-semibold mb-4">#1 iPhone App</h3>
+        <h3 className="accent-text accent-soft text-2xl font-semibold mb-4">#1 iPhone App</h3>
         <p className="text-white/90 leading-8 max-w-md text-pretty">
           At Rocket I designed A Beautiful Mess, a photo editor that shot to #1 Paid on the App Store right after launch (shown below).
         </p>
@@ -34,7 +34,7 @@ const Accomplishments = () => {
 
       <div className="achieve3 flex flex-col items-center text-center px-4">
         <Image src="/imgs/accomplishments/icon3.svg" alt="icon" width={80} height={80} className="mb-4" />
-        <h3 className="accent-text text-2xl font-semibold mb-4">Millions of Users</h3>
+        <h3 className="accent-text accent-soft text-2xl font-semibold mb-4">Millions of Users</h3>
         <p className="text-white/90 leading-8 max-w-md text-pretty">
           Designed apps that reached millions of downloads for Ellen, A Beautiful Mess, Dancefight and more.
         </p>

@@ -12,7 +12,7 @@ const Strangeworks = () => {
           <div className="flex items-start justify-between mb-2">
             <h2 className="text-4xl font-bold">Strangeworks</h2>
           </div>
-          <h4 className="accent-text text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A data-science consulting company for Fortune 500 teams running AI, quantum, and HPC compute</h4>
+          <h4 className="accent-text accent-soft text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A data-science consulting company for Fortune 500 teams running AI, quantum, and HPC compute</h4>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             I lead product design across the platform — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients.
           </p>
@@ -24,7 +24,7 @@ const Strangeworks = () => {
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg flex flex-col items-start">
           <h3 className="text-2xl font-bold my-2 text-balance">Design Engineer / Director of Product</h3>
-          <h4 className="text-xl font-semibold accent-text mb-4 tracking-wider">Highlights:</h4>
+          <h4 className="text-xl font-semibold accent-text accent-soft mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Promoted from Senior Product Designer to Director of Product in 6 months</li>
