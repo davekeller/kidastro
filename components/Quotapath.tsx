@@ -23,10 +23,10 @@ const QuotaPath = () => {
           <h4 className="text-xl font-semibold accent-text mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-white/30 text-lg leading-snug text-white/90">Shipped platform features monthly: comp modeling, onboarding, sandboxes, and payouts</li>
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-white/30 text-lg leading-snug text-white/90">Designed and launched the Compensation Hub, a commission-plan library and modeling tool that drove $1.5M+ in new pipeline in a year</li>
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-white/30 text-lg leading-snug text-white/90">Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it</li>
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-white/30 text-lg leading-snug text-white/90">Kept design and engineering building from the same Figma component libraries</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90">Shipped platform features monthly: comp modeling, onboarding, sandboxes, and payouts</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90">Designed and launched the Compensation Hub, a commission-plan library and modeling tool that drove $1.5M+ in new pipeline in a year</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90">Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90">Kept design and engineering building from the same Figma component libraries</li>
           </ul>
         </div>
       </div>

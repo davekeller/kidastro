@@ -24,9 +24,9 @@ const BnbFinder = () => {
           <h4 className="text-xl font-semibold accent-text mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-white/30 text-lg leading-snug text-white/90">Coded fully responsive front-ends for all three apps in Elixir and React/Next.js</li>
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-white/30 text-lg leading-snug text-white/90">Iterated from launch through a 2.0 release</li>
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-white/30 text-lg leading-snug text-white/90">Demoed every two weeks to leadership, sales, and marketing</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90">Coded fully responsive front-ends for all three apps in Elixir and React/Next.js</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90">Iterated from launch through a 2.0 release</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90">Demoed every two weeks to leadership, sales, and marketing</li>
           </ul>
         </div>
       </div>
