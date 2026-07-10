@@ -55,6 +55,28 @@ h4, h6 {
   }
 }
 
+/* Top color bar: each stripe holds a palette color ~3s, then crossfades to the
+   next over 2s — same rhythm as the floating symbols in AnimatedBreak. Stripes
+   stagger via negative animation-delay so the pattern drifts along the bar. */
+@keyframes color-bar-cycle {
+  0%, 12% { background-color: var(--color-1); }
+  20%, 32% { background-color: var(--color-2); }
+  40%, 52% { background-color: var(--color-3); }
+  60%, 72% { background-color: var(--color-4); }
+  80%, 92% { background-color: var(--color-5); }
+  100% { background-color: var(--color-1); }
+}
+
+.color-bar-stripe {
+  animation: color-bar-cycle 25s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .color-bar-stripe {
+    animation: none;
+  }
+}
+
 @media print {
   @page {
     size: letter;
