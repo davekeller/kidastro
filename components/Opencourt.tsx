@@ -10,10 +10,10 @@ const OpenCourt = () => {
       <div className="info col-span-full w-full text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg max-w-3xl mx-auto mb-12">
         <div className="flex flex-col items-start gap-1 mb-2 md:flex-row md:justify-between md:gap-4">
           <h2 className="text-4xl font-bold">OpenCourt</h2>
-          <span className="text-xl font-bold md:text-right md:mt-2">Product Design Consultant</span>
+          <span className="text-xl font-bold text-balance md:text-right md:mt-2">Product Design Consultant</span>
         </div>
-        <h4 className="accent-text text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A multi-platform app for booking courts, events, and open play at pickleball clubs</h4>
-        <p className="mb-4 text-lg leading-8 text-white/90">
+        <h4 className="accent-text text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A multi-platform app for booking courts, events, and open play at pickleball clubs</h4>
+        <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
           A six-month consulting engagement focused on the iOS app, delivered through Figma, Loom walkthroughs, and Zoom design reviews. I designed flows for booking courts, creating events and inviting players, checkout with add-ons, player profiles, and more.
         </p>
       </div>
