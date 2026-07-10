@@ -106,6 +106,28 @@ h4, h6 {
   }
 }
 
+/* Background variant of the accent cycle, for single-color icons rendered
+   via CSS mask (mask shape + animated background-color = tinted icon). */
+@keyframes accent-bg-cycle {
+  0%, 16% { background-color: var(--color-1); }
+  20%, 36% { background-color: var(--color-2); }
+  40%, 56% { background-color: var(--color-3); }
+  60%, 76% { background-color: var(--color-4); }
+  80%, 96% { background-color: var(--color-5); }
+  100% { background-color: var(--color-1); }
+}
+
+.accent-bg {
+  background-color: var(--color-2);
+  animation: accent-bg-cycle 100s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accent-bg {
+    animation: none;
+  }
+}
+
 @media print {
   @page {
     size: letter;
