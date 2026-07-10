@@ -1,20 +1,9 @@
 import React from 'react';
 
+// A single 3px gradient bar that slowly drifts through the site palette
+// (see .color-bar in globals.css). Static gradient under reduced motion.
 const ColorBar = () => {
-  return (
-    <div className="fixed top-0 z-50 flex h-[3px] w-full justify-evenly">
-      <div className="w-[10%] bg-[var(--color-1)]"></div>
-      <div className="w-[10%] bg-[var(--color-2)]"></div>
-      <div className="w-[10%] bg-[var(--color-3)]"></div>
-      <div className="w-[10%] bg-[var(--color-4)]"></div>
-      <div className="w-[10%] bg-[var(--color-5)]"></div>
-      <div className="w-[10%] bg-[var(--color-1)]"></div>
-      <div className="w-[10%] bg-[var(--color-2)]"></div>
-      <div className="w-[10%] bg-[var(--color-3)]"></div>
-      <div className="w-[10%] bg-[var(--color-4)]"></div>
-      <div className="w-[10%] bg-[var(--color-5)]"></div>
-    </div>
-  );
+  return <div className="color-bar fixed top-0 z-50 h-[3px] w-full"></div>;
 };
 
 export default ColorBar;

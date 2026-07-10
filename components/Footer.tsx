@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = ({ minimal = false }: { minimal?: boolean }) => {
@@ -68,40 +67,40 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
         {minimal && (
           <li className="px-1 py-4 sm:p-4 animate-float">
             <Link href="/" className="group flex flex-col items-center">
-              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-2">
-                <circle cx="12" cy="12" r="11" fill="none" stroke="#e4416f" strokeWidth="2" />
-                <path d="M16.5 12H8m0 0 3.5-3.5M8 12l3.5 3.5" fill="none" stroke="#e4416f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
+                <path d="M16.5 12H8m0 0 3.5-3.5M8 12l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">portfolio</p>
+              <p className="accent-text font-semibold group-hover:[animation:none] group-hover:text-white">portfolio</p>
             </Link>
           </li>
         )}
         <li className="px-1 py-4 sm:p-4 animate-float">
           <a href="https://www.linkedin.com/in/dkells/" className="group flex flex-col items-center">
-            <Image src="/imgs/contact/linkedin.svg" alt="linkedin" width={40} height={40} className="mb-2" />
-            <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">dkells</p>
+            <span aria-hidden className="accent-bg mb-2 h-10 w-10 [mask:url(/imgs/contact/linkedin.svg)_center/contain_no-repeat]" />
+            <p className="accent-text font-semibold group-hover:[animation:none] group-hover:text-white">dkells</p>
           </a>
         </li>
         <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.15s' }}>
           <a href="https://dribbble.com/kidastro" className="group flex flex-col items-center">
-            <Image src="/imgs/contact/dribbble.svg" alt="dribbble" width={40} height={40} className="mb-2" />
-            <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">dribbble</p>
+            <span aria-hidden className="accent-bg mb-2 h-10 w-10 [mask:url(/imgs/contact/dribbble.svg)_center/contain_no-repeat]" />
+            <p className="accent-text font-semibold group-hover:[animation:none] group-hover:text-white">dribbble</p>
           </a>
         </li>
         <li className="px-1 py-4 sm:p-4 animate-float" style={{ animationDelay: '0.3s' }}>
           <a href="mailto:davekeller@me.com?subject=Hey Dave!" className="group flex flex-col items-center">
-            <Image src="/imgs/contact/email.svg" alt="email" width={40} height={40} className="mb-2" />
-            <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">email</p>
+            <span aria-hidden className="accent-bg mb-2 h-10 w-10 [mask:url(/imgs/contact/email.svg)_center/contain_no-repeat]" />
+            <p className="accent-text font-semibold group-hover:[animation:none] group-hover:text-white">email</p>
           </a>
         </li>
         {!minimal && (
           <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
             <Link href="/resume" className="group flex flex-col items-center">
-              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-2">
-                <circle cx="12" cy="12" r="11" fill="none" stroke="#e4416f" strokeWidth="2" />
-                <path d="M7.5 12H16m0 0-3.5-3.5M16 12l-3.5 3.5" fill="none" stroke="#e4416f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
+                <path d="M7.5 12H16m0 0-3.5-3.5M16 12l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <p className="text-[#90a4bc] font-semibold group-hover:text-[#e4416f] transition-colors">resume</p>
+              <p className="accent-text font-semibold group-hover:[animation:none] group-hover:text-white">resume</p>
             </Link>
           </li>
         )}

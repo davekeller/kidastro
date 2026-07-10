@@ -9,23 +9,23 @@ const Rocket = () => {
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
-          <h4 className="text-(--color-5) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
-          <p className="mb-4 text-lg leading-8 text-white/90">
+          <h4 className="text-white/50 text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
+          <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             I co-founded this agency and led design as we grew from two people to twenty over a decade. We designed and built apps and sites for startups and names like Ellen, DreamWorks, and The Economist — and became an ideation and prototyping lab for Warner Bros.
           </p>
         </div>
 
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg flex flex-col items-start">
-          <h3 className="text-2xl font-bold my-2">Co-Founder + Product Designer + Front-End Developer</h3>
-          <h4 className="text-xl font-semibold text-(--color-5) mb-4 tracking-wider">Highlights:</h4>
+          <h3 className="text-2xl font-bold my-2 text-balance">Co-Founder + Product Designer + Front-End Developer</h3>
+          <h4 className="text-xl font-semibold text-white/50 mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Hired and led a 20-person team across product, back-end, front-end, iOS, and Android</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Designed and shipped custom apps and websites across 30+ client projects</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Ran sales, marketing, and accounts across dozens of engagements</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Designed and built A Beautiful Mess, the photo editor that hit #1 Paid on the App Store</li>
-             <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Designed and built a multi-million-dollar CRM/CMS for one of the largest US auto-sales organizations</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Hired and led a 20-person team across product, back-end, front-end, iOS, and Android</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Designed and shipped custom apps and websites across 30+ client projects</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Ran sales, marketing, and accounts across dozens of engagements</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Designed and built A Beautiful Mess, the photo editor that hit #1 Paid on the App Store</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Designed and built a multi-million-dollar CRM/CMS for one of the largest US auto-sales organizations</li>
           </ul>
         </div>
       </div>
