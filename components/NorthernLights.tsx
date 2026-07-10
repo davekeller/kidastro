@@ -20,20 +20,52 @@ const NorthernLights = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Aurora colors - orange, pink, blue, purple
-    const colors = [
-      { r: 255, g: 140, b: 50 },  // Orange #ff8c32
-      { r: 236, g: 72, b: 153 }, // Pink #ec4899
-      { r: 59, g: 130, b: 246 },  // Blue #3b82f6
-      { r: 168, g: 85, b: 247 }, // Purple #a855f7
-      { r: 244, g: 114, b: 182 }, // Light pink #f472b6
+    // Site palette — same colors as --color-1..5 and the top color bar gradient
+    const palette = [
+      { r: 244, g: 253, b: 123 }, // Yellow #f4fd7b
+      { r: 57, g: 213, b: 203 },  // Teal #39d5cb
+      { r: 228, g: 65, b: 111 },  // Pink #e4416f
+      { r: 252, g: 211, b: 77 },  // Gold #fcd34d
+      { r: 110, g: 231, b: 183 }, // Mint #6ee7b7
     ];
+
+    // Sync with the top bar's drifting gradient (.color-bar). Its tile is
+    // (background-size / 100) viewports wide and slides (that - 1) tile widths
+    // per animation cycle, so sampling the tile at a viewport fraction gives
+    // the exact color passing overhead at any moment.
+    const bar = document.querySelector('.color-bar');
+    const barStyle = bar ? getComputedStyle(bar) : null;
+    const barDurationMs = (parseFloat(barStyle?.animationDuration ?? '') || 50) * 1000;
+    const barTileViewports = (parseFloat(barStyle?.backgroundSize ?? '') || 400) / 100;
+    const barTilesPerCycle = barTileViewports - 1;
+    let barAnim: Animation | null = null;
+
+    const barPhase = () => {
+      if (!barAnim) barAnim = bar?.getAnimations()[0] ?? null;
+      const t = typeof barAnim?.currentTime === 'number' ? barAnim.currentTime : time * 1000;
+      return ((t / barDurationMs) * barTilesPerCycle) % 1;
+    };
+
+    // Color of the bar gradient above viewport fraction u (0 = left, 1 = right)
+    const barColorAt = (u: number) => {
+      const raw = barPhase() + u / barTileViewports;
+      const f = Number.isFinite(raw) ? ((raw % 1) + 1) % 1 : 0;
+      const seg = f * palette.length;
+      const i = Math.floor(seg) % palette.length;
+      const a = palette[i];
+      const b = palette[(i + 1) % palette.length];
+      const k = seg - Math.floor(seg);
+      return {
+        r: a.r + (b.r - a.r) * k,
+        g: a.g + (b.g - a.g) * k,
+        b: a.b + (b.b - a.b) * k,
+      };
+    };
 
     // 2-4 aurora shapes visible at a time
     const numAuroras = 3;
     const auroras = Array.from({ length: numAuroras }, (_, i) => ({
       baseX: canvas.width * (0.1 + i * 0.4), // Spread across screen
-      colorIndex: i % colors.length,
       phaseOffset: i * (Math.PI / 1.5) + Math.random() * 3,
       baseLength: 0.6 + Math.random() * 0.4, // Varied - 60-100% of canvas height
       topWidth: canvas.width * (0.5 + Math.random() * 0.4), // Wider at top - 50-90% screen width
@@ -45,43 +77,13 @@ const NorthernLights = () => {
       diffuseRate: 0.3 + Math.random() * 0.5, // How quickly it diffuses
     }));
 
-    // Track which color pair we're showing
-    let colorPairIndex = 0;
-    let colorTransition = 0;
-
     let animationId: number;
     let time = 0;
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Slowly cycle through color pairs
-      colorTransition += 0.001;
-      if (colorTransition >= 1) {
-        colorTransition = 0;
-        colorPairIndex = (colorPairIndex + 1) % colors.length;
-      }
-
-      // Get current colors with smooth transition
-      const getColorIndices = (auroraIndex: number) => {
-        const base = (colorPairIndex + auroraIndex) % colors.length;
-        const next = (base + 1) % colors.length;
-        return { base, next };
-      };
-
-      auroras.forEach((aurora, i) => {
-        // Each aurora gets its own color, cycling through the palette
-        const { base, next } = getColorIndices(i);
-        const baseColor = colors[base];
-        const nextColor = colors[next];
-
-        // Lerp between current and next color
-        const color = {
-          r: baseColor.r + (nextColor.r - baseColor.r) * colorTransition,
-          g: baseColor.g + (nextColor.g - baseColor.g) * colorTransition,
-          b: baseColor.b + (nextColor.b - baseColor.b) * colorTransition,
-        };
-
+      auroras.forEach((aurora) => {
         const { phaseOffset, speedMultiplier, topWidth, waveFrequency, waveAmplitude, driftSpeed, taperStyle, diffuseRate } = aurora;
         const waveTime = time * speedMultiplier;
 
@@ -93,6 +95,10 @@ const NorthernLights = () => {
         const drift = Math.sin(waveTime * driftSpeed + phaseOffset) * (canvas.width * 0.35);
         const secondaryDrift = Math.sin(waveTime * driftSpeed * 0.7 + phaseOffset * 2) * (canvas.width * 0.1);
         const centerX = aurora.baseX + drift + secondaryDrift;
+
+        // Match the color bar gradient currently passing over this aurora
+        const u = canvas.width > 0 ? Math.min(1, Math.max(0, centerX / canvas.width)) : 0;
+        const color = barColorAt(u);
 
         // Pulsing intensity - subtle
         const pulse = 0.07 + Math.sin(waveTime * 0.4 + phaseOffset) * 0.035;
