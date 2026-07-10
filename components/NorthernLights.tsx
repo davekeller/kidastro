@@ -62,19 +62,21 @@ const NorthernLights = () => {
       };
     };
 
-    // 2-4 aurora shapes visible at a time
-    const numAuroras = 3;
+    // Aurora curtains covering the full top width — each is stratified into
+    // its own band with random jitter so coverage spans edge to edge while
+    // placement still varies per page load.
+    const numAuroras = 5;
     const auroras = Array.from({ length: numAuroras }, (_, i) => ({
-      baseX: canvas.width * (0.1 + i * 0.4), // Spread across screen
-      phaseOffset: i * (Math.PI / 1.5) + Math.random() * 3,
-      baseLength: 0.6 + Math.random() * 0.4, // Varied - 60-100% of canvas height
-      topWidth: canvas.width * (0.5 + Math.random() * 0.4), // Wider at top - 50-90% screen width
-      speedMultiplier: 0.08 + Math.random() * 0.12,
-      driftSpeed: 0.2 + Math.random() * 0.25, // Independent horizontal drift
-      waveFrequency: 0.005 + Math.random() * 0.006,
-      waveAmplitude: 40 + Math.random() * 60, // More varied flag-like waves
+      baseX: canvas.width * ((i + Math.random()) / numAuroras),
+      phaseOffset: Math.random() * Math.PI * 2,
+      baseLength: 0.5 + Math.random() * 0.5, // Varied - 50-100% of canvas height
+      topWidth: canvas.width * (0.35 + Math.random() * 0.45), // 35-80% screen width
+      speedMultiplier: 0.05 + Math.random() * 0.18,
+      driftSpeed: 0.15 + Math.random() * 0.35, // Independent horizontal drift
+      waveFrequency: 0.004 + Math.random() * 0.009,
+      waveAmplitude: 30 + Math.random() * 90, // More varied flag-like waves
       taperStyle: Math.random(), // 0-1 controls how it tapers (more variety)
-      diffuseRate: 0.3 + Math.random() * 0.5, // How quickly it diffuses
+      diffuseRate: 0.25 + Math.random() * 0.65, // How quickly it diffuses
     }));
 
     let animationId: number;
@@ -100,8 +102,9 @@ const NorthernLights = () => {
         const u = canvas.width > 0 ? Math.min(1, Math.max(0, centerX / canvas.width)) : 0;
         const color = barColorAt(u);
 
-        // Pulsing intensity - subtle
-        const pulse = 0.14 + Math.sin(waveTime * 0.4 + phaseOffset) * 0.06;
+        // Pulsing intensity - subtle (~60% of prior brightness, spread over
+        // five curtains instead of three)
+        const pulse = 0.07 + Math.sin(waveTime * 0.4 + phaseOffset) * 0.03;
 
         // Create gradient from above canvas (bright) to bottom (diffused/transparent)
         const gradient = ctx.createLinearGradient(0, -100, 0, auroraHeight + 100);
