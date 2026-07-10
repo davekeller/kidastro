@@ -17,8 +17,54 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Dave Keller — Lead Product Designer & Design Engineer",
-  description: "Dave Keller — design engineer / lead product designer. 15+ years designing and shipping front-ends for hard, technical AI and data products.",
+  metadataBase: new URL("https://kidastro.com"),
+  title: {
+    default: "Dave Keller — Lead Product Designer & Design Engineer",
+    template: "%s — Dave Keller",
+  },
+  description:
+    "Design engineer and lead product designer with 15+ years shipping hard, technical products — AI, quantum, and data science. Figma expert, prototyping and shipping in code.",
+  keywords: [
+    "product designer",
+    "design engineer",
+    "lead product designer",
+    "UX designer",
+    "Figma",
+    "design systems",
+    "AI product design",
+    "portfolio",
+    "Dave Keller",
+  ],
+  authors: [{ name: "Dave Keller", url: "https://kidastro.com" }],
+  creator: "Dave Keller",
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Dave Keller — Portfolio",
+    locale: "en_US",
+    title: "Dave Keller — Lead Product Designer & Design Engineer",
+    description:
+      "15+ years shipping hard, technical products — AI, quantum, and data science. Figma expert, prototyping and shipping in code.",
+    images: [
+      {
+        url: "/imgs/strangeworks/strange1.png",
+        width: 2640,
+        height: 912,
+        alt: "Aura — AI-assisted optimization workflow app designed by Dave Keller",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dave Keller — Lead Product Designer & Design Engineer",
+    description:
+      "15+ years shipping hard, technical products — AI, quantum, and data science.",
+    images: ["/imgs/strangeworks/strange1.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

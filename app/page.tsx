@@ -15,6 +15,10 @@ import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
 import PageToggle from '@/components/PageToggle';
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between overflow-x-hidden z-10">
