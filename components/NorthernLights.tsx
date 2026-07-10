@@ -101,7 +101,7 @@ const NorthernLights = () => {
         const color = barColorAt(u);
 
         // Pulsing intensity - subtle
-        const pulse = 0.07 + Math.sin(waveTime * 0.4 + phaseOffset) * 0.035;
+        const pulse = 0.14 + Math.sin(waveTime * 0.4 + phaseOffset) * 0.06;
 
         // Create gradient from above canvas (bright) to bottom (diffused/transparent)
         const gradient = ctx.createLinearGradient(0, -100, 0, auroraHeight + 100);
