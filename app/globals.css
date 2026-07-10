@@ -55,24 +55,30 @@ h4, h6 {
   }
 }
 
-/* Top color bar: each stripe holds a palette color ~3s, then crossfades to the
-   next over 2s — same rhythm as the floating symbols in AnimatedBreak. Stripes
-   stagger via negative animation-delay so the pattern drifts along the bar. */
-@keyframes color-bar-cycle {
-  0%, 12% { background-color: var(--color-1); }
-  20%, 32% { background-color: var(--color-2); }
-  40%, 52% { background-color: var(--color-3); }
-  60%, 72% { background-color: var(--color-4); }
-  80%, 92% { background-color: var(--color-5); }
-  100% { background-color: var(--color-1); }
+/* Top color bar: one continuous gradient through the palette. The gradient
+   starts and ends on color-1 at 200% width, so sliding background-position a
+   full image width loops seamlessly — a slow drift on the site's 25s rhythm. */
+@keyframes color-bar-drift {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
 }
 
-.color-bar-stripe {
-  animation: color-bar-cycle 25s ease-in-out infinite;
+.color-bar {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-1),
+    var(--color-2),
+    var(--color-3),
+    var(--color-4),
+    var(--color-5),
+    var(--color-1)
+  );
+  background-size: 200% 100%;
+  animation: color-bar-drift 25s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .color-bar-stripe {
+  .color-bar {
     animation: none;
   }
 }
