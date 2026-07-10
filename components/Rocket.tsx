@@ -9,7 +9,7 @@ const Rocket = () => {
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
           <h2 className="text-4xl font-bold mb-2">Rocket</h2>
-          <h4 className="text-(--color-5) text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
+          <h4 className="gradient-text text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90">
             I co-founded this agency and led design as we grew from two people to twenty over a decade. We designed and built apps and sites for startups and names like Ellen, DreamWorks, and The Economist — and became an ideation and prototyping lab for Warner Bros.
           </p>
@@ -18,7 +18,7 @@ const Rocket = () => {
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg flex flex-col items-start">
           <h3 className="text-2xl font-bold my-2">Co-Founder + Product Designer + Front-End Developer</h3>
-          <h4 className="text-xl font-semibold text-(--color-5) mb-4 tracking-wider">Highlights:</h4>
+          <h4 className="text-xl font-semibold gradient-text mb-4 tracking-wider">Highlights:</h4>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-[''] before:absolute before:left-0 before:top-3 before:w-2 before:h-2 before:bg-(--color-5) before:rounded-full text-lg leading-snug text-white/90">Hired and led a 20-person team across product, back-end, front-end, iOS, and Android</li>
