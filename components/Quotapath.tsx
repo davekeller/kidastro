@@ -32,7 +32,7 @@ const QuotaPath = () => {
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-5 relative">
-         <Image src="/imgs/quotapath/qp6.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/quotapath/qp6.webp" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">
@@ -43,7 +43,7 @@ const QuotaPath = () => {
       </div>
       
       <div className="col-span-1 md:col-span-1 lg:col-span-2 relative">
-         <Image src="/imgs/quotapath/qp4.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/quotapath/qp4.webp" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
       
       {/* <div className="col-span-1 md:col-span-1 lg:col-span-2 relative">
@@ -51,11 +51,11 @@ const QuotaPath = () => {
       </div> */}
       
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/quotapath/qp1.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/quotapath/qp1.webp" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
       
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/quotapath/qp2.png" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/quotapath/qp2.webp" alt="quotapath example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
     </AnimatedSection>

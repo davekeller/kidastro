@@ -19,11 +19,11 @@ const OpenCourt = () => {
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/opencourt/opencourt1.png" alt="OpenCourt court booking and player profile screens" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/opencourt/opencourt1.webp" alt="OpenCourt court booking and player profile screens" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/opencourt/opencourt2.png" alt="OpenCourt event invites, add-on extras, and checkout screens" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/opencourt/opencourt2.webp" alt="OpenCourt event invites, add-on extras, and checkout screens" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
     </AnimatedSection>
