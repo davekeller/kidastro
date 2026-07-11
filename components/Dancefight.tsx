@@ -16,7 +16,7 @@ const Dancefight = () => {
         </p>
       </div>
       <div className="col-span-1 md:col-span-3 relative">
-          <Image src="/imgs/dance/dance3.jpg" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
+          <Image src="/imgs/dance/dance3.webp" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
     </AnimatedSection>
   );

@@ -31,10 +31,10 @@ const Rocket = () => {
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 lg:row-span-2 relative">
-         <Image src="/imgs/rkt/rkt4.jpg" alt="rocket example" width={800} height={600} className="w-full h-full object-cover rounded shadow-2xl" />
+         <Image src="/imgs/rkt/rkt4.webp" alt="rocket example" width={800} height={600} className="w-full h-full object-cover rounded shadow-2xl" />
       </div>
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
-         <Image src="/imgs/rkt/rkt3.png" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/rkt/rkt3.webp" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3">
@@ -52,7 +52,7 @@ const Rocket = () => {
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-2 relative">
-         <Image src="/imgs/rkt/rkt5.jpg" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/rkt/rkt5.webp" alt="rocket example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-4 relative">

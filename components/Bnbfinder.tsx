@@ -32,21 +32,21 @@ const BnbFinder = () => {
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-5 relative">
-         <Image src="/imgs/bnb/bnb1.png" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/bnb/bnb1.webp" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3 relative lg:rounded-r-md overflow-hidden">
           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
             <h5 className="text-black font-bold text-xl">bnbfinder design system</h5>
           </div>
-         <Image src="/imgs/bnb/bnb3.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/bnb/bnb3.webp" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative lg:rounded-l-md overflow-hidden">
            <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
             <h5 className="text-black font-bold text-xl">pitch decks</h5>
           </div>
-         <Image src="/imgs/bnb/bnb5.jpg" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/bnb/bnb5.webp" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
     </AnimatedSection>

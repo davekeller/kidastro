@@ -19,10 +19,10 @@ const Timebomb = () => {
         </p>
       </div>
        <div className="col-span-1 md:col-span-3 lg:w-5/6 lg:ml-auto relative">
-          <Image src="/imgs/tmb/tmb1.jpg" alt="tmb website" width={800} height={600} className="w-full rounded shadow-2xl" />
+          <Image src="/imgs/tmb/tmb1.webp" alt="tmb website" width={800} height={600} className="w-full rounded shadow-2xl" />
        </div>
       <div className="col-span-1 md:col-span-3 relative">
-          <Image src="/imgs/tmb/tmb2.jpg" alt="timebomb website" width={800} height={600} className="w-full rounded shadow-2xl" />
+          <Image src="/imgs/tmb/tmb2.webp" alt="timebomb website" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
     </AnimatedSection>
   );
