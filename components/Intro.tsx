@@ -8,7 +8,7 @@ const Intro = () => {
   return (
     <div className="relative flex flex-col items-center justify-start bg-transparent text-center -mt-10 pb-0 md:pb-48">
       <Icosahedron />
-      <div className="intro flex flex-col items-center max-w-[850px] mx-auto px-6 z-10 -mt-32">
+      <div className="intro flex flex-col items-center max-w-[850px] mx-auto px-6 z-10 -mt-40 md:-mt-[136px]">
         <FadeUp className="flex flex-col items-center">
         <h1 className="mb-8 text-4xl md:text-7xl text-white tracking-tight font-extrabold">
           so nice to meet you
@@ -20,7 +20,7 @@ const Intro = () => {
           I enjoy the creative process, prototyping in code, architecting systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
         </p>
         </FadeUp>
-        <div className="-mt-32">
+        <div className="-mt-14 md:-mt-28">
           <AnimatedBreak />
         </div>
       </div>
