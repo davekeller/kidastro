@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
+import CompanyMark from '@/components/CompanyMark';
 
 const Rocket = () => {
   return (
@@ -8,7 +9,10 @@ const Rocket = () => {
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
-          <h2 className="text-4xl font-bold mb-2">Rocket</h2>
+          <div className="flex items-center gap-4 mb-2">
+            <CompanyMark company="rocket" />
+            <h2 className="text-4xl font-bold">Rocket</h2>
+          </div>
           <h4 className="text-white/50 text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A boutique digital agency</h4>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             I co-founded this agency and led design as we grew from two people to twenty over a decade. We designed and built apps and sites for startups and names like Ellen, DreamWorks, and The Economist — and became an ideation and prototyping lab for Warner Bros.

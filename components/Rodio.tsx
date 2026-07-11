@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
+import CompanyMark from '@/components/CompanyMark';
 
 const Rodio = () => {
   return (
@@ -8,7 +9,10 @@ const Rodio = () => {
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
-          <h2 className="text-4xl font-bold mb-2">Rodio</h2>
+          <div className="flex items-center gap-4 mb-2">
+            <CompanyMark company="rodio" />
+            <h2 className="text-4xl font-bold">Rodio</h2>
+          </div>
           <h4 className="text-white/50 text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">Workforce communication for big retail</h4>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             Led design from first sketch to revenue at this workforce-comms startup, building one multi-platform design system that kept web, iOS, and Android in sync. I ran the sprints and shipped production UI across all three.

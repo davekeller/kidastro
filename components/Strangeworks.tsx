@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
+import CompanyMark from '@/components/CompanyMark';
 import ContributionGraph from '@/components/ContributionGraph';
 
 const Strangeworks = () => {
@@ -9,7 +10,8 @@ const Strangeworks = () => {
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
-          <div className="flex items-start justify-between mb-2">
+          <div className="flex items-center gap-4 mb-2">
+            <CompanyMark company="strangeworks" />
             <h2 className="text-4xl font-bold">Strangeworks</h2>
           </div>
           <h4 className="text-white/50 text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">A data-science consulting company for Fortune 500 teams running AI, quantum, and HPC compute</h4>
