@@ -7,7 +7,7 @@ import React from 'react';
 
 const glyphs: Record<string, React.ReactNode> = {
   strangeworks: (
-    <svg viewBox="0 0 20.825 20.825" fill="currentColor" aria-hidden="true" className="w-6 h-6 md:w-8 md:h-8">
+    <svg viewBox="0 0 20.825 20.825" fill="currentColor" aria-hidden="true" className="w-[88%] h-[88%]">
       <circle cx="9.775" cy="1.275" r="1.275" />
       <circle cx="14.025" cy="5.525" r="1.275" />
       <circle cx="1.275" cy="9.775" r="1.275" />
@@ -20,14 +20,14 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   quotapath: (
-    <svg viewBox="0.34 -0.06 25.79 28.18" fill="currentColor" aria-hidden="true" className="w-6 h-6 md:w-8 md:h-8">
+    <svg viewBox="0.34 -0.06 25.79 28.18" fill="currentColor" aria-hidden="true" className="w-[88%] h-[88%]">
       <path d="M15.8352 14.0312C15.8352 15.4672 14.671 16.6313 13.235 16.6313C11.799 16.6313 10.6349 15.4672 10.6349 14.0312C10.6349 12.5951 11.799 11.431 13.235 11.431C14.671 11.431 15.8352 12.5951 15.8352 14.0312Z" />
       <path d="M23.1759 28.115L17.3733 26.2931C17.3376 26.3052 17.3016 26.317 17.2656 26.3289C16.0013 26.7425 14.651 26.9663 13.2487 26.9663C6.12025 26.9663 0.341553 21.1876 0.341553 14.0592C0.341553 10.6156 1.69023 7.48673 3.8881 5.17242L7.02765 8.89556C5.86382 10.296 5.1642 12.0959 5.1642 14.0592C5.1642 18.5241 8.78348 22.1438 13.2487 22.1438C14.7205 22.1438 16.1003 21.7503 17.2893 21.0631L20.4252 24.7887C20.4178 24.7935 20.4106 24.7986 20.4033 24.8033L20.4202 24.7968L23.1759 28.115Z" />
       <path d="M3.29407 -0.0528259L9.09662 1.76909C9.13237 1.75697 9.16835 1.74516 9.20433 1.73342C10.4686 1.31971 11.8189 1.09587 13.2213 1.09587C20.3497 1.09587 26.1284 6.87457 26.1284 14.003C26.1284 17.4466 24.7798 20.5755 22.5819 22.8898L19.4423 19.1667C20.6061 17.7663 21.3058 15.9664 21.3058 14.003C21.3058 9.5381 17.6865 5.91852 13.2213 5.91852C11.7495 5.91852 10.3696 6.31192 9.18071 6.99911L6.04478 3.27351C6.05211 3.2688 6.05937 3.2637 6.06671 3.25891L6.0498 3.2654L3.29407 -0.0528259Z" />
     </svg>
   ),
   opencourt: (
-    <svg viewBox="0 0 36 36" fill="currentColor" aria-hidden="true" className="w-7 h-7 md:w-9 md:h-9">
+    <svg viewBox="0 0 36 36" fill="currentColor" aria-hidden="true" className="w-full h-full">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -38,7 +38,7 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   rodio: (
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-7 h-7 md:w-9 md:h-9">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-full h-full">
       <rect x="12" y="12" width="11.5" height="19" rx="3" />
       <path d="M15.2 12 V5.5" />
       <path d="M17.5 2.2 A4 4 0 0 1 18.5 7.8" />
@@ -48,7 +48,7 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   bnbfinder: (
-    <svg viewBox="6.8 4.3 17 20.6" fill="currentColor" aria-hidden="true" className="w-6 h-6 md:w-8 md:h-8">
+    <svg viewBox="6.8 4.3 17 20.6" fill="currentColor" aria-hidden="true" className="w-[88%] h-[88%]">
       <g clipRule="evenodd" fillRule="evenodd">
         <path d="m8.50195 5.12195h1.02242l-.21808.37383c-.08785.15036-.15978.32796-.14784.50389.0145.21124.15893.38884.31275.52281l.02986.02557.01108.00917c.03611.02641.06938.05197.1072.08283l.05771.04892c.33835.29489.57545.65954.60615 1.11064.0182.26571-.0403.52308-.1481.766l-.0671.15036h-1.01617l.21096-.37133c.08303-.14647.14984-.3174.1379-.4875-.01422-.21123-.15894-.38884-.31247-.5228l-.02985-.02557-.01081-.0089c-.03639-.02668-.06965-.05253-.10719-.0831l-.058-.04864c-.33834-.29489-.57547-.65983-.60646-1.11064-.01848-.27405.04407-.53892.15837-.78768z" />
         <path d="m10.5545 9.32288h-1.96917v3.09732h1.96947z" />
@@ -61,7 +61,7 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   rocket: (
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-7 h-7 md:w-9 md:h-9">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-full h-full">
       <path d="M18 3.5 C21.5 6.5 23 10.5 23 14.5 V22.5 H13 V14.5 C13 10.5 14.5 6.5 18 3.5 Z" />
       <circle cx="18" cy="13" r="2.6" />
       <path d="M13 17 L8.5 23.5 L13 24.5" />
@@ -70,7 +70,7 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   timebomb: (
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-7 h-7 md:w-9 md:h-9">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-full h-full">
       <circle cx="15" cy="21.5" r="9" />
       <path d="M19.6 13.6 L23 10.2" />
       <path d="M23 10.2 C24.8 7.8 27.6 8 28.4 10.4" />
@@ -80,7 +80,7 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   dancefight: (
-    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-7 h-7 md:w-9 md:h-9">
+    <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-full h-full">
       <path d="M18 3.5 V11" />
       <circle cx="18" cy="20" r="9" />
       <path d="M9.5 17 H26.5" />
@@ -104,7 +104,7 @@ const CompanyMark = ({ company, className = '' }: CompanyMarkProps) => {
 
   return (
     <span
-      className={`inline-flex h-12 w-12 md:h-16 md:w-16 shrink-0 items-center justify-center rounded-lg border-2 border-white/10 bg-white/5 text-white/80 ${className}`}
+      className={`mt-1 inline-flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center text-white/80 ${className}`}
     >
       {glyph}
     </span>
