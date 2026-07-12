@@ -9,15 +9,15 @@ const Strangeworks = () => {
     <AnimatedSection className="strangeworks grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-center">
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg">
           <div className="flex items-start gap-4 mb-4">
             <CompanyMark company="strangeworks" />
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">Strangeworks</h2>
-              <h4 className="text-white/50 text-balance text-lg font-bold italic">A data-science consulting company for Fortune 500 teams running AI, quantum, and HPC compute</h4>
+              <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5">A data-science consulting company for Fortune 500 teams running AI, quantum, and HPC compute</h4>
             </div>
           </div>
-          <div className="w-full border-b-2 border-white/10 mb-4"></div>
+          <div className="w-full border-b-2 border-white/20 mb-4"></div>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             I lead product design across the platform — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients.
           </p>
@@ -27,9 +27,9 @@ const Strangeworks = () => {
         </div>
 
         {/* Highlights */}
-        <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg flex flex-col items-start">
-          <h3 className="text-2xl font-bold mt-2 mb-4 text-balance">Design Engineer / Director of Product</h3>
-          <div className="w-full border-b-2 border-white/10 mb-6"></div>
+        <div className="info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg flex flex-col items-start">
+          <h3 className="text-xl font-bold mt-2 mb-4 text-balance">Design Engineer / Director of Product</h3>
+          <div className="w-full border-b-2 border-white/20 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Promoted from Senior Product Designer to Director of Product in 6 months</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Researched internal process and designed the vision for Aura, our workflow app — then helped build it in production code</li>

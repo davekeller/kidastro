@@ -104,7 +104,7 @@ const CompanyMark = ({ company, className = '' }: CompanyMarkProps) => {
 
   return (
     <span
-      className={`mt-1 inline-flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center text-white/80 ${className}`}
+      className={`mt-1 inline-flex h-8 w-8 md:h-9 md:w-9 shrink-0 items-center justify-center text-white/80 ${className}`}
     >
       {glyph}
     </span>
