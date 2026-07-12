@@ -49,7 +49,7 @@ const Accomplishments = () => {
       </div>
 
       <div className="achieve3 flex flex-col items-center text-center px-4">
-        {/* Planet with orbiting users — reach at scale */}
+        {/* Planet with orbiting users, comet, and stars — reach at scale */}
         <svg viewBox="0 0 48 48" width={80} height={80} fill="none" stroke="#E4416F" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4">
           <circle cx="24" cy="26" r="8.5" />
           <path d="M19.5 19.5 C16.8 23 16.8 29 19.5 32.5" opacity="0.5" />
@@ -57,9 +57,14 @@ const Accomplishments = () => {
           <circle cx="7.7" cy="30.7" r="1.9" fill="#E4416F" stroke="none" />
           <circle cx="40.3" cy="21.3" r="1.9" fill="#E4416F" stroke="none" />
           <circle cx="27.5" cy="31.9" r="1.9" fill="#E4416F" stroke="none" />
+          <path d="M4.5 4.5 L10.6 10.6" opacity="0.85" />
+          <circle cx="11.6" cy="11.6" r="1.5" fill="#E4416F" stroke="none" />
           <path d="M40 4.5 V10.5" />
           <path d="M37 7.5 H43" />
-          <circle cx="10" cy="9" r="1.2" fill="#E4416F" stroke="none" />
+          <path d="M42 35 Q42.6 38.3 45.5 38.9 Q42.6 39.5 42 42.8 Q41.4 39.5 38.5 38.9 Q41.4 38.3 42 35 Z" fill="#E4416F" stroke="none" opacity="0.9" />
+          <circle cx="17" cy="6.5" r="1" fill="#E4416F" stroke="none" opacity="0.8" />
+          <circle cx="5.5" cy="20.5" r="1" fill="#E4416F" stroke="none" opacity="0.8" />
+          <circle cx="33" cy="43" r="1" fill="#E4416F" stroke="none" opacity="0.8" />
         </svg>
         <h3 className="text-white/50 text-2xl font-semibold mb-4">Millions of Users</h3>
         <p className="text-white/90 leading-8 max-w-md text-pretty">
