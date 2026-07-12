@@ -9,12 +9,12 @@ const QuotaPath = () => {
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg">
-          <div className="flex items-start justify-between gap-4 mb-4">
+          <div className="flex items-start gap-4 mb-4">
+            <CompanyMark company="quotapath" />
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">QuotaPath</h2>
               <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5">A Series B SaaS platform for sales commission planning and tracking</h4>
             </div>
-            <CompanyMark company="quotapath" />
           </div>
           <div className="w-full border-b-2 border-white/20 mb-4"></div>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
