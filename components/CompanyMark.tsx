@@ -39,13 +39,12 @@ const glyphs: Record<string, React.ReactNode> = {
   ),
   rodio: (
     <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-full h-full">
-      <path d="M14 3 H22 C23.9 3 25.5 4.6 25.5 6.5 V8.5 C25.5 10.4 23.9 12 22 12 H17.5 L14 15 V11.9 C12.1 11.75 10.5 10.3 10.5 8.5 V6.5 C10.5 4.6 12.1 3 14 3 Z" />
-      <path d="M19 12 V16.5" />
-      <path d="M7.5 23 V21.2 C7.5 20 8.4 19.2 9.5 19.2 H26.5 C27.6 19.2 28.5 20 28.5 21.2 V23" />
-      <path d="M18 19.2 V23" />
-      <circle cx="7.5" cy="26.4" r="3.1" />
-      <circle cx="18" cy="26.4" r="3.1" />
-      <circle cx="28.5" cy="26.4" r="3.1" />
+      <circle cx="13" cy="13" r="5" />
+      <path d="M4.5 30.5 V29.5 C4.5 24.5 8.3 21.5 13 21.5 C17.7 21.5 21.5 24.5 21.5 29.5 V30.5" />
+      <path d="M22 3 H30 C31.9 3 33.5 4.6 33.5 6.5 V8.5 C33.5 10.4 31.9 12 30 12 H25.5 L22 15 V11.9 C20.1 11.75 18.5 10.3 18.5 8.5 V6.5 C18.5 4.6 20.1 3 22 3 Z" />
+      <circle cx="22.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+      <circle cx="26" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+      <circle cx="29.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   ),
   bnbfinder: (
