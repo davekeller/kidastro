@@ -9,7 +9,7 @@ const Accomplishments = () => {
 
       <div className="achieve1 flex flex-col items-center text-center px-4">
         {/* Layer stack + spark — products shipped */}
-        <svg viewBox="0 0 48 48" width={80} height={80} fill="none" stroke="#F4FD7B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4">
+        <svg viewBox="0 0 48 48" width={80} height={80} fill="none" stroke="#F4FD7B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4 opacity-90">
           <path d="M24 6 L38 13.5 L24 21 L10 13.5 Z" fill="#F4FD7B" fillOpacity="0.15" />
           <path d="M10 21.5 L24 29 L38 21.5" />
           <path d="M10 29.5 L24 37 L38 29.5" />
@@ -28,7 +28,7 @@ const Accomplishments = () => {
 
       <div className="achieve2 flex flex-col items-center text-center px-4">
         {/* Trophy with star — #1 Paid on the App Store */}
-        <svg viewBox="0 0 48 48" width={80} height={80} fill="none" stroke="#39d5cb" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4">
+        <svg viewBox="0 0 48 48" width={80} height={80} fill="none" stroke="#39d5cb" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4 opacity-90">
           <path d="M15.5 8 H32.5 V15.5 C32.5 21.5 29 25.5 24 25.5 C19 25.5 15.5 21.5 15.5 15.5 Z" />
           <path d="M15.5 10.5 H9.5 C9.5 16.5 11.7 18.7 15.7 19.4" />
           <path d="M32.5 10.5 H38.5 C38.5 16.5 36.3 18.7 32.3 19.4" />
@@ -50,7 +50,7 @@ const Accomplishments = () => {
 
       <div className="achieve3 flex flex-col items-center text-center px-4">
         {/* Planet with orbiting users, comet, and stars — reach at scale */}
-        <svg viewBox="0 0 48 48" width={80} height={80} fill="none" stroke="#E4416F" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4">
+        <svg viewBox="0 0 48 48" width={80} height={80} fill="none" stroke="#E4416F" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mb-4 opacity-90">
           <circle cx="24" cy="26" r="8.5" />
           <path d="M19.5 19.5 C16.8 23 16.8 29 19.5 32.5" opacity="0.5" />
           <ellipse cx="24" cy="26" rx="17" ry="5.8" transform="rotate(-16 24 26)" />
