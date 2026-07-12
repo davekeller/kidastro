@@ -9,11 +9,14 @@ const Rodio = () => {
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg">
-          <div className="flex items-center gap-4 mb-2">
+          <div className="flex items-center gap-4 mb-4">
             <CompanyMark company="rodio" />
-            <h2 className="text-4xl font-bold">Rodio</h2>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold">Rodio</h2>
+              <h4 className="text-white/50 text-balance text-lg font-bold italic">Workforce communication for big retail</h4>
+            </div>
           </div>
-          <h4 className="text-white/50 text-balance text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">Workforce communication for big retail</h4>
+          <div className="w-full border-b-2 border-white/10 mb-4"></div>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             Led design from first sketch to revenue at this workforce-comms startup, building one multi-platform design system that kept web, iOS, and Android in sync. I ran the sprints and shipped production UI across all three.
           </p>
@@ -24,8 +27,7 @@ const Rodio = () => {
 
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/10 rounded-lg flex flex-col items-start">
-          <h3 className="text-2xl font-bold my-2 text-balance">Product UX/UI Design Lead</h3>
-          <h4 className="text-xl font-semibold text-white/50 mb-4 tracking-wider">Highlights:</h4>
+          <h3 className="text-2xl font-bold mt-2 mb-4 text-balance">Product UX/UI Design Lead</h3>
           <div className="w-full border-b-2 border-white/10 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Led design for a 20-person team, from early ideas to 20K+ paid users</li>
