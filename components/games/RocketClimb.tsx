@@ -143,6 +143,25 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
     canvas.height = H * dpr;
     ctx.scale(dpr, dpr);
 
+    // Phosphor glow helpers. shadowBlur ignores the canvas transform, so scale
+    // by dpr or the bloom reads half-strength on retina displays.
+    const glow = (color: string, blur: number) => {
+      ctx.shadowColor = color;
+      ctx.shadowBlur = blur * dpr;
+    };
+    const noGlow = () => {
+      ctx.shadowBlur = 0;
+    };
+    // Cached background: subtle vertical depth instead of a flat fill.
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+    bgGrad.addColorStop(0, '#0e1428');
+    bgGrad.addColorStop(0.55, '#0b1020');
+    bgGrad.addColorStop(1, '#070b17');
+    // Girder strokes pick this up: brighter teal near the pad, deeper at the base.
+    const girderGrad = ctx.createLinearGradient(0, PAD.y, 0, PLATFORMS[0].y + 12);
+    girderGrad.addColorStop(0, '#4fe3d9');
+    girderGrad.addColorStop(1, '#249e96');
+
     const onKeyDown = (e: KeyboardEvent) => {
       const s = simRef.current;
       if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', ' '].includes(e.key) && phaseRef.current === 'playing')
@@ -414,9 +433,11 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
     };
 
     const drawGirder = (p: { x1: number; x2: number; y: number }) => {
-      ctx.strokeStyle = '#39d5cb';
+      glow('rgba(57,213,203,0.55)', 6);
+      ctx.strokeStyle = girderGrad;
       ctx.lineWidth = 3;
       ctx.strokeRect(p.x1, p.y, p.x2 - p.x1, 12);
+      noGlow();
       ctx.fillStyle = 'rgba(57,213,203,0.12)';
       ctx.fillRect(p.x1, p.y, p.x2 - p.x1, 12);
       ctx.fillStyle = 'rgba(57,213,203,0.7)';
@@ -428,6 +449,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
     };
 
     const drawLadder = (x: number, y1: number, y2: number) => {
+      glow('rgba(244,253,123,0.6)', 6);
       ctx.strokeStyle = '#F4FD7B';
       ctx.lineWidth = 2.5;
       ctx.beginPath();
@@ -443,6 +465,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
         ctx.lineTo(x + 8, y);
         ctx.stroke();
       }
+      noGlow();
     };
 
     const drawPlayer = (s: Sim) => {
@@ -451,6 +474,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       ctx.translate(s.px, s.py);
       ctx.scale(s.facing, 1);
       const walk = s.onGround && s.vx !== 0 ? Math.sin(s.walkT) * 4 : 0;
+      glow('rgba(255,255,255,0.75)', 8);
       // legs
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 4;
@@ -493,6 +517,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       ctx.beginPath();
       ctx.arc(0, -31, 8.5, 0, Math.PI * 2);
       ctx.fill();
+      noGlow();
       ctx.fillStyle = '#0b1020';
       ctx.beginPath();
       ctx.roundRect(-2, -34.5, 8, 7.5, 3.5);
@@ -501,6 +526,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       ctx.fillRect(2, -33, 2.5, 2);
       // stun stars
       if (s.stun > 0) {
+        glow('rgba(244,253,123,0.8)', 8);
         ctx.fillStyle = '#F4FD7B';
         for (let i = 0; i < 3; i++) {
           const a = s.t * 6 + (i * Math.PI * 2) / 3;
@@ -508,6 +534,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
           ctx.arc(Math.cos(a) * 12, -40 + Math.sin(a) * 3, 2, 0, Math.PI * 2);
           ctx.fill();
         }
+        noGlow();
       }
       ctx.restore();
     };
@@ -518,6 +545,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       const toss = s.tossAnim > 0;
       ctx.save();
       ctx.translate(x, y);
+      glow('#E4416F', 10);
       ctx.fillStyle = '#E4416F';
       ctx.beginPath();
       ctx.ellipse(0, -22, 22, 22, 0, 0, Math.PI * 2);
@@ -536,6 +564,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
         ctx.moveTo(16, -22); ctx.lineTo(-10, -14);
       }
       ctx.stroke();
+      noGlow();
       // grumpy eyes + brow
       ctx.fillStyle = '#0b1020';
       ctx.beginPath();
@@ -549,12 +578,14 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       ctx.moveTo(12, -34); ctx.lineTo(3, -31);
       ctx.stroke();
       // rock pile
+      glow('rgba(201,206,217,0.5)', 7);
       ctx.fillStyle = '#9aa3b2';
       ctx.beginPath();
       ctx.arc(38, -8, 8, 0, Math.PI * 2);
       ctx.arc(50, -6, 6, 0, Math.PI * 2);
       ctx.arc(44, -14, 6, 0, Math.PI * 2);
       ctx.fill();
+      noGlow();
       ctx.restore();
     };
 
@@ -567,6 +598,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       // flame when lifting
       if (s.liftoff > 0) {
         const f = 12 + Math.sin(s.t * 40) * 5;
+        glow('#F4FD7B', 14);
         ctx.fillStyle = '#F4FD7B';
         ctx.beginPath();
         ctx.moveTo(-8, 0);
@@ -575,7 +607,12 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
         ctx.closePath();
         ctx.fill();
       }
-      ctx.fillStyle = '#ffffff';
+      // rocket body — soft vertical shading for a hint of dimension
+      glow('rgba(255,255,255,0.75)', 8);
+      const bodyGrad = ctx.createLinearGradient(0, -42, 0, 0);
+      bodyGrad.addColorStop(0, '#ffffff');
+      bodyGrad.addColorStop(1, '#c7cfdd');
+      ctx.fillStyle = bodyGrad;
       ctx.beginPath();
       ctx.moveTo(0, -42);
       ctx.quadraticCurveTo(12, -27, 12, -10);
@@ -584,6 +621,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       ctx.lineTo(-12, -10);
       ctx.quadraticCurveTo(-12, -27, 0, -42);
       ctx.fill();
+      glow('#39d5cb', 8);
       ctx.fillStyle = '#39d5cb';
       ctx.beginPath();
       ctx.moveTo(-12, -8); ctx.lineTo(-21, 0); ctx.lineTo(-12, 0);
@@ -593,10 +631,12 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       ctx.moveTo(12, -8); ctx.lineTo(21, 0); ctx.lineTo(12, 0);
       ctx.closePath();
       ctx.fill();
+      glow('rgba(244,253,123,0.6)', 6);
       ctx.fillStyle = '#F4FD7B';
       ctx.beginPath();
       ctx.arc(0, -22, 5, 0, Math.PI * 2);
       ctx.fill();
+      noGlow();
       ctx.fillStyle = '#0b1020';
       ctx.beginPath();
       ctx.arc(0, -22, 3, 0, Math.PI * 2);
@@ -606,7 +646,7 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
 
     const draw = () => {
       const s = simRef.current;
-      ctx.fillStyle = '#0b1020';
+      ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, W, H);
       for (const st of s.bgStars) {
         ctx.fillStyle = `rgba(255,255,255,${st.a})`;
@@ -626,10 +666,12 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
         ctx.save();
         ctx.translate(r.x, r.y);
         ctx.rotate(r.rot);
+        glow('rgba(201,206,217,0.5)', 7);
         ctx.fillStyle = '#9aa3b2';
         ctx.beginPath();
         ctx.arc(0, 0, 9, 0, Math.PI * 2);
         ctx.fill();
+        noGlow();
         ctx.fillStyle = 'rgba(11,16,32,0.35)';
         ctx.beginPath();
         ctx.arc(-3, -2, 2.2, 0, Math.PI * 2);
@@ -640,14 +682,17 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       drawPlayer(s);
       // popups
       ctx.font = 'bold 15px ui-monospace, monospace';
+      glow('rgba(244,253,123,0.8)', 8);
       for (const pp of s.popups) {
         ctx.fillStyle = '#F4FD7B';
         ctx.globalAlpha = 1 - pp.age / 1.1;
         ctx.fillText(pp.text, pp.x - 16, pp.y - pp.age * 24);
         ctx.globalAlpha = 1;
       }
+      noGlow();
       // HUD
       ctx.font = 'bold 17px ui-monospace, monospace';
+      glow('rgba(255,255,255,0.5)', 5);
       ctx.fillStyle = '#fff';
       ctx.fillText('SCORE ' + s.score, 16, 28);
       ctx.textAlign = 'center';
@@ -660,17 +705,22 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
         ctx.beginPath();
         ctx.arc(hx, 22, 9, 0, Math.PI * 2);
         ctx.fill();
+        noGlow();
         ctx.fillStyle = '#0b1020';
         ctx.beginPath();
         ctx.roundRect(hx - 5.5, 18.5, 11, 7, 3.5);
         ctx.fill();
+        glow('rgba(255,255,255,0.5)', 5);
       }
+      noGlow();
       if (s.liftoff > 0) {
         ctx.font = 'bold 44px ui-monospace, monospace';
+        glow('rgba(244,253,123,0.9)', 18);
         ctx.fillStyle = '#F4FD7B';
         ctx.textAlign = 'center';
         ctx.fillText('LIFTOFF!', W / 2, H / 2 - 40);
         ctx.textAlign = 'left';
+        noGlow();
       }
     };
 
@@ -708,12 +758,14 @@ export default function RocketClimb({ onExit }: { onExit: () => void }) {
       <div className="relative">
         <canvas
           ref={canvasRef}
-          className="rounded-lg border-2 border-white/20 shadow-2xl"
+          className="rounded-lg border border-white/15 crt-bezel"
           style={{ width: 'min(92vw, calc(88vh * 800 / 600))', height: 'auto', aspectRatio: '800 / 600' }}
         />
+        <div aria-hidden className="crt-overlay rounded-lg" />
+        <div aria-hidden className="color-bar absolute top-0 inset-x-4 h-[2px] rounded-full" />
         {phase !== 'playing' && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black/70 backdrop-blur-sm rounded-lg px-10 py-8 text-center text-white max-w-md">
+            <div className="glass-panel backdrop-blur-md rounded-2xl px-10 py-8 text-center text-white max-w-md">
               {phase === 'ready' && (
                 <>
                   <h2 className="font-bold text-3xl mb-3">Rocket Climb</h2>

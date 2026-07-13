@@ -122,6 +122,21 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
     canvas.height = H * dpr;
     ctx.scale(dpr, dpr);
 
+    // Phosphor glow helpers. shadowBlur ignores the canvas transform, so scale
+    // by dpr or the bloom reads half-strength on retina displays.
+    const glow = (color: string, blur: number) => {
+      ctx.shadowColor = color;
+      ctx.shadowBlur = blur * dpr;
+    };
+    const noGlow = () => {
+      ctx.shadowBlur = 0;
+    };
+    // Cached background: subtle vertical depth instead of a flat fill.
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+    bgGrad.addColorStop(0, '#0e1428');
+    bgGrad.addColorStop(0.55, '#0b1020');
+    bgGrad.addColorStop(1, '#070b17');
+
     const pos = (e: MouseEvent) => {
       const r = canvas.getBoundingClientRect();
       return { x: ((e.clientX - r.left) / r.width) * W, y: ((e.clientY - r.top) / r.height) * H };
@@ -318,6 +333,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       const bob = Math.sin(simRef.current.t * 2.4) * 2;
       ctx.save();
       ctx.translate(x, y + bob);
+      glow('rgba(255,255,255,0.75)', 8);
       // backpack
       ctx.fillStyle = '#c9ced9';
       ctx.fillRect(-13, -8, 6, 14);
@@ -349,6 +365,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       ctx.beginPath();
       ctx.arc(0, -18, 10, 0, Math.PI * 2);
       ctx.fill();
+      noGlow();
       ctx.fillStyle = '#0b1020';
       ctx.beginPath();
       ctx.roundRect(-6, -22, 12, 9, 4);
@@ -371,6 +388,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.beginPath();
         ctx.moveTo(0, 22); ctx.lineTo(0, 2);
         ctx.stroke();
+        glow('#F4FD7B', 9);
         for (let i = 0; i < 6; i++) {
           const ang = (i / 6) * Math.PI * 2 + simRef.current.t;
           ctx.fillStyle = '#F4FD7B';
@@ -382,7 +400,9 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.beginPath();
         ctx.arc(0, -6, 5, 0, Math.PI * 2);
         ctx.fill();
+        noGlow();
       } else if (p.type === 'zap') {
+        glow('#39d5cb', 9);
         ctx.strokeStyle = '#39d5cb';
         ctx.lineWidth = 3;
         ctx.beginPath();
@@ -392,6 +412,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.beginPath();
         ctx.arc(2, -8, 9, 0, Math.PI * 2);
         ctx.fill();
+        noGlow();
         ctx.fillStyle = '#0b1020';
         ctx.fillRect(6, -11, 8, 6);
         ctx.fillStyle = '#fff';
@@ -422,6 +443,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       ctx.save();
       ctx.translate(a.x, y + step * 0.4);
       const body = a.type === 'skitter' ? '#E4416F' : '#7ede6a';
+      glow(a.flash > 0 ? '#ffffff' : body, 10);
       ctx.fillStyle = a.flash > 0 ? '#ffffff' : body;
       const rr = a.type === 'skitter' ? 11 : 15;
       ctx.beginPath();
@@ -444,6 +466,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       ctx.arc(9, -rr - 9, 2, 0, Math.PI * 2);
       ctx.fill();
       // eyes
+      noGlow();
       ctx.fillStyle = '#0b1020';
       ctx.beginPath();
       ctx.arc(-5, -3, 2.5, 0, Math.PI * 2);
@@ -469,7 +492,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
 
     const draw = () => {
       const s = simRef.current;
-      ctx.fillStyle = '#0b1020';
+      ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, W, H);
       for (const st of s.bgStars) {
         ctx.fillStyle = `rgba(255,255,255,${st.a})`;
@@ -489,8 +512,9 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.arc(cx, cy, 8 + (i % 3) * 4, 0, Math.PI * 2);
         ctx.fill();
       }
-      // grid lines
-      ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+      // grid lines — a whisper of phosphor teal
+      glow('rgba(57,213,203,0.4)', 4);
+      ctx.strokeStyle = 'rgba(57,213,203,0.14)';
       ctx.lineWidth = 1;
       for (let c = 0; c <= COLS; c++) {
         ctx.beginPath();
@@ -504,12 +528,14 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.lineTo(GRID_X + COLS * CELL_W, GRID_Y + r * CELL_H);
         ctx.stroke();
       }
+      noGlow();
       // hover
       if (s.hover && s.selected !== null && phaseRef.current === 'playing') {
         ctx.fillStyle = 'rgba(57,213,203,0.12)';
         ctx.fillRect(GRID_X + s.hover.col * CELL_W, GRID_Y + s.hover.row * CELL_H, CELL_W, CELL_H);
       }
       // dome
+      glow('#39d5cb', 8);
       ctx.strokeStyle = '#39d5cb';
       ctx.lineWidth = 3;
       ctx.beginPath();
@@ -519,6 +545,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       ctx.beginPath();
       ctx.arc(20, H - 90, 54, -Math.PI / 2, Math.PI / 2);
       ctx.stroke();
+      noGlow();
       drawAstronaut(38, H - 60, phaseRef.current === 'won');
       // plants
       for (let r = 0; r < ROWS; r++)
@@ -526,16 +553,19 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
           const p = s.grid[r][c];
           if (p) drawPlant(p, GRID_X + c * CELL_W + CELL_W / 2, GRID_Y + r * CELL_H + CELL_H / 2);
         }
-      // pellets
+      // pellets — hot little phosphor zaps
+      glow('#39d5cb', 12);
       ctx.fillStyle = '#39d5cb';
       for (const pe of s.pellets) {
         ctx.beginPath();
         ctx.arc(pe.x, GRID_Y + pe.row * CELL_H + CELL_H / 2 - 2, 5, 0, Math.PI * 2);
         ctx.fill();
       }
+      noGlow();
       // aliens
       for (const a of s.aliens) drawAlien(a);
-      // puffs
+      // puffs — the juiciest bloom on screen
+      glow('rgba(255,255,255,0.8)', 16);
       for (const pf of s.puffs) {
         ctx.strokeStyle = `rgba(255,255,255,${1 - pf.age / 0.4})`;
         ctx.lineWidth = 2;
@@ -543,7 +573,9 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.arc(pf.x, pf.y, 8 + pf.age * 50, 0, Math.PI * 2);
         ctx.stroke();
       }
-      // collectible stars
+      noGlow();
+      // collectible stars — juicy, like the site's shooting stars
+      glow('#F4FD7B', 14);
       for (const st of s.stars) {
         const tw = 1 + Math.sin(s.t * 5 + st.x) * 0.15;
         const fade = st.grounded && st.age > 6 ? 1 - (st.age - 6) / 2 : 1;
@@ -562,20 +594,24 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.fill();
         ctx.restore();
       }
+      noGlow();
       // popups
       ctx.font = 'bold 15px ui-monospace, monospace';
+      glow('rgba(244,253,123,0.8)', 8);
       for (const pp of s.popups) {
         ctx.fillStyle = pp.color;
         ctx.globalAlpha = 1 - pp.age;
         ctx.fillText(pp.text, pp.x - 12, pp.y - 20 - pp.age * 22);
         ctx.globalAlpha = 1;
       }
+      noGlow();
       // toolbar
       ctx.fillStyle = 'rgba(255,255,255,0.05)';
       ctx.beginPath();
       ctx.roundRect(8, 8, W - 16, 92, 10);
       ctx.fill();
       // stardust counter
+      glow('#F4FD7B', 8);
       ctx.fillStyle = '#F4FD7B';
       ctx.beginPath();
       for (let i = 0; i < 10; i++) {
@@ -585,9 +621,12 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       }
       ctx.closePath();
       ctx.fill();
+      noGlow();
       ctx.font = 'bold 22px ui-monospace, monospace';
+      glow('rgba(255,255,255,0.5)', 5);
       ctx.fillStyle = '#fff';
       ctx.fillText(String(s.stardust), 62, 50);
+      noGlow();
       ctx.font = 'bold 11px ui-monospace, monospace';
       ctx.fillStyle = 'rgba(255,255,255,0.45)';
       ctx.fillText('STARDUST', 26, 78);
@@ -602,7 +641,9 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
         ctx.beginPath();
         ctx.roundRect(cx, 12, 96, 80, 8);
         ctx.fill();
+        if (s.selected === i) glow('rgba(57,213,203,0.6)', 8);
         ctx.stroke();
+        noGlow();
         ctx.save();
         ctx.globalAlpha = afford ? 1 : 0.35;
         ctx.translate(cx + 48, 46);
@@ -623,7 +664,9 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       ctx.beginPath();
       ctx.roundRect(dx, 12, 60, 80, 8);
       ctx.fill();
+      if (s.dig) glow('rgba(228,65,111,0.6)', 8);
       ctx.stroke();
+      noGlow();
       ctx.font = 'bold 22px ui-monospace, monospace';
       ctx.fillStyle = s.dig ? '#E4416F' : 'rgba(255,255,255,0.6)';
       ctx.fillText('✕', dx + 22, 50);
@@ -631,24 +674,30 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       ctx.fillText('DIG', dx + 21, 74);
       // score + progress
       ctx.font = 'bold 15px ui-monospace, monospace';
+      glow('rgba(255,255,255,0.5)', 5);
       ctx.fillStyle = '#fff';
       ctx.fillText('ZAPPED ' + s.score, W - 150, 34);
+      noGlow();
       ctx.fillStyle = 'rgba(255,255,255,0.2)';
       ctx.fillRect(W - 150, 48, 120, 6);
+      glow('rgba(57,213,203,0.5)', 5);
       ctx.fillStyle = '#39d5cb';
       ctx.fillRect(W - 150, 48, 120 * Math.min(1, s.t / s.endT), 6);
+      noGlow();
       ctx.font = 'bold 11px ui-monospace, monospace';
       ctx.fillStyle = 'rgba(255,255,255,0.45)';
       ctx.fillText('INVASION', W - 150, 72);
       // banner
       if (s.banner) {
         ctx.font = 'bold 40px ui-monospace, monospace';
+        glow('rgba(228,65,111,0.9)', 18);
         ctx.fillStyle = '#E4416F';
         ctx.globalAlpha = s.banner.age < 0.3 ? s.banner.age / 0.3 : s.banner.age > 2.4 ? (3 - s.banner.age) / 0.6 : 1;
         ctx.textAlign = 'center';
         ctx.fillText(s.banner.text, W / 2, H / 2 - 60);
         ctx.textAlign = 'left';
         ctx.globalAlpha = 1;
+        noGlow();
       }
     };
 
@@ -685,12 +734,14 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
       <div className="relative">
         <canvas
           ref={canvasRef}
-          className="rounded-lg border-2 border-white/20 shadow-2xl"
+          className="rounded-lg border border-white/15 crt-bezel"
           style={{ width: 'min(92vw, calc(88vh * 800 / 600))', height: 'auto', aspectRatio: '800 / 600' }}
         />
+        <div aria-hidden className="crt-overlay rounded-lg" />
+        <div aria-hidden className="color-bar absolute top-0 inset-x-4 h-[2px] rounded-full" />
         {phase !== 'playing' && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black/70 backdrop-blur-sm rounded-lg px-10 py-8 text-center text-white max-w-md">
+            <div className="glass-panel backdrop-blur-md rounded-2xl px-10 py-8 text-center text-white max-w-md">
               {phase === 'ready' && (
                 <>
                   <h2 className="font-bold text-3xl mb-3">Moon Garden</h2>

@@ -23,9 +23,15 @@ const games: {
   inspiredBy: string;
   controls: string;
   icon: React.ReactNode;
+  /** Static Tailwind classes for this game's accent glow (JIT needs literals). */
+  glowClasses: string;
+  /** Accent color for the icon's phosphor drop-shadow. */
+  accent: string;
 }[] = [
   {
     id: 'moon-garden',
+    glowClasses: 'hover:border-[#39d5cb]/40 hover:shadow-[0_0_60px_rgba(57,213,203,0.16)]',
+    accent: 'rgba(57,213,203,0.55)',
     name: 'Moon Garden',
     tagline: 'Aliens are coming for the greenhouse. Plant starflowers, zap sprouts, and hold every lane.',
     inspiredBy: 'a tiny homage to Plants vs. Zombies',
@@ -49,6 +55,8 @@ const games: {
   },
   {
     id: 'star-swarm',
+    glowClasses: 'hover:border-[#E4416F]/40 hover:shadow-[0_0_60px_rgba(228,65,111,0.16)]',
+    accent: 'rgba(228,65,111,0.55)',
     name: 'Star Swarm',
     tagline: 'A wiggling fleet of alien blobs descends. You, a kid, a rocket, and two bolts at a time.',
     inspiredBy: 'a tiny homage to Space Invaders',
@@ -72,6 +80,8 @@ const games: {
   },
   {
     id: 'rocket-climb',
+    glowClasses: 'hover:border-[#F4FD7B]/40 hover:shadow-[0_0_60px_rgba(244,253,123,0.14)]',
+    accent: 'rgba(244,253,123,0.55)',
     name: 'Rocket Climb',
     tagline: 'A grumpy alien is rolling moon rocks down the launch tower. Climb, jump, and reach your ride.',
     inspiredBy: 'a tiny homage to Donkey Kong',
@@ -114,7 +124,7 @@ const Arcade = () => {
         <Link href="/" className="inline-block text-white/50 hover:text-white text-sm font-bold mb-8 transition-colors">
           ← kidastro.com
         </Link>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">The Kid Astro Arcade</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 [text-shadow:0_0_32px_rgba(255,255,255,0.25)]">The Kid Astro Arcade</h1>
         <p className="text-white/50 text-lg font-bold italic text-balance">
           Three tiny space games, drawn and coded from scratch — no engines, no sprites, just canvas.
           Best played with a keyboard.
@@ -126,13 +136,19 @@ const Arcade = () => {
           <button
             key={g.id}
             onClick={() => setSelected(g.id)}
-            className="group text-left border-2 border-white/20 rounded-lg bg-white/5 p-8 hover:bg-white/10 hover:border-white/40 transition-colors cursor-pointer"
+            className={`group relative text-left border border-white/15 rounded-xl bg-white/[0.04] backdrop-blur-md p-8 hover:bg-white/[0.07] hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] ${g.glowClasses}`}
           >
-            <span className="block mb-6 opacity-90 group-hover:opacity-100 transition-opacity">{g.icon}</span>
+            <span aria-hidden className="color-bar absolute top-0 inset-x-6 h-[2px] rounded-full" />
+            <span
+              className="block mb-6 opacity-90 group-hover:opacity-100 transition-all duration-300"
+              style={{ filter: `drop-shadow(0 0 6px ${g.accent})` }}
+            >
+              {g.icon}
+            </span>
             <span className="block text-2xl font-bold mb-2">{g.name}</span>
             <span className="block text-white/50 text-sm font-bold italic mb-3">{g.inspiredBy}</span>
             <span className="block text-white/90 leading-7 text-pretty mb-6">{g.tagline}</span>
-            <span className="inline-flex items-center gap-2 text-sm font-bold border-2 border-white/20 rounded-lg px-4 py-2 bg-white/5 group-hover:bg-white/10 group-hover:border-white/40 transition-colors">
+            <span className="inline-flex items-center gap-2 text-sm font-bold border border-white/20 rounded-lg px-4 py-2 bg-white/5 group-hover:bg-white/10 group-hover:border-white/40 transition-colors">
               ▶ Play
             </span>
             <span className="block text-white/40 text-xs font-bold mt-4 uppercase tracking-wider">{g.controls}</span>
