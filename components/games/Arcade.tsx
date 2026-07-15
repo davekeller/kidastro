@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const loading = () => (
   <div className="absolute inset-0 flex items-center justify-center text-white/50 font-bold">
@@ -13,6 +13,13 @@ const loading = () => (
 const MoonGarden = dynamic(() => import('@/components/games/MoonGarden'), { ssr: false, loading });
 const StarSwarm = dynamic(() => import('@/components/games/StarSwarm'), { ssr: false, loading });
 const RocketClimb = dynamic(() => import('@/components/games/RocketClimb'), { ssr: false, loading });
+
+// Floating wireframe helmet mascot. Client-only (three.js); reserve its height
+// while the chunk loads so the header doesn't jump.
+const AstroHelmet = dynamic(() => import('@/components/games/AstroHelmet'), {
+  ssr: false,
+  loading: () => <div className="mx-auto h-[300px] w-full max-w-[420px]" />,
+});
 
 type GameId = 'moon-garden' | 'star-swarm' | 'rocket-climb';
 
@@ -120,10 +127,12 @@ const Arcade = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-6 py-16 text-white">
+      <div className="fixed top-6 left-6 z-40">
+        <Breadcrumb label="games" />
+      </div>
+
       <div className="mb-12 text-center">
-        <Link href="/" className="inline-block text-white/50 hover:text-white text-sm font-bold mb-8 transition-colors">
-          ← kidastro.com
-        </Link>
+        <AstroHelmet />
         <h1 className="text-4xl md:text-5xl font-bold mb-4 [text-shadow:0_0_32px_rgba(255,255,255,0.25)]">The Kid Astro Arcade</h1>
         <p className="text-white/50 text-lg font-bold italic text-balance">
           Three tiny space games, drawn and coded from scratch — no engines, no sprites, just canvas.
