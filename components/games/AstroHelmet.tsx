@@ -17,6 +17,7 @@ const RG = R * 0.985; // glass fill, just inside the shell
 
 // Palette — same cycle as the homepage icosahedron.
 const PALETTE = ['#f4fd7b', '#39d5cb', '#e4416f', '#fcd34d', '#6ee7b7'];
+const WHITE = new THREE.Color('#ffffff');
 
 // Point on a sphere of radius r, at azimuth `az` around +y from the front (+z)
 // and elevation `el` above the equator.
@@ -153,6 +154,45 @@ const HelmetShape = ({
     [],
   );
 
+  // Reflection texture for the glass: a sky-light gradient (bright at the brow,
+  // falling off toward the chin) plus two diagonal glare streaks — the classic
+  // cartoon glint. Alpha lives in the texture; the material tints it with the
+  // cycling palette color and blends additively so it reads as light on glass.
+  const glassMap = useMemo(() => {
+    const size = 256;
+    const cnv = document.createElement('canvas');
+    cnv.width = size;
+    cnv.height = size;
+    const c = cnv.getContext('2d')!;
+    c.clearRect(0, 0, size, size);
+    // Vertical sheen: brightest at the top edge, nearly gone by the bottom.
+    const grad = c.createLinearGradient(0, 0, 0, size);
+    grad.addColorStop(0, 'rgba(255,255,255,0.34)');
+    grad.addColorStop(0.45, 'rgba(255,255,255,0.10)');
+    grad.addColorStop(1, 'rgba(255,255,255,0.03)');
+    c.fillStyle = grad;
+    c.fillRect(0, 0, size, size);
+    // Two diagonal glare streaks, soft-edged, upper half.
+    c.save();
+    c.translate(size * 0.62, size * 0.30);
+    c.rotate(-Math.PI / 5.5);
+    const streak = (w: number, alpha: number) => {
+      const g = c.createLinearGradient(-w, 0, w, 0);
+      g.addColorStop(0, 'rgba(255,255,255,0)');
+      g.addColorStop(0.5, `rgba(255,255,255,${alpha})`);
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      c.fillStyle = g;
+      c.fillRect(-w, -size, w * 2, size * 2);
+    };
+    streak(26, 0.55);
+    c.translate(-64, 0);
+    streak(11, 0.4);
+    c.restore();
+    const tex = new THREE.CanvasTexture(cnv);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }, []);
+
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
 
@@ -198,7 +238,8 @@ const HelmetShape = ({
     if (shellRef.current?.material?.color) shellRef.current.material.color.copy(newColor);
     if (visorRef.current?.material?.color) visorRef.current.material.color.copy(newColor);
     if (tipMatRef.current) tipMatRef.current.color.copy(newColor);
-    if (glassMatRef.current) glassMatRef.current.color.copy(newColor);
+    // Glass leans toward white so the sheen reads as reflected light, not paint.
+    if (glassMatRef.current) glassMatRef.current.color.copy(newColor).lerp(WHITE, 0.45);
   });
 
   return (
@@ -209,9 +250,18 @@ const HelmetShape = ({
           <Line points={shellPts} color={PALETTE[0]} lineWidth={2} segments transparent opacity={0.5} ref={shellRef} />
           {/* Bright visor faceplate — the focal point. */}
           <Line points={visorPts} color={PALETTE[0]} lineWidth={3.5} segments transparent opacity={1} ref={visorRef} />
-          {/* Visor glass — a faint tinted lens that cycles with the wireframe. */}
+          {/* Visor glass — sheen gradient + glare streaks, additively blended so
+              it reads as light reflecting off the faceplate. */}
           <mesh geometry={glassGeom}>
-            <meshBasicMaterial ref={glassMatRef} color={PALETTE[0]} transparent opacity={0.18} side={THREE.DoubleSide} depthWrite={false} />
+            <meshBasicMaterial
+              ref={glassMatRef}
+              map={glassMap}
+              color={PALETTE[0]}
+              transparent
+              blending={THREE.AdditiveBlending}
+              side={THREE.DoubleSide}
+              depthWrite={false}
+            />
           </mesh>
           {/* Antenna tip. */}
           <mesh position={antenna.tip}>
