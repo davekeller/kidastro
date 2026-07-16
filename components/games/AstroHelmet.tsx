@@ -124,18 +124,72 @@ const HelmetShape = ({
       pts.push(rimIn[idx], rimOut[idx]);
     }
 
-    // Side comm discs: a puck outline + inner ring on each side.
-    for (const side of [1, -1]) {
-      const axis = new THREE.Vector3(side, 0.06, 0).normalize();
-      ring(pts, axis, (9 * Math.PI) / 180, R * PROUD, 24);
-      ring(pts, axis, (3.5 * Math.PI) / 180, R * PROUD, 12);
+    // Visor glint: one diagonal line across the port, upper-right to lower-left,
+    // slightly off-center — an arc on the glass surface between two rim points.
+    {
+      const p1 = rimIn[Math.round((205 / 360) * 64)].clone().normalize();
+      const p2 = rimIn[Math.round((45 / 360) * 64)].clone().normalize();
+      const GS = 10;
+      const q = new THREE.Quaternion();
+      const prev = p1.clone();
+      for (let i = 1; i <= GS; i++) {
+        q.setFromUnitVectors(p1, p2);
+        const step = new THREE.Quaternion().slerpQuaternions(new THREE.Quaternion(), q, i / GS);
+        const cur = p1.clone().applyQuaternion(step);
+        pts.push(prev.clone().multiplyScalar(R * PROUD), cur.clone().multiplyScalar(R * PROUD));
+        prev.copy(cur);
+      }
     }
 
-    // Collar: the sphere's cut edge, then a wider flange ring below — the suit
-    // ring the bowl locks into — joined by struts.
+    // Brow ridge: a partial seam arc over the top of the port.
+    {
+      const theta = PORT_R + (7 * Math.PI) / 180;
+      const arc: THREE.Vector3[] = [];
+      ring(arc, PORT_AXIS, theta, R * PROUD, 64);
+      // ring() pushes segment pairs; keep only the top span (α ≈ 200°–340°,
+      // where 270° is straight up in the port's basis).
+      for (let i = 0; i < 64; i++) {
+        const aDeg = (i / 64) * 360;
+        if (aDeg >= 200 && aDeg <= 340) pts.push(arc[i * 2], arc[i * 2 + 1]);
+      }
+    }
+
+    // Ear pods: chunky rounded-rect comm pods with vent slats, one per side.
+    for (const side of [1, -1]) {
+      const s = new THREE.Vector3(side, 0.06, 0).normalize();
+      const t1 = new THREE.Vector3(0, 1, 0).addScaledVector(s, -s.y).normalize(); // up along pod
+      const t2 = new THREE.Vector3().crossVectors(s, t1).normalize(); // fore/aft
+      const center = s.clone().multiplyScalar(R * 1.05);
+      const at = (x: number, y: number) => center.clone().addScaledVector(t2, x).addScaledVector(t1, y);
+      // Rounded-rect outline (half-width 0.38, half-height 0.6, corner 0.16).
+      const hw = 0.38;
+      const hh = 0.6;
+      const cr = 0.16;
+      const corners = [
+        { cx: hw - cr, cy: hh - cr, a0: 0 },
+        { cx: -(hw - cr), cy: hh - cr, a0: Math.PI / 2 },
+        { cx: -(hw - cr), cy: -(hh - cr), a0: Math.PI },
+        { cx: hw - cr, cy: -(hh - cr), a0: (3 * Math.PI) / 2 },
+      ];
+      const loop: THREE.Vector3[] = [];
+      for (const c of corners) {
+        for (let i = 0; i <= 4; i++) {
+          const a = c.a0 + (i / 4) * (Math.PI / 2);
+          loop.push(at(c.cx + Math.cos(a) * cr, c.cy + Math.sin(a) * cr));
+        }
+      }
+      for (let i = 0; i < loop.length; i++) pts.push(loop[i], loop[(i + 1) % loop.length]);
+      // Vent slats.
+      for (const x of [-0.16, 0, 0.16]) pts.push(at(x, -0.42), at(x, 0.42));
+    }
+
+    // Neck stack: the bowl's cut edge, a segmented collar, then a wider locking
+    // ring with dense radial ticks — plus angled side tabs off the flange.
     const rBase = Math.sqrt(R * R - NECK_Y * NECK_Y);
-    const FL_Y = NECK_Y - 0.42;
-    const rFlange = rBase * 1.14;
+    const C_Y = NECK_Y - 0.35;
+    const rCollar = rBase * 1.05;
+    const FL_Y = NECK_Y - 0.78;
+    const rFlange = rBase * 1.18;
     const N = 48;
     const collar = (y: number, r: number) => {
       for (let i = 0; i < N; i++) {
@@ -145,13 +199,36 @@ const HelmetShape = ({
       }
     };
     collar(NECK_Y, rBase);
+    collar(C_Y, rCollar);
     collar(FL_Y, rFlange);
-    for (let i = 0; i < 16; i++) {
-      const a = (i / 16) * Math.PI * 2;
+    // Sparse struts: bowl edge → collar.
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
       pts.push(
         new THREE.Vector3(Math.cos(a) * rBase, NECK_Y, Math.sin(a) * rBase),
+        new THREE.Vector3(Math.cos(a) * rCollar, C_Y, Math.sin(a) * rCollar),
+      );
+    }
+    // Dense locking ticks: collar → flange.
+    for (let i = 0; i < 28; i++) {
+      const a = (i / 28) * Math.PI * 2;
+      pts.push(
+        new THREE.Vector3(Math.cos(a) * rCollar, C_Y, Math.sin(a) * rCollar),
         new THREE.Vector3(Math.cos(a) * rFlange, FL_Y, Math.sin(a) * rFlange),
       );
+    }
+    // Angled clasp tabs: two short parallel diagonals off each side of the
+    // flange, kicking down and outward.
+    for (const az of [(28 * Math.PI) / 180, (152 * Math.PI) / 180]) {
+      for (const off of [0, (10 * Math.PI) / 180]) {
+        const a = az + off;
+        const cos = Math.cos(a);
+        const sin = Math.sin(a);
+        pts.push(
+          new THREE.Vector3(cos * rFlange, FL_Y, sin * rFlange),
+          new THREE.Vector3(cos * (rFlange + 0.34), FL_Y - 0.3, sin * (rFlange + 0.34)),
+        );
+      }
     }
 
     return pts;
