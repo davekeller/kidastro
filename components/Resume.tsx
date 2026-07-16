@@ -52,13 +52,6 @@ const Resume = () => {
         </FadeUp>
       </div>
 
-      <FadeUp className="mb-16 print:mb-8">
-        <SectionLabel>Tools &amp; Technologies</SectionLabel>
-        <p className="text-pretty text-base leading-relaxed text-white/80 print:text-sm print:leading-snug print:text-gray-800">
-          {tools.join(' · ')}
-        </p>
-      </FadeUp>
-
       <section className="mb-16 print:mb-8">
         <FadeUp>
           <SectionLabel>Experience</SectionLabel>
@@ -92,6 +85,13 @@ const Resume = () => {
             </li>
           ))}
         </ul>
+      </FadeUp>
+
+      <FadeUp className="mt-16 print:mt-8">
+        <SectionLabel>Tools &amp; Technologies</SectionLabel>
+        <p className="text-pretty text-base leading-relaxed text-white/80 print:text-sm print:leading-snug print:text-gray-800">
+          {tools.join(' · ')}
+        </p>
       </FadeUp>
 
       <div className="mt-12 print:hidden">

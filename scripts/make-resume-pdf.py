@@ -197,12 +197,12 @@ skills = [
 # Keyword-dense tech line — exact tokens for ATS/keyword scans. Mirrors the
 # `tools` array in components/resume/resumeData.ts (update together).
 tools = (
-    "React &middot; Next.js &middot; TypeScript &middot; JavaScript &middot; HTML &middot; CSS &middot; "
-    "Tailwind CSS &middot; Elixir &middot; Three.js / React Three Fiber &middot; Framer Motion &middot; "
-    "Figma &middot; design systems &middot; component libraries &middot; prototyping &middot; wireframing &middot; "
-    "responsive design &middot; interaction design &middot; motion design &middot; front-end development &middot; "
-    "UI/UX design &middot; product design &middot; Git &middot; GitHub &middot; Claude Code &middot; Cursor &middot; "
-    "Linear &middot; Notion &middot; iOS &middot; Android &middot; Agile &middot; Shape Up &middot; design sprints"
+    "Figma &middot; React &middot; Next.js &middot; TypeScript &middot; JavaScript &middot; HTML &middot; CSS &middot; "
+    "Tailwind CSS &middot; Framer Motion &middot; design systems &middot; component libraries &middot; prototyping &middot; "
+    "wireframing &middot; responsive design &middot; interaction design &middot; motion design &middot; "
+    "front-end development &middot; UI/UX design &middot; product design &middot; Git &middot; GitHub &middot; "
+    "Claude Code &middot; Cursor &middot; Linear &middot; Notion &middot; iOS &middot; Android &middot; Agile &middot; "
+    "Shape Up &middot; design sprints"
 )
 
 jobs = [
@@ -296,13 +296,12 @@ story = [
     *bullets(highlights, style_name="topbullet"),
     *section("Skills & Tools"),
     *bullets(skills, style_name="topbullet"),
-    *section("Tools & Technologies"),
-    Paragraph(pretty(tools), styles["keywords"]),
     *section("Experience"),
 ]
 for j in jobs:
     story += job(*j)
 story.append(KeepTogether(section("Interests") + [Paragraph(pretty(interests), styles["body"])]))
+story.append(KeepTogether(section("Tools & Technologies") + [Paragraph(pretty(tools), styles["keywords"])]))
 
 doc.build(story)
 print("wrote", OUT.relative_to(REPO))

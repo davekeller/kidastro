@@ -125,6 +125,7 @@ export const skills: string[] = [
 // Keyword-dense tech line — exact tokens for ATS/keyword scans, mirrored in
 // scripts/make-resume-pdf.py and scripts/make-resume-docx.js (update together).
 export const tools: string[] = [
+  'Figma',
   'React',
   'Next.js',
   'TypeScript',
@@ -132,10 +133,7 @@ export const tools: string[] = [
   'HTML',
   'CSS',
   'Tailwind CSS',
-  'Elixir',
-  'Three.js / React Three Fiber',
   'Framer Motion',
-  'Figma',
   'design systems',
   'component libraries',
   'prototyping',
