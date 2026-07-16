@@ -294,7 +294,7 @@ story = [
     Spacer(1, GAP),
     *section("Highlights"),
     *bullets(highlights, style_name="topbullet"),
-    *section("Skills & Tools"),
+    *section("Skills"),
     *bullets(skills, style_name="topbullet"),
     *section("Experience"),
 ]

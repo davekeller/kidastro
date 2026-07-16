@@ -38,7 +38,7 @@ const Resume = () => {
           </ul>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <SectionLabel>Skills &amp; Tools</SectionLabel>
+          <SectionLabel>Skills</SectionLabel>
           <ul className="space-y-4 print:space-y-1">
             {skills.map((item, i) => (
               <li

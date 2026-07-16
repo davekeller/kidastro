@@ -318,7 +318,7 @@ const doc = new Document({
       header,
       sectionTitle("Highlights"),
       ...highlights.map(h => bullet(h, { after: TOP_GAP })),
-      sectionTitle("Skills & Tools"),
+      sectionTitle("Skills"),
       ...skills.map(s => bullet(s, { after: TOP_GAP })),
       sectionTitle("Experience"),
       ...jobs.flatMap((j, i) => job(j, { first: i === 0 })),
