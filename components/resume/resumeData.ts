@@ -122,6 +122,43 @@ export const skills: string[] = [
   'Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs',
 ];
 
+// Keyword-dense tech line — exact tokens for ATS/keyword scans, mirrored in
+// scripts/make-resume-pdf.py and scripts/make-resume-docx.js (update together).
+export const tools: string[] = [
+  'React',
+  'Next.js',
+  'TypeScript',
+  'JavaScript',
+  'HTML',
+  'CSS',
+  'Tailwind CSS',
+  'Elixir',
+  'Three.js / React Three Fiber',
+  'Framer Motion',
+  'Figma',
+  'design systems',
+  'component libraries',
+  'prototyping',
+  'wireframing',
+  'responsive design',
+  'interaction design',
+  'motion design',
+  'front-end development',
+  'UI/UX design',
+  'product design',
+  'Git',
+  'GitHub',
+  'Claude Code',
+  'Cursor',
+  'Linear',
+  'Notion',
+  'iOS',
+  'Android',
+  'Agile',
+  'Shape Up',
+  'design sprints',
+];
+
 export const interests: string[] = [
   'Guitar and vocals in a rock/metal band',
   'Recording and mixing in Logic Pro',

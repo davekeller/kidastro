@@ -162,6 +162,15 @@ const skills = [
   "Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs",
 ];
 
+// Keyword-dense tech line — exact tokens for ATS/keyword scans. Mirrors the
+// `tools` array in components/resume/resumeData.ts (update together).
+const tools =
+  "React · Next.js · TypeScript · JavaScript · HTML · CSS · Tailwind CSS · Elixir · " +
+  "Three.js / React Three Fiber · Framer Motion · Figma · design systems · component libraries · " +
+  "prototyping · wireframing · responsive design · interaction design · motion design · " +
+  "front-end development · UI/UX design · product design · Git · GitHub · Claude Code · Cursor · " +
+  "Linear · Notion · iOS · Android · Agile · Shape Up · design sprints";
+
 const jobs = [
   ["Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
     "Design Engineer / Director of Product · promoted from Senior Product Designer (Apr 2024)",
@@ -311,6 +320,8 @@ const doc = new Document({
       ...highlights.map(h => bullet(h, { after: TOP_GAP })),
       sectionTitle("Skills & Tools"),
       ...skills.map(s => bullet(s, { after: TOP_GAP })),
+      sectionTitle("Tools & Technologies"),
+      new Paragraph({ spacing: spacing(), children: [new TextRun({ font: FONT, text: tools })] }),
       sectionTitle("Experience"),
       ...jobs.flatMap((j, i) => job(j, { first: i === 0 })),
       sectionTitle("Interests"),

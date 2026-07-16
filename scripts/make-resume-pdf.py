@@ -53,8 +53,8 @@ SMALL = 9                     # contact, dates, section titles
 LEADING = 13                  # line height for all body text
 GAP = 4                       # space after a body paragraph
 TOP_GAP = 7                   # space after highlights/skills bullets
-JOB_GAP = 16                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
-SECTION_GAP = 16              # space before each section title
+JOB_GAP = 13                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
+SECTION_GAP = 12              # space before each section title
 
 MARGIN = 0.75 * inch
 CONTENT_W = letter[0] - 2 * MARGIN - 12  # frame pads 6pt per side
@@ -72,6 +72,7 @@ styles = {
     "subtitle": style("subtitle", fontSize=10.5, leading=14, textColor=GRAY),
     "contact": style("contact", fontSize=SMALL, textColor=GRAY, alignment=TA_RIGHT),
     "body": style("body", spaceAfter=GAP),
+    "keywords": style("keywords", fontSize=9, leading=12, spaceAfter=GAP),
     "bullet": style("bullet", spaceAfter=GAP, leftIndent=12),
     "topbullet": style("topbullet", spaceAfter=TOP_GAP, leftIndent=12),
     "jobhead": style("jobhead", fontName="Helvetica-Bold", fontSize=10.5, leading=14),
@@ -193,6 +194,17 @@ skills = [
     "Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs",
 ]
 
+# Keyword-dense tech line — exact tokens for ATS/keyword scans. Mirrors the
+# `tools` array in components/resume/resumeData.ts (update together).
+tools = (
+    "React &middot; Next.js &middot; TypeScript &middot; JavaScript &middot; HTML &middot; CSS &middot; "
+    "Tailwind CSS &middot; Elixir &middot; Three.js / React Three Fiber &middot; Framer Motion &middot; "
+    "Figma &middot; design systems &middot; component libraries &middot; prototyping &middot; wireframing &middot; "
+    "responsive design &middot; interaction design &middot; motion design &middot; front-end development &middot; "
+    "UI/UX design &middot; product design &middot; Git &middot; GitHub &middot; Claude Code &middot; Cursor &middot; "
+    "Linear &middot; Notion &middot; iOS &middot; Android &middot; Agile &middot; Shape Up &middot; design sprints"
+)
+
 jobs = [
     ("Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
      "Design Engineer / Director of Product &middot; promoted from Senior Product Designer (Apr 2024)",
@@ -284,6 +296,8 @@ story = [
     *bullets(highlights, style_name="topbullet"),
     *section("Skills & Tools"),
     *bullets(skills, style_name="topbullet"),
+    *section("Tools & Technologies"),
+    Paragraph(pretty(tools), styles["keywords"]),
     *section("Experience"),
 ]
 for j in jobs:

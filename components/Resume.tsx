@@ -6,7 +6,7 @@ import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
 import DownloadButton from './resume/DownloadButton';
 import FadeUp from './FadeUp';
-import { fullJobs, condensedJobs, highlights, skills, interests } from './resume/resumeData';
+import { fullJobs, condensedJobs, highlights, skills, tools, interests } from './resume/resumeData';
 import Footer from './Footer';
 
 const Resume = () => {
@@ -51,6 +51,13 @@ const Resume = () => {
           </ul>
         </FadeUp>
       </div>
+
+      <FadeUp className="mb-16 print:mb-8">
+        <SectionLabel>Tools &amp; Technologies</SectionLabel>
+        <p className="text-pretty text-base leading-relaxed text-white/80 print:text-sm print:leading-snug print:text-gray-800">
+          {tools.join(' · ')}
+        </p>
+      </FadeUp>
 
       <section className="mb-16 print:mb-8">
         <FadeUp>
