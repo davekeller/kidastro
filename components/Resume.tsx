@@ -89,9 +89,19 @@ const Resume = () => {
 
       <FadeUp className="mt-16 print:mt-8">
         <SectionLabel>Tools &amp; Technologies</SectionLabel>
-        <p className="text-pretty text-base leading-relaxed text-white/80 print:text-sm print:leading-snug print:text-gray-800">
-          {tools.join(' · ')}
-        </p>
+        <ul
+          className="grid grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-3 md:grid-flow-col md:grid-cols-4 print:grid-cols-4 print:gap-x-6 print:gap-y-1"
+          style={{ gridTemplateRows: `repeat(${Math.ceil(tools.length / 4)}, minmax(0, 1fr))` }}
+        >
+          {tools.map((item, i) => (
+            <li
+              key={i}
+              className="relative pl-6 text-pretty text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
       </FadeUp>
 
       <div className="mt-12 print:hidden">
