@@ -5,28 +5,24 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
-const R = 3.2; // dome radius
-const NECK_Y = -1.1; // dome is kept above this plane, flattening the bottom
+const R = 3.2; // shell radius
+const NECK_Y = -1.3; // shell is kept above this plane, flattening the bottom
+
+// Visor: a curved panel on the front (+z), spanning an azimuth/elevation window.
+const AZ = (52 * Math.PI) / 180; // half-width around the front
+const EL_TOP = (33 * Math.PI) / 180; // brow
+const EL_BOT = (-23 * Math.PI) / 180; // chin (stays above the neck cut)
+const RV = R * 1.015; // visor grid, just proud of the shell
+const RG = R * 0.985; // glass fill, just inside the shell
 
 // Palette — same cycle as the homepage icosahedron.
 const PALETTE = ['#f4fd7b', '#39d5cb', '#e4416f', '#fcd34d', '#6ee7b7'];
 
-// A rounded-rectangle outline in 2D, returned as an ordered loop of [x, y].
-function roundedRect(hw: number, hh: number, r: number, seg: number): [number, number][] {
-  const corners = [
-    { cx: hw - r, cy: hh - r, a0: 0 },
-    { cx: -(hw - r), cy: hh - r, a0: Math.PI / 2 },
-    { cx: -(hw - r), cy: -(hh - r), a0: Math.PI },
-    { cx: hw - r, cy: -(hh - r), a0: (3 * Math.PI) / 2 },
-  ];
-  const pts: [number, number][] = [];
-  for (const c of corners) {
-    for (let i = 0; i <= seg; i++) {
-      const a = c.a0 + (i / seg) * (Math.PI / 2);
-      pts.push([c.cx + Math.cos(a) * r, c.cy + Math.sin(a) * r]);
-    }
-  }
-  return pts;
+// Point on a sphere of radius r, at azimuth `az` around +y from the front (+z)
+// and elevation `el` above the equator.
+function sph(az: number, el: number, r: number): THREE.Vector3 {
+  const ce = Math.cos(el);
+  return new THREE.Vector3(r * ce * Math.sin(az), r * Math.sin(el), r * ce * Math.cos(az));
 }
 
 const HelmetShape = ({
@@ -41,8 +37,11 @@ const HelmetShape = ({
   const floatGroupRef = useRef<THREE.Group>(null);
   const groupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const lineRef = useRef<any>(null);
+  const shellRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const visorRef = useRef<any>(null);
   const tipMatRef = useRef<THREE.MeshBasicMaterial>(null);
+  const glassMatRef = useRef<THREE.MeshBasicMaterial>(null);
 
   // Mouse-follow lerp state
   const mouseTarget = useRef({ x: 0, y: 0 });
@@ -55,83 +54,104 @@ const HelmetShape = ({
 
   const colors = useMemo(() => PALETTE.map((c) => new THREE.Color(c)), []);
 
-  // Visor outline shared between the wireframe and the glass fill.
-  const visor = useMemo(() => roundedRect(1.9, 1.15, 0.55, 6), []);
-  const visorY = 0.2;
+  // Antenna base/tip on the upper-left of the shell (kept in sync below).
+  const antenna = useMemo(() => {
+    const base = new THREE.Vector3(-0.5, 0.82, 0.32).normalize().multiplyScalar(R);
+    const tip = base.clone().add(new THREE.Vector3(-0.06, 1.0, 0));
+    return { base, tip };
+  }, []);
 
-  // The whole wireframe (dome edges + neck collar + visor + antenna stalk) as
-  // one segment-pair list, so a single material drives the color cycle.
-  const points = useMemo(() => {
+  // Shell + neck + antenna — the dim structural wireframe. The visor grid is a
+  // separate, brighter line (below) so the faceplate reads as the focal point.
+  const shellPts = useMemo(() => {
     const pts: THREE.Vector3[] = [];
 
-    // Dome: icosphere edges, keeping only segments above the neck plane.
+    // Is a direction inside the visor window? Used to clear shell edges there so
+    // the visor reads as an actual opening rather than an overlay.
+    const inVisor = (v: THREE.Vector3) => {
+      const az = Math.atan2(v.x, v.z);
+      const el = Math.asin(THREE.MathUtils.clamp(v.y / v.length(), -1, 1));
+      return v.z > 0 && Math.abs(az) < AZ * 1.05 && el > EL_BOT - 0.05 && el < EL_TOP + 0.05;
+    };
+
+    // Shell: icosphere edges above the neck plane, minus those under the visor.
     const geom = new THREE.IcosahedronGeometry(R, 1);
     const edges = new THREE.EdgesGeometry(geom);
     const pos = edges.attributes.position.array as ArrayLike<number>;
+    const mid = new THREE.Vector3();
     for (let i = 0; i < pos.length; i += 6) {
       const a = new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]);
       const b = new THREE.Vector3(pos[i + 3], pos[i + 4], pos[i + 5]);
-      if (a.y > NECK_Y && b.y > NECK_Y) pts.push(a, b);
+      if (a.y <= NECK_Y || b.y <= NECK_Y) continue;
+      mid.addVectors(a, b).multiplyScalar(0.5);
+      if (inVisor(mid)) continue;
+      pts.push(a, b);
     }
 
-    // Neck collar: two rings below the dome opening + short vertical struts.
-    const rTop = Math.sqrt(R * R - NECK_Y * NECK_Y); // dome cross-section here
+    // Neck: a shallow collar band — the shell-base ring plus a slightly inset
+    // ring just below, joined by short struts. Reads as a clean suit collar
+    // rather than a tapered cage.
+    const rBase = Math.sqrt(R * R - NECK_Y * NECK_Y);
     const rings = [
-      { y: NECK_Y, r: rTop },
-      { y: NECK_Y - 0.6, r: rTop - 0.35 },
+      { y: NECK_Y, r: rBase },
+      { y: NECK_Y - 0.4, r: rBase * 0.9 },
     ];
-    const N = 32;
-    for (const ring of rings) {
+    const N = 40;
+    const ringPts = (y: number, r: number) => {
       for (let i = 0; i < N; i++) {
         const a0 = (i / N) * Math.PI * 2;
         const a1 = ((i + 1) / N) * Math.PI * 2;
-        pts.push(
-          new THREE.Vector3(Math.cos(a0) * ring.r, ring.y, Math.sin(a0) * ring.r),
-          new THREE.Vector3(Math.cos(a1) * ring.r, ring.y, Math.sin(a1) * ring.r),
-        );
+        pts.push(new THREE.Vector3(Math.cos(a0) * r, y, Math.sin(a0) * r), new THREE.Vector3(Math.cos(a1) * r, y, Math.sin(a1) * r));
       }
-    }
-    for (let i = 0; i < 8; i++) {
-      const a = (i / 8) * Math.PI * 2;
-      pts.push(
-        new THREE.Vector3(Math.cos(a) * rings[0].r, rings[0].y, Math.sin(a) * rings[0].r),
-        new THREE.Vector3(Math.cos(a) * rings[1].r, rings[1].y, Math.sin(a) * rings[1].r),
-      );
-    }
-
-    // Visor: rounded rect projected onto a sphere slightly proud of the dome,
-    // so it curves with the surface and reads as raised glass.
-    const RV = R * 1.005;
-    const project = ([x, y]: [number, number]) => {
-      const yy = y + visorY;
-      const z = Math.sqrt(Math.max(0.01, RV * RV - x * x - yy * yy));
-      return new THREE.Vector3(x, yy, z);
     };
-    for (let i = 0; i < visor.length; i++) {
-      pts.push(project(visor[i]), project(visor[(i + 1) % visor.length]));
+    rings.forEach((ring) => ringPts(ring.y, ring.r));
+    for (let i = 0; i < 16; i++) {
+      const a = (i / 16) * Math.PI * 2;
+      const cos = Math.cos(a);
+      const sin = Math.sin(a);
+      pts.push(new THREE.Vector3(cos * rings[0].r, rings[0].y, sin * rings[0].r), new THREE.Vector3(cos * rings[1].r, rings[1].y, sin * rings[1].r));
     }
 
-    // Antenna: a short stalk off the upper-right of the dome.
-    const base = new THREE.Vector3(0.55, 0.8, 0.35).normalize().multiplyScalar(R);
-    const tip = base.clone().add(new THREE.Vector3(0.1, 1.15, 0));
-    pts.push(base, tip);
+    // Antenna stalk.
+    pts.push(antenna.base, antenna.tip);
 
     return pts;
-  }, [visor]);
+  }, [antenna]);
 
-  // Antenna tip position (kept in sync with the stalk above).
-  const tipPos = useMemo(() => {
-    const base = new THREE.Vector3(0.55, 0.8, 0.35).normalize().multiplyScalar(R);
-    return base.add(new THREE.Vector3(0.1, 1.15, 0));
+  // Visor grid: boundary rim + center seam + a mid brow line, all as arcs on a
+  // sphere slightly proud of the shell so the faceplate curves with the surface.
+  const visorPts = useMemo(() => {
+    const pts: THREE.Vector3[] = [];
+    const AN = 22; // samples per arc
+    const longitude = (az: number) => {
+      for (let i = 0; i < AN; i++) {
+        const e0 = EL_BOT + (i / AN) * (EL_TOP - EL_BOT);
+        const e1 = EL_BOT + ((i + 1) / AN) * (EL_TOP - EL_BOT);
+        pts.push(sph(az, e0, RV), sph(az, e1, RV));
+      }
+    };
+    const latitude = (el: number) => {
+      for (let i = 0; i < AN; i++) {
+        const a0 = -AZ + (i / AN) * (2 * AZ);
+        const a1 = -AZ + ((i + 1) / AN) * (2 * AZ);
+        pts.push(sph(a0, el, RV), sph(a1, el, RV));
+      }
+    };
+    longitude(-AZ);
+    longitude(0);
+    longitude(AZ);
+    latitude(EL_TOP);
+    latitude((EL_TOP + EL_BOT) / 2);
+    latitude(EL_BOT);
+    return pts;
   }, []);
 
-  // Flat glass fill behind the visor outline.
-  const glassGeom = useMemo(() => {
-    const shape = new THREE.Shape();
-    visor.forEach(([x, y], i) => (i === 0 ? shape.moveTo(x, y + visorY) : shape.lineTo(x, y + visorY)));
-    shape.closePath();
-    return new THREE.ShapeGeometry(shape);
-  }, [visor]);
+  // Curved glass fill matching the visor window exactly (partial sphere just
+  // inside the shell).
+  const glassGeom = useMemo(
+    () => new THREE.SphereGeometry(RG, 24, 16, Math.PI / 2 - AZ, 2 * AZ, Math.PI / 2 - EL_TOP, EL_TOP - EL_BOT),
+    [],
+  );
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -175,21 +195,26 @@ const HelmetShape = ({
     const nextIndex = (index + 1) % colors.length;
     const alpha = time % 1;
     const newColor = new THREE.Color().lerpColors(colors[index], colors[nextIndex], alpha);
-    if (lineRef.current?.material?.color) lineRef.current.material.color.copy(newColor);
+    if (shellRef.current?.material?.color) shellRef.current.material.color.copy(newColor);
+    if (visorRef.current?.material?.color) visorRef.current.material.color.copy(newColor);
     if (tipMatRef.current) tipMatRef.current.color.copy(newColor);
+    if (glassMatRef.current) glassMatRef.current.color.copy(newColor);
   });
 
   return (
     <group ref={floatGroupRef}>
       <Float speed={2} rotationIntensity={1.5} floatIntensity={2} floatingRange={[-0.5, 0.5]}>
         <group ref={groupRef}>
-          <Line points={points} color={PALETTE[0]} lineWidth={3} segments transparent opacity={0.85} ref={lineRef} />
-          {/* Visor glass — barely-there fill, never occludes the wireframe. */}
-          <mesh geometry={glassGeom} position={[0, 0, R * 0.9]}>
-            <meshBasicMaterial color="#ffffff" transparent opacity={0.06} side={THREE.DoubleSide} depthWrite={false} />
+          {/* Dim structural shell + neck + antenna. */}
+          <Line points={shellPts} color={PALETTE[0]} lineWidth={2} segments transparent opacity={0.5} ref={shellRef} />
+          {/* Bright visor faceplate — the focal point. */}
+          <Line points={visorPts} color={PALETTE[0]} lineWidth={3.5} segments transparent opacity={1} ref={visorRef} />
+          {/* Visor glass — a faint tinted lens that cycles with the wireframe. */}
+          <mesh geometry={glassGeom}>
+            <meshBasicMaterial ref={glassMatRef} color={PALETTE[0]} transparent opacity={0.18} side={THREE.DoubleSide} depthWrite={false} />
           </mesh>
           {/* Antenna tip. */}
-          <mesh position={tipPos}>
+          <mesh position={antenna.tip}>
             <octahedronGeometry args={[0.16, 0]} />
             <meshBasicMaterial ref={tipMatRef} color={PALETTE[0]} />
           </mesh>
