@@ -157,6 +157,28 @@ export const tools: string[] = [
   'design sprints',
 ];
 
+// Web-only display grouping of `tools` — related items share a line so the
+// grid reads lighter. The flat `tools` list above stays the source for the
+// PDF/DOCX, where every discrete token matters for ATS keyword scans.
+export const toolGroups: string[] = [
+  'Figma',
+  'React / Next.js',
+  'JavaScript / TypeScript',
+  'HTML / CSS / Tailwind CSS',
+  'Framer Motion',
+  'design systems / component libraries',
+  'prototyping / wireframing',
+  'responsive & interaction design',
+  'motion design',
+  'front-end development',
+  'product & UI/UX design',
+  'Git / GitHub',
+  'Claude Code / Cursor',
+  'Linear / Notion',
+  'iOS / Android',
+  'Agile / Shape Up / design sprints',
+];
+
 export const interests: string[] = [
   'Guitar and vocals in a rock/metal band',
   'Recording and mixing in Logic Pro',
