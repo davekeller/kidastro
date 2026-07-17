@@ -45,7 +45,7 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
   }, [animate]);
 
   return (
-    <footer className="footer text-center text-white py-16 pb-32 max-w-[90%] mx-auto mt-12">
+    <footer className={`footer text-center text-white py-16 pb-32 mx-auto mt-12 ${minimal ? 'max-w-full' : 'max-w-[90%]'}`}>
       {!minimal && (
         <>
           <h1 className="mb-4 font-serif text-4xl text-white md:text-6xl">thanks for stopping by</h1>
