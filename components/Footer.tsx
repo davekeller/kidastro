@@ -67,40 +67,40 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
         {minimal && (
           <li className="px-1 py-4 sm:p-4 animate-float">
             <Link href="/" className="group flex flex-col items-center transition-transform duration-200 will-change-transform hover:-translate-y-1.5">
-              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!text-white">
+              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!text-white/40">
                 <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
                 <path d="M16.5 12H8m0 0 3.5-3.5M8 12l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white group-hover:underline underline-offset-4 decoration-2">portfolio</p>
+              <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white/40">portfolio</p>
             </Link>
           </li>
         )}
         <li className="px-1 py-4 sm:p-4 animate-float">
           <a href="https://www.linkedin.com/in/dkells/" className="group flex flex-col items-center transition-transform duration-200 will-change-transform hover:-translate-y-1.5">
-            <span aria-hidden className="accent-bg mb-2 h-10 w-10 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!bg-white [mask:url(/imgs/contact/linkedin.svg)_center/contain_no-repeat]" />
-            <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white group-hover:underline underline-offset-4 decoration-2">dkells</p>
+            <span aria-hidden className="accent-bg mb-2 h-10 w-10 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!bg-white/40 [mask:url(/imgs/contact/linkedin.svg)_center/contain_no-repeat]" />
+            <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white/40">dkells</p>
           </a>
         </li>
         <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.15s' }}>
           <a href="https://dribbble.com/kidastro" className="group flex flex-col items-center transition-transform duration-200 will-change-transform hover:-translate-y-1.5">
-            <span aria-hidden className="accent-bg mb-2 h-10 w-10 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!bg-white [mask:url(/imgs/contact/dribbble.svg)_center/contain_no-repeat]" />
-            <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white group-hover:underline underline-offset-4 decoration-2">dribbble</p>
+            <span aria-hidden className="accent-bg mb-2 h-10 w-10 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!bg-white/40 [mask:url(/imgs/contact/dribbble.svg)_center/contain_no-repeat]" />
+            <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white/40">dribbble</p>
           </a>
         </li>
         <li className="px-1 py-4 sm:p-4 animate-float" style={{ animationDelay: '0.3s' }}>
           <a href="mailto:davekeller@me.com?subject=Hey Dave!" className="group flex flex-col items-center transition-transform duration-200 will-change-transform hover:-translate-y-1.5">
-            <span aria-hidden className="accent-bg mb-2 h-10 w-10 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!bg-white [mask:url(/imgs/contact/email.svg)_center/contain_no-repeat]" />
-            <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white group-hover:underline underline-offset-4 decoration-2">email</p>
+            <span aria-hidden className="accent-bg mb-2 h-10 w-10 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!bg-white/40 [mask:url(/imgs/contact/email.svg)_center/contain_no-repeat]" />
+            <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white/40">email</p>
           </a>
         </li>
         {!minimal && (
           <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
             <Link href="/resume" className="group flex flex-col items-center transition-transform duration-200 will-change-transform hover:-translate-y-1.5">
-              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!text-white">
+              <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!text-white/40">
                 <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="2" />
                 <path d="M7.5 12H16m0 0-3.5-3.5M16 12l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white group-hover:underline underline-offset-4 decoration-2">resume</p>
+              <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white/40">resume</p>
             </Link>
           </li>
         )}
