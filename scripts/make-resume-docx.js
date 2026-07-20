@@ -167,10 +167,10 @@ const skills = [
 const tools =
   "Figma · Photoshop · React · Next.js · HTML · CSS · Tailwind CSS · JavaScript · TypeScript · " +
   "Claude Code · Codex · Cursor · Git · GitHub · data visualization · Recharts · D3 · OpenMaps · " +
-  "React Flow · Framer Motion · Framer · Webflow · design systems · component libraries · " +
-  "prototyping · wireframing · responsive design · interaction design · motion design · " +
-  "front-end development · product design · UI/UX design · Linear · Notion · iOS · Android · " +
-  "Agile · Shape Up · design sprints";
+  "React Flow · Framer Motion · Framer · Webflow · marketing sites · design systems · " +
+  "component libraries · prototyping · wireframing · responsive design · interaction design · " +
+  "motion design · front-end development · product design · UI/UX design · Linear · Notion · " +
+  "iOS · Android · VR · Agile · Shape Up · design sprints";
 
 const jobs = [
   ["Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
@@ -221,7 +221,7 @@ const jobs = [
     "Co-Founder · Product Designer · Front-End Developer",
     "Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.",
     [
-      "Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year",
+      "Designed and shipped A Beautiful Mess, a photo editing app that hit #1 Paid on the App Store and held top-100 for over a year",
       "Designed and prototyped apps for 30+ clients, from Ellen and DreamWorks to early-stage startups",
     ]],
 ];

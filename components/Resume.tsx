@@ -71,7 +71,7 @@ const Resume = () => {
       <FadeUp className="print:mb-0">
         <SectionLabel>Interests</SectionLabel>
         <ul
-          className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-1"
+          className="grid grid-cols-1 gap-x-10 gap-y-1 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-0.5"
           style={{
             gridTemplateRows: `repeat(${Math.ceil(interests.length / 3)}, minmax(0, 1fr))`,
           }}

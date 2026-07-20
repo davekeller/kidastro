@@ -102,7 +102,7 @@ export const condensedJobs: CondensedJob[] = [
     summary:
       'Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.',
     bullets: [
-      'Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year',
+      'Designed and shipped A Beautiful Mess, a photo editing app that hit #1 Paid on the App Store and held top-100 for over a year',
       'Designed and prototyped apps for 30+ clients, from Ellen and DreamWorks to early-stage startups',
     ],
   },
@@ -147,6 +147,7 @@ export const tools: string[] = [
   'Framer Motion',
   'Framer',
   'Webflow',
+  'marketing sites',
   'design systems',
   'component libraries',
   'prototyping',
@@ -161,6 +162,7 @@ export const tools: string[] = [
   'Notion',
   'iOS',
   'Android',
+  'VR',
   'Agile',
   'Shape Up',
   'design sprints',

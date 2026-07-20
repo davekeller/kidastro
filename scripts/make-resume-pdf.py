@@ -200,9 +200,9 @@ tools = (
     "Figma &middot; Photoshop &middot; React &middot; Next.js &middot; HTML &middot; CSS &middot; Tailwind CSS &middot; "
     "JavaScript &middot; TypeScript &middot; Claude Code &middot; Codex &middot; Cursor &middot; Git &middot; GitHub &middot; "
     "data visualization &middot; Recharts &middot; D3 &middot; OpenMaps &middot; React Flow &middot; Framer Motion &middot; "
-    "Framer &middot; Webflow &middot; design systems &middot; component libraries &middot; prototyping &middot; wireframing &middot; "
-    "responsive design &middot; interaction design &middot; motion design &middot; front-end development &middot; "
-    "product design &middot; UI/UX design &middot; Linear &middot; Notion &middot; iOS &middot; Android &middot; Agile &middot; "
+    "Framer &middot; Webflow &middot; marketing sites &middot; design systems &middot; component libraries &middot; prototyping &middot; "
+    "wireframing &middot; responsive design &middot; interaction design &middot; motion design &middot; front-end development &middot; "
+    "product design &middot; UI/UX design &middot; Linear &middot; Notion &middot; iOS &middot; Android &middot; VR &middot; Agile &middot; "
     "Shape Up &middot; design sprints"
 )
 
@@ -255,7 +255,7 @@ jobs = [
      "Co-Founder &middot; Product Designer &middot; Front-End Developer",
      "Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.",
      [
-         "Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year",
+         "Designed and shipped A Beautiful Mess, a photo editing app that hit #1 Paid on the App Store and held top-100 for over a year",
          "Designed and prototyped apps for 30+ clients, from Ellen and DreamWorks to early-stage startups",
      ]),
 ]
