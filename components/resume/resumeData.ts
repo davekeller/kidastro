@@ -122,55 +122,9 @@ export const skills: string[] = [
   'Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs',
 ];
 
-// Keyword-dense tech line — exact tokens for ATS/keyword scans, mirrored in
-// scripts/make-resume-pdf.py and scripts/make-resume-docx.js (update together).
-export const tools: string[] = [
-  'Figma',
-  'Photoshop',
-  'React',
-  'Next.js',
-  'HTML',
-  'CSS',
-  'Tailwind CSS',
-  'JavaScript',
-  'TypeScript',
-  'Claude Code',
-  'Codex',
-  'Cursor',
-  'Git',
-  'GitHub',
-  'data visualization',
-  'Recharts',
-  'D3',
-  'OpenMaps',
-  'React Flow',
-  'Framer Motion',
-  'Framer',
-  'Webflow',
-  'marketing sites',
-  'design systems',
-  'component libraries',
-  'prototyping',
-  'wireframing',
-  'responsive design',
-  'interaction design',
-  'motion design',
-  'front-end development',
-  'product design',
-  'UI/UX design',
-  'Linear',
-  'Notion',
-  'iOS',
-  'Android',
-  'VR',
-  'Agile',
-  'Shape Up',
-  'design sprints',
-];
-
-// Web-only display grouping — a 3×5 grid, read column-by-column, so each
-// column reads as a loose category. The flat `tools` list above stays the
-// source for the PDF/DOCX, where every discrete token matters for ATS scans.
+// Tools & Technologies — a 3×5 grid read column-by-column, so each column reads
+// as a loose category. Canonical source; mirrored in scripts/make-resume-pdf.py
+// and scripts/make-resume-docx.js (which render the same 3-column layout).
 export const toolGroups: string[] = [
   // column 1 — design & code
   'Figma / Photoshop',

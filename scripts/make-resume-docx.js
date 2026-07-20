@@ -162,15 +162,28 @@ const skills = [
   "Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs",
 ];
 
-// Keyword-dense tech line — exact tokens for ATS/keyword scans. Mirrors the
-// `tools` array in components/resume/resumeData.ts (update together).
-const tools =
-  "Figma · Photoshop · React · Next.js · HTML · CSS · Tailwind CSS · JavaScript · TypeScript · " +
-  "Claude Code · Codex · Cursor · Git · GitHub · data visualization · Recharts · D3 · OpenMaps · " +
-  "React Flow · Framer Motion · Framer · Webflow · marketing sites · design systems · " +
-  "component libraries · prototyping · wireframing · responsive design · interaction design · " +
-  "motion design · front-end development · product design · UI/UX design · Linear · Notion · " +
-  "iOS · Android · VR · Agile · Shape Up · design sprints";
+// Tools & Technologies — a 3×5 grid read column-by-column (matches the web).
+// Mirrors `toolGroups` in components/resume/resumeData.ts (update together).
+const tools = [
+  // column 1 — design & code
+  "Figma / Photoshop",
+  "Claude Code / Codex / Cursor",
+  "React / Next.js",
+  "HTML / CSS / Tailwind CSS",
+  "JavaScript / TypeScript",
+  // column 2 — libraries & builders
+  "Git / GitHub",
+  "Data Viz and Animation libraries",
+  "Recharts / D3 / OpenMaps",
+  "React Flow / Framer Motion",
+  "Marketing sites",
+  // column 3 — systems, platforms & process
+  "design systems / component libraries",
+  "Linear / Notion",
+  "iOS / Android / VR",
+  "Framer / Webflow",
+  "Agile / Shape Up / design sprints",
+];
 
 const jobs = [
   ["Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
@@ -240,6 +253,35 @@ const cell = (children, width, verticalAlign = VerticalAlign.CENTER) =>
     verticalAlign,
     children,
   });
+
+// 3-column grid filled column-by-column so each column is a category — the
+// same layout as the web Tools & Technologies section.
+function toolsGrid(items, ncols = 3) {
+  const nrows = Math.ceil(items.length / ncols);
+  const colW = Math.floor(CONTENT_W / ncols);
+  const rows = [];
+  for (let r = 0; r < nrows; r++) {
+    const cells = [];
+    for (let c = 0; c < ncols; c++) {
+      const item = items[c * nrows + r]; // column-flow
+      cells.push(new TableCell({
+        borders: TableBorders.NONE,
+        width: { size: colW, type: WidthType.DXA },
+        margins: { top: 18, bottom: 18, left: 0, right: 120 },
+        children: [item
+          ? new Paragraph({ numbering: { reference: "plus", level: 0 }, spacing: spacing({ after: 0 }), children: [new TextRun({ font: FONT, text: item })] })
+          : new Paragraph({ spacing: spacing({ after: 0 }), children: [] })],
+      }));
+    }
+    rows.push(new TableRow({ children: cells }));
+  }
+  return new Table({
+    borders: TableBorders.NONE,
+    width: { size: CONTENT_W, type: WidthType.DXA },
+    columnWidths: Array(ncols).fill(colW),
+    rows,
+  });
+}
 
 const header = new Table({
   borders: TableBorders.NONE,
@@ -326,7 +368,7 @@ const doc = new Document({
       sectionTitle("Interests"),
       new Paragraph({ spacing: spacing(), children: [new TextRun({ font: FONT, text: interests })] }),
       sectionTitle("Tools & Technologies"),
-      new Paragraph({ spacing: spacing(), children: [new TextRun({ font: FONT, text: tools })] }),
+      toolsGrid(tools),
     ],
   }],
 });
