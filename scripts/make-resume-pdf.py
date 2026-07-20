@@ -197,11 +197,12 @@ skills = [
 # Keyword-dense tech line — exact tokens for ATS/keyword scans. Mirrors the
 # `tools` array in components/resume/resumeData.ts (update together).
 tools = (
-    "Figma &middot; React &middot; Next.js &middot; TypeScript &middot; JavaScript &middot; HTML &middot; CSS &middot; "
-    "Tailwind CSS &middot; Framer Motion &middot; design systems &middot; component libraries &middot; prototyping &middot; "
-    "wireframing &middot; responsive design &middot; interaction design &middot; motion design &middot; "
-    "front-end development &middot; UI/UX design &middot; product design &middot; Git &middot; GitHub &middot; "
-    "Claude Code &middot; Cursor &middot; Linear &middot; Notion &middot; iOS &middot; Android &middot; Agile &middot; "
+    "Figma &middot; Photoshop &middot; React &middot; Next.js &middot; HTML &middot; CSS &middot; Tailwind CSS &middot; "
+    "JavaScript &middot; TypeScript &middot; Claude Code &middot; Codex &middot; Cursor &middot; Git &middot; GitHub &middot; "
+    "data visualization &middot; Recharts &middot; D3 &middot; OpenMaps &middot; React Flow &middot; Framer Motion &middot; "
+    "Framer &middot; Webflow &middot; design systems &middot; component libraries &middot; prototyping &middot; wireframing &middot; "
+    "responsive design &middot; interaction design &middot; motion design &middot; front-end development &middot; "
+    "product design &middot; UI/UX design &middot; Linear &middot; Notion &middot; iOS &middot; Android &middot; Agile &middot; "
     "Shape Up &middot; design sprints"
 )
 

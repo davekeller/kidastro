@@ -165,11 +165,12 @@ const skills = [
 // Keyword-dense tech line — exact tokens for ATS/keyword scans. Mirrors the
 // `tools` array in components/resume/resumeData.ts (update together).
 const tools =
-  "Figma · React · Next.js · TypeScript · JavaScript · HTML · CSS · Tailwind CSS · " +
-  "Framer Motion · design systems · component libraries · prototyping · wireframing · " +
-  "responsive design · interaction design · motion design · front-end development · " +
-  "UI/UX design · product design · Git · GitHub · Claude Code · Cursor · Linear · Notion · " +
-  "iOS · Android · Agile · Shape Up · design sprints";
+  "Figma · Photoshop · React · Next.js · HTML · CSS · Tailwind CSS · JavaScript · TypeScript · " +
+  "Claude Code · Codex · Cursor · Git · GitHub · data visualization · Recharts · D3 · OpenMaps · " +
+  "React Flow · Framer Motion · Framer · Webflow · design systems · component libraries · " +
+  "prototyping · wireframing · responsive design · interaction design · motion design · " +
+  "front-end development · product design · UI/UX design · Linear · Notion · iOS · Android · " +
+  "Agile · Shape Up · design sprints";
 
 const jobs = [
   ["Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
