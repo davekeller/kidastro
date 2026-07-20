@@ -102,7 +102,7 @@ export const condensedJobs: CondensedJob[] = [
     summary:
       'Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.',
     bullets: [
-      'Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year',
+      'Designed and shipped A Beautiful Mess, a photo editing app that hit #1 Paid on the App Store and held top-100 for over a year',
       'Designed and prototyped apps for 30+ clients, from Ellen and DreamWorks to early-stage startups',
     ],
   },
@@ -120,6 +120,30 @@ export const skills: string[] = [
   'Designing in front-end (prototypes to production) with Claude Code, Cursor and Tailwind',
   'Comfortable writing HTML / CSS / JS and working in React / Next.js / Tailwind CSS / TypeScript',
   'Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs',
+];
+
+// Tools & Technologies — a 3×5 grid read column-by-column, so each column reads
+// as a loose category. Canonical source; mirrored in scripts/make-resume-pdf.py
+// and scripts/make-resume-docx.js (which render the same 3-column layout).
+export const toolGroups: string[] = [
+  // column 1 — design & code
+  'Figma / Photoshop',
+  'Claude Code / Codex / Cursor',
+  'React / Next.js',
+  'HTML / CSS / Tailwind CSS',
+  'JavaScript / TypeScript',
+  // column 2 — libraries & builders
+  'Git / GitHub',
+  'Data Viz and Animation libraries',
+  'Recharts / D3 / OpenMaps',
+  'React Flow / Framer Motion',
+  'Marketing sites',
+  // column 3 — systems, platforms & process
+  'design systems / component libraries',
+  'Linear / Notion',
+  'iOS / Android / VR',
+  'Framer / Webflow',
+  'Agile / Shape Up / design sprints',
 ];
 
 export const interests: string[] = [

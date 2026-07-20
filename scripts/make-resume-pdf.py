@@ -53,8 +53,8 @@ SMALL = 9                     # contact, dates, section titles
 LEADING = 13                  # line height for all body text
 GAP = 4                       # space after a body paragraph
 TOP_GAP = 7                   # space after highlights/skills bullets
-JOB_GAP = 16                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
-SECTION_GAP = 16              # space before each section title
+JOB_GAP = 13                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
+SECTION_GAP = 12              # space before each section title
 
 MARGIN = 0.75 * inch
 CONTENT_W = letter[0] - 2 * MARGIN - 12  # frame pads 6pt per side
@@ -72,6 +72,8 @@ styles = {
     "subtitle": style("subtitle", fontSize=10.5, leading=14, textColor=GRAY),
     "contact": style("contact", fontSize=SMALL, textColor=GRAY, alignment=TA_RIGHT),
     "body": style("body", spaceAfter=GAP),
+    "keywords": style("keywords", fontSize=9, leading=12, spaceAfter=GAP),
+    "toolcell": style("toolcell", fontSize=8.5, leading=11, leftIndent=9, spaceAfter=0),
     "bullet": style("bullet", spaceAfter=GAP, leftIndent=12),
     "topbullet": style("topbullet", spaceAfter=TOP_GAP, leftIndent=12),
     "jobhead": style("jobhead", fontName="Helvetica-Bold", fontSize=10.5, leading=14),
@@ -134,6 +136,26 @@ def bullets(items, style_name="bullet"):
     return [Paragraph(pretty(item), styles[style_name], bulletText="+") for item in items]
 
 
+def tools_grid(items, ncols=3):
+    """3-column grid, filled column-by-column so each column is a category —
+    the same layout as the web Tools & Technologies section."""
+    import math
+    nrows = math.ceil(len(items) / ncols)
+    grid = [["" for _ in range(ncols)] for _ in range(nrows)]
+    for i, item in enumerate(items):
+        grid[i % nrows][i // nrows] = Paragraph(item, styles["toolcell"], bulletText="+")
+    return Table(
+        grid, colWidths=[CONTENT_W / ncols] * ncols,
+        style=TableStyle(FLUSH + [
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("TOPPADDING", (0, 0), (-1, -1), 0.5),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 0.5),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+        ]),
+        hAlign="LEFT",
+    )
+
+
 def job(company, dates, location, role, summary, job_bullets):
     head = Table(
         [[Paragraph(company, styles["jobhead"]), Paragraph(dates, styles["jobdates"])]],
@@ -193,6 +215,29 @@ skills = [
     "Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs",
 ]
 
+# Tools & Technologies — a 3×5 grid read column-by-column (matches the web).
+# Mirrors `toolGroups` in components/resume/resumeData.ts (update together).
+tools = [
+    # column 1 — design & code
+    "Figma / Photoshop",
+    "Claude Code / Codex / Cursor",
+    "React / Next.js",
+    "HTML / CSS / Tailwind CSS",
+    "JavaScript / TypeScript",
+    # column 2 — libraries & builders
+    "Git / GitHub",
+    "Data Viz and Animation libraries",
+    "Recharts / D3 / OpenMaps",
+    "React Flow / Framer Motion",
+    "Marketing sites",
+    # column 3 — systems, platforms & process
+    "design systems / component libraries",
+    "Linear / Notion",
+    "iOS / Android / VR",
+    "Framer / Webflow",
+    "Agile / Shape Up / design sprints",
+]
+
 jobs = [
     ("Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
      "Design Engineer / Director of Product &middot; promoted from Senior Product Designer (Apr 2024)",
@@ -242,7 +287,7 @@ jobs = [
      "Co-Founder &middot; Product Designer &middot; Front-End Developer",
      "Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.",
      [
-         "Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year",
+         "Designed and shipped A Beautiful Mess, a photo editing app that hit #1 Paid on the App Store and held top-100 for over a year",
          "Designed and prototyped apps for 30+ clients, from Ellen and DreamWorks to early-stage startups",
      ]),
 ]
@@ -282,13 +327,14 @@ story = [
     Spacer(1, GAP),
     *section("Highlights"),
     *bullets(highlights, style_name="topbullet"),
-    *section("Skills & Tools"),
+    *section("Skills"),
     *bullets(skills, style_name="topbullet"),
     *section("Experience"),
 ]
 for j in jobs:
     story += job(*j)
 story.append(KeepTogether(section("Interests") + [Paragraph(pretty(interests), styles["body"])]))
+story.append(KeepTogether(section("Tools & Technologies") + [tools_grid(tools)]))
 
 doc.build(story)
 print("wrote", OUT.relative_to(REPO))
