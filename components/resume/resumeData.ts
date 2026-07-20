@@ -166,27 +166,27 @@ export const tools: string[] = [
   'design sprints',
 ];
 
-// Web-only display grouping of `tools` — related items share a line so the
-// grid reads lighter. The flat `tools` list above stays the source for the
-// PDF/DOCX, where every discrete token matters for ATS keyword scans.
+// Web-only display grouping — a 3×5 grid, read column-by-column, so each
+// column reads as a loose category. The flat `tools` list above stays the
+// source for the PDF/DOCX, where every discrete token matters for ATS scans.
 export const toolGroups: string[] = [
+  // column 1 — design & code
   'Figma / Photoshop',
+  'Claude Code / Codex / Cursor',
   'React / Next.js',
   'HTML / CSS / Tailwind CSS',
   'JavaScript / TypeScript',
-  'Claude Code / Codex / Cursor',
+  // column 2 — libraries & builders
   'Git / GitHub',
-  'Data Viz: Recharts / D3 / OpenMaps',
+  'Data Viz and Animation libraries',
+  'Recharts / D3 / OpenMaps',
   'React Flow / Framer Motion',
-  'Framer / Webflow',
-  'Custom design systems / component libraries',
-  'prototyping / wireframing',
-  'responsive & interaction design',
-  'motion design',
-  'front-end development',
-  'product & UI/UX design',
+  'Marketing sites',
+  // column 3 — systems, platforms & process
+  'design systems / component libraries',
   'Linear / Notion',
-  'iOS / Android',
+  'iOS / Android / VR',
+  'Framer / Webflow',
   'Agile / Shape Up / design sprints',
 ];
 

@@ -90,7 +90,7 @@ const Resume = () => {
       <FadeUp className="mt-16 print:mt-8">
         <SectionLabel>Tools &amp; Technologies</SectionLabel>
         <ul
-          className="grid grid-cols-1 gap-x-10 gap-y-2 sm:grid-cols-2 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-1"
+          className="grid grid-cols-1 gap-x-10 gap-y-1 sm:grid-cols-2 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-0.5"
           style={{ gridTemplateRows: `repeat(${Math.ceil(toolGroups.length / 3)}, minmax(0, 1fr))` }}
         >
           {toolGroups.map((item, i) => (
