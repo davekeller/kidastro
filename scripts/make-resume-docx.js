@@ -162,6 +162,29 @@ const skills = [
   "Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs",
 ];
 
+// Tools & Technologies — a 3×5 grid read column-by-column (matches the web).
+// Mirrors `toolGroups` in components/resume/resumeData.ts (update together).
+const tools = [
+  // column 1 — design & code
+  "Figma / Photoshop",
+  "Claude Code / Codex / Cursor",
+  "React / Next.js",
+  "HTML / CSS / Tailwind CSS",
+  "JavaScript / TypeScript",
+  // column 2 — libraries & builders
+  "Git / GitHub",
+  "Data Viz and Animation libraries",
+  "Recharts / D3 / OpenMaps",
+  "React Flow / Framer Motion",
+  "Marketing sites",
+  // column 3 — systems, platforms & process
+  "design systems / component libraries",
+  "Linear / Notion",
+  "iOS / Android / VR",
+  "Framer / Webflow",
+  "Agile / Shape Up / design sprints",
+];
+
 const jobs = [
   ["Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
     "Design Engineer / Director of Product · promoted from Senior Product Designer (Apr 2024)",
@@ -211,7 +234,7 @@ const jobs = [
     "Co-Founder · Product Designer · Front-End Developer",
     "Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.",
     [
-      "Designed and shipped A Beautiful Mess, a photo editor that hit #1 Paid on the App Store and held top-100 for over a year",
+      "Designed and shipped A Beautiful Mess, a photo editing app that hit #1 Paid on the App Store and held top-100 for over a year",
       "Designed and prototyped apps for 30+ clients, from Ellen and DreamWorks to early-stage startups",
     ]],
 ];
@@ -230,6 +253,35 @@ const cell = (children, width, verticalAlign = VerticalAlign.CENTER) =>
     verticalAlign,
     children,
   });
+
+// 3-column grid filled column-by-column so each column is a category — the
+// same layout as the web Tools & Technologies section.
+function toolsGrid(items, ncols = 3) {
+  const nrows = Math.ceil(items.length / ncols);
+  const colW = Math.floor(CONTENT_W / ncols);
+  const rows = [];
+  for (let r = 0; r < nrows; r++) {
+    const cells = [];
+    for (let c = 0; c < ncols; c++) {
+      const item = items[c * nrows + r]; // column-flow
+      cells.push(new TableCell({
+        borders: TableBorders.NONE,
+        width: { size: colW, type: WidthType.DXA },
+        margins: { top: 18, bottom: 18, left: 0, right: 120 },
+        children: [item
+          ? new Paragraph({ numbering: { reference: "plus", level: 0 }, spacing: spacing({ after: 0 }), children: [new TextRun({ font: FONT, text: item })] })
+          : new Paragraph({ spacing: spacing({ after: 0 }), children: [] })],
+      }));
+    }
+    rows.push(new TableRow({ children: cells }));
+  }
+  return new Table({
+    borders: TableBorders.NONE,
+    width: { size: CONTENT_W, type: WidthType.DXA },
+    columnWidths: Array(ncols).fill(colW),
+    rows,
+  });
+}
 
 const header = new Table({
   borders: TableBorders.NONE,
@@ -309,12 +361,14 @@ const doc = new Document({
       header,
       sectionTitle("Highlights"),
       ...highlights.map(h => bullet(h, { after: TOP_GAP })),
-      sectionTitle("Skills & Tools"),
+      sectionTitle("Skills"),
       ...skills.map(s => bullet(s, { after: TOP_GAP })),
       sectionTitle("Experience"),
       ...jobs.flatMap((j, i) => job(j, { first: i === 0 })),
       sectionTitle("Interests"),
       new Paragraph({ spacing: spacing(), children: [new TextRun({ font: FONT, text: interests })] }),
+      sectionTitle("Tools & Technologies"),
+      toolsGrid(tools),
     ],
   }],
 });

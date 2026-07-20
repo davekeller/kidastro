@@ -6,7 +6,7 @@ import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
 import DownloadButton from './resume/DownloadButton';
 import FadeUp from './FadeUp';
-import { fullJobs, condensedJobs, highlights, skills, interests } from './resume/resumeData';
+import { fullJobs, condensedJobs, highlights, skills, toolGroups, interests } from './resume/resumeData';
 import Footer from './Footer';
 
 const Resume = () => {
@@ -38,7 +38,7 @@ const Resume = () => {
           </ul>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <SectionLabel>Skills &amp; Tools</SectionLabel>
+          <SectionLabel>Skills</SectionLabel>
           <ul className="space-y-4 print:space-y-1">
             {skills.map((item, i) => (
               <li
@@ -71,12 +71,29 @@ const Resume = () => {
       <FadeUp className="print:mb-0">
         <SectionLabel>Interests</SectionLabel>
         <ul
-          className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-1"
+          className="grid grid-cols-1 gap-x-10 gap-y-1 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-0.5"
           style={{
             gridTemplateRows: `repeat(${Math.ceil(interests.length / 3)}, minmax(0, 1fr))`,
           }}
         >
           {interests.map((item, i) => (
+            <li
+              key={i}
+              className="relative pl-6 text-pretty text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </FadeUp>
+
+      <FadeUp className="mt-16 print:mt-8">
+        <SectionLabel>Tools &amp; Technologies</SectionLabel>
+        <ul
+          className="grid grid-cols-1 gap-x-10 gap-y-1 sm:grid-cols-2 md:grid-flow-col md:grid-cols-3 print:grid-cols-3 print:gap-x-6 print:gap-y-0.5"
+          style={{ gridTemplateRows: `repeat(${Math.ceil(toolGroups.length / 3)}, minmax(0, 1fr))` }}
+        >
+          {toolGroups.map((item, i) => (
             <li
               key={i}
               className="relative pl-6 text-pretty text-base leading-snug text-white/90 before:absolute before:left-0 before:top-0 before:font-bold before:text-(--color-2) before:content-['+'] print:pl-4 print:text-sm print:leading-snug print:text-gray-800 print:before:text-gray-700"
