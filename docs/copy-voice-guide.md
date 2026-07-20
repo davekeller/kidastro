@@ -32,7 +32,7 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 
 > so nice to meet you
 >
-> Hi, I'm Dave — a strategic product thinker, Figma expert, and front-end engineer (React, Tailwind, Claude Code). In 15 years of leading design at early-stage startups, I've developed a superpower: crafting complex workflows into polished app experiences.
+> Hi, I'm Dave — a strategic product thinker, Figma expert, and front-end engineer (React, Tailwind, Claude Code). In over a decade of leading design at early-stage startups, I've developed a superpower: crafting complex workflows into polished app experiences.
 >
 > I enjoy the creative process, prototyping in code, architecting systems, working with smart people, and celebrating the wins. Thanks for checking out my work.
 
