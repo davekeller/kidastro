@@ -202,10 +202,7 @@ const LyricSheet = ({ song }: { song: Song }) => {
 
   // Device-local edits layered over the checked-in song data.
   const overrideVersion = useOverrideVersion();
-  // overrideVersion is the localStorage store's invalidation key, not a value
-  // mergeSong reads directly — the linter can't see that.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const merged = useMemo(() => mergeSong(song), [song, overrideVersion]);
+  const merged = useMemo(() => mergeSong(song, overrideVersion), [song, overrideVersion]);
 
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState<Draft | null>(null);
@@ -265,7 +262,13 @@ const LyricSheet = ({ song }: { song: Song }) => {
     );
 
   const index = order.indexOf(song.slug);
-  const next = index >= 0 && index < order.length - 1 ? songBySlug(order[index + 1]) : undefined;
+  // The next-up card shows the merged song too, so a title edited on this
+  // device reads correctly from the previous sheet.
+  const nextBase = index >= 0 && index < order.length - 1 ? songBySlug(order[index + 1]) : undefined;
+  const next = useMemo(
+    () => (nextBase ? mergeSong(nextBase, overrideVersion) : undefined),
+    [nextBase, overrideVersion],
+  );
 
   return (
     <>

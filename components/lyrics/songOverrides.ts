@@ -37,12 +37,18 @@ const subscribe = (cb: () => void) => {
   };
 };
 
-/** Bumps whenever any song override changes; use as a useMemo dependency. */
+/**
+ * Bumps whenever any song override changes; use as a useMemo dependency.
+ * Returns -1 on the server AND on the hydration render (useSyncExternalStore
+ * serves the server snapshot until after mount) — while it is -1, callers
+ * must render base data so the client's first render matches the server HTML.
+ * React then re-renders with the real version and overrides apply.
+ */
 export const useOverrideVersion = () =>
   useSyncExternalStore(
     subscribe,
     () => version,
-    () => 0,
+    () => -1,
   );
 
 export function readOverride(slug: string): SongOverride | null {
@@ -78,9 +84,13 @@ export function clearOverride(slug: string) {
   emit();
 }
 
-/** Base song with any device-local edit applied; status recomputed. */
-export function mergeSong(base: Song): Song & { edited: boolean } {
-  const o = typeof window === 'undefined' ? null : readOverride(base.slug);
+/**
+ * Base song with any device-local edit applied; status recomputed.
+ * Pass the current useOverrideVersion() value — during SSR/hydration
+ * (version < 0) the base song is returned untouched so hydration matches.
+ */
+export function mergeSong(base: Song, version: number): Song & { edited: boolean } {
+  const o = version < 0 || typeof window === 'undefined' ? null : readOverride(base.slug);
   if (!o) return { ...base, edited: false };
   const hasLyrics = o.sections.some((s) => s.lines.some(Boolean));
   return {

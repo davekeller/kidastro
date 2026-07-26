@@ -32,7 +32,9 @@ export default async function SongPage({ params }: Props) {
 
   return (
     <main className={`${jetbrains.variable} relative z-10 min-h-screen overflow-x-hidden`}>
-      <LyricSheet song={song} />
+      {/* key forces a remount per song so edit-mode draft state can never
+          survive a client-side navigation and save under the wrong slug. */}
+      <LyricSheet key={song.slug} song={song} />
     </main>
   );
 }

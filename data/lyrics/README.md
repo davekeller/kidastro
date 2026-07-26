@@ -17,8 +17,9 @@ imports every `.html` inside it (safe to re-run — files are overwritten from
 source).
 
 **From pasted lyrics:** create `songs/<slug>.ts` by hand following any
-existing song file, then re-run the script with no new sheets — or just add
-the import to `index.ts` yourself. Rules:
+existing song file, then add the import to `index.ts` yourself (or re-run
+the script on any sheet or directory — it regenerates the index from the
+`songs/` folder after every run; it errors if given no arguments). Rules:
 
 - `slug` — lowercase, hyphenated, no apostrophes or diacritics (`abscønd` → `abscond`).
 - `sections` — one entry per `[Verse 1]` / `[Chorus]` / etc.; `label` without brackets.

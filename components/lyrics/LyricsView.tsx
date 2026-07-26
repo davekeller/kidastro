@@ -124,10 +124,10 @@ const LyricsView = () => {
   // Device-local edits (from the sheet's edit mode) layered over the data,
   // so search, snippets, and badges reflect what's actually on the sheets.
   const overrideVersion = useOverrideVersion();
-  // overrideVersion is the localStorage store's invalidation key, not a value
-  // mergeSong reads directly — the linter can't see that.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const merged = useMemo(() => SONGS.map(mergeSong), [overrideVersion]);
+  const merged = useMemo(
+    () => SONGS.map((s) => mergeSong(s, overrideVersion)),
+    [overrideVersion],
+  );
   const mergedBySlug = (slug: string) => merged.find((s) => s.slug === slug);
 
   const searching = query.trim().length > 0;
