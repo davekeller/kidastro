@@ -3,9 +3,10 @@
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion, Reorder, useDragControls } from 'framer-motion';
-import { SONGS, SETLISTS, DEFAULT_SETLIST_ID, songBySlug, type Song } from '@/data/lyrics';
+import { SONGS, SETLISTS, DEFAULT_SETLIST_ID, type Song } from '@/data/lyrics';
 import WolfMark from './WolfMark';
 import { searchable, useSetlistOrder } from './setlistOrder';
+import { mergeSong, useOverrideVersion } from './songOverrides';
 
 const PINK = '#e4416f';
 const INSTAGRAM_URL = 'https://instagram.com/paper.fang';
@@ -38,7 +39,7 @@ const CardInner = ({
   position,
   tilt,
 }: {
-  song: Song;
+  song: Song & { edited?: boolean };
   position: number | null;
   tilt: number;
 }) => (
@@ -61,6 +62,7 @@ const CardInner = ({
         <span className="text-xl font-semibold text-white sm:text-2xl">{song.title}</span>
         {song.cover && <Badge>cover · {song.cover.artist}</Badge>}
         {song.status === 'in-progress' && <Badge>in progress</Badge>}
+        {song.edited && <Badge>edited</Badge>}
       </span>
       <span className="mt-1 block truncate font-(family-name:--font-jetbrains) text-xs text-white/35">
         {firstLine(song) ?? 'no lyrics yet'}
@@ -75,7 +77,15 @@ const CardInner = ({
   </Link>
 );
 
-const SetlistCard = ({ song, position, tilt }: { song: Song; position: number; tilt: number }) => {
+const SetlistCard = ({
+  song,
+  position,
+  tilt,
+}: {
+  song: Song & { edited?: boolean };
+  position: number;
+  tilt: number;
+}) => {
   const controls = useDragControls();
   return (
     <Reorder.Item
@@ -111,11 +121,20 @@ const LyricsView = () => {
     [order],
   );
 
+  // Device-local edits (from the sheet's edit mode) layered over the data,
+  // so search, snippets, and badges reflect what's actually on the sheets.
+  const overrideVersion = useOverrideVersion();
+  // overrideVersion is the localStorage store's invalidation key, not a value
+  // mergeSong reads directly — the linter can't see that.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const merged = useMemo(() => SONGS.map(mergeSong), [overrideVersion]);
+  const mergedBySlug = (slug: string) => merged.find((s) => s.slug === slug);
+
   const searching = query.trim().length > 0;
-  const setSongs = order.map((slug) => songBySlug(slug)).filter(Boolean) as Song[];
+  const setSongs = order.map(mergedBySlug).filter(Boolean) as (Song & { edited: boolean })[];
   const allSongs = useMemo(
-    () => [...SONGS].sort((a, b) => a.title.localeCompare(b.title)),
-    [],
+    () => [...merged].sort((a, b) => a.title.localeCompare(b.title)),
+    [merged],
   );
   // A search always sweeps every song, not just the current view.
   const results = searching ? allSongs.filter((s) => matches(s, query.trim())) : null;

@@ -27,6 +27,19 @@ the import to `index.ts` yourself. Rules:
   lines, the song is badged **in progress** (`status: 'in-progress'`).
 - Covers get `cover: { artist: 'Original Artist' }` and show a badge.
 
+## Editing on the page
+
+Every sheet has an **edit** button (top bar): title, section labels, and a
+one-line-per-row textarea per section (blank line = stanza gap). **Save**
+stores the edit in localStorage (`pf-song-edit:<slug>`) on that device and
+the whole page — sheet, list, search, badges — reads the merged result.
+**Revert to original** clears it.
+
+A device edit doesn't reach this repo or other devices. To make an edit
+canonical, tap **copy song data** in edit mode and paste the JSON to Claude
+(or apply it to `songs/<slug>.ts` by hand), then remove the device override
+with revert.
+
 ## Setlists
 
 Running orders live in [setlists.ts](setlists.ts) as ordered slug arrays.
