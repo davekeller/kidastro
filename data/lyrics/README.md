@@ -17,8 +17,9 @@ imports every `.html` inside it (safe to re-run — files are overwritten from
 source).
 
 **From pasted lyrics:** create `songs/<slug>.ts` by hand following any
-existing song file, then re-run the script with no new sheets — or just add
-the import to `index.ts` yourself. Rules:
+existing song file, then add the import to `index.ts` yourself (or re-run
+the script on any sheet or directory — it regenerates the index from the
+`songs/` folder after every run; it errors if given no arguments). Rules:
 
 - `slug` — lowercase, hyphenated, no apostrophes or diacritics (`abscønd` → `abscond`).
 - `sections` — one entry per `[Verse 1]` / `[Chorus]` / etc.; `label` without brackets.
@@ -26,6 +27,19 @@ the import to `index.ts` yourself. Rules:
   renders as an instrumental/placeholder (`· · ·`) and, if no section has
   lines, the song is badged **in progress** (`status: 'in-progress'`).
 - Covers get `cover: { artist: 'Original Artist' }` and show a badge.
+
+## Editing on the page
+
+Every sheet has an **edit** button (top bar): title, section labels, and a
+one-line-per-row textarea per section (blank line = stanza gap). **Save**
+stores the edit in localStorage (`pf-song-edit:<slug>`) on that device and
+the whole page — sheet, list, search, badges — reads the merged result.
+**Revert to original** clears it.
+
+A device edit doesn't reach this repo or other devices. To make an edit
+canonical, tap **copy song data** in edit mode and paste the JSON to Claude
+(or apply it to `songs/<slug>.ts` by hand), then remove the device override
+with revert.
 
 ## Setlists
 

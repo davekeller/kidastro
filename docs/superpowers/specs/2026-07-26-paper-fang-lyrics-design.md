@@ -56,8 +56,9 @@ type Setlist = { id: string; name: string; slugs: string[] };
 
 - Global space background (Starfield/NorthernLights from the root layout)
   shows through; page content is `z-10` like other pages.
-- Header: floating wireframe **fang** (`components/lyrics/FangMark.tsx`) —
-  react-three-fiber line art in the same language as the arcade helmet:
+- Header: floating wireframe mark (`components/lyrics/WolfMark.tsx`; shipped
+  first as a fang, revised to a low-poly wolf head in the homepage
+  icosahedron's faceted line language) — react-three-fiber line art,
   draggable with momentum, gentle float, palette color cross-fade. Below it
   "PAPER FANG" in Bricolage caps, a one-line descriptor, and small
   Instagram (`instagram.com/paper.fang`) / Spotify links.
