@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [themes-updated]
 
 permissions:
   contents: read
@@ -35,6 +37,25 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # kidastro-themes is served at kidastro.com/themes — build it from its
+      # own repo (Vite base is already /themes/) and add it to the site.
+      - name: Checkout kidastro-themes
+        uses: actions/checkout@v4
+        with:
+          repository: davekeller/kidastro-themes
+          path: themes-src
+
+      - name: Build kidastro-themes
+        working-directory: themes-src
+        run: |
+          npm ci
+          npm run build
+
+      - name: Add themes to site output
+        run: |
+          mkdir -p out/themes
+          cp -R themes-src/dist/. out/themes/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
