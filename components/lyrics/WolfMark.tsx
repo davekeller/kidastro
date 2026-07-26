@@ -5,42 +5,48 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
-// The Paper Fang mark: a snarling wireframe wolf head — cross-section ribs
-// with longitudinal seams (the same line language as the homepage icosahedron
-// and the arcade helmet), pricked ears, angry eye slits, an open jaw with
-// bared fangs, and a torn-paper ruff at the neck. One line weight, no fills,
-// palette cross-fade leading with the pink end of the cycle.
+// The Paper Fang mark: a low-poly wolf head in the same faceted line language
+// as the homepage icosahedron — named vertices, straight edges, no fills —
+// with pricked ears, eye notches, bared fangs, and a jagged torn-paper sheet
+// behind it. Palette cross-fade leads with the pink end of the cycle.
 
 const PALETTE = ['#e4416f', '#fcd34d', '#39d5cb', '#f4fd7b', '#6ee7b7'];
 
-const D = Math.PI / 180;
-
-// Fixed "random" offsets for the torn-paper ruff, so the tear is stable.
+// Fixed "random" offsets for the torn-paper sheet, so the tear is stable.
 const TEAR = [1.0, 0.62, 0.88, 0.5, 1.0, 0.58, 0.8, 0.46, 0.94, 0.6, 0.86, 0.52, 0.98, 0.64];
 
-// Elliptical cross-section ribs along the head axis (+z = nose, toward the
-// camera at rest). Full ribs wrap the skull; the muzzle ribs leave the bottom
-// open where the mouth is.
-type Rib = { z: number; w: number; h: number; cy: number; a0: number; a1: number };
-const SKULL: Rib[] = [
-  { z: -1.55, w: 1.3, h: 1.1, cy: 0.5, a0: 0, a1: 360 },
-  { z: -0.85, w: 1.48, h: 1.22, cy: 0.52, a0: 0, a1: 360 },
-  { z: -0.15, w: 1.22, h: 1.02, cy: 0.42, a0: 0, a1: 360 },
-  { z: 0.45, w: 0.8, h: 0.66, cy: 0.18, a0: -35, a1: 215 },
-  { z: 1.05, w: 0.58, h: 0.46, cy: 0.02, a0: -35, a1: 215 },
-  { z: 1.6, w: 0.44, h: 0.36, cy: -0.1, a0: -35, a1: 215 },
-  { z: 2.0, w: 0.3, h: 0.24, cy: -0.16, a0: -35, a1: 215 },
+// Head vertices (+z = nose, toward the camera at rest; x mirrored for the
+// left side): N nose, NB nose bridge, MT muzzle top, LP lip corner, CH chin,
+// JW jaw, JS jowl spike, BR brow, FC forehead, CK cheek, SK skull side,
+// CR crown, EB ear base inner, ET ear tip.
+const HEAD: Record<string, [number, number, number]> = {
+  N: [0, -0.05, 1.75],
+  NB: [0, 0.34, 1.08],
+  MT: [0.3, 0.1, 1.02],
+  LP: [0.36, -0.24, 0.92],
+  CH: [0, -0.52, 1.02],
+  JW: [0.62, -0.66, 0.28],
+  JS: [1.35, -0.3, -0.15],
+  BR: [0.54, 0.7, 0.46],
+  FC: [0, 1.02, 0.18],
+  CK: [1.08, 0.16, -0.08],
+  SK: [1.02, 1.02, -0.68],
+  CR: [0, 1.38, -0.72],
+  EB: [0.44, 1.18, -0.38],
+  ET: [1.15, 2.1, -0.55],
+};
+const CENTER_EDGES: [string, string][] = [
+  ['CR', 'FC'],
+  ['FC', 'NB'],
+  ['NB', 'N'],
 ];
-// Lower jaw: bottom-half troughs dropping open toward the chin.
-const JAW: Rib[] = [
-  { z: 0.45, w: 0.52, h: 0.38, cy: -0.5, a0: 180, a1: 360 },
-  { z: 0.95, w: 0.44, h: 0.34, cy: -0.72, a0: 180, a1: 360 },
-  { z: 1.4, w: 0.34, h: 0.28, cy: -0.88, a0: 180, a1: 360 },
+const SIDE_EDGES: [string, string][] = [
+  ['FC', 'BR'], ['BR', 'CK'], ['BR', 'MT'], ['CK', 'MT'], ['MT', 'NB'], ['MT', 'N'],
+  ['MT', 'LP'], ['LP', 'N'], ['LP', 'JW'], ['CK', 'JW'], ['JW', 'CH'],
+  ['CK', 'JS'], ['JS', 'JW'],
+  ['CK', 'SK'], ['SK', 'CR'], ['EB', 'FC'], ['EB', 'CR'],
+  ['EB', 'SK'], ['EB', 'ET'], ['SK', 'ET'],
 ];
-const CHIN = new THREE.Vector3(0, -1.02, 1.62);
-
-const ribPoint = (rib: Rib, aDeg: number) =>
-  new THREE.Vector3(rib.w * Math.cos(aDeg * D), rib.cy + rib.h * Math.sin(aDeg * D), rib.z);
 
 const WolfShape = ({
   isDragging,
@@ -70,109 +76,35 @@ const WolfShape = ({
       pts.push(a, b);
     };
 
-    // Rib arcs.
-    const arc = (rib: Rib, steps = 28) => {
-      for (let i = 0; i < steps; i++) {
-        const a0 = rib.a0 + ((rib.a1 - rib.a0) * i) / steps;
-        const a1 = rib.a0 + ((rib.a1 - rib.a0) * (i + 1)) / steps;
-        seg(ribPoint(rib, a0), ribPoint(rib, a1));
-      }
-    };
-    SKULL.forEach((r) => arc(r));
-    JAW.forEach((r) => arc(r, 18));
+    const vec = (p: [number, number, number], s = 1) => new THREE.Vector3(s * p[0], p[1], p[2]);
 
-    // Longitudinal seams over the skull and muzzle. The lip lines (±35° below
-    // horizontal) run the full muzzle; bottom seams only exist on full ribs.
-    const AZ = [-35, 0, 35, 75, 105, 145, 180, 215];
-    for (const az of AZ) {
-      for (let k = 0; k < SKULL.length - 1; k++) seg(ribPoint(SKULL[k], az), ribPoint(SKULL[k + 1], az));
-    }
-    for (const az of [255, 285]) {
-      for (let k = 0; k < 2; k++) seg(ribPoint(SKULL[k], az), ribPoint(SKULL[k + 1], az));
-    }
-
-    // Nose leather: a small diamond proud of the muzzle face.
-    {
-      const zN = 2.06;
-      const nose = [
-        new THREE.Vector3(0.13, -0.15, zN),
-        new THREE.Vector3(0, -0.04, zN),
-        new THREE.Vector3(-0.13, -0.15, zN),
-        new THREE.Vector3(0, -0.27, zN),
-      ];
-      for (let i = 0; i < 4; i++) seg(nose[i], nose[(i + 1) % 4]);
-    }
-
-    // Lower jaw seams: side rims and center line running out to the chin.
-    for (const az of [180, 270, 360]) {
-      for (let k = 0; k < JAW.length - 1; k++) seg(ribPoint(JAW[k], az), ribPoint(JAW[k + 1], az));
-      seg(ribPoint(JAW[JAW.length - 1], az), CHIN);
-    }
-    // Hinge struts: skull lip line down to the jaw rim.
+    // Faceted head: center-line edges once, side edges mirrored.
+    for (const [a, b] of CENTER_EDGES) seg(vec(HEAD[a]), vec(HEAD[b]));
     for (const s of [1, -1]) {
-      const lip = ribPoint(SKULL[3], -35);
-      seg(new THREE.Vector3(s * lip.x, lip.y, lip.z), new THREE.Vector3(s * 0.52, -0.5, 0.45));
+      for (const [a, b] of SIDE_EDGES) seg(vec(HEAD[a], s), vec(HEAD[b], s));
     }
 
-    // Bared teeth: a zigzag under the upper lip between the fangs.
-    {
-      const N = 6;
-      let prev: THREE.Vector3 | null = null;
-      for (let i = 0; i <= N; i++) {
-        const x = -0.28 + (0.56 * i) / N;
-        const p = new THREE.Vector3(x, i % 2 ? -0.44 : -0.31, 1.56);
-        if (prev) seg(prev, p);
-        prev = p;
-      }
-    }
-
-    // Fangs: little ring-and-meridian cones, two up top, two below.
-    const fang = (base: THREE.Vector3, tip: THREE.Vector3, r: number) => {
-      const axis = tip.clone().sub(base).normalize();
-      const u = new THREE.Vector3(1, 0, 0);
-      if (Math.abs(axis.x) > 0.9) u.set(0, 1, 0);
-      const a = new THREE.Vector3().crossVectors(axis, u).normalize();
-      const b = new THREE.Vector3().crossVectors(axis, a).normalize();
-      const N = 6;
-      const ring: THREE.Vector3[] = [];
-      for (let i = 0; i < N; i++) {
-        const t = (i / N) * Math.PI * 2;
-        ring.push(base.clone().addScaledVector(a, Math.cos(t) * r).addScaledVector(b, Math.sin(t) * r));
-      }
-      for (let i = 0; i < N; i++) {
-        seg(ring[i], ring[(i + 1) % N]);
-        seg(ring[i], tip);
-      }
-    };
+    // Ear ribs: a fold line up the middle of each ear.
     for (const s of [1, -1]) {
-      fang(new THREE.Vector3(s * 0.34, -0.3, 1.5), new THREE.Vector3(s * 0.42, -0.85, 1.58), 0.09);
-      fang(new THREE.Vector3(s * 0.26, -0.86, 1.32), new THREE.Vector3(s * 0.3, -0.45, 1.42), 0.06);
+      const mid = vec(HEAD.EB, s).lerp(vec(HEAD.SK, s), 0.5);
+      seg(mid, vec(HEAD.ET, s));
     }
 
-    // Ears: outer + inner triangles, pricked up and slightly splayed.
-    for (const s of [1, -1]) {
-      const tri = [
-        new THREE.Vector3(s * 0.5, 1.3, -0.25),
-        new THREE.Vector3(s * 0.95, 1.35, -1.15),
-        new THREE.Vector3(s * 1.05, 2.3, -0.75),
-      ];
-      for (let i = 0; i < 3; i++) seg(tri[i], tri[(i + 1) % 3]);
-      const c = tri[0].clone().add(tri[1]).add(tri[2]).multiplyScalar(1 / 3);
-      const inner = tri.map((p) => p.clone().lerp(c, 0.45));
-      for (let i = 0; i < 3; i++) seg(inner[i], inner[(i + 1) % 3]);
-    }
-
-    // Eyes: tilted slit rhombi (outer corner high — the snarl), plus brows.
+    // Eyes: small triangular notches.
     for (const s of [1, -1]) {
       const eye = [
-        new THREE.Vector3(s * 0.66, 0.55, 0.52),
-        new THREE.Vector3(s * 0.5, 0.6, 0.66),
-        new THREE.Vector3(s * 0.34, 0.44, 0.78),
-        new THREE.Vector3(s * 0.5, 0.4, 0.66),
+        new THREE.Vector3(s * 0.66, 0.5, 0.28),
+        new THREE.Vector3(s * 0.4, 0.38, 0.5),
+        new THREE.Vector3(s * 0.56, 0.32, 0.38),
       ];
-      for (let i = 0; i < 4; i++) seg(eye[i], eye[(i + 1) % 4]);
-      seg(eye[0].clone().lerp(eye[2], 0.35), eye[0].clone().lerp(eye[2], 0.65));
-      seg(new THREE.Vector3(s * 0.78, 0.78, 0.1), new THREE.Vector3(s * 0.34, 0.64, 0.66));
+      for (let i = 0; i < 3; i++) seg(eye[i], eye[(i + 1) % 3]);
+    }
+
+    // Fangs: flat triangles hanging from the lip line.
+    for (const s of [1, -1]) {
+      const tip = new THREE.Vector3(s * 0.25, -0.66, 1.2);
+      seg(new THREE.Vector3(s * 0.14, -0.21, 1.1), tip);
+      seg(new THREE.Vector3(s * 0.3, -0.24, 1.0), tip);
     }
 
     // Torn-paper sheet behind the head — a jagged ring the wolf bursts through.
@@ -236,7 +168,7 @@ const WolfShape = ({
   return (
     <group ref={floatGroupRef}>
       <Float speed={2} rotationIntensity={0.7} floatIntensity={2} floatingRange={[-0.4, 0.4]}>
-        <group ref={groupRef} position={[0, -0.35, 0]} scale={1.35}>
+        <group ref={groupRef} position={[0, -0.35, 0]} scale={1.5}>
           <Line points={points} color={PALETTE[0]} lineWidth={2.5} segments transparent opacity={0.85} ref={lineRef} />
         </group>
       </Float>
@@ -291,7 +223,7 @@ const WolfMark = () => {
 
   return (
     <div
-      className="mx-auto h-[240px] w-full max-w-[360px] overflow-hidden select-none touch-none"
+      className="mx-auto h-[170px] w-full max-w-[300px] overflow-hidden select-none touch-none"
       style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}

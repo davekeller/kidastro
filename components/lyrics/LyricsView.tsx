@@ -124,55 +124,39 @@ const LyricsView = () => {
 
   return (
     <div className="mx-auto w-[94%] max-w-2xl pb-24">
-      <header className="pt-10 text-center sm:pt-14">
+      <header className="pt-3 text-center sm:pt-5">
         <WolfMark />
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="font-(family-name:--font-jetbrains) text-xs uppercase tracking-[0.35em]"
-          style={{ color: PINK }}
-        >
-          the lyric book
-        </motion.p>
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.08 }}
-          className="mt-3 text-6xl tracking-tight text-white uppercase sm:text-7xl"
+          transition={{ duration: 0.6 }}
+          className="mt-1 text-4xl tracking-tight text-white uppercase sm:text-5xl"
         >
           Paper Fang
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.16 }}
-          className="mx-auto mt-3 max-w-md text-base text-white/70"
-        >
-          punk · grunge · metal — a heavy three-piece out of{' '}
-          <span className="whitespace-nowrap">Austin, TX</span>
-        </motion.p>
-        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.24 }}
-          className="mt-4 flex items-center justify-center gap-5 font-(family-name:--font-jetbrains) text-xs uppercase tracking-[0.2em]"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-(family-name:--font-jetbrains) text-[11px] uppercase tracking-[0.2em] text-white/45"
         >
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-white/50 transition-colors hover:text-(--pf-pink)" style={{ ['--pf-pink' as string]: PINK }}>
+          <span style={{ color: PINK }}>the lyric book</span>
+          <span aria-hidden className="text-white/20">/</span>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">
             instagram
           </a>
           <span aria-hidden className="text-white/20">/</span>
-          <a href={SPOTIFY_URL} target="_blank" rel="noopener noreferrer" className="text-white/50 transition-colors hover:text-(--pf-pink)" style={{ ['--pf-pink' as string]: PINK }}>
+          <a href={SPOTIFY_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">
             spotify
           </a>
         </motion.p>
       </header>
 
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+        transition={{ duration: 0.6, delay: 0.18 }}
+        className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center"
       >
         <input
           type="search"
@@ -209,10 +193,10 @@ const LyricsView = () => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.38 }}
-        className="mt-8"
+        transition={{ duration: 0.6, delay: 0.26 }}
+        className="mt-6"
       >
         {results ? (
           <>
