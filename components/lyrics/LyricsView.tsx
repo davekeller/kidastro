@@ -149,7 +149,8 @@ const LyricsView = () => {
           transition={{ duration: 0.7, delay: 0.16 }}
           className="mx-auto mt-3 max-w-md text-base text-white/70"
         >
-          punk · grunge · metal — a heavy three-piece out of Austin, TX
+          punk · grunge · metal — a heavy three-piece out of{' '}
+          <span className="whitespace-nowrap">Austin, TX</span>
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
