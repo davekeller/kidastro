@@ -10,7 +10,7 @@ const jetbrains = JetBrains_Mono({
 
 // Hidden page — noindex, not in the sitemap, linked from nowhere.
 export const metadata: Metadata = {
-  title: { absolute: 'Paper Fang — Set Book' },
+  title: { absolute: 'Paper Fang — Lyric Book' },
   description: 'Paper Fang lyric sheets and setlists.',
   robots: { index: false, follow: false },
 };

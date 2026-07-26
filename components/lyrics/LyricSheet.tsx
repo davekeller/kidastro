@@ -170,7 +170,7 @@ const LyricSheet = ({ song }: { song: Song }) => {
       <div className="relative z-10 mx-auto min-h-screen w-full max-w-3xl px-5 pb-10 sm:px-10">
         <nav className="sticky top-0 z-40 -mx-5 flex items-center justify-between bg-gradient-to-b from-[#05060a] via-[#05060a]/90 to-transparent px-5 pt-4 pb-6 font-(family-name:--font-jetbrains) text-xs uppercase tracking-[0.2em] sm:-mx-10 sm:px-10">
           <Link href="/lyrics" className="text-white/50 transition-colors hover:text-white">
-            ← set book
+            ← lyric book
           </Link>
           {index >= 0 && (
             <span className="text-white/40">

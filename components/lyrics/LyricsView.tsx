@@ -4,7 +4,7 @@ import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion, Reorder, useDragControls } from 'framer-motion';
 import { SONGS, SETLISTS, DEFAULT_SETLIST_ID, songBySlug, type Song } from '@/data/lyrics';
-import FangMark from './FangMark';
+import WolfMark from './WolfMark';
 import { searchable, useSetlistOrder } from './setlistOrder';
 
 const PINK = '#e4416f';
@@ -125,7 +125,7 @@ const LyricsView = () => {
   return (
     <div className="mx-auto w-[94%] max-w-2xl pb-24">
       <header className="pt-10 text-center sm:pt-14">
-        <FangMark />
+        <WolfMark />
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -133,7 +133,7 @@ const LyricsView = () => {
           className="font-(family-name:--font-jetbrains) text-xs uppercase tracking-[0.35em]"
           style={{ color: PINK }}
         >
-          the set book
+          the lyric book
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
