@@ -6,7 +6,7 @@ import JobEntry from './resume/JobEntry';
 import JobEntryCondensed from './resume/JobEntryCondensed';
 import DownloadButton from './resume/DownloadButton';
 import FadeUp from './FadeUp';
-import { fullJobs, condensedJobs, highlights, skills, toolGroups, interests } from './resume/resumeData';
+import { fullJobs, condensedJobs, summary, highlights, skills, toolGroups, interests } from './resume/resumeData';
 import Footer from './Footer';
 
 const Resume = () => {
@@ -21,6 +21,12 @@ const Resume = () => {
 
       <FadeUp>
         <Header />
+      </FadeUp>
+
+      <FadeUp>
+        <p className="mb-10 max-w-[75ch] text-pretty text-base leading-relaxed text-white/90 print:mb-6 print:text-sm print:leading-snug print:text-gray-800">
+          {summary}
+        </p>
       </FadeUp>
 
       <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-3 print:mb-8 print:grid-cols-3 print:gap-6">
