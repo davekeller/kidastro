@@ -51,10 +51,10 @@ RULE = HexColor("#dddddd")    # horizontal rules
 BODY = 9.5                    # body font size
 SMALL = 9                     # contact, dates, section titles
 LEADING = 12.5                # line height for all body text
-GAP = 3                       # space after a body paragraph
-TOP_GAP = 4                   # space after highlights/skills bullets
-JOB_GAP = 9                   # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
-SECTION_GAP = 9               # space before each section title
+GAP = 4                       # space after a body paragraph
+TOP_GAP = 7                   # space after highlights/skills bullets
+JOB_GAP = 12                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
+SECTION_GAP = 11              # space before each section title
 
 MARGIN = 0.75 * inch
 CONTENT_W = letter[0] - 2 * MARGIN - 12  # frame pads 6pt per side
@@ -201,8 +201,6 @@ CONTACT = (
     f'<font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font>'
 )
 
-SUMMARY = "Strategic product thinker, Figma expert, and design/front-end engineer. I was writing front-end before agentic coding — now primarily designing in the browser with Claude Code/Codex and Tailwind, shipping both functional prototypes and production code."
-
 highlights = [
     "15+ years leading design at early-stage startups — from 0 to 1 through 2.0 and GTM. Across AI, data science, entertainment, messaging, ecommerce, and fintech.",
     "A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.",
@@ -328,7 +326,6 @@ header = Table(
 story = [
     header,
     Spacer(1, GAP),
-    Paragraph(pretty(SUMMARY), styles["body"]),
     *section("Highlights"),
     *bullets(highlights, style_name="topbullet"),
     *section("Skills"),

@@ -148,9 +148,6 @@ function job([company, dates, location, role, summary, jobBullets], { first = fa
 
 const TITLE = "design engineer / lead product designer";
 
-const summary =
-  "Strategic product thinker, Figma expert, and design/front-end engineer. I was writing front-end before agentic coding — now primarily designing in the browser with Claude Code/Codex and Tailwind, shipping both functional prototypes and production code.";
-
 const highlights = [
   "15+ years leading design at early-stage startups — from 0 to 1 through 2.0 and GTM. Across AI, data science, entertainment, messaging, ecommerce, and fintech.",
   "A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.",
@@ -363,7 +360,6 @@ const doc = new Document({
     },
     children: [
       header,
-      new Paragraph({ spacing: spacing({ after: GAP }), children: [new TextRun({ font: FONT, text: summary })] }),
       sectionTitle("Highlights"),
       ...highlights.map(h => bullet(h, { after: TOP_GAP })),
       sectionTitle("Skills"),
