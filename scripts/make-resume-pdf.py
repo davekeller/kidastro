@@ -50,11 +50,11 @@ RULE = HexColor("#dddddd")    # horizontal rules
 
 BODY = 9.5                    # body font size
 SMALL = 9                     # contact, dates, section titles
-LEADING = 13                  # line height for all body text
-GAP = 4                       # space after a body paragraph
-TOP_GAP = 7                   # space after highlights/skills bullets
-JOB_GAP = 13                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
-SECTION_GAP = 12              # space before each section title
+LEADING = 12.5                # line height for all body text
+GAP = 3                       # space after a body paragraph
+TOP_GAP = 4                   # space after highlights/skills bullets
+JOB_GAP = 9                   # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
+SECTION_GAP = 9               # space before each section title
 
 MARGIN = 0.75 * inch
 CONTENT_W = letter[0] - 2 * MARGIN - 12  # frame pads 6pt per side
@@ -238,7 +238,7 @@ tools = [
     "Linear / Notion",
     "iOS / Android / VR",
     "Framer / Webflow",
-    "Agile / Shape Up / design sprints",
+    "Agile / design sprints",
 ]
 
 jobs = [
@@ -256,7 +256,7 @@ jobs = [
      [
          "Shipped platform features monthly, from comp modeling and onboarding to sandbox and payout workflows",
          "Designed and launched the Compensation Hub, a commission library and modeling tool that drove $1.5M+ in new pipeline in a year",
-         "Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it",
+         "Co-created a product-development process across 4 cross-functional teams and mentored the designers running it",
      ]),
     ("OneAssembly", "Feb 2021 – Jan 2022", "Austin, TX",
      "Product UX/UI Design Lead &middot; Front-End Developer",

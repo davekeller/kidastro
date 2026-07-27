@@ -186,7 +186,7 @@ const tools = [
   "Linear / Notion",
   "iOS / Android / VR",
   "Framer / Webflow",
-  "Agile / Shape Up / design sprints",
+  "Agile / design sprints",
 ];
 
 const jobs = [
@@ -204,7 +204,7 @@ const jobs = [
     [
       "Shipped platform features monthly, from comp modeling and onboarding to sandbox and payout workflows",
       "Designed and launched the Compensation Hub, a commission library and modeling tool that drove $1.5M+ in new pipeline in a year",
-      "Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it",
+      "Co-created a product-development process across 4 cross-functional teams and mentored the designers running it",
     ]],
   ["OneAssembly", "Feb 2021 – Jan 2022", "Austin, TX",
     "Product UX/UI Design Lead · Front-End Developer",
