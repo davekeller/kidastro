@@ -195,9 +195,9 @@ def circle_avatar():
 
 TITLE = "design engineer / lead product designer"
 CONTACT = (
-    '512.595.6213&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:davekeller@me.com">davekeller@me.com</a><br/>'
-    f'Portfolio: <font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro</a></font>'
-    '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/dkells/">linkedin/dkells</a>'
+    f'Portfolio: <font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font>'
+    '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/dkells/">linkedin/dkells</a><br/>'
+    '512.595.6213&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:davekeller@me.com">davekeller@me.com</a>'
 )
 
 highlights = [
