@@ -40,7 +40,7 @@ export const fullJobs: FullJob[] = [
     bullets: [
       'Shipped platform features monthly, from comp modeling and onboarding to sandbox and payout workflows',
       'Designed and launched the Compensation Hub, a commission library and modeling tool that drove $1.5M+ in new pipeline in a year',
-      'Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it',
+      'Co-created a product-development process across 4 cross-functional teams and mentored the designers running it',
     ],
   },
   {
@@ -108,11 +108,15 @@ export const condensedJobs: CondensedJob[] = [
   },
 ];
 
+export const summary: string =
+  'Strategic product thinker, Figma expert, and design/front-end engineer. I was writing front-end before agentic coding — now primarily designing in the browser with Claude Code/Codex and Tailwind, shipping both functional prototypes and production code.';
+
 export const highlights: string[] = [
-  '15+ years leading design on dev/product teams at early-seed startups, often 0 to 1, with experience across industries — AI, data science, entertainment, messaging, ecommerce, fintech and more',
-  'Strategic product thinker, Figma expert, and front-end dev (HTML/CSS, Tailwind, Claude Code). Experienced in validating ideas with design sprints, prototyping end-to-end flows, and refining production UIs in code',
-  'Fluent in agile/sprint workflows and in building process for product teams. Helped create a \'Shape Up\' process that organized a ~45-developer company into four product teams, building cross-functionally and shipping consistently on a staggered cadence',
-  'Shipped 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one. Co-founded a 20-person agency and a messaging app that raised $3M',
+  '15+ years leading design at early-stage startups — from 0 to 1 through 2.0 and GTM. Across AI, data science, entertainment, messaging, ecommerce, and fintech.',
+  'A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.',
+  'Process builder and systems architect. Architected multi-platform design systems. Built a process that organized a ~45-developer company into four cross-functional teams shipping on a steady cadence.',
+  'Track record. 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one.',
+  'Founder & client services. Co-founded a 20-person design/dev agency and a $3M-funded messaging app. The agency became a concepting and prototyping shop for Warner Bros — with work for Ellen, DreamWorks, and The Economist along the way.',
 ];
 
 export const skills: string[] = [
@@ -143,14 +147,14 @@ export const toolGroups: string[] = [
   'Linear / Notion',
   'iOS / Android / VR',
   'Framer / Webflow',
-  'Agile / Shape Up / design sprints',
+  'Agile / design sprints',
 ];
 
 export const interests: string[] = [
   'Guitar and vocals in a rock/metal band',
   'Recording and mixing in Logic Pro',
+  'Mountain biking and dirt bike racing',
+  'Video editing in Final Cut Pro',
   'Indoor soccer and racquetball',
-  'Mountain biking and endurance sports',
   'International travel (fluent in Spanish)',
-  'Adventures with my kids',
 ];

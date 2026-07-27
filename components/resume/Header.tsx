@@ -23,18 +23,6 @@ const Header = () => {
 
       <ul className="text-sm text-white/80 sm:text-right print:text-xs print:text-black">
         <li>
-          512.595.6213
-          <span className="mx-1.5 text-white/40 print:text-gray-400">|</span>
-          <a
-            href="https://www.linkedin.com/in/dkells/"
-            className="transition-colors hover:text-(--color-3) print:text-black"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            linkedin/dkells
-          </a>
-        </li>
-        <li>
           <a
             href="mailto:davekeller@me.com?subject=Hey Dave!"
             className="transition-colors hover:text-(--color-3) print:text-black"
@@ -42,12 +30,15 @@ const Header = () => {
             davekeller@me.com
           </a>
         </li>
+        <li>512.595.6213</li>
         <li>
           <a
-            href="/"
-            className="font-semibold transition-colors hover:text-(--color-3) print:text-black"
+            href="https://www.linkedin.com/in/dkells/"
+            className="transition-colors hover:text-(--color-3) print:text-black"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            kidastro.com
+            linkedin/dkells
           </a>
         </li>
       </ul>

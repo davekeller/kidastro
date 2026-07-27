@@ -50,11 +50,11 @@ RULE = HexColor("#dddddd")    # horizontal rules
 
 BODY = 9.5                    # body font size
 SMALL = 9                     # contact, dates, section titles
-LEADING = 13                  # line height for all body text
+LEADING = 12.5                # line height for all body text
 GAP = 4                       # space after a body paragraph
 TOP_GAP = 7                   # space after highlights/skills bullets
-JOB_GAP = 13                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
-SECTION_GAP = 12              # space before each section title
+JOB_GAP = 12                  # space before each job entry (frame uses max(prev spaceAfter, this), not sum)
+SECTION_GAP = 11              # space before each section title
 
 MARGIN = 0.75 * inch
 CONTENT_W = letter[0] - 2 * MARGIN - 12  # frame pads 6pt per side
@@ -195,17 +195,17 @@ def circle_avatar():
 
 TITLE = "design engineer / lead product designer"
 CONTACT = (
-    '512.595.6213&nbsp;&nbsp;|&nbsp;&nbsp;'
-    '<a href="https://www.linkedin.com/in/dkells/">linkedin/dkells</a><br/>'
-    '<a href="mailto:davekeller@me.com">davekeller@me.com</a><br/>'
-    f'<font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font>'
+    f'Portfolio: <font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font>'
+    '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/dkells/">linkedin/dkells</a><br/>'
+    '512.595.6213&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:davekeller@me.com">davekeller@me.com</a>'
 )
 
 highlights = [
-    "15+ years leading design on dev/product teams at early-seed startups, often 0 to 1, with experience across industries — AI, data science, entertainment, messaging, ecommerce, fintech and more",
-    "Strategic product thinker, Figma expert, and front-end dev (HTML/CSS, Tailwind, Claude Code). Experienced in validating ideas with design sprints, prototyping end-to-end flows, and refining production UIs in code",
-    "Fluent in agile/sprint workflows and in building process for product teams. Helped create a 'Shape Up' process that organized a ~45-developer company into four product teams, building cross-functionally and shipping consistently on a staggered cadence",
-    "Shipped 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one. Co-founded a 20-person agency and a messaging app that raised $3M",
+    "15+ years leading design at early-stage startups — from 0 to 1 through 2.0 and GTM. Across AI, data science, entertainment, messaging, ecommerce, and fintech.",
+    "A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.",
+    "Process builder and systems architect. Architected multi-platform design systems. Built a process that organized a ~45-developer company into four cross-functional teams shipping on a steady cadence.",
+    "Track record. 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one.",
+    "Founder &amp; client services. Co-founded a 20-person design/dev agency and a $3M-funded messaging app. The agency became a concepting and prototyping shop for Warner Bros — with work for Ellen, DreamWorks, and The Economist along the way.",
 ]
 
 skills = [
@@ -235,7 +235,7 @@ tools = [
     "Linear / Notion",
     "iOS / Android / VR",
     "Framer / Webflow",
-    "Agile / Shape Up / design sprints",
+    "Agile / design sprints",
 ]
 
 jobs = [
@@ -253,7 +253,7 @@ jobs = [
      [
          "Shipped platform features monthly, from comp modeling and onboarding to sandbox and payout workflows",
          "Designed and launched the Compensation Hub, a commission library and modeling tool that drove $1.5M+ in new pipeline in a year",
-         "Co-created the Shape Up process across 4 cross-functional teams and mentored the designers running it",
+         "Co-created a product-development process across 4 cross-functional teams and mentored the designers running it",
      ]),
     ("OneAssembly", "Feb 2021 – Jan 2022", "Austin, TX",
      "Product UX/UI Design Lead &middot; Front-End Developer",
@@ -294,8 +294,8 @@ jobs = [
 
 interests = (
     "Guitar and vocals in a rock/metal band &middot; Recording and mixing in Logic Pro &middot; "
-    "Indoor soccer and racquetball &middot; Mountain biking and endurance sports &middot; "
-    "International travel (fluent in Spanish) &middot; Adventures with my kids"
+    "Mountain biking and dirt bike racing &middot; Video editing in Final Cut Pro &middot; "
+    "Indoor soccer and racquetball &middot; International travel (fluent in Spanish)"
 )
 
 # ---- Build -----------------------------------------------------------------
