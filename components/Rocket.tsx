@@ -3,6 +3,14 @@ import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import CompanyMark from '@/components/CompanyMark';
 
+/* Client logos are all 300x250 SVGs with the artwork centered on that canvas —
+   pass those real dimensions so Next's implied aspect ratio matches the file,
+   and let object-contain letterbox inside the grid cell instead of stretching. */
+const clientLogos = Array.from(
+  { length: 9 },
+  (_, i) => `/imgs/rkt/client${i + 1}.svg`,
+);
+
 const Rocket = () => {
   return (
     <AnimatedSection className="rkt grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
@@ -44,16 +52,17 @@ const Rocket = () => {
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3">
-           <div className="clients grid grid-cols-3 gap-12 p-8">
-            <Image src="/imgs/rkt/client1.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client2.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client3.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client4.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client5.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client6.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client7.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client8.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
-            <Image src="/imgs/rkt/client9.svg" alt="client logo" width={150} height={75} className="h-24 w-auto opacity-90 hover:opacity-100 transition-opacity" />
+           <div className="clients grid grid-cols-3 gap-6 p-4 sm:gap-10 sm:p-8">
+            {clientLogos.map((src) => (
+              <Image
+                key={src}
+                src={src}
+                alt="client logo"
+                width={300}
+                height={250}
+                className="h-16 w-full justify-self-center object-contain opacity-90 transition-opacity hover:opacity-100 sm:h-20 lg:h-24"
+              />
+            ))}
           </div>
       </div>
 
