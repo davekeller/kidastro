@@ -10,7 +10,7 @@ import { destinations } from './destinations';
    until hovered or keyboard-focused) opens a floating card grid of every page
    on the site. Mounted once in the root layout; hides itself on /resume,
    where the Download PDF button owns that corner. */
-const ControlCenter = () => {
+const MissionControl = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -43,14 +43,14 @@ const ControlCenter = () => {
           aria-expanded={open}
           className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-black/30 px-5 py-2 text-sm font-medium text-white/70 opacity-0 backdrop-blur-md transition-[opacity,color,border-color] duration-300 hover:border-(--color-2) hover:text-(--color-2) hover:opacity-100 focus-visible:opacity-100"
         >
-          Control Center
+          Mission Control
         </button>
       </div>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            key="control-center"
+            key="mission-control"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -61,7 +61,7 @@ const ControlCenter = () => {
             <motion.div
               role="dialog"
               aria-modal="true"
-              aria-label="Control Center"
+              aria-label="Mission Control"
               initial={{ opacity: 0, scale: 0.94, y: 28 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 16 }}
@@ -69,15 +69,13 @@ const ControlCenter = () => {
               onClick={(e) => e.stopPropagation()}
               className="w-full max-w-3xl"
             >
-              <div className="glass-panel float-drift relative rounded-2xl p-6 backdrop-blur-xl sm:p-8">
-                <span aria-hidden className="color-bar absolute top-0 inset-x-8 h-[2px] rounded-full" />
-
+              <div className="glass-panel float-drift gradient-ring rounded-2xl !border-transparent p-6 backdrop-blur-xl sm:p-8">
                 <div className="mb-6 flex items-start justify-between gap-4">
                   <div>
                     <p className="accent-text text-xs font-bold uppercase tracking-[0.2em]">
                       kid astro // secret nav
                     </p>
-                    <h2 className="mt-1 text-2xl font-bold sm:text-3xl">Control Center</h2>
+                    <h2 className="mt-1 text-2xl font-bold sm:text-3xl">Mission Control</h2>
                   </div>
                   <button
                     ref={closeRef}
@@ -141,4 +139,4 @@ const ControlCenter = () => {
   );
 };
 
-export default ControlCenter;
+export default MissionControl;

@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-/* Wireframe marks for the Control Center cards — static SVG echoes of the
+/* Wireframe marks for the Mission Control cards — static SVG echoes of the
    3D header marks (icosahedron, helmet, wolf) plus new glyphs for the pages
    that never had one. All stroke currentColor so the parent can tint them
    on the ambient accent clock. */
@@ -70,18 +70,6 @@ export function VaultIcon(props: IconProps) {
       <circle cx="24" cy="24" r="9" />
       <path d="M24 15 V19 M24 29 V33 M15 24 H19 M29 24 H33 M17.6 17.6 L20.5 20.5 M27.5 27.5 L30.4 30.4" opacity="0.6" />
       <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-export function DocsIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <rect x="8" y="8" width="14" height="18" rx="2.5" />
-      <rect x="26" y="8" width="14" height="11" rx="2.5" />
-      <rect x="26" y="23" width="14" height="17" rx="2.5" />
-      <rect x="8" y="30" width="14" height="10" rx="2.5" />
-      <path d="M12 14 H18 M12 18 H16" opacity="0.6" />
     </svg>
   );
 }

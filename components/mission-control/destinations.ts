@@ -5,7 +5,6 @@ import {
   HelmetIcon,
   WolfIcon,
   VaultIcon,
-  DocsIcon,
   ThemesIcon,
 } from './icons';
 
@@ -20,7 +19,7 @@ export interface Destination {
 }
 
 /* The full map of the site. Add a new page here and it shows up in the
-   Control Center — nothing else to wire. */
+   Mission Control — nothing else to wire. */
 export const destinations: Destination[] = [
   {
     id: 'portfolio',
@@ -56,13 +55,6 @@ export const destinations: Destination[] = [
     blurb: 'the hidden agent skills bundle',
     href: '/skills',
     icon: VaultIcon,
-  },
-  {
-    id: 'docs',
-    title: 'Docs',
-    blurb: 'design docs & process notes',
-    href: '/dk-docs',
-    icon: DocsIcon,
   },
   {
     id: 'themes',
