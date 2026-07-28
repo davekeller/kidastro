@@ -4,6 +4,7 @@ import "./globals.css";
 import ColorBar from "@/components/ColorBar";
 import Starfield from "@/components/Starfield";
 import NorthernLights from "@/components/NorthernLights";
+import MissionControl from "@/components/mission-control/MissionControl";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -85,6 +86,7 @@ export default function RootLayout({
           <ColorBar />
         </div>
         {children}
+        <MissionControl />
       </body>
     </html>
   );
