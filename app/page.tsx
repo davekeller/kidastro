@@ -13,7 +13,6 @@ import Accomplishments from '@/components/Accomplishments';
 import AboutPhotos from '@/components/AboutPhotos';
 import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
-import PageToggle from '@/components/PageToggle';
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -22,10 +21,6 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between overflow-x-hidden z-10">
-      {/* PageToggle is hidden for now — restore pt-8 pb-4 here when it returns */}
-      <div className="w-full sticky top-0 z-40">
-        <PageToggle />
-      </div>
       <Intro />
 
       {/* STRANGEWORKS */}
