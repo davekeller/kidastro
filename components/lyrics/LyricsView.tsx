@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion, Reorder, useDragControls } from 'framer-motion';
 import { SONGS, SETLISTS, DEFAULT_SETLIST_ID, type Song } from '@/data/lyrics';
+import Breadcrumb from '@/components/Breadcrumb';
 import WolfMark from './WolfMark';
 import { searchable, useSetlistOrder } from './setlistOrder';
 import { mergeSong, useOverrideVersion } from './songOverrides';
@@ -143,6 +144,10 @@ const LyricsView = () => {
 
   return (
     <div className="mx-auto w-[94%] max-w-2xl pb-24">
+      <div className="fixed top-6 left-6 z-40 print:hidden">
+        <Breadcrumb label="lyrics" />
+      </div>
+
       <header className="pt-3 text-center sm:pt-5">
         <WolfMark />
         <motion.h1
