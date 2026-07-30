@@ -45,14 +45,14 @@ const Strangeworks = () => {
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
-            <h5 className="text-black font-bold text-xl">flows &amp; templates</h5>
+            <h5 className="text-black font-bold text-xl">research and discovery</h5>
           </div>
          <Image src="/imgs/strangeworks/strange2.webp" alt="Figma wireframe and flow template library" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative">
           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
-            <h5 className="text-black font-bold text-xl">prototypes</h5>
+            <h5 className="text-black font-bold text-xl">wireframes and flows</h5>
           </div>
          <Image src="/imgs/strangeworks/strange3.webp" alt="Figma flow map of the Aura app — projects, research, and formulation flows" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
