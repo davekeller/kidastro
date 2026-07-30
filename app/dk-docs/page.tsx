@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Breadcrumb from '@/components/Breadcrumb';
 import PageToggle from '@/components/PageToggle';
 import DocsGrid from '@/components/docs/DocsGrid';
 import DocDetail from '@/components/docs/DocDetail';
@@ -31,14 +30,7 @@ export default function DkDocsPage() {
         <PageToggle />
       </div>
 
-      {/* After the sticky strip above: PageToggle renders null today, leaving an
-          invisible full-width z-40 band that would otherwise swallow clicks on
-          the breadcrumb. Same z-index, later in the DOM, so this wins. */}
-      <div className="fixed top-6 left-6 z-40 print:hidden">
-        <Breadcrumb label="docs" />
-      </div>
-
-      <div className="w-[96%] max-w-6xl pt-20 pb-8">
+      <div className="w-[96%] max-w-6xl py-8">
         <AnimatePresence mode="wait">
           {selectedDoc ? (
             <DocDetail key={selectedDoc.slug} doc={selectedDoc} onBack={handleBack} />
