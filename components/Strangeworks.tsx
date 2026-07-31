@@ -39,7 +39,7 @@ const Strangeworks = () => {
         </div>
       </div>
 
-      <div className="col-span-1 md:col-span-2 lg:col-span-5 relative">
+      <div className="col-span-1 md:col-span-2 lg:col-span-6 relative">
          <Image src="/imgs/strangeworks/strange1.webp" alt="Aura app — optimization job details with AI-assisted results analysis" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
