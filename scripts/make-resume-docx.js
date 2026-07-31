@@ -153,14 +153,14 @@ const highlights = [
   "A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.",
   "Design system architect and process builder. Architected multi-platform design systems. Built a process that organized a ~45-developer company into four cross-functional teams shipping on a steady cadence.",
   "Track record. 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a 0 → 1 platform that grossed $33M in year one.",
-  "Founder & client services. Co-founded a 20-person design/dev agency and a $3M-funded messaging app. The agency became a concepting and prototyping shop for Warner Bros — with work for Ellen, DreamWorks, and The Economist along the way.",
+  "Founder & client services. Co-founded a 20-person design/dev agency and a $3M-funded messaging app. The agency became a concepting and prototyping shop for Warner Bros. — with work for Ellen, DreamWorks, and The Economist along the way.",
 ];
 
 const skills = [
   "Expert in Figma & design systems — multi-platform component libraries, prototyping, hand-off",
-  "Designing in front-end (prototypes to production) with Claude Code, Cursor and Tailwind",
+  "Designing in the front-end (prototypes to production) with Claude Code, Cursor, and Tailwind",
   "Comfortable writing HTML / CSS / JS and working in React / Next.js / Tailwind CSS / TypeScript",
-  "Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs",
+  "Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello, and Notion for sprint planning and docs",
 ];
 
 // Tools & Technologies — a 3×5 grid read column-by-column (matches the web).
@@ -174,12 +174,12 @@ const tools = [
   "JavaScript / TypeScript",
   // column 2 — libraries & builders
   "Git / GitHub",
-  "Data Viz and Animation libraries",
+  "Data Viz / Animation libraries",
   "Recharts / D3 / OpenMaps",
   "React Flow / Framer Motion",
   "Marketing sites",
   // column 3 — systems, platforms & process
-  "design systems / component libraries",
+  "Design systems / component libraries",
   "Linear / Notion",
   "iOS / Android / VR",
   "Framer / Webflow",
@@ -219,7 +219,7 @@ const jobs = [
     ]],
   ["Phobio : Rodio", "Jan 2018 – May 2019", "Austin, TX",
     "Product UX/UI Design Lead",
-    "Designed Rodio, a retail workforce communication platform. Partnered with Fortune-100 Kronos and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.",
+    "Designed Rodio, a retail workforce communication platform. Partnered with Fortune 100 Kronos and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.",
     [
       "Built Rodio's multi-platform design system (master, web, iOS, Android) and led a team of 20 to 20K+ paid users",
       "Designed and pitched the demo that closed the Kronos and Form.com contracts and led to acquisition",
