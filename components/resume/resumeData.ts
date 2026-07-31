@@ -114,8 +114,8 @@ export const summary: string =
 export const highlights: string[] = [
   '15+ years leading design at early-stage startups — from 0 to 1 through 2.0 and GTM. Across AI, data science, entertainment, messaging, ecommerce, and fintech.',
   'A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.',
-  'Process builder and systems architect. Architected multi-platform design systems. Built a process that organized a ~45-developer company into four cross-functional teams shipping on a steady cadence.',
-  'Track record. 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one.',
+  'Design system architect and process builder. Architected multi-platform design systems. Built a process that organized a ~45-developer company into four cross-functional teams shipping on a steady cadence.',
+  'Track record. 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a 0 → 1 platform that grossed $33M in year one.',
   'Founder & client services. Co-founded a 20-person design/dev agency and a $3M-funded messaging app. The agency became a concepting and prototyping shop for Warner Bros — with work for Ellen, DreamWorks, and The Economist along the way.',
 ];
 
