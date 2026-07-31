@@ -10,7 +10,7 @@ const Intro = () => {
       <Icosahedron />
       <div className="intro flex flex-col items-center max-w-[850px] mx-auto px-6 z-10 -mt-40 md:-mt-[136px]">
         <FadeUp className="flex flex-col items-center">
-        <h1 className="mb-8 text-4xl md:text-7xl text-white tracking-tight font-extrabold">
+        <h1 className="mb-8 text-4xl md:text-6xl text-white tracking-tight font-extrabold">
           so nice to meet you
         </h1>
         <p className="mb-8 max-w-[680px] text-balance leading-loose">
