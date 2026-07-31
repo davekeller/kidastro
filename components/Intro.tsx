@@ -14,10 +14,13 @@ const Intro = () => {
           so nice to meet you
         </h1>
         <p className="mb-8 max-w-[800px] text-balance leading-loose">
-          Hi, I&apos;m Dave — a strategic product thinker, Figma expert, and design engineer. In over a decade of leading design at early-stage startups, I&apos;ve developed a superpower: crafting complex workflows into polished app experiences.
+          Hi, I&apos;m Dave — a strategic product thinker, Figma expert, and design engineer. For over a decade, I&apos;ve been leading design at early-stage startups.
         </p>
         <p className="mb-8 max-w-[800px] text-balance leading-loose">
-          Now I primarily design in the browser, with Claude Code/Codex and Tailwind — building functional prototypes and shipping to production. Thanks for checking out my work.
+          Now I primarily design in the browser, with Claude Code/Codex and Tailwind — building functional prototypes and shipping to production.
+        </p>
+        <p className="mb-8 max-w-[800px] text-balance leading-loose">
+          I enjoy the creative process, architecting systems, and working with smart people. Thanks for checking out my work.
         </p>
         </FadeUp>
         <div className="-mt-14 md:-mt-28">
