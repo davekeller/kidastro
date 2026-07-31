@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
 import { SETLISTS, DEFAULT_SETLIST_ID, songBySlug, type Song } from '@/data/lyrics';
 import { useSetlistOrder } from './setlistOrder';
 import {
@@ -277,7 +278,12 @@ const LyricSheet = ({ song }: { song: Song }) => {
 
       <div className="relative z-10 mx-auto min-h-screen w-full max-w-3xl px-5 pb-10 sm:px-10">
         <nav className="sticky top-0 z-40 -mx-5 flex items-center justify-between bg-gradient-to-b from-[#05060a] via-[#05060a]/90 to-transparent px-5 pt-4 pb-6 font-(family-name:--font-jetbrains) text-xs uppercase tracking-[0.2em] sm:-mx-10 sm:px-10">
-          <Link href="/lyrics" className="text-white/50 transition-colors hover:text-white">
+          {/* Breadcrumb from sm up; below that the trail is hidden and its icon
+              only goes home, so keep the short back link for narrow screens. */}
+          <span className="hidden sm:block">
+            <Breadcrumb label={merged.title} parents={[{ href: '/lyrics', label: 'lyrics' }]} />
+          </span>
+          <Link href="/lyrics" className="text-white/50 transition-colors hover:text-white sm:hidden">
             ← lyric book
           </Link>
           <span className="flex items-center gap-5">

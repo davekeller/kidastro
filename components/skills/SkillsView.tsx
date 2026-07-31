@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Breadcrumb from '@/components/Breadcrumb';
 import SkillCard from './SkillCard';
 import PhotoTile from './PhotoTile';
 import { BUNDLE_PATH, INSTAGRAM_URL, PHOTOS, SKILLS, type Photo, type Skill } from './skillsData';
@@ -26,6 +27,10 @@ const SkillsView = () => {
 
   return (
     <div className="mx-auto w-[96%] max-w-6xl pb-24">
+      <div className="fixed top-6 left-6 z-40 print:hidden">
+        <Breadcrumb label="skills" />
+      </div>
+
       <header className="mx-auto max-w-3xl px-4 pb-14 pt-28 text-center">
         <motion.p
           initial={{ opacity: 0 }}

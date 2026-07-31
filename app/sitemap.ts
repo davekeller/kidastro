@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
 
-// Only the indexable pages — /skills and /dk-docs are noindex.
+// Only the indexable pages — /skills and /lyrics are noindex.
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
