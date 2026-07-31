@@ -32,7 +32,7 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 
 > so nice to meet you
 >
-> Hi, I'm Dave — a strategic product thinker, Figma expert, and design engineer. For over a decade, I've been leading design at early-stage startups.
+> Hi, I'm Dave — a strategic product thinker, Figma expert, and design engineer. For over a decade, I've led design at early-stage startups, turning complex workflows into polished apps.
 >
 > Now I primarily design in the browser, with Claude Code/Codex and Tailwind — building functional prototypes and shipping to production.
 >
