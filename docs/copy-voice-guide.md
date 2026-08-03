@@ -32,9 +32,9 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 
 > so nice to meet you
 >
-> Hi, I'm Dave — a strategic product thinker, Figma expert, and design engineer. For over a decade, I've led design at early-stage startups, turning complex workflows into polished apps.
+> Hi, I'm Dave — a strategic product thinker, Figma expert, and pixel-perfect front-end/design engineer. I've been leading design at early-stage startups for over a decade.
 >
-> Now I primarily design in the browser, with Claude Code/Codex and Tailwind. I enjoy the creative process, architecting systems, and working with smart people. Thanks for checking out my work.
+> Riding the front of the agentic coding wave, I now design primarily in Claude Code/Codex and Tailwind — shipping functional prototypes and production code in days, not weeks. Thanks for checking out my work.
 
 **Resume tagline:** product designer / design engineer / inventor
 
