@@ -109,7 +109,7 @@ export const condensedJobs: CondensedJob[] = [
 ];
 
 export const summary: string =
-  'Strategic product thinker, Figma expert, and design/front-end engineer. I was writing front-end before agentic coding — now primarily designing in the browser with Claude Code/Codex and Tailwind, shipping both functional prototypes and production code.';
+  'Strategic product thinker, Figma expert, and front-end/design engineer. I was writing front-end before agentic coding — now primarily designing in the browser with Claude Code/Codex and Tailwind, shipping both functional prototypes and production code.';
 
 export const highlights: string[] = [
   '15+ years leading design at early-stage startups. From 0 → 1 through 2.0 and GTM, across AI, data science, entertainment, messaging, ecommerce, and fintech.',

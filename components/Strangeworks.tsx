@@ -22,7 +22,7 @@ const Strangeworks = () => {
             I lead product design across the platform — designing Aura, our AI-assisted workflow app that takes a science team from problem formulation to results on quantum and HPC hardware, plus custom web apps we build for clients.
           </p>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-            I&apos;m a Figma expert and design/front-end engineer, comfortable writing code before agentic coding. Now primarily designing in the browser with Claude Code/Codex and Tailwind — building functional prototypes and shipping production code.
+            I&apos;m a Figma expert and front-end/design engineer, comfortable writing code before agentic coding. Now primarily designing in the browser with Claude Code/Codex and Tailwind — building functional prototypes and shipping production code.
           </p>
         </div>
 
