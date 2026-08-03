@@ -25,6 +25,49 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 - No triplet cadence ("designs it, codes it, ships it").
 - No em-dash stuffing — one per sentence, tops.
 - No JD keyword-stuffing ("compress execution", "make model risk legible").
+- No ASCII emoticons (`:)`, `:P`). The site is meticulously designed; an emoticon
+  is the one undesigned element on the page, and `:P` reads young for the roles
+  being targeted. Get the humor from the words.
+- Don't lead with the past. "I was writing front-end before agentic coding" opens
+  defensively, on what came before. Lead with current practice instead.
+
+## Writing the "who I am" description
+
+This description exists in several places (folio hero, Strangeworks card, resume
+summary, metadata). The **folio hero is canonical** — the others should follow
+its shape, at their own length.
+
+1. **Label stack — three items, no more.** "a strategic product thinker, Figma
+   expert, and pixel-perfect front-end/design engineer." A fourth label dilutes
+   the other three; fold extra adjectives into a noun instead ("pixel-perfect"
+   modifies the engineer rather than standing on its own).
+2. **State tenure plainly.** "I've been leading design at early-stage startups
+   for over a decade." Don't editorialize the years — "I've developed a
+   superpower:" was cut for exactly this reason.
+3. **Present tense, forward-facing.** "Riding the front of the agentic coding
+   wave, I now design primarily in Claude Code/Codex and Tailwind." Agentic
+   coding is momentum and method — never an identity ("agentic designer"), never
+   a defense of the past.
+4. **Tools, then outcome — one verb each.** Claude Code/Codex and Tailwind are
+   the how; "validating functional prototypes and shipping production code" is
+   the what. Prototypes get *validated*, code gets *shipped*. Don't collapse two
+   different activities under one verb.
+5. **Close on something measurable.** "in days, not weeks." The last thing read
+   should be provable, not adjectival.
+6. **A dry closer is allowed on the folio** (not the resume): "Now scroll. I'll
+   wait." Two beats, no punctuation art.
+
+**Slash compounds:** write "front-end/design engineer", not "design/front-end
+engineer". It keeps the contiguous string "design engineer" — the exact title
+being targeted, so recruiter and ATS phrase matching hits it — and puts it in
+the emphatic final position. The preceding labels already establish
+designer-first, so leading the compound with "front-end" costs nothing.
+
+**Length and wrapping (hero only):** two paragraphs, two balanced lines each, at
+`max-w-[960px]` with `text-balance` inside a `max-w-[1010px]` wrapper. Roughly
+25–33 words per paragraph holds two lines; past ~40 it breaks to three and the
+rhythm goes. Below ~863px of viewport it returns to three lines, which is
+correct.
 
 ## Reference copy (approved — use as the benchmark)
 
@@ -32,25 +75,31 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 
 > so nice to meet you
 >
-> Hi, I'm Dave — a strategic product thinker, Figma expert, and design engineer. For over a decade, I've led design at early-stage startups, turning complex workflows into polished apps.
+> Hi, I'm Dave — a strategic product thinker, Figma expert, and pixel-perfect front-end/design engineer. I've been leading design at early-stage startups for over a decade.
 >
-> Now I primarily design in the browser, with Claude Code/Codex and Tailwind. I enjoy the creative process, architecting systems, and working with smart people. Thanks for checking out my work.
+> Riding the front of the agentic coding wave, I now design primarily in Claude Code/Codex and Tailwind — validating functional prototypes and shipping production code in days, not weeks. Now scroll. I'll wait.
 
 **Resume tagline:** product designer / design engineer / inventor
 
 **Resume highlights** (the voice benchmark)
 
-> - 15+ years leading design on dev/product teams at early-seed startups, often 0 to 1, with experience across industries — AI, data science, entertainment, messaging, ecommerce, fintech and more
-> - Strategic product thinker, Figma expert, and front-end dev (HTML/CSS, Tailwind, Claude Code). Experienced in validating ideas with design sprints, prototyping end-to-end flows, and refining production UIs in code
-> - Fluent in agile/sprint workflows and in building process for product teams. Helped create a 'Shape Up' process that organized a ~45-developer company into four product teams, building cross-functionally and shipping consistently on a staggered cadence
-> - Shipped 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a platform that grossed $33M in year one. Co-founded a 20-person agency and a messaging app that raised $3M
+> - 15+ years leading design at early-stage startups. From 0 → 1 through 2.0 and GTM, across AI, data science, entertainment, messaging, ecommerce, and fintech.
+> - A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.
+> - Design system architect and process builder. Architected multi-platform design systems. Built a process that organized a ~45-developer company into 4 cross-functional teams shipping on a steady cadence.
+> - Track record. 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a 0 → 1 platform that grossed $33M in year one.
+> - Founder & client services. Co-founded a 20-person design/dev agency and a $3M-funded messaging app. The agency became a concepting and prototyping shop for Warner Bros. — with work for Ellen, DreamWorks, and The Economist along the way.
+
+Note the shape each bullet shares: a short label sentence, then the detail.
 
 **Resume skills & tools**
 
 > - Expert in Figma & design systems — multi-platform component libraries, prototyping, hand-off
-> - Designing in front-end (prototypes to production) with Claude Code, Cursor and Tailwind
+> - Experienced designing in the front-end (prototypes to production) with Claude Code, Cursor, and Tailwind
 > - Comfortable writing HTML / CSS / JS and working in React / Next.js / Tailwind CSS / TypeScript
-> - Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello and Notion for sprint planning and docs
+> - Fluent in GitHub — push/pull, branches, and PRs; Linear, Trello, and Notion for sprint planning and docs
+
+Each bullet opens on an adjective — Expert / Experienced / Comfortable / Fluent.
+Serial commas throughout; the resume uses them everywhere.
 
 ## Where copy lives
 
