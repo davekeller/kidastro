@@ -5,7 +5,7 @@
 export const GITHUB_URL = 'https://github.com/davekeller';
 
 // Headline on the contribution graph.
-export const CONTRIBUTIONS_LAST_YEAR = '2,061';
+export const CONTRIBUTIONS_LAST_YEAR = '2,278';
 
 export type GithubStatIcon = 'merge' | 'rings' | 'constellation';
 
@@ -30,9 +30,9 @@ export const githubStats: GithubStat[] = [
     icon: 'rings',
   },
   {
-    value: '10',
-    label: 'repos contributed to',
-    sub: 'from the Aura app to this portfolio',
+    value: '255',
+    label: 'commits last month',
+    sub: 'across five repos — from Aura to this portfolio',
     icon: 'constellation',
   },
 ];
