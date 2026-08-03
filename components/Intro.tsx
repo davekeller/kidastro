@@ -17,7 +17,7 @@ const Intro = () => {
           Hi, I&apos;m Dave — a strategic product thinker, Figma expert, and pixel-perfect front-end/design engineer. I&apos;ve been leading design at early-stage startups for over a decade.
         </p>
         <p className="mb-8 max-w-[960px] text-balance leading-loose">
-          Riding the front of the agentic coding wave, I now design primarily in Claude Code/Codex and Tailwind — shipping functional prototypes and production code in days, not weeks. Now scroll down :)
+          Riding the front of the agentic coding wave, I now design primarily in Claude Code/Codex and Tailwind — shipping functional prototypes and production code in days, not weeks. Now scroll. I&apos;ll wait.
         </p>
         </FadeUp>
         <div className="-mt-14 md:-mt-28">
