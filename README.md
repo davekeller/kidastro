@@ -1,6 +1,10 @@
 # kidastro.com
 
-Dave Keller's portfolio and resume — a Figma expert and front-end/design engineer who designs in the browser with Claude Code/Codex and Tailwind. Built with Next.js and shipped as a static site.
+[![kidastro.com — so nice to meet you](docs/readme-hero.png)](https://kidastro.com)
+
+Dave Keller's portfolio and resume — a Figma expert and front-end/design engineer riding the front of the agentic coding wave: designing primarily in Claude Code/Codex and Tailwind, validating functional prototypes and shipping production code in days, not weeks. Built with Next.js and shipped as a static site.
+
+**Live at [kidastro.com](https://kidastro.com)** · [resume](https://kidastro.com/resume) · [the arcade](https://kidastro.com/games)
 
 ## Stack
 
