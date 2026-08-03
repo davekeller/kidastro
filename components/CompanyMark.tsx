@@ -38,13 +38,16 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   rodio: (
+    // One person up top messaging down to two below — team comms as a hierarchy.
     <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-full h-full">
-      <circle cx="13" cy="13" r="5" />
-      <path d="M4.5 30.5 V29.5 C4.5 24.5 8.3 21.5 13 21.5 C17.7 21.5 21.5 24.5 21.5 29.5 V30.5" />
-      <path d="M22 3 H30 C31.9 3 33.5 4.6 33.5 6.5 V8.5 C33.5 10.4 31.9 12 30 12 H25.5 L22 15 V11.9 C20.1 11.75 18.5 10.3 18.5 8.5 V6.5 C18.5 4.6 20.1 3 22 3 Z" />
-      <circle cx="22.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
-      <circle cx="26" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
-      <circle cx="29.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+      <circle cx="18" cy="6" r="3.2" />
+      <path d="M12.8 15.5 V15.2 C12.8 12.2 15.1 10.4 18 10.4 C20.9 10.4 23.2 12.2 23.2 15.2 V15.5" />
+      <path d="M15 18 L11 21.5" strokeDasharray="0.1 4.2" />
+      <path d="M21 18 L25 21.5" strokeDasharray="0.1 4.2" />
+      <circle cx="9.5" cy="24.5" r="2.8" />
+      <path d="M5 32.5 V32.3 C5 29.7 7 28.1 9.5 28.1 C12 28.1 14 29.7 14 32.3 V32.5" />
+      <circle cx="26.5" cy="24.5" r="2.8" />
+      <path d="M22 32.5 V32.3 C22 29.7 24 28.1 26.5 28.1 C29 28.1 31 29.7 31 32.3 V32.5" />
     </svg>
   ),
   bnbfinder: (
