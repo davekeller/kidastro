@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import ContributionGraph from './ContributionGraph';
-import { GITHUB_URL, githubStats } from '@/data/githubStats';
+import { GITHUB_URL, githubStats, type GithubStatIcon } from '@/data/githubStats';
 
 // GitHub activity cluster: the contribution graph up top, three stat cards
 // under it, and a link out to the live profile. One color clock up here
@@ -15,6 +15,51 @@ const COLORS = [
   '#fcd34d', // Gold
   '#6ee7b7', // Mint
 ];
+
+// Wireframe line icons in the same family as the Mission Control and company
+// marks (36 viewBox, 2.2 stroke, round caps): a git merge for the PRs, tree
+// rings for the years, and a constellation for the repos.
+const svgProps = {
+  viewBox: '0 0 36 36',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 2.2,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  'aria-hidden': true,
+  className: 'h-8 w-8',
+} as const;
+
+const STAT_ICONS: Record<GithubStatIcon, React.ReactNode> = {
+  merge: (
+    <svg {...svgProps}>
+      <circle cx="9" cy="7.5" r="3" />
+      <circle cx="9" cy="28.5" r="3" />
+      <circle cx="28" cy="18" r="3" />
+      <path d="M9 10.5 V25.5" />
+      <path d="M9 13 C9 18, 16 18, 25 18" />
+    </svg>
+  ),
+  rings: (
+    <svg {...svgProps}>
+      <circle cx="18" cy="18" r="4.5" />
+      <path d="M27.5 18 A9.5 9.5 0 1 1 18 8.5" />
+      <path d="M18 3.5 A14.5 14.5 0 1 1 3.5 18" />
+      <circle cx="18" cy="18" r="1.2" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  constellation: (
+    <svg {...svgProps}>
+      <path d="M8.5 26.5 L14 18 L17 8.5" />
+      <path d="M14 18 L26 13.5 M14 18 L23.5 27.5" />
+      <circle cx="17" cy="8.5" r="2.4" />
+      <circle cx="26" cy="13.5" r="2.4" />
+      <circle cx="8.5" cy="26.5" r="2.4" />
+      <circle cx="23.5" cy="27.5" r="2.4" />
+      <circle cx="14" cy="18" r="1.3" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+};
 
 const GithubActivity = () => {
   const [colorIndex, setColorIndex] = useState(0);
@@ -34,7 +79,8 @@ const GithubActivity = () => {
 
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {githubStats.map((stat) => (
-          <div key={stat.label} className="border-2 border-white/10 rounded-lg px-5 py-4 text-left text-white">
+          <div key={stat.label} className="relative border-2 border-white/10 rounded-lg px-5 py-4 text-left text-white">
+            <span className="absolute top-4 right-4 text-white/25">{STAT_ICONS[stat.icon]}</span>
             <p className="text-3xl font-bold transition-colors duration-[2000ms]" style={{ color: accent }}>
               {stat.value}
             </p>
