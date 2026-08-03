@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import CompanyMark from '@/components/CompanyMark';
-import ContributionGraph from '@/components/ContributionGraph';
+import GithubActivity from '@/components/GithubActivity';
 
 const Strangeworks = () => {
   return (
@@ -62,7 +62,7 @@ const Strangeworks = () => {
       </div>
 
       <div className="col-span-full w-full max-w-3xl mx-auto relative">
-        <ContributionGraph />
+        <GithubActivity />
       </div>
 
     </AnimatedSection>
