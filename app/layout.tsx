@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s — Dave Keller",
   },
   description:
-    "Design engineer and lead product designer with 15+ years shipping hard, technical products — AI, quantum, and data science. Figma expert, prototyping and shipping production code with agentic coding — Claude Code and Codex.",
+    "Design engineer and lead product designer with 15+ years shipping hard, technical products — AI, quantum, and data science. Figma expert riding the agentic coding wave — designing in Claude Code and Codex, shipping production code in days, not weeks.",
   keywords: [
     "product designer",
     "design engineer",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: "Dave Keller — Lead Product Designer & Design Engineer",
     description:
-      "15+ years shipping hard, technical products — AI, quantum, and data science. Figma expert and design engineer, prototyping and shipping in code with Claude Code and Codex.",
+      "15+ years shipping hard, technical products — AI, quantum, and data science. Figma expert and design engineer — validating prototypes and shipping production code in days, not weeks, with Claude Code and Codex.",
     images: [
       {
         url: "/imgs/strangeworks/strange1.png",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dave Keller — Lead Product Designer & Design Engineer",
     description:
-      "Design engineer and Figma expert — 15+ years shipping hard, technical products with agentic coding (Claude Code and Codex).",
+      "Design engineer and Figma expert riding the agentic coding wave — shipping production code in days, not weeks (Claude Code and Codex).",
     images: ["/imgs/strangeworks/strange1.png"],
   },
   robots: {
