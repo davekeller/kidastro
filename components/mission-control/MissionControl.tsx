@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { destinations } from './destinations';
 import ModalStarfield from './ModalStarfield';
+import Orrery from './Orrery';
 import PlanetCard from './PlanetCard';
 
 /* Secret site-wide navigation. A ghost pill in the top-right corner (invisible
@@ -118,9 +119,9 @@ const MissionControl = () => {
                 transition={{ type: 'spring', stiffness: 200, damping: 24 }}
                 className="mb-7 text-center sm:mb-10"
               >
-                {/* Orrery lands here in Phase 2. Sized against viewport height so
-                    a short laptop doesn't push the second row off-screen. */}
-                <div className="mx-auto h-[clamp(96px,18vh,190px)] w-full max-w-[320px]" />
+                {/* Sized against viewport height so a short laptop doesn't push
+                    the second row off-screen. */}
+                <Orrery className="mx-auto h-[clamp(104px,19vh,215px)] w-full max-w-[340px]" />
 
                 <p className="accent-text text-xs font-bold uppercase tracking-[0.22em]">
                   kid astro // all systems nominal
