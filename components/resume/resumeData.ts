@@ -78,7 +78,7 @@ export const condensedJobs: CondensedJob[] = [
     summary:
       'Designed Rodio, a retail workforce communication platform. Partnered with Fortune 100 Kronos and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.',
     bullets: [
-      'Built Rodio\'s multi-platform design system (master, web, iOS, Android) and led a team of 20 to 20K+ paid users',
+      'Built Rodio\'s multi-platform design systems (master, web, iOS, Android) and led a team of 20 to 20K+ paid users',
       'Designed and pitched the demo that closed the Kronos and Form.com contracts and led to acquisition',
     ],
   },
@@ -109,7 +109,7 @@ export const condensedJobs: CondensedJob[] = [
 ];
 
 export const summary: string =
-  'Strategic product thinker, Figma expert, and front-end/design engineer. Now designing primarily in Claude Code/Codex and Tailwind — validating functional prototypes and shipping production code in days, not weeks.';
+  'Strategic product thinker, Figma expert, and front-end/design engineer. Now designing primarily in Claude Code, Codex, and Tailwind — validating functional prototypes and shipping production code in days, not weeks.';
 
 export const highlights: string[] = [
   '15+ years leading design at early-stage startups. From 0 → 1 through 2.0 and GTM, across AI, data science, entertainment, messaging, ecommerce, and fintech.',

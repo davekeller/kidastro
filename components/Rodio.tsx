@@ -18,7 +18,7 @@ const Rodio = () => {
           </div>
           <div className="w-full border-b-2 border-white/20 mb-4"></div>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-            Led design from first sketch to revenue at this workforce-comms startup, building one multi-platform design system that kept web, iOS, and Android in sync. I ran the sprints and shipped production UI across all three.
+            Led design from early whiteboards to revenue at this workforce-comms startup, building across native web, iOS, and Android experiences, and architecting design systems to keep them in sync.
           </p>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             Within two years we partnered with Kronos, the Fortune-100 workforce-management company, and signed MarketSource, the staffing agency for Target and Best Buy, reaching millions of daily interactions.
@@ -32,7 +32,7 @@ const Rodio = () => {
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Led design for a 20-person team, from early ideas to 20K+ paid users</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Ran design sprints to frame problems and prototype solutions fast</li>
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Built and maintained a multi-platform design system: master, web, iOS, and Android component libraries</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Built and maintained multi-platform design systems: master, web, iOS, and Android component libraries</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Pitched the demo that closed the Fortune-100 partnership and led to acquisition</li>
           </ul>
         </div>

@@ -38,16 +38,13 @@ const glyphs: Record<string, React.ReactNode> = {
     </svg>
   ),
   rodio: (
-    // One person up top messaging down to two below — team comms as a hierarchy.
+    // Radio waves — a nod to the name, broadcast-out-to-everyone team comms.
     <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="w-full h-full">
-      <circle cx="18" cy="6" r="3.2" />
-      <path d="M12.8 15.5 V15.2 C12.8 12.2 15.1 10.4 18 10.4 C20.9 10.4 23.2 12.2 23.2 15.2 V15.5" />
-      <path d="M15 18 L11 21.5" strokeDasharray="0.1 4.2" />
-      <path d="M21 18 L25 21.5" strokeDasharray="0.1 4.2" />
-      <circle cx="9.5" cy="24.5" r="2.8" />
-      <path d="M5 32.5 V32.3 C5 29.7 7 28.1 9.5 28.1 C12 28.1 14 29.7 14 32.3 V32.5" />
-      <circle cx="26.5" cy="24.5" r="2.8" />
-      <path d="M22 32.5 V32.3 C22 29.7 24 28.1 26.5 28.1 C29 28.1 31 29.7 31 32.3 V32.5" />
+      <circle cx="18" cy="18" r="2.8" />
+      <path d="M11.7 24.3 C8.25 20.85 8.25 15.15 11.7 11.55" />
+      <path d="M7.35 28.65 C1.5 22.8 1.5 13.2 7.35 7.35" />
+      <path d="M24.3 11.7 C27.75 15.15 27.75 20.85 24.3 24.45" />
+      <path d="M28.65 7.35 C34.5 13.2 34.5 22.8 28.65 28.65" />
     </svg>
   ),
   bnbfinder: (

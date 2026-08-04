@@ -45,10 +45,10 @@ its shape, at their own length.
    for over a decade." Don't editorialize the years — "I've developed a
    superpower:" was cut for exactly this reason.
 3. **Present tense, forward-facing.** "Riding the front of the agentic coding
-   wave, I now design primarily in Claude Code/Codex and Tailwind." Agentic
+   wave, I now design primarily in Claude Code, Codex, and Tailwind." Agentic
    coding is momentum and method — never an identity ("agentic designer"), never
    a defense of the past.
-4. **Tools, then outcome — one verb each.** Claude Code/Codex and Tailwind are
+4. **Tools, then outcome — one verb each.** Claude Code, Codex, and Tailwind are
    the how; "validating functional prototypes and shipping production code" is
    the what. Prototypes get *validated*, code gets *shipped*. Don't collapse two
    different activities under one verb.
@@ -77,7 +77,7 @@ correct.
 >
 > Hi, I'm Dave — a strategic product thinker, Figma expert, and pixel-perfect front-end/design engineer. I've been leading design at early-stage startups for over a decade.
 >
-> Riding the front of the agentic coding wave, I now design primarily in Claude Code/Codex and Tailwind — validating functional prototypes and shipping production code in days, not weeks. Now scroll. I'll wait.
+> Riding the front of the agentic coding wave, I now design primarily in Claude Code, Codex, and Tailwind — validating functional prototypes and shipping production code in days, not weeks. Now scroll. I'll wait.
 
 **Resume tagline:** product designer / design engineer / inventor
 
