@@ -18,7 +18,7 @@ const Rodio = () => {
           </div>
           <div className="w-full border-b-2 border-white/20 mb-4"></div>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-            Led design from first sketch to revenue at this workforce-comms startup, building one multi-platform design system that kept web, iOS, and Android in sync. I ran the sprints and shipped production UI across all three.
+            Led design from early whiteboards to revenue at this workforce-comms startup, building across native web, iOS, and Android experiences, and architecting design systems to keep them in sync.
           </p>
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             Within two years we partnered with Kronos, the Fortune-100 workforce-management company, and signed MarketSource, the staffing agency for Target and Best Buy, reaching millions of daily interactions.
