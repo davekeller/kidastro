@@ -20,7 +20,7 @@ const Dancefight = () => {
           I designed the core UX and final UIs for this seed-stage startup: onboarding, the main feed, the voting flow, and tournament brackets.
         </p>
       </div>
-      <div className="col-span-1 md:col-span-3 lg:w-5/6 relative">
+      <div className="col-span-1 md:col-span-2 md:col-start-2 relative">
           <Image src="/imgs/dance/dance1.webp" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
       <div className="col-span-1 md:col-span-3 relative">
