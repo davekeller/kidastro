@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: '/resume',
     title: 'Resume — Dave Keller',
     description:
-      'Lead product designer and design engineer — 15+ years across AI, quantum, and data products, now designing in Claude Code/Codex and Tailwind.',
+      'Lead product designer and design engineer — 15+ years across AI, quantum, and data products, now designing in Claude Code, Codex, and Tailwind.',
   },
 };
 
