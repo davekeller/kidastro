@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { CONTRIBUTIONS_LAST_YEAR } from '@/data/githubStats';
 
 // Decorative GitHub-style contribution graph. The cell pattern is a seeded
 // approximation of Dave's real graph — deterministic so server and client
@@ -67,23 +68,27 @@ const W = LEFT + WEEKS * STEP - GAP;
 const H = TOP + DAYS * STEP - GAP;
 const FADE = { transition: 'fill 2000ms' };
 
-const ContributionGraph = () => {
+// `accent` lets a parent (GithubActivity) drive the color cycle so the graph
+// and its sibling stat cards change hue in lockstep; standalone use keeps the
+// original self-contained cycle.
+const ContributionGraph = ({ accent: accentProp }: { accent?: string }) => {
   const [colorIndex, setColorIndex] = useState(0);
 
   useEffect(() => {
+    if (accentProp) return;
     const interval = setInterval(() => {
       setColorIndex((prev) => (prev + 1) % COLORS.length);
     }, 5000); // match AnimatedBreak's cycle
     return () => clearInterval(interval);
-  }, []);
+  }, [accentProp]);
 
-  const accent = COLORS[colorIndex];
+  const accent = accentProp ?? COLORS[colorIndex];
 
   return (
     <div className="w-full text-left text-white px-6 py-5 border-2 border-white/10 rounded-lg">
       <div className="flex items-baseline justify-between mb-4">
         <p className="text-xl text-white/90">
-          <span className="font-bold transition-colors duration-[2000ms]" style={{ color: accent }}>2,061</span>{' '}
+          <span className="font-bold transition-colors duration-[2000ms]" style={{ color: accent }}>{CONTRIBUTIONS_LAST_YEAR}</span>{' '}
           <span className="font-bold">GitHub contributions</span> in the last year
         </p>
         <div className="hidden md:flex items-center gap-1 text-xs text-white/50">
@@ -96,7 +101,7 @@ const ContributionGraph = () => {
           <span className="ml-1">More</span>
         </div>
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="GitHub contribution graph — 2,061 contributions in the last year">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={`GitHub contribution graph — ${CONTRIBUTIONS_LAST_YEAR} contributions in the last year`}>
         {MONTHS.map(([label, week]) => (
           <text key={label} x={LEFT + week * STEP} y={10} fontSize="10" fill="rgba(255,255,255,0.5)">{label}</text>
         ))}
