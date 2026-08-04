@@ -273,7 +273,7 @@ jobs = [
      "Product UX/UI Design Lead",
      "Designed Rodio, a retail workforce communication platform. Partnered with Fortune 100 Kronos and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.",
      [
-         "Built Rodio's multi-platform design system (master, web, iOS, Android) and led a team of 20 to 20K+ paid users",
+         "Built Rodio's multi-platform design systems (master, web, iOS, Android) and led a team of 20 to 20K+ paid users",
          "Designed and pitched the demo that closed the Kronos and Form.com contracts and led to acquisition",
      ]),
     ("Timebomb", "Sep 2015 – Dec 2017", "Austin, TX",
