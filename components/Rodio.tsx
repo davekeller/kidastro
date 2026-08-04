@@ -32,7 +32,7 @@ const Rodio = () => {
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Led design for a 20-person team, from early ideas to 20K+ paid users</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Ran design sprints to frame problems and prototype solutions fast</li>
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Built and maintained a multi-platform design system: master, web, iOS, and Android component libraries</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Built and maintained multi-platform design systems: master, web, iOS, and Android component libraries</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Pitched the demo that closed the Fortune-100 partnership and led to acquisition</li>
           </ul>
         </div>
