@@ -5,8 +5,8 @@ import CompanyMark from '@/components/CompanyMark';
 
 const Dancefight = () => {
   return (
-    <AnimatedSection className="dance grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-      <div className="info col-span-1 md:col-span-3 text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg max-w-3xl mx-auto mb-12">
+    <AnimatedSection className="dance grid grid-cols-1 md:grid-cols-6 gap-12 items-center">
+      <div className="info col-span-1 md:col-span-6 text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg max-w-3xl mx-auto mb-12">
         <div className="flex items-start gap-4 mb-4">
           <CompanyMark company="dancefight" />
           <div>
@@ -20,10 +20,10 @@ const Dancefight = () => {
           I designed the core UX and final UIs for this seed-stage startup: onboarding, the main feed, the voting flow, and tournament brackets.
         </p>
       </div>
-      <div className="col-span-1 md:col-span-2 md:col-start-2 relative">
+      <div className="col-span-1 md:col-span-5 md:col-start-2 relative">
           <Image src="/imgs/dance/dance1.webp" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
-      <div className="col-span-1 md:col-span-3 relative">
+      <div className="col-span-1 md:col-span-6 relative">
           <Image src="/imgs/dance/dance3.webp" alt="dancefight example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
     </AnimatedSection>
