@@ -16,6 +16,10 @@ export interface Destination {
   icon: ComponentType<ComponentProps<'svg'>>;
   /** Served outside the Next app (full page load, no client nav/prefetch). */
   external?: boolean;
+  /** Depth tier, 0.6 (far) – 1.0 (near). Drives scale, opacity, blur and the
+      parallax multiplier, so the six bodies read front-to-back instead of flat.
+      Deliberately unordered — a monotonic run reads as a ramp, not a system. */
+  depth: number;
 }
 
 /* The full map of the site. Add a new page here and it shows up in the
@@ -27,6 +31,7 @@ export const destinations: Destination[] = [
     blurb: 'the main event — projects & story',
     href: '/',
     icon: IcosahedronIcon,
+    depth: 1.0,
   },
   {
     id: 'resume',
@@ -34,6 +39,7 @@ export const destinations: Destination[] = [
     blurb: 'the professional paper trail',
     href: '/resume',
     icon: ResumeIcon,
+    depth: 0.75,
   },
   {
     id: 'arcade',
@@ -41,6 +47,7 @@ export const destinations: Destination[] = [
     blurb: 'three tiny canvas space games',
     href: '/games',
     icon: HelmetIcon,
+    depth: 0.9,
   },
   {
     id: 'lyrics',
@@ -48,6 +55,7 @@ export const destinations: Destination[] = [
     blurb: 'the Paper Fang lyric book',
     href: '/lyrics',
     icon: WolfIcon,
+    depth: 0.62,
   },
   {
     id: 'skills',
@@ -55,6 +63,7 @@ export const destinations: Destination[] = [
     blurb: 'the hidden agent skills bundle',
     href: '/skills',
     icon: VaultIcon,
+    depth: 0.85,
   },
   {
     id: 'themes',
@@ -62,6 +71,7 @@ export const destinations: Destination[] = [
     blurb: 'ambient color experiments',
     href: '/themes',
     icon: ThemesIcon,
+    depth: 0.7,
     external: true,
   },
 ];

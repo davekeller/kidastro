@@ -1,19 +1,33 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { destinations } from './destinations';
+import ModalStarfield from './ModalStarfield';
+import PlanetCard from './PlanetCard';
 
 /* Secret site-wide navigation. A ghost pill in the top-right corner (invisible
-   until hovered or keyboard-focused) opens a floating card grid of every page
-   on the site. Mounted once in the root layout; hides itself on /resume,
-   where the Download PDF button owns that corner. */
+   until hovered or keyboard-focused) opens the orrery view: the page falls
+   away behind a blur and every destination floats as a body in its own patch
+   of space. Mounted once in the root layout; hides itself on /resume, where
+   the Download PDF button owns that corner.
+
+   There is deliberately no panel around the cards — a containing box is what
+   made the old version read as furniture rather than a system. */
 const MissionControl = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
+
+  const isHere = (href: string) =>
+    href === '/' ? pathname === '/' : Boolean(pathname?.startsWith(href));
+
+  const currentLabel = useMemo(() => {
+    const match = destinations.find((d) => isHere(d.href));
+    return match ? match.title.toLowerCase() : 'deep space';
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
 
   // Esc closes, body scroll locks, close button takes focus.
   useEffect(() => {
@@ -54,84 +68,88 @@ const MissionControl = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.28 }}
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm sm:p-8"
+            className="fixed inset-0 z-50 overflow-y-auto bg-[#04060f]/72 backdrop-blur-2xl"
           >
-            <motion.div
+            {/* Vignette — pulls the eye to the middle of the field. */}
+            <div
+              aria-hidden
+              className="pointer-events-none fixed inset-0"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,0.52) 100%)',
+              }}
+            />
+
+            {/* The overlay's own stars, sharp above the blur. */}
+            <ModalStarfield className="pointer-events-none fixed inset-0" />
+
+            <button
+              ref={closeRef}
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="Close"
+              className="fixed top-6 right-6 z-10 flex size-10 cursor-pointer items-center justify-center rounded-full border border-white/15 bg-black/30 text-white/60 backdrop-blur-md transition-colors hover:border-white/40 hover:text-white"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                aria-hidden
+                className="h-4 w-4"
+              >
+                <path d="M3 3 L13 13 M13 3 L3 13" />
+              </svg>
+            </button>
+
+            <div
               role="dialog"
               aria-modal="true"
               aria-label="Mission Control"
-              initial={{ opacity: 0, scale: 0.94, y: 28 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 16 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 26 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-3xl"
+              className="relative mx-auto flex min-h-dvh w-full max-w-6xl flex-col justify-center px-5 py-10 sm:px-8 sm:py-14"
             >
-              <div className="glass-panel float-drift gradient-ring rounded-2xl !border-transparent p-6 backdrop-blur-xl sm:p-8">
-                <div className="mb-6 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="accent-text text-xs font-bold uppercase tracking-[0.2em]">
-                      kid astro // secret nav
-                    </p>
-                    <h2 className="mt-1 text-2xl font-bold sm:text-3xl">Mission Control</h2>
-                  </div>
-                  <button
-                    ref={closeRef}
-                    type="button"
-                    onClick={() => setOpen(false)}
-                    aria-label="Close"
-                    className="cursor-pointer rounded-full border border-white/15 p-2 text-white/60 transition-colors hover:border-white/40 hover:text-white"
-                  >
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden className="h-4 w-4">
-                      <path d="M3 3 L13 13 M13 3 L3 13" />
-                    </svg>
-                  </button>
-                </div>
+              <motion.header
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 24 }}
+                className="mb-7 text-center sm:mb-10"
+              >
+                {/* Orrery lands here in Phase 2. Sized against viewport height so
+                    a short laptop doesn't push the second row off-screen. */}
+                <div className="mx-auto h-[clamp(96px,18vh,190px)] w-full max-w-[320px]" />
 
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-                  {destinations.map((d) => {
-                    const Icon = d.icon;
-                    const here = d.href === '/' ? pathname === '/' : pathname?.startsWith(d.href);
-                    const cardClasses = `group relative flex flex-col rounded-xl border p-4 transition-all duration-300 sm:p-5 ${
-                      here
-                        ? 'border-white/30 bg-white/[0.08]'
-                        : 'border-white/10 bg-white/[0.04] hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.07]'
-                    }`;
-                    const inner = (
-                      <>
-                        <span className="accent-text mb-3 block opacity-80 transition-opacity duration-300 group-hover:opacity-100">
-                          <Icon className="h-9 w-9 sm:h-10 sm:w-10" />
-                        </span>
-                        <span className="block font-bold leading-tight">{d.title}</span>
-                        <span className="mt-1 block text-xs leading-snug text-white/50">
-                          {d.blurb}
-                        </span>
-                        {here && (
-                          <span className="accent-text mt-2 block text-[10px] font-bold uppercase tracking-widest">
-                            you are here
-                          </span>
-                        )}
-                      </>
-                    );
-                    return d.external ? (
-                      <a key={d.id} href={d.href} className={cardClasses} onClick={() => setOpen(false)}>
-                        {inner}
-                      </a>
-                    ) : (
-                      <Link key={d.id} href={d.href} className={cardClasses} onClick={() => setOpen(false)}>
-                        {inner}
-                      </Link>
-                    );
-                  })}
-                </div>
-
-                <p className="mt-6 text-center text-xs font-bold text-white/30">
-                  shhh — you found the map. esc to close.
+                <p className="accent-text text-xs font-bold uppercase tracking-[0.22em]">
+                  kid astro // all systems nominal
                 </p>
+                <h2 className="mt-2 text-3xl font-bold sm:text-5xl">Mission Control</h2>
+                <p className="mt-3 text-sm text-white/55 sm:text-base">
+                  six destinations. pick a heading.
+                </p>
+                <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/30">
+                  <span className="accent-text">◉</span> current: {currentLabel}
+                  <span className="mx-2 text-white/15">·</span>
+                  {destinations.length} bodies in system
+                  <span className="mx-2 text-white/15">·</span>
+                  esc to disengage
+                </p>
+              </motion.header>
+
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
+                {destinations.map((d, i) => (
+                  <PlanetCard
+                    key={d.id}
+                    destination={d}
+                    index={i}
+                    isHere={isHere(d.href)}
+                    onNavigate={() => setOpen(false)}
+                  />
+                ))}
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

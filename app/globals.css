@@ -249,6 +249,88 @@ h4, h6 {
   }
 }
 
+/* ---------- Mission Control (the orrery view) ---------- */
+
+/* Overlay stars. Sharp, above the backdrop blur — see ModalStarfield.tsx. */
+@keyframes mc-twinkle {
+  0%, 100% { opacity: 0.18; transform: scale(0.85); }
+  50% { opacity: 0.75; transform: scale(1); }
+}
+
+.mc-star {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.4;
+  animation: mc-twinkle ease-in-out infinite;
+}
+
+/* Satellite riding a card's orbit halo. Duration is set per card in the JSX —
+   matched periods would sync the six bodies back into one object. */
+@keyframes mc-orbit-travel {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+
+.mc-orbit {
+  animation: mc-orbit-travel linear infinite;
+}
+
+/* Idle drift for the planet cards. Three waveforms, each card also getting its
+   own duration and a negative delay in the JSX, so nothing in the field ever
+   shares a phase — the single detail that separates "floating" from "parked".
+   Lives on a wrapper around the framer-motion element so the two transforms
+   don't fight (same arrangement as .float-drift). */
+@keyframes mc-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -11px, 0) rotate(0.55deg); }
+}
+
+@keyframes mc-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(3px, 9px, 0) rotate(-0.6deg); }
+}
+
+@keyframes mc-drift-c {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-0.3deg); }
+  50% { transform: translate3d(-4px, -7px, 0) rotate(0.4deg); }
+}
+
+.mc-drift-a { animation: mc-drift-a ease-in-out infinite; }
+.mc-drift-b { animation: mc-drift-b ease-in-out infinite; }
+.mc-drift-c { animation: mc-drift-c ease-in-out infinite; }
+
+/* Limb light — the lit face of a sphere. --limb-x/--limb-y are nudged by the
+   hover tilt so the lighting tracks the surface instead of sliding across a
+   flat card. */
+.mc-limb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    118% 118% at var(--limb-x, 22%) var(--limb-y, 14%),
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.055) 34%,
+    rgba(255, 255, 255, 0) 68%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-star,
+  .mc-orbit,
+  .mc-drift-a,
+  .mc-drift-b,
+  .mc-drift-c {
+    animation: none;
+  }
+
+  .mc-star {
+    opacity: 0.45;
+  }
+}
+
 @media print {
   @page {
     size: letter;
