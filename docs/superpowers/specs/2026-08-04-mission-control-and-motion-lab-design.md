@@ -16,6 +16,27 @@
 > alternative, so they're cheap to overturn in review. Proposed copy is marked
 > **[COPY — redline me]**.
 
+## Architecture (settled 2026-08-05, supersedes anything below that conflicts)
+
+kidastro.com is **the portfolio**, and its job right now is job applications. `/`
+and `/resume` are the surfaces that matter and stay polished.
+
+Everything else is a **satellite**: a separate little app, its own repo, its own
+stack, free to be experimented with independently. `kidastro-themes` is the first;
+there will be more. Satellites are stitched into the domain at deploy time
+(`deploy.yml` checks each one out, builds it, and copies the output into
+`out/<path>`), so they share the domain without sharing a codebase.
+
+Three consequences that override earlier assumptions:
+
+1. **Nothing gets merged into one repo.** Not the themes app, not future ones.
+2. **Mission Control is the launcher for the constellation**, not just a nav for
+   this app's pages. That's a change in what the component *is*, and it means it
+   has to scale past a fixed six.
+3. **It stays secret.** No home-page section, no footer link, no sitemap entry —
+   the ghost pill is the only way in. Adding a satellite means editing
+   `destinations.ts` and `deploy.yml` by hand, which is the accepted cost.
+
 ---
 
 ## Part A — Mission Control (repo: `kidastro`)
@@ -198,7 +219,32 @@ Added:
 - Orrery canvas gets `aria-hidden`.
 - Re-check blurb contrast — `text-white/50` over the new lit surfaces may need `/60`.
 
-#### A7. Files
+#### A7. Scaling past six (added 2026-08-05)
+
+Mission Control is the constellation launcher, so the destination list grows every
+time a satellite ships. Three things were hardcoded to exactly six bodies and are
+now derived:
+
+- **The accent desync divisor.** `-100 / 6` became `-ACCENT_CYCLE_S / total`. A
+  fixed divisor stops distributing evenly across the 100s cycle the moment a
+  seventh card appears — two bodies would drift onto the same color, which is the
+  one thing A4's decision existed to prevent.
+- **The subtitle.** "six destinations" is now "pages and satellites" — count-free,
+  and it names the two kinds.
+- **The telemetry strip.** "6 bodies in system" is now "5 pages, 1 satellite",
+  pluralized, derived.
+
+`HALOS`, `ARC_OFFSETS`, and `DRIFT_DURATIONS` are indexed modulo their length, so
+they already wrap safely at any count. Verified, not assumed.
+
+**`external?: boolean` → `kind: 'page' | 'satellite'`.** The old flag described a
+routing consequence; the new field describes what the thing *is*, and routing
+follows from it. Satellite cards carry a small "satellite ↗" marker, because
+following one is a real page load out of this deployment and that's worth
+signalling. Per-card marker rather than grouped clusters: grouping is the right
+answer at three or more satellites, and building it for one would look lopsided.
+
+#### A8. Files
 
 | File | Change |
 |---|---|
@@ -206,7 +252,7 @@ Added:
 | `components/mission-control/PlanetCard.tsx` | **New** — one body: lighting, halo, hover/nudge springs |
 | `components/mission-control/Orrery.tsx` | **New** — canvas line graphic + drag physics |
 | `components/mission-control/ModalStarfield.tsx` | **New** — sharp local star layer |
-| `components/mission-control/destinations.ts` | Add `depth` and palette index per destination |
+| `components/mission-control/destinations.ts` | Add `depth`; replace `external` with `kind`; document the add-a-satellite procedure |
 | `components/mission-control/icons.tsx` | Add the orbit-halo wrapper |
 | `app/globals.css` | Drift variants, twinkle, limb-light helper, reduced-motion guards |
 | `docs/copy-voice-guide.md` | Add Mission Control to "Where copy lives" — it's missing today |
@@ -392,14 +438,25 @@ merges.
 
 ## Open questions for review
 
-1. **Copy** (A2) — eyebrow, subtitle, and telemetry line are proposals. Your call.
-2. **Wave-3 theme picks** (B) — Console, Docs, Liquid, Native. Swap any for the
-   alternates listed.
-3. **Phase order.** The plan follows your stated order (themes, then motion). Motion
-   first would land the novel piece sooner and mean the four new showcases are authored
-   motion-aware instead of retrofitted. The axes are independent, so either works —
-   say the word and the phases swap.
-4. **Card color** (A4) — desynced shared clock (recommended, preserves the house
-   system) vs. a fixed palette color per card (louder, breaks convention).
-5. **Third axis** (C1) — is `data-interaction` worth building after, or is theme ×
+**Settled**
+
+- ~~Phase order~~ — themes before motion, as originally stated. Phases 4 and 5 shipped.
+- ~~Card color~~ (A4) — desynced shared clock. Built, and now derived from the live
+  count rather than a fixed divisor (A7).
+- ~~Wave-3 theme picks~~ (B) — Console, Docs, Liquid, Native. All four built.
+- ~~The connection to the themes app~~ — fix the Mission Control card and stay
+  hidden. No home-page section; the portfolio stays focused on the job search. See
+  the Architecture note at the top.
+
+**Still open**
+
+1. **Copy** (A2) — the eyebrow, subtitle, and telemetry line are still mine, not
+   yours. The Themes card blurb changed from "ambient color experiments" (which had
+   become simply untrue) to "portable ui themes — react / tailwind". Deliberately
+   count-free: a theme count in this repo would drift every time the other repo
+   gains a theme.
+2. **Third axis** (C1) — is `data-interaction` worth building after, or is theme ×
    motion the whole idea?
+3. **Where `/start` points** (C4, Phase 8) — with option 1 chosen, the Mission
+   Control card goes to the themes gallery front door. Worth deciding later whether
+   it should aim at `/start` instead once that exists.

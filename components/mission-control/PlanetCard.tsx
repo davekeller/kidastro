@@ -32,10 +32,15 @@ const DRIFT_DURATIONS = [8.5, 10.2, 7.1, 9.4, 6.7, 11.3];
    motion, so it survives prefers-reduced-motion. */
 const ARC_OFFSETS = [-18, 14, -8, 20, -14, 6];
 
-/* Six cards across the shared 100s accent cycle. Each sits on a different
-   palette color at any instant while the whole field still drifts on the
-   house clock — the ambient system stays intact. */
-const ACCENT_STEP = -100 / 6;
+/* Length of the site's shared accent cycle (.accent-text in globals.css).
+   Cards are spread evenly across it, so each sits on a different palette color
+   at any instant while the whole field still drifts on the house clock — the
+   ambient system stays intact.
+
+   Derived from the live destination count rather than hardcoded: the map is
+   meant to grow as satellite apps get added, and a fixed divisor would quietly
+   stop distributing evenly the first time it did. */
+const ACCENT_CYCLE_S = 100;
 
 /* Lag is the point: a field that snaps to the cursor reads as jitter, one
    that trails it reads as mass. */
@@ -53,6 +58,8 @@ const MotionLink = motion.create(Link);
 interface Props {
   destination: Destination;
   index: number;
+  /** How many bodies are in the field — sets the accent-cycle spacing. */
+  total: number;
   isHere: boolean;
   onNavigate: () => void;
   pointerX: MotionValue<number>;
@@ -62,6 +69,7 @@ interface Props {
 const PlanetCard = ({
   destination: d,
   index,
+  total,
   isHere,
   onNavigate,
   pointerX,
@@ -70,7 +78,7 @@ const PlanetCard = ({
   const Icon = d.icon;
   const halo = HALOS[index % HALOS.length];
   const drift = DRIFTS[index % DRIFTS.length];
-  const accentDelay = `${(index * ACCENT_STEP).toFixed(1)}s`;
+  const accentDelay = `${((index * -ACCENT_CYCLE_S) / Math.max(total, 1)).toFixed(1)}s`;
   const reduced = useReducedMotion();
 
   const linkRef = useRef<HTMLAnchorElement>(null);
@@ -184,13 +192,22 @@ const PlanetCard = ({
       <span className="relative z-10 mt-1 block text-xs leading-snug text-white/60">
         {d.blurb}
       </span>
-      {isHere && (
+      {/* A satellite is a separate app, not a route — worth saying so, since
+          following it is a real page load out of this deployment. `isHere`
+          can't collide: Mission Control isn't mounted inside a satellite. */}
+      {isHere ? (
         <span
           className="accent-text relative z-10 mt-2 block text-[10px] font-bold uppercase tracking-widest"
           style={{ animationDelay: accentDelay }}
         >
           you are here
         </span>
+      ) : (
+        d.kind === 'satellite' && (
+          <span className="relative z-10 mt-2 block text-[10px] font-bold uppercase tracking-widest text-white/35">
+            satellite ↗
+          </span>
+        )
       )}
     </>
   );
@@ -238,7 +255,7 @@ const PlanetCard = ({
           }
           style={{ filter: far ? 'blur(0.4px)' : undefined, willChange: 'transform' }}
         >
-          {d.external ? (
+          {d.kind === 'satellite' ? (
             <motion.a href={d.href} {...linkProps}>
               {inner}
             </motion.a>

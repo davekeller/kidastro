@@ -6,6 +6,43 @@
 
 **Goal:** Three things. (1) Rebuild Mission Control as a full-bleed space scene — six cards floating as bodies around a line-art orrery, with icosahedron-grade drag/momentum physics. (2) Add a third wave of themes to `kidastro-themes`, weighted toward layouts the library lacks. (3) Build the missing **motion axis** — `data-motion` tokens beside `data-theme`, plus an easing lab — so a new project can be started by picking a theme *and* an animation style.
 
+## Status
+
+| Phase | Repo | State |
+|---|---|---|
+| 1 — Space scene | kidastro | ✅ `26d789c` |
+| 2 — Orrery | kidastro | ✅ `ef170f3` |
+| 3 — Physics + a11y | kidastro | ✅ `df42486` |
+| 3.5 — Constellation launcher | kidastro | ✅ (added 2026-08-05, see below) |
+| 4 — Shared sections | kidastro-themes | ✅ [PR #5](https://github.com/davekeller/kidastro-themes/pull/5) |
+| 5 — Wave-3 themes | kidastro-themes | ✅ [PR #6](https://github.com/davekeller/kidastro-themes/pull/6) (stacked on #5) |
+| 6 — Motion tokens | kidastro-themes | ⬜ next |
+| 7 — Easing lab | kidastro-themes | ⬜ |
+| 8 — Combination + `/start` | kidastro-themes | ⬜ |
+| 9 — `data-interaction` | kidastro-themes | ⬜ optional |
+
+## Architecture (settled 2026-08-05)
+
+kidastro.com is **the portfolio**, and right now its job is job applications. `/`
+and `/resume` stay polished. Everything else is a **satellite**: its own repo, its
+own stack, experimented with independently, stitched into the domain at deploy time.
+Nothing gets merged into a monorepo — not the themes app, not future ones.
+
+That makes **Mission Control the launcher for the constellation** rather than a nav
+for one app's pages, and it **stays secret**: no home-page section, no footer link,
+no sitemap entry. The ghost pill is the only way in.
+
+### Adding a satellite (the standing procedure)
+
+1. Build the app in its own repo, with its bundler `base` set to `/<path>/`.
+2. Add an entry to `components/mission-control/destinations.ts` with
+   `kind: 'satellite'`, an `href` of `/<path>`, a `depth`, and an icon in
+   `components/mission-control/icons.tsx`.
+3. Add a checkout + build + copy step to `.github/workflows/deploy.yml` that drops
+   the build output into `out/<path>` — copy the `kidastro-themes` block.
+4. Nothing else. Mission Control derives its counts, colors, and layout from the
+   list, so the field absorbs a new body on its own.
+
 **Architecture:** Two repos, shipping independently.
 
 - **`kidastro`** (Phases 1–3) — Next.js 16 static export. Mission Control is mounted in `app/layout.tsx`, so it loads on every page: **no new dependencies, and no three.js.** The orrery is a 2D canvas with hand-rolled projection, following the proven pattern in `kidastro-themes/src/components/AstroHedron.tsx`. Motion uses the framer-motion already installed.
@@ -436,16 +473,40 @@ the whole idea (design doc open question #5).
 
 ---
 
+## Phase 3.5 — Constellation launcher (added 2026-08-05)
+
+Fallout from the architecture note: Mission Control is the launcher for a growing
+set of satellites, so anything hardcoded to exactly six bodies was a latent bug.
+
+- [x] `external?: boolean` → `kind: 'page' | 'satellite'`. The old flag named a
+      routing consequence; the new one names what the thing is, and routing follows.
+- [x] Accent desync divisor derived from the live count. `-100 / 6` would have
+      stopped distributing evenly at seven bodies, putting two on the same color —
+      the exact thing that decision existed to prevent.
+- [x] Subtitle de-hardcoded ("six destinations" → "pages and satellites").
+- [x] Telemetry strip counts pages and satellites separately, pluralized.
+- [x] Satellite cards marked "satellite ↗", since following one leaves the
+      deployment. Per-card marker, not grouped clusters — grouping earns its keep at
+      three or more.
+- [x] Themes card blurb corrected. "ambient color experiments" had become untrue.
+- [x] Add-a-satellite procedure documented in `destinations.ts` and above.
+
+Confirmed `HALOS` / `ARC_OFFSETS` / `DRIFT_DURATIONS` index modulo their length, so
+they already wrap at any count.
+
 ## Review checklist for Dave
 
-Design doc open questions, in the order they block work:
+**Resolved**
 
-1. **Copy** (design §A2) — Mission Control eyebrow / subtitle / telemetry line. Blocks
-   Phase 1 Task 4, though it's trivially changed later.
-2. **Card color** (§A4) — desynced shared clock (recommended) vs. fixed color per card.
-   Blocks Phase 1 Task 5.
-3. **Phase order** — themes-then-motion (as written, your stated order) vs.
-   motion-then-themes (lands the novel piece sooner, avoids a retrofit). Blocks Phase 4.
-4. **Wave-3 theme picks** (Part B) — Console, Docs, Liquid, Native, or swap for the
-   listed alternates. Blocks Phase 5.
-5. **Third axis** (§C1) — is Phase 9 real, or is theme × motion the whole idea?
+- ~~Phase order~~ — themes then motion, as you had it.
+- ~~Card color~~ — desynced shared clock, now count-derived.
+- ~~Wave-3 picks~~ — Console, Docs, Liquid, Native. Built.
+- ~~Themes-app connection~~ — fix the card, stay hidden.
+
+**Still yours**
+
+1. **Copy** (design §A2) — eyebrow, subtitle, telemetry, and the new Themes blurb
+   are all still my words.
+2. **Third axis** (§C1) — is Phase 9 real, or is theme × motion the whole idea?
+3. **Where the Themes card points** once `/start` exists (Phase 8) — gallery front
+   door, or straight to the handoff page?

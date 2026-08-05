@@ -31,6 +31,9 @@ const MissionControl = () => {
   const isHere = (href: string) =>
     href === '/' ? pathname === '/' : Boolean(pathname?.startsWith(href));
 
+  const satelliteCount = destinations.filter((d) => d.kind === 'satellite').length;
+  const pageCount = destinations.length - satelliteCount;
+
   const currentLabel = useMemo(() => {
     const match = destinations.find((d) => isHere(d.href));
     return match ? match.title.toLowerCase() : 'deep space';
@@ -208,12 +211,13 @@ const MissionControl = () => {
                 </p>
                 <h2 className="mt-2 text-3xl font-bold sm:text-5xl">Mission Control</h2>
                 <p className="mt-3 text-sm text-white/55 sm:text-base">
-                  six destinations. pick a heading.
+                  pages and satellites. pick a heading.
                 </p>
                 <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/30">
                   <span className="accent-text">◉</span> current: {currentLabel}
                   <span className="mx-2 text-white/15">·</span>
-                  {destinations.length} bodies in system
+                  {pageCount} {pageCount === 1 ? 'page' : 'pages'}, {satelliteCount}{' '}
+                  {satelliteCount === 1 ? 'satellite' : 'satellites'}
                   <span className="mx-2 text-white/15">·</span>
                   esc to disengage
                 </p>
@@ -225,6 +229,7 @@ const MissionControl = () => {
                     key={d.id}
                     destination={d}
                     index={i}
+                    total={destinations.length}
                     isHere={isHere(d.href)}
                     onNavigate={() => setOpen(false)}
                     pointerX={pointerX}
