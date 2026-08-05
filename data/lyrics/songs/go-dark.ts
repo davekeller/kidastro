@@ -3,9 +3,6 @@ import type { Song } from '../types';
 const song: Song = {
   slug: "go-dark",
   title: "Go Dark",
-  cover: {
-    artist: "Korn"
-  },
   status: "ready",
   sections: [
     {
