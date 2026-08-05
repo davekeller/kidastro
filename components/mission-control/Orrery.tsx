@@ -65,9 +65,9 @@ const CORE_E: [number, number][] = [
   [1, 2], [1, 3], [1, 4], [1, 5],
   [2, 4], [2, 5], [3, 4], [3, 5],
 ];
-const CORE_SCALE = 0.24;
+const CORE_SCALE = 0.27;
 
-const ECLIPTIC_R = 1.22;
+const ECLIPTIC_R = 1.12;
 
 const FALLBACK = [
   { r: 244, g: 253, b: 123 },
@@ -203,9 +203,9 @@ const Orrery = ({ className }: { className?: string }) => {
 
       const cx = width / 2 + parallax.x;
       const cy = height / 2 + parallax.y + bob;
-      // Ecliptic sits at 1.22 and the perspective divide magnifies near points
-      // by up to 1.5x, so keep the base radius well inside the box.
-      const radius = Math.min(width, height) * 0.31;
+      // Ecliptic sits at 1.12 and the perspective divide magnifies near points
+      // by up to 1.5x, so keep the base radius inside the box.
+      const radius = Math.min(width, height) * 0.36;
 
       const project = (v: Vec3) => {
         const p = rotY(rotX(v, rx), ry);
@@ -223,7 +223,7 @@ const Orrery = ({ className }: { className?: string }) => {
 
       // Ecliptic graticule — flat ring plus four ticks.
       const flat = (theta: number, r: number): Vec3 => [Math.cos(theta) * r, 0, Math.sin(theta) * r];
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 1.3;
       for (let s = 0; s < RING_SEGMENTS; s++) {
         const a = (s / RING_SEGMENTS) * Math.PI * 2;
         const b = ((s + 1) / RING_SEGMENTS) * Math.PI * 2;
@@ -256,8 +256,8 @@ const Orrery = ({ className }: { className?: string }) => {
           const [x1, y1, z1] = project(ringPoint(ring, a));
           const [x2, y2, z2] = project(ringPoint(ring, b));
           const d = ((z1 + z2) / 2 + 1) / 2;
-          ctx.strokeStyle = col(0.16 + d * 0.44);
-          ctx.lineWidth = 0.9 + d * 1.0;
+          ctx.strokeStyle = col(0.2 + d * 0.5);
+          ctx.lineWidth = 1.6 + d * 1.3;
           ctx.beginPath();
           ctx.moveTo(x1, y1);
           ctx.lineTo(x2, y2);
@@ -273,8 +273,8 @@ const Orrery = ({ className }: { className?: string }) => {
         const [x1, y1, z1] = coreProjected[a];
         const [x2, y2, z2] = coreProjected[b];
         const d = ((z1 + z2) / 2 + 1) / 2;
-        ctx.strokeStyle = col(0.35 + d * 0.5);
-        ctx.lineWidth = 1.1 + d * 1.0;
+        ctx.strokeStyle = col(0.4 + d * 0.5);
+        ctx.lineWidth = 1.9 + d * 1.3;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
@@ -290,7 +290,7 @@ const Orrery = ({ className }: { className?: string }) => {
           const d = (z + 1) / 2;
           const fade = 1 - s / (TRAIL + 1);
           ctx.fillStyle = col(fade * fade * (0.25 + d * 0.7));
-          const size = (0.7 + d * 1.5) * (0.35 + fade * 0.65);
+          const size = (1.1 + d * 2.1) * (0.35 + fade * 0.65);
           ctx.beginPath();
           ctx.arc(x, y, size, 0, Math.PI * 2);
           ctx.fill();

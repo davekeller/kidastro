@@ -127,7 +127,7 @@ const Planet = ({
       {/* The body: glyph inside its tilted orbit ring, with a satellite riding
           it. Sized up from the old card icon — this is the planet now. */}
       <span
-        className="accent-text relative block h-[88px] w-[88px] opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+        className="accent-text relative block h-[92px] w-[92px] opacity-90 transition-opacity duration-300 group-hover:opacity-100 sm:h-[108px] sm:w-[108px]"
         style={{ animationDelay: accentDelay }}
       >
         {/* Atmosphere — a soft glow behind the glyph, in the cycling color. */}
@@ -137,13 +137,13 @@ const Planet = ({
           style={{ background: 'currentColor' }}
         />
         <OrbitHalo spec={halo} className="absolute inset-0 h-full w-full" />
-        <Icon className="absolute left-1/2 top-1/2 h-[52px] w-[52px] -translate-x-1/2 -translate-y-1/2" />
+        <Icon className="absolute left-1/2 top-1/2 h-[54px] w-[54px] -translate-x-1/2 -translate-y-1/2 sm:h-[64px] sm:w-[64px]" />
       </span>
 
-      <span className="mt-3 block text-center text-sm font-bold leading-tight sm:text-base">
+      <span className="mt-3 block text-center text-sm font-bold leading-tight sm:text-lg">
         {d.title}
       </span>
-      <span className="mt-1 block max-w-[15ch] text-center text-[11px] leading-snug text-white/45 transition-colors duration-300 group-hover:text-white/70">
+      <span className="mt-1 block max-w-[17ch] text-center text-[11px] leading-snug text-white/45 transition-colors duration-300 group-hover:text-white/70 sm:text-xs">
         {d.blurb}
       </span>
 
@@ -167,7 +167,7 @@ const Planet = ({
   const linkProps = {
     ref: linkRef,
     className:
-      'group flex w-[150px] cursor-pointer flex-col items-center rounded-2xl px-2 py-2 outline-none focus-visible:ring-2 focus-visible:ring-white/40',
+      'group flex w-[150px] cursor-pointer flex-col items-center rounded-2xl px-2 py-2 outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:w-[176px]',
     onClick: onNavigate,
     'aria-current': isHere ? ('page' as const) : undefined,
     'data-planet': true,

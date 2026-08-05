@@ -4,16 +4,26 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties }
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { destinations } from './destinations';
+import NorthernLights from '../NorthernLights';
 import ModalStarfield from './ModalStarfield';
 import Orrery from './Orrery';
 import Planet from './Planet';
 
-/* Ring geometry. The radius has to clear the star at the center (~300px wide,
-   so ~150px half) plus half a planet (~75px), which puts the floor around
-   225px — below that the labels collide with the telemetry text. vmin keeps it
-   proportional on short laptops, where height is the binding constraint. */
-const ORBIT_R = 'clamp(228px, 33vmin, 300px)';
-const FIELD_SIZE = 'clamp(600px, 74vmin, 760px)';
+/* Ring geometry, sized to fill most of the viewport.
+
+   The radius is derived rather than picked: a planet is ~190px tall, so the ring
+   plus one planet has to fit the viewport height, which gives
+   `50vmin - (planet half-height + padding)`. Height is the binding constraint on
+   every normal desktop aspect ratio, and there vmin *is* the height. The clamp
+   bounds only catch the extremes — very short windows and very large displays.
+
+   The floor of 200px is where the labels start crowding the telemetry text at
+   the center. */
+const ORBIT_R = 'clamp(210px, calc(50vmin - 138px), 410px)';
+
+/* Derived from the radius rather than clamped separately, so the two can't drift
+   out of agreement — the field is the ring plus one planet's height. */
+const FIELD_SIZE = 'calc(var(--orbit-r) * 2 + 190px)';
 
 /* One slow revolution. At this radius that's a handful of pixels per second —
    present when you watch it, calm when you don't. Hovering pauses it. */
@@ -164,6 +174,20 @@ const MissionControl = () => {
               }}
             />
 
+            {/* The site's own aurora, mounted again inside the overlay. The
+                site-wide instance sits behind the backdrop-blur and arrives
+                defocused, so the modal gets a sharp copy across the top — same
+                curtains, same palette clock, same treatment as every other page.
+
+                Rendered with no props and dimmed by a scoped CSS rule instead.
+                NorthernLights is in the root layout, so it draws on the home page
+                and /resume too; adding props to it — even with identical defaults
+                — puts those pages at risk for no benefit. The override lives here
+                where only this modal can be affected. */}
+            <div aria-hidden className="mc-aurora">
+              <NorthernLights />
+            </div>
+
             {/* The overlay's own stars, sharp above the blur. */}
             <ModalStarfield className="pointer-events-none fixed inset-0" />
 
@@ -173,7 +197,7 @@ const MissionControl = () => {
               aria-modal="true"
               aria-label="Mission Control"
               onClick={(e) => e.stopPropagation()}
-              className="relative mx-auto flex min-h-dvh w-full max-w-6xl flex-col justify-center px-5 py-10 sm:px-8 sm:py-14"
+              className="relative mx-auto flex min-h-dvh w-full max-w-7xl flex-col justify-center px-5 py-6 sm:px-8 sm:py-8"
             >
               {/* Inside the dialog so the focus trap includes it; still fixed,
                   so it renders in the viewport corner either way. */}
@@ -219,18 +243,18 @@ const MissionControl = () => {
                   initial={{ opacity: 0, scale: 0.94 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ type: 'spring', stiffness: 200, damping: 24 }}
-                  className="col-span-2 text-center sm:absolute sm:left-1/2 sm:top-1/2 sm:w-[300px] sm:-translate-x-1/2 sm:-translate-y-1/2"
+                  className="col-span-2 text-center sm:absolute sm:left-1/2 sm:top-1/2 sm:w-[360px] sm:-translate-x-1/2 sm:-translate-y-1/2"
                 >
-                  <Orrery className="mx-auto h-[clamp(96px,15vh,150px)] w-full max-w-[260px]" />
+                  <Orrery className="mx-auto h-[clamp(130px,22vh,230px)] w-full max-w-[360px]" />
 
-                  <p className="accent-text text-[11px] font-bold uppercase tracking-[0.22em]">
+                  <p className="accent-text text-[11px] font-bold uppercase tracking-[0.22em] sm:text-xs">
                     kid astro // all systems nominal
                   </p>
-                  <h2 className="mt-1.5 text-2xl font-bold sm:text-3xl">Mission Control</h2>
-                  <p className="mt-2 text-xs text-white/55 sm:text-sm">
+                  <h2 className="mt-1.5 text-2xl font-bold sm:text-4xl">Mission Control</h2>
+                  <p className="mt-2 text-xs text-white/55 sm:text-base">
                     pages and satellites. pick a heading.
                   </p>
-                  <p className="mt-3 text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-white/30">
+                  <p className="mt-3 text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-white/30 sm:text-[11px]">
                     <span className="accent-text">◉</span> current: {currentLabel}
                     <br className="hidden sm:block" />
                     <span className="mx-2 text-white/15 sm:hidden">·</span>

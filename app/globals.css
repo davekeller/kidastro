@@ -299,6 +299,15 @@ h4, h6 {
 .mc-drift-b { animation: mc-drift-b ease-in-out infinite; }
 .mc-drift-c { animation: mc-drift-c ease-in-out infinite; }
 
+/* The modal's copy of the site aurora. NorthernLights hardcodes its own
+   positioning and 0.9 opacity, and it renders in the root layout — on the home
+   page and /resume as well — so it is deliberately not parameterised. This
+   dims the copy inside Mission Control only. Layered over the backdrop blur,
+   0.9 washes out the planet labels; 0.5 keeps the color and the contrast. */
+.mc-aurora > canvas {
+  opacity: 0.5 !important;
+}
+
 /* ---------- The solar system ----------
 
    Mobile-first: a plain two-column grid of planets, because an orbit needs room
