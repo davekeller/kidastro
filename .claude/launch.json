@@ -7,6 +7,13 @@
       "runtimeArgs": ["node_modules/next/dist/bin/next", "dev"],
       "port": 3457,
       "autoPort": true
+    },
+    {
+      "name": "songs",
+      "runtimeExecutable": "/Users/dk/.nvm/versions/node/v22.14.0/bin/npm",
+      "runtimeArgs": ["--prefix", "/Users/dk/Git/kidastro-songs", "run", "dev"],
+      "port": 5173,
+      "autoPort": true
     }
   ]
 }
