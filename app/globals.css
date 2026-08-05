@@ -299,22 +299,85 @@ h4, h6 {
 .mc-drift-b { animation: mc-drift-b ease-in-out infinite; }
 .mc-drift-c { animation: mc-drift-c ease-in-out infinite; }
 
-/* Limb light — the lit face of a sphere. --limb-x/--limb-y are nudged by the
-   hover tilt so the lighting tracks the surface instead of sliding across a
-   flat card. */
-.mc-limb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: radial-gradient(
-    118% 118% at var(--limb-x, 22%) var(--limb-y, 14%),
-    rgba(255, 255, 255, 0.14) 0%,
-    rgba(255, 255, 255, 0.055) 34%,
-    rgba(255, 255, 255, 0) 68%
-  );
+/* ---------- The solar system ----------
+
+   Mobile-first: a plain two-column grid of planets, because an orbit needs room
+   it doesn't have on a phone. The orbit engages at sm and up.
+
+   Desktop mechanics: .mc-arm is a zero-size point pinned at the field's center
+   that rotates; .mc-orbit-offset pushes its child out to the ring radius;
+   .mc-upright counter-rotates the content by the same amount so labels stay
+   level instead of tumbling. Arm and counter share a duration and delay, so
+   they cancel exactly.
+
+   Every planet shares one period. Real bodies on one ring keep their spacing,
+   and varying the speed would let them drift into each other and overlap the
+   labels. Per-planet life comes from .mc-drift-* instead. */
+.mc-field {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem 1rem;
+}
+
+@keyframes mc-orbit-travel-arm {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes mc-orbit-travel-upright {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@media (min-width: 640px) {
+  .mc-field {
+    display: block;
+    position: relative;
+    height: var(--field-size);
+  }
+
+  .mc-arm {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    animation: mc-orbit-travel-arm var(--orbit-dur) linear infinite;
+    animation-delay: var(--orbit-delay);
+  }
+
+  .mc-orbit-offset {
+    position: absolute;
+    transform: translate(-50%, -50%) translateY(calc(-1 * var(--orbit-r)));
+  }
+
+  .mc-upright {
+    animation: mc-orbit-travel-upright var(--orbit-dur) linear infinite;
+    animation-delay: var(--orbit-delay);
+  }
+
+  /* Freeze the whole system while the pointer or keyboard is in it — nothing
+     you're aiming at should be moving. Cheaper and steadier than trying to
+     make a moving target clickable. */
+  .mc-field:hover .mc-arm,
+  .mc-field:hover .mc-upright,
+  .mc-field:focus-within .mc-arm,
+  .mc-field:focus-within .mc-upright {
+    animation-play-state: paused;
+  }
+
+  /* Faint ring the planets ride. */
+  .mc-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(var(--orbit-r) * 2);
+    height: calc(var(--orbit-r) * 2);
+    transform: translate(-50%, -50%);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    pointer-events: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -322,7 +385,9 @@ h4, h6 {
   .mc-orbit,
   .mc-drift-a,
   .mc-drift-b,
-  .mc-drift-c {
+  .mc-drift-c,
+  .mc-arm,
+  .mc-upright {
     animation: none;
   }
 

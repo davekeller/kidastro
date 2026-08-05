@@ -1,12 +1,23 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { destinations } from './destinations';
 import ModalStarfield from './ModalStarfield';
 import Orrery from './Orrery';
-import PlanetCard from './PlanetCard';
+import Planet from './Planet';
+
+/* Ring geometry. The radius has to clear the star at the center (~300px wide,
+   so ~150px half) plus half a planet (~75px), which puts the floor around
+   225px — below that the labels collide with the telemetry text. vmin keeps it
+   proportional on short laptops, where height is the binding constraint. */
+const ORBIT_R = 'clamp(228px, 33vmin, 300px)';
+const FIELD_SIZE = 'clamp(600px, 74vmin, 760px)';
+
+/* One slow revolution. At this radius that's a handful of pixels per second —
+   present when you watch it, calm when you don't. Hovering pauses it. */
+const ORBIT_PERIOD_S = 240;
 
 /* Secret site-wide navigation. A ghost pill in the top-right corner (invisible
    until hovered or keyboard-focused) opens the orrery view: the page falls
@@ -82,27 +93,17 @@ const MissionControl = () => {
         return;
       }
 
-      // Arrow-key navigation across the body grid. Column count is read off
-      // the grid's own resolved tracks rather than re-deriving the Tailwind
-      // breakpoint from innerWidth — that would be a second copy of the
-      // layout rule, free to drift out of sync with the classes above.
+      // Arrow-key navigation around the ring. A radial layout has no rows or
+      // columns to step through, so all four arrows walk the list order — which
+      // is the ring order — and it wraps, because a ring has no ends. This also
+      // retires the old grid-column probe: there's no grid left to measure.
       if (e.key.startsWith('Arrow')) {
         const list = planets();
         const i = list.indexOf(document.activeElement as HTMLElement);
         if (i === -1) return;
-        const grid = dialogRef.current?.querySelector('[data-planet-grid]');
-        const tracks = grid ? getComputedStyle(grid).gridTemplateColumns : 'none';
-        const parsed = tracks === 'none' ? 0 : tracks.split(' ').filter(Boolean).length;
-        // Floor of 2: the grid never renders a single column, so a 0/1 reading
-        // means the element wasn't laid out rather than a real one-up layout.
-        const cols = Math.max(2, parsed || 3);
-        const delta =
-          e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : e.key === 'ArrowDown' ? cols : -cols;
-        const next = i + delta;
-        if (next >= 0 && next < list.length) {
-          e.preventDefault();
-          list[next].focus();
-        }
+        const forward = e.key === 'ArrowRight' || e.key === 'ArrowDown';
+        e.preventDefault();
+        list[(i + (forward ? 1 : -1) + list.length) % list.length].focus();
       }
     };
 
@@ -196,46 +197,93 @@ const MissionControl = () => {
                 </svg>
               </button>
 
-              <motion.header
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 24 }}
-                className="mb-7 text-center sm:mb-10"
+              {/* The system. On sm and up this is one square field: the star at
+                  the center, planets on a ring around it. Below sm the CSS drops
+                  the orbit and it becomes a plain two-column grid — an orbit
+                  needs room a phone doesn't have. */}
+              <div
+                className="mc-field mx-auto w-full"
+                style={
+                  {
+                    '--field-size': FIELD_SIZE,
+                    '--orbit-r': ORBIT_R,
+                    '--orbit-dur': `${ORBIT_PERIOD_S}s`,
+                  } as CSSProperties
+                }
               >
-                {/* Sized against viewport height so a short laptop doesn't push
-                    the second row off-screen. */}
-                <Orrery className="mx-auto h-[clamp(104px,19vh,215px)] w-full max-w-[340px]" />
+                <div aria-hidden className="mc-ring hidden sm:block" />
 
-                <p className="accent-text text-xs font-bold uppercase tracking-[0.22em]">
-                  kid astro // all systems nominal
-                </p>
-                <h2 className="mt-2 text-3xl font-bold sm:text-5xl">Mission Control</h2>
-                <p className="mt-3 text-sm text-white/55 sm:text-base">
-                  pages and satellites. pick a heading.
-                </p>
-                <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/30">
-                  <span className="accent-text">◉</span> current: {currentLabel}
-                  <span className="mx-2 text-white/15">·</span>
-                  {pageCount} {pageCount === 1 ? 'page' : 'pages'}, {satelliteCount}{' '}
-                  {satelliteCount === 1 ? 'satellite' : 'satellites'}
-                  <span className="mx-2 text-white/15">·</span>
-                  esc to disengage
-                </p>
-              </motion.header>
+                {/* The star: everything that was the header now sits in the
+                    middle, with the orrery as the body at its core. */}
+                <motion.header
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 24 }}
+                  className="col-span-2 text-center sm:absolute sm:left-1/2 sm:top-1/2 sm:w-[300px] sm:-translate-x-1/2 sm:-translate-y-1/2"
+                >
+                  <Orrery className="mx-auto h-[clamp(96px,15vh,150px)] w-full max-w-[260px]" />
 
-              <div data-planet-grid className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
-                {destinations.map((d, i) => (
-                  <PlanetCard
-                    key={d.id}
-                    destination={d}
-                    index={i}
-                    total={destinations.length}
-                    isHere={isHere(d.href)}
-                    onNavigate={() => setOpen(false)}
-                    pointerX={pointerX}
-                    pointerY={pointerY}
-                  />
-                ))}
+                  <p className="accent-text text-[11px] font-bold uppercase tracking-[0.22em]">
+                    kid astro // all systems nominal
+                  </p>
+                  <h2 className="mt-1.5 text-2xl font-bold sm:text-3xl">Mission Control</h2>
+                  <p className="mt-2 text-xs text-white/55 sm:text-sm">
+                    pages and satellites. pick a heading.
+                  </p>
+                  <p className="mt-3 text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-white/30">
+                    <span className="accent-text">◉</span> current: {currentLabel}
+                    <br className="hidden sm:block" />
+                    <span className="mx-2 text-white/15 sm:hidden">·</span>
+                    {pageCount} {pageCount === 1 ? 'page' : 'pages'}, {satelliteCount}{' '}
+                    {satelliteCount === 1 ? 'satellite' : 'satellites'}
+                    <span className="mx-2 text-white/15">·</span>
+                    esc to disengage
+                  </p>
+                </motion.header>
+
+                {destinations.map((d, i) => {
+                  const angle = (360 / destinations.length) * i;
+                  // Negative delay seeds each planet at its own angle without
+                  // waiting for the animation to get there. The static rotate is
+                  // the reduced-motion fallback: with the animation off, inline
+                  // transform is what spreads them around the ring instead of
+                  // stacking all six at twelve o'clock.
+                  const delay = `${(-ORBIT_PERIOD_S / destinations.length) * i}s`;
+                  return (
+                    <div
+                      key={d.id}
+                      className="mc-arm"
+                      style={
+                        {
+                          '--orbit-delay': delay,
+                          transform: `rotate(${angle}deg)`,
+                        } as CSSProperties
+                      }
+                    >
+                      <div className="mc-orbit-offset">
+                        <div
+                          className="mc-upright"
+                          style={
+                            {
+                              '--orbit-delay': delay,
+                              transform: `rotate(${-angle}deg)`,
+                            } as CSSProperties
+                          }
+                        >
+                          <Planet
+                            destination={d}
+                            index={i}
+                            total={destinations.length}
+                            isHere={isHere(d.href)}
+                            onNavigate={() => setOpen(false)}
+                            pointerX={pointerX}
+                            pointerY={pointerY}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </motion.div>

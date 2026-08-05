@@ -219,6 +219,42 @@ Added:
 - Orrery canvas gets `aria-hidden`.
 - Re-check blurb contrast — `text-white/50` over the new lit surfaces may need `/60`.
 
+#### A6b. The solar system (added 2026-08-05 — supersedes the arc grid in A1/A4)
+
+The staggered arc of cards is gone. The layout is now literal: **the star at the
+center, planets on a ring around it.**
+
+- **The star** is the whole header block — orrery, eyebrow, title, subtitle,
+  telemetry — absolutely centered in a square field. The orrery is the body at its
+  core.
+- **The planets** are the destinations, one ring, evenly spaced. No cards: a
+  bordered rectangle was the thing making the old version read as furniture. Each
+  planet is the haloed glyph (sized up from 56px to 88px) with an atmospheric glow
+  behind it, the title under that, the blurb under that — and the whole stack is
+  one link.
+- **Mechanics.** `.mc-arm` is a zero-size point pinned at the field center that
+  rotates; `.mc-orbit-offset` pushes its child out to the ring radius;
+  `.mc-upright` counter-rotates by the same amount so labels stay level instead of
+  tumbling. Arm and counter share a duration and delay, so they cancel exactly.
+- **One shared period (240s).** Real bodies on one ring keep their spacing, and
+  varying the speed would let planets drift into each other and collide labels.
+  Per-body life comes from the existing `.mc-drift-*` instead. At this radius the
+  motion is a few px/second — present when you watch it, calm when you don't.
+- **Hover and focus pause the whole system.** Steadier than trying to make a
+  moving target clickable, and it's four lines of CSS.
+- **Mobile drops the orbit.** Below `sm` the field is a plain two-column grid of
+  the same planets — an orbit needs room a phone doesn't have. Mobile-first, so the
+  orbit engages inside one `min-width: 640px` block rather than being undone.
+- **Reduced motion** keeps the ring arrangement. The static `rotate(angle)` inline
+  on each arm is the fallback: with the animation off, that inline transform is
+  what spreads the planets instead of stacking all six at twelve o'clock.
+
+Two things this retired: `.mc-limb` (no card face to light) and the hover tilt (a
+round body wants a scale, not a plane rotation). Arrow-key navigation also stopped
+probing `gridTemplateColumns` — a ring has no rows or columns, so all four arrows
+walk the ring order and wrap. That removes the fragile grid-column reading noted
+in A6 entirely.
+
 #### A7. Scaling past six (added 2026-08-05)
 
 Mission Control is the constellation launcher, so the destination list grows every
