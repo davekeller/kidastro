@@ -5,7 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:
   repository_dispatch:
-    types: [themes-updated]
+    types: [themes-updated, songs-updated]
 
 permissions:
   contents: read
@@ -56,6 +56,26 @@ jobs:
         run: |
           mkdir -p out/themes
           cp -R themes-src/dist/. out/themes/
+
+      # kidastro-songs is served at kidastro.com/songs — same pattern as
+      # themes, except that repo is private, so checking it out needs a PAT
+      # (SONGS_PAT secret: fine-grained, kidastro-songs, Contents read).
+      # Without the secret this step skips cleanly and the site deploys
+      # without /songs rather than failing.
+      - name: Build kidastro-songs into /songs
+        env:
+          SONGS_PAT: ${{ secrets.SONGS_PAT }}
+        run: |
+          if [ -z "$SONGS_PAT" ]; then
+            echo "SONGS_PAT not set — skipping kidastro.com/songs."
+            exit 0
+          fi
+          git clone --depth 1 "https://x-access-token:${SONGS_PAT}@github.com/davekeller/kidastro-songs" songs-src
+          cd songs-src
+          npm ci
+          npm run build
+          mkdir -p ../out/songs
+          cp -R dist/. ../out/songs/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
