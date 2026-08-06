@@ -108,4 +108,7 @@ Serial commas throughout; the resume uses them everywhere.
 - **Accomplishments / Footer:** `components/{Accomplishments,Footer}.tsx`
 - **Resume:** `components/resume/Header.tsx` + `components/resume/resumeData.ts`
 - **Hidden skills page:** `components/skills/SkillsView.tsx` + `skillsData.ts`
+- **Mission Control (secret nav):** `components/mission-control/MissionControl.tsx` for the
+  header and telemetry strip; per-destination titles and blurbs in
+  `components/mission-control/destinations.ts`
 - **Metadata:** `app/layout.tsx` (home), `app/resume/page.tsx` (resume)

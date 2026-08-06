@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps, CSSProperties } from 'react';
 
 /* Wireframe marks for the Mission Control cards — static SVG echoes of the
    3D header marks (icosahedron, helmet, wolf) plus new glyphs for the pages
@@ -82,6 +82,72 @@ export function ThemesIcon(props: IconProps) {
       <circle cx="23" cy="14" r="2" fill="currentColor" stroke="none" opacity="0.75" />
       <circle cx="32" cy="18" r="2" fill="currentColor" stroke="none" opacity="0.55" />
       <circle cx="13.5" cy="29" r="2" fill="currentColor" stroke="none" opacity="0.4" />
+    </svg>
+  );
+}
+
+/* ---------- Orbit halos ---------- */
+
+/* Each Mission Control glyph sits inside a tilted orbit ring with a single
+   satellite riding it, so a destination reads as a body in a system rather
+   than an icon in a box. Per-card tilt/radius/period below — matched values
+   would collapse the six back into one object, which is the whole thing this
+   is trying to avoid. */
+export interface HaloSpec {
+  /** Ring tilt in degrees. */
+  tilt: number;
+  /** Ring radii as a fraction of the 48-unit viewBox. */
+  rx: number;
+  ry: number;
+  /** Seconds per satellite lap. */
+  period: number;
+}
+
+export const HALOS: HaloSpec[] = [
+  { tilt: -18, rx: 22, ry: 7.5, period: 14 },
+  { tilt: 24, rx: 23, ry: 6, period: 19 },
+  { tilt: -7, rx: 21, ry: 9.5, period: 11 },
+  { tilt: 34, rx: 23, ry: 5.5, period: 23 },
+  { tilt: -29, rx: 22, ry: 8, period: 16 },
+  { tilt: 12, rx: 21.5, ry: 6.8, period: 26 },
+];
+
+export function OrbitHalo({ spec, className }: { spec: HaloSpec; className?: string }) {
+  const { tilt, rx, ry, period } = spec;
+  // The satellite follows the ring via offset-path. A rotate transform would
+  // trace a circle of radius rx and drift off the ellipse everywhere except
+  // the two horizontal extremes; offset-path walks the real curve. Where it's
+  // unsupported the dot simply parks at the ring's left edge — no breakage.
+  const path = `M ${24 - rx},24 a ${rx},${ry} 0 1,0 ${rx * 2},0 a ${rx},${ry} 0 1,0 ${-rx * 2},0`;
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      aria-hidden
+      className={className}
+      style={{ transform: `rotate(${tilt}deg)` }}
+    >
+      <ellipse
+        cx="24"
+        cy="24"
+        rx={rx}
+        ry={ry}
+        stroke="currentColor"
+        strokeWidth="0.9"
+        opacity="0.32"
+      />
+      <circle
+        r="1.5"
+        fill="currentColor"
+        opacity="0.85"
+        className="mc-orbit"
+        style={
+          {
+            offsetPath: `path('${path}')`,
+            animationDuration: `${period}s`,
+          } as CSSProperties
+        }
+      />
     </svg>
   );
 }
