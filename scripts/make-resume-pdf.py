@@ -240,7 +240,7 @@ tools = [
 
 jobs = [
     ("Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
-     "Principal Product Designer / Design Engineer &middot; promoted from Senior Product Designer (Apr 2024)",
+     "Principal Product Designer / Design Engineer",
      "Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.",
      [
          "Promoted to Principal Product Designer in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code",
