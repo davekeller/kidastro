@@ -21,7 +21,7 @@ export const fullJobs: FullJob[] = [
     company: 'Strangeworks',
     dates: 'Oct 2023 – Present',
     location: 'Remote / Austin, TX',
-    role: 'Principal Product Designer / Design Engineer · promoted from Senior Product Designer (Apr 2024)',
+    role: 'Principal Product Designer / Design Engineer',
     summary:
       'Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.',
     bullets: [

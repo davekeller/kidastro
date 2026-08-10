@@ -43,7 +43,7 @@ Add a new `/resume` page to kidastro.com that presents Dave's current resume in 
 Render with company name (bold), role line, dates+location (right-aligned, muted), one-line summary, and the bullet list shown.
 
 **Strangeworks** — Oct 2023 – Present · Austin, TX
-*Principal Product Designer / Design Engineer · promoted from Senior Product Designer (Apr 2024)*
+*Principal Product Designer / Design Engineer*
 
 > Leading product strategy and design for a platform at the frontier of AI and quantum computing — helping teams access, run, and understand hybrid quantum-classical workloads.
 
