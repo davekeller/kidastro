@@ -34,7 +34,7 @@ export const fullJobs: FullJob[] = [
     company: 'QuotaPath',
     dates: 'Jan 2022 – Oct 2023',
     location: 'Hybrid / Austin, TX',
-    role: 'Senior Product UX/UI Designer',
+    role: 'Senior Product Designer',
     summary:
       'Led design across multiple product teams at this Series B SaaS platform for sales commission planning and tracking.',
     bullets: [
@@ -47,7 +47,7 @@ export const fullJobs: FullJob[] = [
     company: 'OneAssembly',
     dates: 'Feb 2021 – Jan 2022',
     location: 'Austin, TX',
-    role: 'Product UX/UI Design Lead · Front-End Developer',
+    role: 'Product Design Lead · Front-End Developer',
     summary:
       'Designed and built this B2B device auction platform from idea to launch in a year, grossing $3M+ in the first beta month and $33M+ in year one.',
     bullets: [
@@ -59,7 +59,7 @@ export const fullJobs: FullJob[] = [
     company: 'BnbFinder (now Savvy.com)',
     dates: 'May 2019 – Feb 2021',
     location: 'Austin, TX',
-    role: 'Product UX/UI Design Lead · Front-End Developer',
+    role: 'Product Design Lead · Front-End Developer',
     summary:
       'Designed and built this travel listings platform to 8K subscribers (4K+ paid) in under a year on a 3-person team.',
     bullets: [
@@ -74,7 +74,7 @@ export const condensedJobs: CondensedJob[] = [
     company: 'Phobio : Rodio',
     dates: 'Jan 2018 – May 2019',
     location: 'Austin, TX',
-    role: 'Product UX/UI Design Lead',
+    role: 'Principal Product Designer',
     summary:
       'Designed Rodio, a retail workforce communication platform. Partnered with Fortune 100 Kronos and signed MarketSource (Target/Best Buy), reaching millions of daily interactions.',
     bullets: [
@@ -86,7 +86,7 @@ export const condensedJobs: CondensedJob[] = [
     company: 'Timebomb',
     dates: 'Sep 2015 – Dec 2017',
     location: 'Austin, TX',
-    role: 'Co-Founder · Product UX/UI Design Lead',
+    role: 'Co-Founder · Product Design Lead',
     summary:
       'Co-founded and designed this conditional messaging app (iOS and Android). Raised $3M from angels including Katy Perry and Warner Bros., with a marketing partnership from Ellen.',
     bullets: [
