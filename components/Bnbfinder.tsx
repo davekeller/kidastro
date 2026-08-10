@@ -27,7 +27,7 @@ const BnbFinder = () => {
 
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg flex flex-col items-start">
-          <h3 className="text-xl font-bold mt-2 mb-4 text-balance">Product UX/UI Design Lead + Front-End Developer</h3>
+          <h3 className="text-xl font-bold mt-2 mb-4 text-balance">Lead Product Designer + Front-End Developer</h3>
           <div className="w-full border-b-2 border-white/20 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Coded fully responsive front-ends for all three apps in Elixir and React/Next.js</li>
