@@ -21,11 +21,11 @@ export const fullJobs: FullJob[] = [
     company: 'Strangeworks',
     dates: 'Oct 2023 – Present',
     location: 'Remote / Austin, TX',
-    role: 'Design Engineer / Director of Product · promoted from Senior Product Designer (Apr 2024)',
+    role: 'Principal Product Designer / Design Engineer · promoted from Senior Product Designer (Apr 2024)',
     summary:
       'Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.',
     bullets: [
-      'Promoted to Director of Product in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code',
+      'Promoted to Principal Product Designer in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code',
       'Embedded with engineering, leadership, and the science team to prototype and ship across our compute platform, the Aura workflow app, docs, and multiple marketing sites',
       'Designed an AI-assisted app for data-science problem formulation and computation on HPC/quantum, plus dozens of client apps for optimization problems like staff scheduling and fleet vehicle routing',
     ],

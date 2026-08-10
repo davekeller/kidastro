@@ -193,7 +193,7 @@ def circle_avatar():
 
 # ---- Content (mirrors components/resume/resumeData.ts + Header.tsx) --------
 
-TITLE = "design engineer / lead product designer"
+TITLE = "principal product designer / design engineer"
 CONTACT = (
     f'Portfolio: <font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font>'
     '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/dkells/">linkedin/dkells</a><br/>'
@@ -240,10 +240,10 @@ tools = [
 
 jobs = [
     ("Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
-     "Design Engineer / Director of Product &middot; promoted from Senior Product Designer (Apr 2024)",
+     "Principal Product Designer / Design Engineer &middot; promoted from Senior Product Designer (Apr 2024)",
      "Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.",
      [
-         "Promoted to Director of Product in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code",
+         "Promoted to Principal Product Designer in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code",
          "Embedded with engineering, leadership, and the science team to prototype and ship across our compute platform, the Aura workflow app, docs, and multiple marketing sites",
          "Designed an AI-assisted app for data-science problem formulation and computation on HPC/quantum, plus dozens of client apps for optimization problems like staff scheduling and fleet vehicle routing",
      ]),

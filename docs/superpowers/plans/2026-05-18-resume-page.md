@@ -1,5 +1,16 @@
 # /resume page Implementation Plan
 
+> **Status: completed and superseded.** The `/resume` route shipped in May 2026
+> and has been revised many times since. The code blocks below are a record of
+> the original implementation — they no longer match the files on disk, and they
+> should not be copied forward. Read the actual components under
+> `components/resume/` instead; `components/resume/resumeData.ts` is the
+> canonical source for resume copy.
+>
+> Role titles in the snippets were updated 2026-08-10 (Director of Product →
+> Principal Product Designer / Design Engineer) so no stale title reads as
+> current. The rest of each snippet was left as originally written.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Add a `/resume` route to kidastro.com that renders Dave's resume site-natively over the existing aurora chrome, plus a footer link and a downloadable static PDF asset.
@@ -72,7 +83,7 @@ import Resume from '@/components/Resume';
 
 export const metadata: Metadata = {
   title: 'Resume — Dave Keller',
-  description: 'Resume of Dave Keller — Director of Product, Product UX/UI Designer, Front-End Developer.',
+  description: 'Resume of Dave Keller — a lead product designer and design engineer shipping hard, technical AI and data products in days, not weeks.',
 };
 
 export default function ResumePage() {
@@ -132,11 +143,11 @@ export const fullJobs: FullJob[] = [
     company: 'Strangeworks',
     dates: 'Oct 2023 – Present',
     location: 'Austin, TX',
-    role: 'Director of Product · promoted from Senior Product Designer (Apr 2024)',
+    role: 'Principal Product Designer / Design Engineer · promoted from Senior Product Designer (Apr 2024)',
     summary:
       'Leading product strategy and design for a platform at the frontier of AI and quantum computing — helping teams access, run, and understand hybrid quantum-classical workloads.',
     bullets: [
-      'Promoted from Senior Product Designer to Director of Product within 6 months, taking on full ownership of product roadmap, design direction, and cross-functional execution',
+      'Promoted from Senior Product Designer to Principal Product Designer within 6 months, taking on full ownership of product roadmap, design direction, and cross-functional execution',
       'Designing and prototyping web application experiences for strangeworks.com, translating complex quantum and AI concepts into clean, intuitive interfaces',
       'Partnering closely with engineering and leadership to shape the product vision for a platform used by researchers, enterprises, and developers worldwide',
     ],
@@ -299,7 +310,7 @@ const Header = () => {
         <div>
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Dave Keller</h1>
           <p className="mt-2 text-base text-white/60">
-            Director of Product · Product UX/UI Designer · Front-End Developer
+            principal product designer / design engineer
           </p>
         </div>
       </div>

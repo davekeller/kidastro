@@ -2,7 +2,17 @@
 
 **Date:** 2026-05-18
 **Author:** Dave Keller (with Claude)
-**Status:** Approved for planning
+**Status:** Shipped, and **superseded as a copy reference.**
+
+> This is a point-in-time design record. The `/resume` page shipped and has been
+> revised repeatedly since — summaries, bullets, skills, and interests all differ
+> from what's below. **`components/resume/resumeData.ts` is the canonical source
+> for resume copy**, mirrored in `scripts/make-resume-pdf.py` and
+> `scripts/make-resume-docx.js`. Voice rules live in `docs/copy-voice-guide.md`.
+>
+> Role titles below were updated 2026-08-10 (Director of Product → Principal
+> Product Designer / Design Engineer) so no stale title reads as current; the
+> surrounding copy was deliberately left as originally written.
 
 ## Goal
 
@@ -20,7 +30,7 @@ Add a new `/resume` page to kidastro.com that presents Dave's current resume in 
 ### Header
 
 - Name: **Dave Keller**
-- Tagline: *Director of Product · Product UX/UI Designer · Front-End Developer*
+- Tagline: *principal product designer / design engineer*
 - Contact (right side, stacked on desktop, below name on mobile):
   - `512.595.6213`
   - `davekeller@me.com` (mailto link)
@@ -33,11 +43,11 @@ Add a new `/resume` page to kidastro.com that presents Dave's current resume in 
 Render with company name (bold), role line, dates+location (right-aligned, muted), one-line summary, and the bullet list shown.
 
 **Strangeworks** — Oct 2023 – Present · Austin, TX
-*Director of Product · promoted from Senior Product Designer (Apr 2024)*
+*Principal Product Designer / Design Engineer · promoted from Senior Product Designer (Apr 2024)*
 
 > Leading product strategy and design for a platform at the frontier of AI and quantum computing — helping teams access, run, and understand hybrid quantum-classical workloads.
 
-- Promoted from Senior Product Designer to Director of Product within 6 months, taking on full ownership of product roadmap, design direction, and cross-functional execution
+- Promoted from Senior Product Designer to Principal Product Designer within 6 months, taking on full ownership of product roadmap, design direction, and cross-functional execution
 - Designing and prototyping web application experiences for strangeworks.com, translating complex quantum and AI concepts into clean, intuitive interfaces
 - Partnering closely with engineering and leadership to shape the product vision for a platform used by researchers, enterprises, and developers worldwide
 

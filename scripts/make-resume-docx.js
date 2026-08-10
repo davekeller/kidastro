@@ -146,7 +146,7 @@ function job([company, dates, location, role, summary, jobBullets], { first = fa
 
 // ---- Content (mirrors make-resume-pdf.py) ----------------------------------
 
-const TITLE = "design engineer / lead product designer";
+const TITLE = "principal product designer / design engineer";
 
 const highlights = [
   "15+ years leading design at early-stage startups. From 0 → 1 through 2.0 and GTM, across AI, data science, entertainment, messaging, ecommerce, and fintech.",
@@ -188,10 +188,10 @@ const tools = [
 
 const jobs = [
   ["Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
-    "Design Engineer / Director of Product · promoted from Senior Product Designer (Apr 2024)",
+    "Principal Product Designer / Design Engineer · promoted from Senior Product Designer (Apr 2024)",
     "Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.",
     [
-      "Promoted to Director of Product in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code",
+      "Promoted to Principal Product Designer in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code",
       "Embedded with engineering, leadership, and the science team to prototype and ship across our compute platform, the Aura workflow app, docs, and multiple marketing sites",
       "Designed an AI-assisted app for data-science problem formulation and computation on HPC/quantum, plus dozens of client apps for optimization problems like staff scheduling and fleet vehicle routing",
     ]],

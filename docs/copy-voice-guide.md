@@ -21,7 +21,8 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 ## Don't
 
 - No buzzwords / boilerplate: "passionate", "results-driven", "proven track record", "delightful experiences", "wearing many hats", "leverage", "synergy".
-- Avoid "expert" and "principal-level" as **self-applied labels**. Let the work and the Director of Product title carry seniority. ("principal-level" was removed from the resume tagline for this reason — keep it out of headline/title copy.)
+- Avoid "expert" and "principal-level" as **self-applied labels**. Let the work and the job title carry seniority. ("principal-level" was removed from the resume tagline for this reason — keep it out of headline/title copy.)
+- **"Principal" attaches to the job, "lead" floats free.** "Principal" is a ladder rung — it only means something relative to a company, so it belongs on the Strangeworks role (where it *is* the title) and on the resume header directly above it. Site-wide metadata and SEO titles use "lead product designer" instead: unattached to an employer, "principal" reads as a self-applied level claim, while "lead" reads as a description of what he does. Keywords arrays are the exception — carry principal / lead / staff there, since that's matching, not positioning.
 - No triplet cadence ("designs it, codes it, ships it").
 - No em-dash stuffing — one per sentence, tops.
 - No JD keyword-stuffing ("compress execution", "make model risk legible").
@@ -79,7 +80,11 @@ correct.
 >
 > Riding the front of the agentic coding wave, I now design primarily in Claude Code, Codex, and Tailwind — validating functional prototypes and shipping production code in days, not weeks. Now scroll. I'll wait.
 
-**Resume tagline:** product designer / design engineer / inventor
+**Resume header tagline:** principal product designer / design engineer
+(Mirrored in `components/resume/Header.tsx`, `scripts/make-resume-pdf.py`, and
+`scripts/make-resume-docx.js` — update all three together.)
+
+**Site metadata title:** Dave Keller — Lead Product Designer & Design Engineer
 
 **Resume highlights** (the voice benchmark)
 

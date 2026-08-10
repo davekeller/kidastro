@@ -28,10 +28,10 @@ const Strangeworks = () => {
 
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg flex flex-col items-start">
-          <h3 className="text-xl font-bold mt-2 mb-4 text-balance">Design Engineer / Director of Product</h3>
+          <h3 className="text-xl font-bold mt-2 mb-4 text-balance">Principal Product Designer / Design Engineer</h3>
           <div className="w-full border-b-2 border-white/20 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
-             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Promoted from Senior Product Designer to Director of Product in 6 months</li>
+             <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Promoted from Senior Product Designer to Principal Product Designer in 6 months</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Researched internal process and designed the vision for Aura, our workflow app — then helped build it in production code</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Embedded with engineering, leadership, and the science team to ship across the compute platform, docs, and marketing sites</li>
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Designed dozens of client optimization apps — staff scheduling, fleet routing, and more</li>
