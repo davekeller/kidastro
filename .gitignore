@@ -42,3 +42,8 @@ next-env.d.ts
 
 # playwright / browser automation artifacts
 .playwright-mcp/
+
+# generated skills bundle — rebuilt from skills-library/ by the
+# prebuild step on every `npm run build`. zip embeds timestamps, so
+# committing it churns the working tree after every build.
+public/downloads/dave-claude-skills.zip
