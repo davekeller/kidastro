@@ -5,7 +5,6 @@ import AnimatedBreak from '@/components/AnimatedBreak';
 import Breadcrumb from '@/components/Breadcrumb';
 import CompanyMark from '@/components/CompanyMark';
 import FadeUp from '@/components/FadeUp';
-import Footer from '@/components/Footer';
 import CaseImage from '@/components/case-studies/CaseImage';
 import SlalomMark from '@/components/case-studies/SlalomMark';
 import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
@@ -364,31 +363,35 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="04"
           title="aura 2.0 — agents"
-          kicker="one agent to get the problem definition right; trained agents do the rest"
+          kicker="the user and a problem analysis agent, back and forth, until the definition holds"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
             asideTitle="what changed"
             items={[
-              'Dropped the agent-per-step model for a single front-loaded agent',
-              'Natural-language problem in, robust definition out',
-              'Agent interrogates the user until every critical gap closes',
-              'Trained agents handle formulation, solvers, data, and compute',
-              'Ten manual steps collapse to one that matters',
+              'A year of beta testing showed where the linear march broke',
+              'As the agents got better, we simplified rather than added',
+              'Dropped agent-per-step for one problem analysis agent',
+              'User and agent work back and forth until the definition holds',
+              'Everything after that runs and reports itself',
+              'Shipping today — it builds the optimization models',
             ]}
           >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Our first instinct was an agent for each step. 2.0 flips it: one agent at the
-              front, and its only job is the problem definition. You start in plain language; it
-              sharpens the problem and asks questions until every critical gap closes.
+              A year of beta testing showed us where the march broke down, and as the agents got
+              better we jumped ahead of our own roadmap. 2.0 simplifies the whole thing, problem
+              definition through to run.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Then the hard part is done. Trained agents handle formulation, solver selection,
-              data cleaning, compute, and run.
+              Our first instinct was an agent per step. 2.0 flips it: the user works back and
+              forth with a problem analysis agent until the definition genuinely holds.
+              That&apos;s where the effort goes now. After that, the interface is mostly showing
+              what&apos;s happening — formulation, solver selection, data cleaning, compute, run.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              Which is what the consultants told me in discovery two years earlier. The whole
-              product is that one insight, built.
+              This is the end product, building optimization models today. And it&apos;s what the
+              consultants told me in discovery two years earlier: the whole thing is that one
+              insight, built.
             </p>
           </ChapterCard>
         </div>
@@ -531,15 +534,13 @@ const AuraCaseStudy = () => {
 
       {/* SIGN-OFF */}
       <FadeUp className="w-full">
-        <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 pb-8 text-center">
+        <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 pb-40 text-center">
           <p className="text-2xl md:text-3xl font-bold lowercase text-balance">
             that&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit —
           </p>
-          <p className="mt-3 text-xl text-white/70">you&apos;ve got my number.</p>
+          <p className="mt-3 text-xl text-white/70">let me know if you want to talk.</p>
         </div>
       </FadeUp>
-
-      <Footer />
     </>
   );
 };
