@@ -303,13 +303,13 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
         <CaseImage
-          className="col-span-full lg:col-span-6"
+          className="col-span-1 lg:col-span-3"
           src="/imgs/aura/wireframes2.webp"
-          alt="Quarterly offsite workshop board — agenda, discovery insights, and the projects UX"
-          label="the offsite"
+          alt="Sci Workflow board — pain points and opportunities across every phase, and the offsite deck"
+          label="pain points &amp; opportunities"
         />
         <CaseImage
-          className="col-span-full lg:col-span-6"
+          className="col-span-1 lg:col-span-3"
           src="/imgs/strangeworks/strange2.webp"
           alt="Figma wireframe and flow template library, zoomed out"
         />
