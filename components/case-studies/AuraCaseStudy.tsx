@@ -93,20 +93,30 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 gap-12">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <div className="mb-4">
-              <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
-                built for
-              </p>
+            <div className="mb-4 flex items-center gap-5">
               <Image
-                src="/imgs/aura/slalom-logo-white.svg"
-                alt="Slalom"
-                width={216}
-                height={56}
-                className="h-9 w-auto md:h-11"
+                src="/imgs/dave.jpg"
+                alt="Dave Keller"
+                width={96}
+                height={96}
+                className="h-[72px] w-[72px] shrink-0 rounded-full border-2 border-white/10 object-cover md:h-[88px] md:w-[88px]"
+                priority
               />
-              <h4 className="text-white/50 text-balance text-base font-bold italic mt-3">
-                for Lucy and the Slalom team — August 11, 2026
-              </h4>
+              <div>
+                <p className="mb-2 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+                  built for
+                </p>
+                <Image
+                  src="/imgs/aura/slalom-logo-white.svg"
+                  alt="Slalom"
+                  width={216}
+                  height={56}
+                  className="h-8 w-auto md:h-10"
+                />
+                <h4 className="text-white/50 text-balance text-base font-bold italic mt-2.5">
+                  for Lucy and the Slalom team — August 11, 2026
+                </h4>
+              </div>
             </div>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
