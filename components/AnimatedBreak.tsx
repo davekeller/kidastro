@@ -10,9 +10,7 @@ const colors = [
   '#6ee7b7', // Mint
 ];
 
-// `loose` keeps the drifting glyphs but gives them much more room — for the
-// break that has to carry a real pause, like the one under a page hero.
-const AnimatedBreak = ({ loose = false }: { loose?: boolean }) => {
+const AnimatedBreak = () => {
   const [colorIndex, setColorIndex] = useState(0);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,12 +62,7 @@ const AnimatedBreak = ({ loose = false }: { loose?: boolean }) => {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className={`w-full flex items-center justify-center ${
-        loose ? 'py-64 md:py-80' : 'h-[200px] py-32 md:py-48'
-      }`}
-    >
+    <div ref={containerRef} className="w-full h-[200px] flex items-center justify-center py-32 md:py-48">
       <div
         className="flex items-center gap-4 md:gap-6"
         style={{

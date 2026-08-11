@@ -210,7 +210,7 @@ const AuraCaseStudy = () => {
         </FadeUp>
       </header>
 
-      <AnimatedBreak loose />
+      <AnimatedBreak />
 
       {/* 01 RESEARCH & DISCOVERY */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
