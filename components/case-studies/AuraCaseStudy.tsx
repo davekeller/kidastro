@@ -5,6 +5,7 @@ import AnimatedBreak from '@/components/AnimatedBreak';
 import Breadcrumb from '@/components/Breadcrumb';
 import CompanyMark from '@/components/CompanyMark';
 import FadeUp from '@/components/FadeUp';
+import Footer from '@/components/Footer';
 import CaseImage from '@/components/case-studies/CaseImage';
 import SlalomMark from '@/components/case-studies/SlalomMark';
 import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
@@ -288,12 +289,12 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/wireframes-painpoints-v2.webp"
+          src="/imgs/aura/wireframes-painpoints-v3.webp"
           alt="Sci Workflow board — pain points and opportunities across every phase, and the offsite deck"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/wireframes-flow-v2.webp"
+          src="/imgs/aura/wireframes-flow-v3.webp"
           alt="Prototype flow board — projects, research and methods, formulation, and solvers"
         />
       </AnimatedSection>
@@ -340,7 +341,7 @@ const AuraCaseStudy = () => {
 
         <CaseImage
           className="col-span-full lg:col-span-6"
-          src="/imgs/aura/frontend1-v2.webp"
+          src="/imgs/aura/frontend-v3.webp"
           alt="Workflows running in the front-end — the app the science team used"
         />
 
@@ -396,7 +397,7 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
         <CaseImage
-          className="col-span-full lg:col-span-6"
+          className="col-span-full lg:col-span-4 lg:col-start-2"
           src="/imgs/strangeworks/strange1.webp"
           alt="Aura 2.0 — the problem-definition agent and AI-assisted results analysis"
         />
@@ -456,43 +457,6 @@ const AuraCaseStudy = () => {
           alt="Strange-UI — the component library behind the client optimization apps"
         />
 
-        {/* Lufthansa */}
-        <div className="col-span-1 lg:col-span-3 self-stretch">
-          <InfoCard className="h-full">
-            <h3 className="text-xl font-bold mb-1">Lufthansa — gate scheduling</h3>
-            <p className="text-white/50 text-sm font-bold italic mb-4">100x faster gate reallocation</p>
-            <div className="w-full border-b-2 border-white/20 mb-4"></div>
-            <p className="text-lg leading-8 text-white/90 text-pretty">
-              A gate agent knows things the model doesn&apos;t: a delayed flight, an aircraft
-              that needs passport control, a connection about to break. They describe the
-              situation to the AI, build scenarios, and re-solve the whole gate schedule.
-            </p>
-          </InfoCard>
-        </div>
-        <CaseImage
-          className="col-span-1 lg:col-span-3"
-          alt="Lufthansa gate scheduling interface"
-          note="screenshot — Lufthansa gate scheduling: scenario chat and re-solved schedule"
-        />
-
-        {/* Deloitte / TSA */}
-        <div className="col-span-1 lg:col-span-3 self-stretch">
-          <InfoCard className="h-full">
-            <h3 className="text-xl font-bold mb-1">Deloitte — TSA staff scheduling</h3>
-            <p className="text-white/50 text-sm font-bold italic mb-4">certifications, lanes, and terminals</p>
-            <div className="w-full border-b-2 border-white/20 mb-4"></div>
-            <p className="text-lg leading-8 text-white/90 text-pretty">
-              We consulted for Deloitte, who were consulting for the TSA. Six terminals, multiple
-              lanes each, and every lane needs the right people: general staff, an X-ray cert, a
-              K9 handler. The interface schedules against all of it at once.
-            </p>
-          </InfoCard>
-        </div>
-        <CaseImage
-          className="col-span-1 lg:col-span-3"
-          alt="TSA staff scheduling interface"
-          note="screenshot — TSA staff scheduling: terminals, lanes, and certification coverage"
-        />
       </AnimatedSection>
 
       <AnimatedBreak />
@@ -534,13 +498,37 @@ const AuraCaseStudy = () => {
 
       {/* SIGN-OFF */}
       <FadeUp className="w-full">
-        <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 pb-40 text-center">
+        <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 text-center">
           <p className="text-2xl md:text-3xl font-bold lowercase text-balance">
             that&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit —
           </p>
           <p className="mt-3 text-xl text-white/70">let me know if you want to talk.</p>
+
+          <ul className="mt-8 flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
+            <li>
+              <a
+                href="mailto:davekeller@me.com?subject=Hey Dave!"
+                className="transition-colors hover:text-(--color-2)"
+              >
+                davekeller@me.com
+              </a>
+            </li>
+            <li>512.595.6213</li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/dkells/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-(--color-2)"
+              >
+                linkedin/dkells
+              </a>
+            </li>
+          </ul>
         </div>
       </FadeUp>
+
+      <Footer minimal />
     </>
   );
 };
