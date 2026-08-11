@@ -84,32 +84,39 @@ const AuraCaseStudy = () => {
       </div>
 
       {/* BUILT FOR YOU — the note that frames the case study */}
-      <AnimatedSection className="grid grid-cols-1 gap-12 pt-28">
+      <AnimatedSection className="grid grid-cols-1 gap-8 pt-20">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <div className="mb-4 flex items-center gap-5">
-              <Image
-                src="/imgs/dave.jpg"
-                alt="Dave Keller"
-                width={96}
-                height={96}
-                className="h-14 w-14 shrink-0 rounded-full object-cover md:h-16 md:w-16"
-                priority
-              />
-              <div>
-                <p className="mb-2 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
-                  built for
+            <div className="mb-4 flex items-start justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/imgs/dave.jpg"
+                  alt="Dave Keller"
+                  width={96}
+                  height={96}
+                  className="h-14 w-14 shrink-0 rounded-full object-cover"
+                  priority
+                />
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+                    built for
+                  </p>
+                  <h2 className="mt-1 text-2xl md:text-3xl font-bold text-white text-balance">
+                    Lucy and the Slalom team
+                  </h2>
+                </div>
+              </div>
+              <div className="flex shrink-0 flex-col items-end gap-2 pt-0.5">
+                <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-white/35">
+                  August 11, 2026
                 </p>
                 <Image
                   src="/imgs/aura/slalom-logo-white.svg"
                   alt="Slalom"
                   width={216}
                   height={56}
-                  className="h-8 w-auto md:h-10"
+                  className="h-6 w-auto md:h-7"
                 />
-                <h4 className="text-white/50 text-balance text-base font-bold italic mt-2.5">
-                  for Lucy and the Slalom team — August 11, 2026
-                </h4>
               </div>
             </div>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
@@ -152,7 +159,7 @@ const AuraCaseStudy = () => {
       <AnimatedBreak />
 
       {/* HERO — the case study proper starts here */}
-      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-8 pb-16 text-center">
+      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-12 text-center">
         <FadeUp>
           <div className="mb-5 flex items-center justify-center gap-3">
             <CompanyMark company="strangeworks" className="mt-0" />
@@ -197,14 +204,14 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
+          src="/imgs/aura/research1.webp"
           alt="Notion research hub — discovery workshop docs, consultant interviews, and insights"
           label="research &amp; discovery"
-          note="drop-in — zoomed-out Notion research wall (workshops, interviews, insights)"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
+          src="/imgs/aura/research2.webp"
           alt="Problem → Analysis — phased flows and standardized formulation components in Figma"
-          note="drop-in — the Problem → Analysis board (phases, flows, formulation components)"
         />
       </AnimatedSection>
 
@@ -240,9 +247,9 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-full lg:col-span-6"
-          alt="The insights screen — every point in the process where a tool could be built"
-          label="the insights"
-          note="figma pull — the insights screen presented at the Austin offsite"
+          src="/imgs/aura/wireframes2.webp"
+          alt="Quarterly offsite workshop board — agenda, discovery insights, and the projects UX"
+          label="the offsite"
         />
         <CaseImage
           className="col-span-full lg:col-span-6"
@@ -276,9 +283,14 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-full lg:col-span-6"
+          src="/imgs/aura/wireframes1.webp"
+          alt="End-to-end flow board — projects, research and methods, formulation, and solvers"
+          label="end-to-end flow"
+        />
+        <CaseImage
+          className="col-span-full lg:col-span-6"
           src="/imgs/strangeworks/strange3.webp"
           alt="Figma flow map of the Aura app — projects, research, and formulation flows"
-          label="end-to-end flow"
         />
       </AnimatedSection>
 
