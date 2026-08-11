@@ -20,9 +20,9 @@ const ClientLogos = ({ clients, className = '' }: { clients: ClientLogo[]; class
           key={client.name}
           src={client.src}
           alt={client.name}
-          width={300}
-          height={250}
-          className="h-12 w-full justify-self-center object-contain opacity-80 transition-opacity hover:opacity-100 sm:h-16"
+          width={185}
+          height={50}
+          className="h-10 w-full justify-self-center object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-12"
         />
       ) : (
         <span

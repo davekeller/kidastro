@@ -8,40 +8,51 @@ import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
 import CaseImage from '@/components/case-studies/CaseImage';
 import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
-import ProcessSteps, { type ProcessStep } from '@/components/case-studies/ProcessSteps';
+import ProcessFlow, { type FlowPhase } from '@/components/case-studies/ProcessFlow';
 
-/* Clients whose science teams the work was built for. Drop logo SVGs into
-   /public/imgs/aura/clients/ and add `src` to swap a wordmark for real art. */
+/* Client marks, recolored from the strangeworks.com customer set for the dark
+   background. RTX is Collins Aerospace's parent company mark. */
 const clients: ClientLogo[] = [
-  { name: 'Johnson & Johnson' },
-  { name: 'Deloitte' },
-  { name: 'Accenture' },
-  { name: 'BP' },
-  { name: 'Collins Aerospace' },
+  { name: 'Johnson & Johnson', src: '/imgs/aura/clients/johnson-johnson.svg' },
+  { name: 'Deloitte', src: '/imgs/aura/clients/deloitte.svg' },
+  { name: 'Accenture', src: '/imgs/aura/clients/accenture.svg' },
+  { name: 'BP', src: '/imgs/aura/clients/Bp.svg' },
+  { name: 'RTX (Collins Aerospace)', src: '/imgs/aura/clients/rtx.svg' },
 ];
 
-/* Workflows v1 — the manual process, before the agents collapsed it. */
-const workflowSteps: ProcessStep[] = [
-  { title: 'Research & discovery', detail: 'Understand the business problem and what solving it is worth.' },
-  { title: 'Problem definition', detail: 'Write the problem down precisely enough to model it.' },
+/* Workflows v1 as a phased flow — the manual march the agents later collapsed. */
+const workflowPhases: FlowPhase[] = [
   {
-    title: 'Problem analysis',
-    detail: 'Pressure-test the definition, find the gaps, redefine, analyze again.',
-    loops: true,
+    label: 'Define',
+    loop: 'redefine ↔ reanalyze',
+    steps: [
+      { title: 'Research & discovery', detail: 'Understand the business problem and what solving it is worth.' },
+      { title: 'Problem definition', detail: 'Write the problem down precisely enough to model it.' },
+      { title: 'Problem analysis', detail: 'Pressure-test the definition, find the gaps, go again.' },
+    ],
   },
   {
-    title: 'Abstract model',
-    detail: 'Get the variables, constraints, and weights right against abstract data.',
+    label: 'Model',
+    steps: [
+      { title: 'Abstract model', detail: 'Get the variables, constraints, and weights right.' },
+      { title: 'Toy data', detail: 'Skeleton datasets to instantiate the model.' },
+      { title: 'Toy instance', detail: 'A concrete instance on toy data that actually runs.' },
+    ],
   },
-  { title: 'Toy data', detail: 'Skeleton datasets to instantiate the model and see if it holds up.' },
-  { title: 'Toy instance', detail: 'Build a concrete instance on toy data and make it actually run.' },
-  { title: 'Dataset build-out', detail: 'Assemble the real data, then the long work of cleaning it.' },
-  { title: 'Concrete instances', detail: 'Apply the real data to the model to produce runnable instances.' },
   {
-    title: 'Solver selection',
-    detail: 'Match the formulation to the solver — QUBOs and BQMs for quantum, HPC for the rest.',
+    label: 'Data',
+    steps: [
+      { title: 'Dataset build-out', detail: 'Assemble the real data, then the long work of cleaning it.' },
+      { title: 'Concrete instances', detail: 'Apply the real data to produce runnable instances.' },
+    ],
   },
-  { title: 'Compute & run', detail: 'Run the instances on the selected hardware solvers and read the results.' },
+  {
+    label: 'Run',
+    steps: [
+      { title: 'Solver selection', detail: 'Match the formulation to the solver — QUBOs and BQMs for quantum, HPC for the rest.' },
+      { title: 'Compute & run', detail: 'Run on the hardware solvers and read the results.' },
+    ],
+  },
 ];
 
 /** Numbered chapter header — big index, lowercase title, one-line kicker. */
@@ -121,12 +132,11 @@ const AuraCaseStudy = () => {
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               Hey Lucy, and the Slalom team: I&apos;m Dave, and I built this for you today. You
-              asked for a case study or a code repository — something that shows my process.
-              Here&apos;s both.
+              asked for a case study or a code repository. Here&apos;s both.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              This page walks the Aura story the way I&apos;d tell it in the room, and it&apos;s
-              a work sample itself: designed and shipped in production code, same day.
+              It walks the Aura story the way I&apos;d tell it in the room, and it&apos;s a work
+              sample itself — designed and shipped in production code, same day.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               The{' '}
@@ -168,23 +178,20 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Strangeworks is a data science consulting company. We take on hard optimization
-              problems and formulate them to run on quantum, quantum-inspired, and HPC solvers,
-              and we built the platform that connects a science team to the right solver for
-              their formulation type.
+              Strangeworks is a data science consulting company. We formulate hard optimization
+              problems to run on quantum, quantum-inspired, and HPC solvers, and we built the
+              platform that connects a science team to the right solver.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               So discovery meant interviewing our own consultants: PhD physicists, a quantum
-              machine learning scientist, people writing production data science code against
-              quantum hardware. Every engagement ran the same five beats: research, problem
-              definition, formulation, testing, then compute and run. Every one was hand-built
+              machine learning scientist, people writing data science code against quantum
+              hardware. Every engagement ran the same five beats, and every one was hand-built
               from scratch.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              Two things came out of that. The process repeated across clients, which meant it
-              could be refined and productized. And the make-or-break step was problem
-              definition — define it well and everything downstream gets dramatically easier.
-              That second insight ended up steering the whole product.
+              Two findings. The process repeated across clients, so it could be productized. And
+              the make-or-break step was problem definition — define it well and everything
+              downstream gets easier. That second one steered the whole product.
             </p>
           </InfoCard>
         </div>
@@ -213,25 +220,21 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              The central design question was where to land on a spectrum. At one end, a digital
-              science binder: a structured, legible record of a science project that anyone on
-              the engagement could follow. At the other, a full notebook IDE where a data
-              scientist writes real code. Too far toward the binder and the scientists
-              can&apos;t actually work. Too far toward the notebook and it&apos;s Jupyter with
-              extra steps.
+              The design question was where to land on a spectrum. At one end, a digital science
+              binder: a legible record of a science project anyone on the engagement could
+              follow. At the other, a notebook IDE where a scientist writes real code. Too far
+              toward the binder and they can&apos;t work. Too far toward the notebook and
+              it&apos;s Jupyter with extra steps.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               I built templates and wireframes across that whole range in Figma. Zoomed out, the
-              boards show the churn: dead ends, variations, and the handful of ideas that
-              survived.
+              boards show the churn: dead ends, variations, and what survived.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              None of it was a solo exercise. It ran through months of meetings and then a
-              full-day workshop at our quarterly offsite in Austin, with the whole company flown
-              in. I presented the product vision there and walked the room through the insights
-              I&apos;d pulled out of discovery: every point in the process where we could build a
-              tool. Having the science team argue with it in person is what made the direction
-              stick.
+              Then a full-day workshop at our quarterly offsite in Austin, whole company flown
+              in. I presented the vision and walked the room through the insights from
+              discovery: every point in the process where we could build a tool. Having the
+              science team argue with it in person is what made the direction stick.
             </p>
           </InfoCard>
         </div>
@@ -260,16 +263,14 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              The workshop landed, and that vision carried the team for a good stretch after. We
-              moved into Figma and designed the thing end-to-end: research → problem definition
-              → formulation → testing → compute and run, with an AI agent working the flow
-              alongside the scientist.
+              That vision carried the team for a good stretch. We moved into Figma and designed
+              it end-to-end: research → problem definition → formulation → testing → compute and
+              run, with an AI agent working the flow alongside the scientist.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              This was two years ago, well before the models could actually do it. Designing an
+              This was two years ago, well before the models could do it. Designing an
               agent-driven workflow then meant prototyping behavior that didn&apos;t exist yet
-              and betting on where it was heading. All of it pressure-tested in Figma, long
-              before a line of production code.
+              and betting on where it was heading.
             </p>
           </InfoCard>
         </div>
@@ -293,23 +294,20 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              While the Figma work was still warm, the dev team jumped straight into the app and
-              started building agentic reasoning, with the front-end going up alongside it. I
-              jumped into the code with them. We called them workflows back then.
+              While the Figma was still warm, the dev team jumped into the app and started
+              building agentic reasoning. I jumped into the code with them. We called them
+              workflows back then.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              That ran for about a year, and the way we built changed underneath us. Early on it
-              was mostly hand-written code — I was writing front-end HTML and Tailwind, reaching
-              for Cursor in small doses. As Claude got better and Claude Code shipped, I moved
-              into the terminal, and so did the rest of the team.
+              Over that year, the way we built changed underneath us. Early on I was
+              hand-writing HTML and Tailwind, reaching for Cursor in small doses. As Claude Code
+              shipped, I moved into the terminal — and so did the rest of the team.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              We&apos;re about ten developers: AI specialists, backend, full-stack, and one other
-              full-stack developer focused on the front-end. I was the design engineer on that
-              team and led the product vision — designing where it was going, building the UIs in
-              code, structuring the navigation and the user experience, and working with our
-              brand designer to bring the Strangeworks look and feel into the product and evolve
-              it as we went.
+              We&apos;re about ten developers: AI specialists, backend, full-stack. I was the
+              design engineer and led the product vision — building the UIs in code, structuring
+              the navigation and UX, and evolving the Strangeworks look and feel with our brand
+              designer.
             </p>
           </InfoCard>
         </div>
@@ -337,24 +335,20 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              It started as an internal app. Our own consulting team — about ten scientists who
-              run these engagements for client science teams — used it first, testing whether it
-              actually helped in the gaps between steps.
-            </p>
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Then it went outside. Science teams at Deloitte, Accenture, and Johnson &amp;
-              Johnson started building and testing their own models in it. That was the real
-              proof: people we hadn&apos;t trained, on problems we hadn&apos;t scoped.
+              It started internal: our own ten-scientist consulting team used it first. Then
+              science teams at Deloitte, Accenture, and Johnson &amp; Johnson started building
+              their own models in it — people we hadn&apos;t trained, on problems we hadn&apos;t
+              scoped.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              Version one was called Workflows, and it was a long linear march. Watching it get
-              used showed us exactly where the march broke down.
+              Version one, Workflows, was a long linear march. Watching it get used showed us
+              exactly where the march broke down.
             </p>
           </InfoCard>
         </div>
 
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <ProcessSteps steps={workflowSteps} />
+          <ProcessFlow phases={workflowPhases} />
         </div>
 
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
@@ -384,20 +378,15 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              While we were building Workflows, the models kept getting better, and we ended up
-              moving faster than our own roadmap. What exists today is Aura 2.0, and it collapses
-              that whole linear march.
-            </p>
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Our first instinct had been an agent for each step. 2.0 flips it. There&apos;s one
-              agent at the front, and its only job is the problem definition. You start with the
-              problem in plain language. It refines that into something sharper, then asks
+              AI kept getting better while we built, and we ended up moving faster than our own
+              roadmap. Aura 2.0 collapses the whole march. Our first instinct was an agent for
+              each step — 2.0 flips it: one agent at the front, and its only job is the problem
+              definition. You start in plain language; it sharpens the problem and asks
               questions until every critical gap is closed.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Once the definition is genuinely robust, the hard part is done. We trained the
-              agents to take it from there: formulation, solver selection, data cleaning,
-              compute, run. Every step past understanding the problem.
+              Once the definition is robust, the hard part is done. Trained agents take it from
+              there: formulation, solver selection, data cleaning, compute, run.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               Which is what the consultants told me in discovery two years earlier. The whole
@@ -429,18 +418,17 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Aura 2.0 builds the optimization model. Then the model has to run a business.
-              These end up driving daily operations: staff scheduling, vehicle routing, cargo
-              loading, freight and distribution, logistics at the scale where a spreadsheet
-              stopped working years ago.
+              Aura 2.0 builds the model — then the model has to run a business. Staff
+              scheduling, vehicle routing, cargo and freight, logistics at the scale where a
+              spreadsheet stopped working years ago.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              So the last step is design work again. We build custom interfaces on top of the
-              models, so an operator can drive a hard optimization model on a Tuesday morning
-              with no optimization background. I designed and built a lot of these.
+              So the last step is design work again: custom interfaces on top of the models, so
+              an operator with no optimization background can drive one on a Tuesday morning. I
+              designed and built a lot of these.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              Aura is live today as the toolset behind the Strangeworks optimization practice —{' '}
+              Aura is live today behind the Strangeworks optimization practice —{' '}
               <a
                 href="https://strangeworks.com/technology/aura"
                 target="_blank"
@@ -469,10 +457,9 @@ const AuraCaseStudy = () => {
             <p className="text-white/50 text-sm font-bold italic mb-4">100x faster gate reallocation</p>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              A gate agent on the ground knows things the model doesn&apos;t: a flight is
-              delayed, an aircraft needs to be closer to passport control, a connection is about
-              to break. We built an interface where they describe the situation to the AI, build
-              scenarios from it, and re-solve the whole gate schedule against them.
+              A gate agent knows things the model doesn&apos;t: a delayed flight, an aircraft
+              that needs passport control, a connection about to break. They describe the
+              situation to the AI, build scenarios, and re-solve the whole gate schedule.
             </p>
           </InfoCard>
         </div>
@@ -489,10 +476,9 @@ const AuraCaseStudy = () => {
             <p className="text-white/50 text-sm font-bold italic mb-4">certifications, lanes, and terminals</p>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              We consulted for Deloitte, who were consulting for the TSA. An airport runs five or
-              six terminals, each with multiple security lanes, and every lane needs the right
-              people on it: general staff, someone certified on X-ray, a certified K9 handler.
-              We built the interface that schedules against all of those constraints at once.
+              We consulted for Deloitte, who were consulting for the TSA. Six terminals, multiple
+              lanes each, and every lane needs the right people: general staff, an X-ray cert, a
+              K9 handler. The interface schedules against all of it at once.
             </p>
           </InfoCard>
         </div>
@@ -516,13 +502,12 @@ const AuraCaseStudy = () => {
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               Every client operation is different, but the pieces repeat: schedules, constraints,
-              scenario builders, solver runs, results you have to be able to read at a glance.
+              scenario builders, solver runs, results readable at a glance.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              So we built Strange-UI, our internal design system for optimization interfaces. It
-              means a new client app starts from real components instead of a blank file, on
-              brand and production-ready from the first commit. It&apos;s the reason the last
-              step of this process is fast.
+              So we built Strange-UI, our design system for optimization interfaces. A new client
+              app starts from real components, on brand and production-ready from the first
+              commit. It&apos;s why the last step of this process is fast.
             </p>
           </InfoCard>
         </div>
@@ -550,13 +535,10 @@ const AuraCaseStudy = () => {
             </h4>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              We built an app that helps you build an optimization model. Then we built a design
-              system for making client-specific interfaces that run those models.
-            </p>
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              And then we sit with each client to design the real thing: interactive visuals,
-              layered navigation, data laid out so it can actually be read — so somebody on the
-              ground in operations can pick it up and run their day with it.
+              We built an app that builds optimization models, and a design system for the
+              client interfaces that run them. Then we sit with each client and design the real
+              thing — interactive visuals, layered navigation, data laid out to be read — so
+              somebody on the ground in operations can run their day with it.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               A process we learned from our own consultants, turned into a product, turned back
@@ -578,6 +560,16 @@ const AuraCaseStudy = () => {
           </InfoCard>
         </div>
       </AnimatedSection>
+
+      {/* SIGN-OFF */}
+      <FadeUp className="w-full">
+        <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 pb-8 text-center">
+          <p className="text-2xl md:text-3xl font-bold lowercase text-balance">
+            that&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit —
+          </p>
+          <p className="mt-3 text-xl text-white/70">you&apos;ve got my number.</p>
+        </div>
+      </FadeUp>
 
       <Footer />
     </>
