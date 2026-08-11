@@ -183,7 +183,7 @@ const AuraCaseStudy = () => {
             </p>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
-              <li className={bullet}>Sketched the narrative first — the same six beats I&apos;d walk through in an interview</li>
+              <li className={bullet}>Sketched the narrative first — the same five beats I&apos;d walk through in an interview</li>
               <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
               <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
               <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
@@ -407,16 +407,18 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="05"
           title="shipped — client interfaces"
-          kicker="the models have to run a business, so someone has to be able to drive them"
+          kicker="a design system for the web apps that operationalize each client's model"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
             asideTitle="what we build"
             items={[
-              'Custom operator interfaces on top of each client model',
+              'Strange-UI, our design system for optimization interfaces',
+              'Custom web apps that operationalize each client model',
               'Staff scheduling, vehicle routing, cargo, freight, and logistics',
               'Interactive visuals and layered navigation over hard data',
               'Built for operators with no optimization background',
+              'New client apps start from real components, not a blank file',
             ]}
           >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
@@ -424,8 +426,11 @@ const AuraCaseStudy = () => {
               scheduling, vehicle routing, cargo and freight, logistics.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              So the last step is design work again. Custom interfaces on top of the models, so
-              an operator with no optimization background can drive one on a Tuesday morning.
+              So the last step is design work again. Every client operation differs, but the
+              pieces repeat: schedules, constraints, scenario builders, solver runs. So we built
+              Strange-UI, a design system for the custom web apps that operationalize each
+              client&apos;s optimization model — on brand and production-ready from the first
+              commit.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               Aura is live today behind the Strangeworks optimization practice —{' '}
@@ -486,36 +491,11 @@ const AuraCaseStudy = () => {
           alt="TSA staff scheduling interface"
           note="screenshot — TSA staff scheduling: terminals, lanes, and certification coverage"
         />
-      </AnimatedSection>
 
-      <AnimatedBreak />
-
-      {/* 06 STRANGE-UI */}
-      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
-        <ChapterHeader
-          index="06"
-          title="strange-ui — the design system"
-          kicker="building one client interface is a project; building dozens is a system"
-        />
-        <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <ChapterCard
-            asideTitle="what it gives us"
-            items={[
-              'Shared components for schedules, constraints, and scenario builders',
-              'Solver runs and results readable at a glance',
-              'New client apps start from real components, not a blank file',
-              'On brand and production-ready from the first commit',
-            ]}
-          >
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Every client operation differs, but the pieces repeat: schedules, constraints,
-              scenario builders, solver runs, results readable at a glance.
-            </p>
-            <p className="text-lg leading-8 text-white/90 text-pretty">
-              So we built Strange-UI. A new client app starts from real components, on brand and
-              production-ready from the first commit. It&apos;s why the last step is fast.
-            </p>
-          </ChapterCard>
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mt-4 border-t-2 border-white/15 pt-10">
+          <p className="text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+            strange-ui — the design system behind them
+          </p>
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
