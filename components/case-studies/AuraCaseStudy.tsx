@@ -124,8 +124,8 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 gap-8 pt-28">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <div className="mb-4 flex items-start justify-between gap-4">
-              <div className="flex items-center gap-4">
+            <div className="mb-3 flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3.5">
                 <Image
                   src="/imgs/dave.jpg"
                   alt="Dave Keller"
@@ -135,16 +135,16 @@ const AuraCaseStudy = () => {
                   priority
                 />
                 <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+                  <p className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-white/40">
                     built for
                   </p>
-                  <h2 className="mt-1 text-xl md:text-2xl font-bold text-white text-balance">
+                  <h2 className="mt-0.5 text-xl md:text-2xl font-bold tracking-tight text-white text-balance">
                     Lucy and the Slalom team
                   </h2>
                 </div>
               </div>
-              <div className="flex shrink-0 flex-col items-end gap-2 pt-0.5">
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-white/35">
+              <div className="flex shrink-0 flex-col items-end gap-1.5">
+                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/35">
                   August 11, 2026
                 </p>
                 <SlalomMark className="h-9 w-auto text-white md:h-11" />
@@ -183,7 +183,7 @@ const AuraCaseStudy = () => {
             </p>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
-              <li className={bullet}>Sketched the narrative first — the same eight beats I&apos;d walk through in an interview</li>
+              <li className={bullet}>Sketched the narrative first — the same seven beats I&apos;d walk through in an interview</li>
               <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
               <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
               <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
@@ -310,68 +310,26 @@ const AuraCaseStudy = () => {
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/strangeworks/strange2.webp"
-          alt="Figma wireframe and flow template library, zoomed out"
+          src="/imgs/aura/wireframes-flow.webp"
+          alt="Prototype flow board — projects, research and methods, formulation, and solvers"
         />
       </AnimatedSection>
 
       <AnimatedBreak />
 
-      {/* 03 THE END-TO-END FLOW */}
+      {/* 03 THE FLOW AND THE FRONT-END */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="03"
-          title="the end-to-end flow"
-          kicker="designing an agent-run workflow in Figma, before the models could actually run it"
-        />
-        <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <ChapterCard
-            asideTitle="what happened"
-            items={[
-              'Designed the full flow: research → definition → formulation → testing → run',
-              'Placed an AI agent alongside the scientist at every step',
-              'Prototyped agent behavior the models could not yet perform',
-              'Pressure-tested the whole journey in Figma before any production code',
-            ]}
-          >
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              That vision carried the team for a good stretch. We moved into Figma and designed
-              it end-to-end: research → problem definition → formulation → testing → compute and
-              run, with an AI agent working the flow alongside the scientist.
-            </p>
-            <p className="text-lg leading-8 text-white/90 text-pretty">
-              This was two years ago, well before the models could do it. Designing an
-              agent-driven workflow then meant prototyping behavior that didn&apos;t exist yet
-              and betting on where it was heading.
-            </p>
-          </ChapterCard>
-        </div>
-        <CaseImage
-          className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/wireframes1.webp"
-          alt="End-to-end flow board — projects, research and methods, formulation, and solvers"
-          label="end-to-end flow"
-        />
-        <CaseImage
-          className="col-span-1 lg:col-span-3"
-          src="/imgs/strangeworks/strange3.webp"
-          alt="Figma flow map of the Aura app — projects, research, and formulation flows"
-        />
-      </AnimatedSection>
-
-      <AnimatedBreak />
-
-      {/* 04 BUILDING IT IN THE FRONT-END */}
-      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
-        <ChapterHeader
-          index="04"
-          title="building it in the front-end"
-          kicker="into the repo with the dev team, as the tooling changed underneath us"
+          title="the flow, then the front-end"
+          kicker="a flow to align everyone, and a repo running right beside it"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
             asideTitle="my role"
             items={[
+              'Designed the flow end-to-end: research → definition → formulation → testing → run',
+              'Prototyped agent behavior two years before the models could perform it',
               'Design engineer on a team of about ten developers',
               'Led the product vision alongside the build',
               'Built the production UIs in code, not handoffs',
@@ -381,41 +339,46 @@ const AuraCaseStudy = () => {
             ]}
           >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              While the Figma was still warm, the dev team jumped into the app and started
-              building agentic reasoning. I jumped into the code with them. We called them
-              workflows back then.
+              We designed it end-to-end in Figma: research → problem definition → formulation →
+              testing → compute and run, with an AI agent working the flow alongside the
+              scientist. This was two years ago, well before the models could do it —
+              prototyping behavior that didn&apos;t exist yet and betting on where it was headed.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Over that year, the way we built changed underneath us. Early on I was
-              hand-writing HTML and Tailwind, reaching for Cursor in small doses. As Claude Code
-              shipped, I moved into the terminal — and so did the rest of the team.
+              That flow was as much an alignment tool as a spec: one picture marketing and the
+              whole team could refine against. Meanwhile the dev team was already in the app
+              building agentic reasoning, and I was in the code with them. We called them
+              workflows back then.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              We&apos;re about ten developers: AI specialists, backend, full-stack. I was the
-              design engineer and led the product vision — building the UIs in code, structuring
-              the navigation and UX, and evolving the Strangeworks look and feel with our brand
-              designer.
+              Over that year the way we built changed underneath us. Early on I was hand-writing
+              HTML and Tailwind, reaching for Cursor in small doses. As Claude Code shipped I
+              moved into the terminal, and so did the rest of the team. I was the design engineer
+              across about ten developers and led the product vision — building the UIs in code,
+              structuring the navigation and UX, and evolving the Strangeworks look and feel with
+              our brand designer.
             </p>
           </ChapterCard>
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          alt="Aura repo — front-end code"
-          note="screenshot — aura repo / early front-end build"
+          src="/imgs/strangeworks/strange3.webp"
+          alt="Figma flow map of the Aura app — projects, research, and formulation flows"
+          label="the flow"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          alt="Early Aura UI in the browser"
-          note="screenshot — early product UI, iterating in the front-end"
+          alt="Aura running in the front-end"
+          note="drop-in — the front-end build (name it build1)"
         />
       </AnimatedSection>
 
       <AnimatedBreak />
 
-      {/* 05 BETA TESTING & ITERATION */}
+      {/* 04 BETA TESTING & ITERATION */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
-          index="05"
+          index="04"
           title="beta testing &amp; iteration"
           kicker="our own consultants first, then our clients' science teams"
         />
@@ -457,10 +420,10 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak />
 
-      {/* 06 AURA 2.0 */}
+      {/* 05 AURA 2.0 */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
-          index="06"
+          index="05"
           title="aura 2.0 — agents"
           kicker="one agent to get the problem definition right; trained agents do the rest"
         />
@@ -502,10 +465,10 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak />
 
-      {/* 07 SHIPPED — CLIENT INTERFACES */}
+      {/* 06 SHIPPED — CLIENT INTERFACES */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
-          index="07"
+          index="06"
           title="shipped — client interfaces"
           kicker="the models have to run a business, so someone has to be able to drive them"
         />
@@ -592,10 +555,10 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak />
 
-      {/* 08 STRANGE-UI */}
+      {/* 07 STRANGE-UI */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
-          index="08"
+          index="07"
           title="strange-ui — the design system"
           kicker="building one client interface is a project; building dozens is a system"
         />
