@@ -347,13 +347,13 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
         <CaseImage
-          className="col-span-full lg:col-span-6"
+          className="col-span-1 lg:col-span-3"
           src="/imgs/aura/wireframes1.webp"
           alt="End-to-end flow board — projects, research and methods, formulation, and solvers"
           label="end-to-end flow"
         />
         <CaseImage
-          className="col-span-full lg:col-span-6"
+          className="col-span-1 lg:col-span-3"
           src="/imgs/strangeworks/strange3.webp"
           alt="Figma flow map of the Aura app — projects, research, and formulation flows"
         />
