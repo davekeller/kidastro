@@ -247,11 +247,10 @@ const AuraCaseStudy = () => {
           className="col-span-1 lg:col-span-3"
           src="/imgs/aura/research1.webp"
           alt="Notion research hub — discovery workshop docs, consultant interviews, and insights"
-          label="research &amp; discovery"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/research2-v2.webp"
+          src="/imgs/aura/research2-v3.webp"
           alt="Problem → Analysis — phased flows and standardized formulation components in Figma"
         />
       </AnimatedSection>
@@ -292,7 +291,6 @@ const AuraCaseStudy = () => {
           className="col-span-1 lg:col-span-3"
           src="/imgs/aura/wireframes-painpoints.webp"
           alt="Sci Workflow board — pain points and opportunities across every phase, and the offsite deck"
-          label="pain points &amp; opportunities"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
