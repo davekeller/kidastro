@@ -10,9 +10,9 @@ const colors = [
   '#6ee7b7', // Mint
 ];
 
-// `compact` keeps the drifting glyphs but drops the tall padding, for breaks
-// that separate two closely-related blocks rather than two sections.
-const AnimatedBreak = ({ compact = false }: { compact?: boolean }) => {
+// `loose` keeps the drifting glyphs but gives them much more room — for the
+// break that has to carry a real pause, like the one under a page hero.
+const AnimatedBreak = ({ loose = false }: { loose?: boolean }) => {
   const [colorIndex, setColorIndex] = useState(0);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -67,7 +67,7 @@ const AnimatedBreak = ({ compact = false }: { compact?: boolean }) => {
     <div
       ref={containerRef}
       className={`w-full flex items-center justify-center ${
-        compact ? 'py-8' : 'h-[200px] py-32 md:py-48'
+        loose ? 'py-64 md:py-80' : 'h-[200px] py-32 md:py-48'
       }`}
     >
       <div

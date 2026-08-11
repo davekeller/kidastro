@@ -75,7 +75,7 @@ const InfoCard = ({ children, className = '' }: { children: React.ReactNode; cla
 );
 
 const bullet =
-  "pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty";
+  "pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-(--color-2)/70 text-lg leading-snug text-white/90 text-pretty";
 
 /** Tighter bullet for the sidebar list inside a chapter card. */
 const sideBullet =
@@ -210,7 +210,7 @@ const AuraCaseStudy = () => {
         </FadeUp>
       </header>
 
-      <AnimatedBreak compact />
+      <AnimatedBreak loose />
 
       {/* 01 RESEARCH & DISCOVERY */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
@@ -271,7 +271,16 @@ const AuraCaseStudy = () => {
           kicker="finding the line between a digital science binder and a full data science IDE"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="what happened"
+            items={[
+              'Wireframed templates across the binder-to-IDE spectrum in Figma',
+              'Built the artboard wall — dead ends, variations, and survivors',
+              'Ran a full-day workshop at the Austin quarterly offsite',
+              'Presented the product vision to the whole company',
+              'Pressure-tested it live with the science team',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               The design question was where to land on a spectrum. At one end, a digital science
               binder: a legible record of a science project anyone on the engagement could
@@ -289,7 +298,7 @@ const AuraCaseStudy = () => {
               discovery: every point in the process where we could build a tool. Having the
               science team argue with it in person is what made the direction stick.
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
         <CaseImage
           className="col-span-full lg:col-span-6"
@@ -314,7 +323,15 @@ const AuraCaseStudy = () => {
           kicker="designing an agent-run workflow in Figma, before the models could actually run it"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="what happened"
+            items={[
+              'Designed the full flow: research → definition → formulation → testing → run',
+              'Placed an AI agent alongside the scientist at every step',
+              'Prototyped agent behavior the models could not yet perform',
+              'Pressure-tested the whole journey in Figma before any production code',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               That vision carried the team for a good stretch. We moved into Figma and designed
               it end-to-end: research → problem definition → formulation → testing → compute and
@@ -325,7 +342,7 @@ const AuraCaseStudy = () => {
               agent-driven workflow then meant prototyping behavior that didn&apos;t exist yet
               and betting on where it was heading.
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
         <CaseImage
           className="col-span-full lg:col-span-6"
@@ -350,7 +367,17 @@ const AuraCaseStudy = () => {
           kicker="into the repo with the dev team, as the tooling changed underneath us"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="my role"
+            items={[
+              'Design engineer on a team of about ten developers',
+              'Led the product vision alongside the build',
+              'Built the production UIs in code, not handoffs',
+              'Structured the navigation and user experience',
+              'Evolved the Strangeworks look and feel with our brand designer',
+              'Moved from hand-written Tailwind and Cursor into Claude Code',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               While the Figma was still warm, the dev team jumped into the app and started
               building agentic reasoning. I jumped into the code with them. We called them
@@ -367,7 +394,7 @@ const AuraCaseStudy = () => {
               the navigation and UX, and evolving the Strangeworks look and feel with our brand
               designer.
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
@@ -391,7 +418,16 @@ const AuraCaseStudy = () => {
           kicker="our own consultants first, then our clients' science teams"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="what happened"
+            items={[
+              'Shipped internally to our own ten-scientist consulting team',
+              'Opened it to client science teams at Deloitte, Accenture, and J&J',
+              'Watched untrained users work problems we had not scoped',
+              'Iterated on their feedback between every step',
+              'Found exactly where the linear march broke down',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               It started internal: our own ten-scientist consulting team used it first. Then
               science teams at Deloitte, Accenture, and Johnson &amp; Johnson started building
@@ -402,7 +438,7 @@ const AuraCaseStudy = () => {
               Version one, Workflows, was a long linear march. Watching it get used showed us
               exactly where the march broke down.
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
 
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
@@ -434,7 +470,16 @@ const AuraCaseStudy = () => {
           kicker="one agent to get the problem definition right; trained agents do the rest"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="what changed"
+            items={[
+              'Dropped the agent-per-step model for a single front-loaded agent',
+              'Natural-language problem in, robust definition out',
+              'Agent interrogates the user until every critical gap closes',
+              'Trained agents handle formulation, solvers, data, and compute',
+              'Ten manual steps collapse to one that matters',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               AI kept getting better while we built, and we ended up moving faster than our own
               roadmap. Aura 2.0 collapses the whole march. Our first instinct was an agent for
@@ -450,7 +495,7 @@ const AuraCaseStudy = () => {
               Which is what the consultants told me in discovery two years earlier. The whole
               product is that one insight, built.
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
@@ -474,7 +519,15 @@ const AuraCaseStudy = () => {
           kicker="the models have to run a business, so someone has to be able to drive them"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="what we build"
+            items={[
+              'Custom operator interfaces on top of each client model',
+              'Staff scheduling, vehicle routing, cargo, freight, and logistics',
+              'Interactive visuals and layered navigation over hard data',
+              'Built for operators with no optimization background',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               Aura 2.0 builds the model — then the model has to run a business. Staff
               scheduling, vehicle routing, cargo and freight, logistics at the scale where a
@@ -497,7 +550,7 @@ const AuraCaseStudy = () => {
               </a>
               .
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
 
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
@@ -557,7 +610,15 @@ const AuraCaseStudy = () => {
           kicker="building one client interface is a project; building dozens is a system"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="what it gives us"
+            items={[
+              'Shared components for schedules, constraints, and scenario builders',
+              'Solver runs and results readable at a glance',
+              'New client apps start from real components, not a blank file',
+              'On brand and production-ready from the first commit',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               Every client operation is different, but the pieces repeat: schedules, constraints,
               scenario builders, solver runs, results readable at a glance.
@@ -567,7 +628,7 @@ const AuraCaseStudy = () => {
               app starts from real components, on brand and production-ready from the first
               commit. It&apos;s why the last step of this process is fast.
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
