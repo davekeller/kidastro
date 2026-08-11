@@ -124,7 +124,7 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 gap-8 pt-28">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <div className="mb-4 flex items-start justify-between gap-4">
+            <div className="mb-4 flex items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <Image
                   src="/imgs/dave.jpg"
@@ -143,11 +143,11 @@ const AuraCaseStudy = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex shrink-0 flex-col items-end gap-2 pt-0.5">
+              <div className="flex shrink-0 flex-col items-end gap-2">
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
                   August 11, 2026
                 </p>
-                <SlalomMark className="h-9 w-auto text-white md:h-11" />
+                <SlalomMark className="h-5 w-auto text-white md:h-6" />
               </div>
             </div>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
