@@ -124,8 +124,8 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 gap-8 pt-28">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <div className="mb-3 flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3.5">
+            <div className="mb-4 flex items-start justify-between gap-4">
+              <div className="flex items-center gap-4">
                 <Image
                   src="/imgs/dave.jpg"
                   alt="Dave Keller"
@@ -135,16 +135,16 @@ const AuraCaseStudy = () => {
                   priority
                 />
                 <div>
-                  <p className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-white/40">
+                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                     built for
                   </p>
-                  <h2 className="mt-0.5 text-xl md:text-2xl font-bold tracking-tight text-white text-balance">
+                  <h2 className="mt-1 text-xl md:text-2xl font-bold tracking-tight text-white text-balance">
                     Lucy and the Slalom team
                   </h2>
                 </div>
               </div>
-              <div className="flex shrink-0 flex-col items-end gap-1.5">
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/35">
+              <div className="flex shrink-0 flex-col items-end gap-2 pt-0.5">
+                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
                   August 11, 2026
                 </p>
                 <SlalomMark className="h-9 w-auto text-white md:h-11" />
@@ -323,7 +323,7 @@ const AuraCaseStudy = () => {
           >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               The dev team jumped into the app building agentic reasoning, and I jumped into the
-              code with them. We called them workflows back then.
+              code with them. The app was called Workflows back then — it became Aura later.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               Going straight to the front-end is what made the loop fast. Our own ten-scientist
