@@ -370,7 +370,7 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="04"
           title="Aura 2.0 — Agentic Advancements"
-          kicker="The user and a problem analysis agent, back and forth, until the definition holds"
+          kicker="Working the problem back and forth with an agent until the definition holds"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
