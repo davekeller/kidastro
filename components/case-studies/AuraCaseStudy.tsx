@@ -125,12 +125,12 @@ const AuraCaseStudy = () => {
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
           August 11, 2026
         </p>
-        <SlalomMark className="h-6 w-auto text-white" />
+        <SlalomMark className="h-10 w-auto text-white" />
       </div>
 
       {/* BUILT FOR YOU — the note that frames the case study */}
       <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-36">
-        <div className="col-span-full mx-auto flex w-full max-w-3xl items-start justify-center gap-5 px-4 lg:w-[80%]">
+        <div className="col-span-full mx-auto flex w-full max-w-5xl items-start justify-center gap-6 px-4">
           <Image
             src="/imgs/dave.jpg"
             alt="Dave Keller"
