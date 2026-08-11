@@ -161,13 +161,27 @@ const AuraCaseStudy = () => {
               can&apos;t actually work. Too far toward the notebook and it&apos;s Jupyter with
               extra steps.
             </p>
-            <p className="text-lg leading-8 text-white/90 text-pretty">
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               I built templates and wireframes across that whole range in Figma. Zoomed out, the
               boards show the churn: dead ends, variations, and the handful of ideas that
               survived.
             </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              None of it was a solo exercise. It ran through months of meetings and then a
+              full-day workshop at our quarterly offsite in Austin, with the whole company flown
+              in. I presented the product vision there and walked the room through the insights
+              I&apos;d pulled out of discovery: every point in the process where we could build a
+              tool. Having the science team argue with it in person is what made the direction
+              stick.
+            </p>
           </InfoCard>
         </div>
+        <CaseImage
+          className="col-span-full lg:col-span-6"
+          alt="The insights screen — every point in the process where a tool could be built"
+          label="the insights"
+          note="figma pull — the insights screen presented at the Austin offsite"
+        />
         <CaseImage
           className="col-span-full lg:col-span-6"
           alt="Zoomed-out Figma boards of wireframe explorations"
@@ -182,14 +196,21 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="03"
           title="the end-to-end flow"
-          kicker="refining the sketches into one connected journey"
+          kicker="designing an agent-run workflow in Figma, before the models could actually run it"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              The workshop landed, and that vision carried the team for a good stretch after. We
+              moved into Figma and designed the thing end-to-end: research → problem definition
+              → formulation → testing → compute and run, with an AI agent working the flow
+              alongside the scientist.
+            </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              The explorations converged into a single end-to-end flow: research → problem
-              definition → formulation → testing → compute &amp; run. Prototyped and pressure-tested
-              in Figma before a line of production code.
+              This was two years ago, well before the models could actually do it. Designing an
+              agent-driven workflow then meant prototyping behavior that didn&apos;t exist yet
+              and betting on where it was heading. All of it pressure-tested in Figma, long
+              before a line of production code.
             </p>
           </InfoCard>
         </div>
