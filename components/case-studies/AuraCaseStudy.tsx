@@ -251,7 +251,7 @@ const AuraCaseStudy = () => {
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/research2.webp"
+          src="/imgs/aura/research2-v2.webp"
           alt="Problem → Analysis — phased flows and standardized formulation components in Figma"
         />
       </AnimatedSection>
