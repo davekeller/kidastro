@@ -140,7 +140,7 @@ const AuraCaseStudy = () => {
               <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
               <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
               <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
-              <li className={bullet}>Wrote every word, reviewed the diff, and shipped it to kidastro.com the same day</li>
+              <li className={bullet}>Orchestrated the whole process, reviewed the diff, and shipped it to kidastro.com the same day</li>
             </ul>
           </InfoCard>
         </div>
