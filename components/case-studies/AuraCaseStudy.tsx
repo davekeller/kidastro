@@ -197,14 +197,14 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/strangeworks/strange2.webp"
-          alt="Figma research and template library, zoomed out"
+          alt="Notion research hub — discovery workshop docs, consultant interviews, and insights"
           label="research &amp; discovery"
+          note="drop-in — zoomed-out Notion research wall (workshops, interviews, insights)"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          alt="Interview notes and process mapping"
-          note="figma pull — zoomed-out boards of the discovery interviews / process mapping"
+          src="/imgs/strangeworks/strange2.webp"
+          alt="Figma research and template library, zoomed out"
         />
       </AnimatedSection>
 
