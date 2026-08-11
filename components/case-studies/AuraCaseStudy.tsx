@@ -123,7 +123,7 @@ const AuraCaseStudy = () => {
             <h3 className="text-xl font-bold mt-2 mb-4 text-balance">how this page came together</h3>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
-              <li className={bullet}>Sketched the narrative first — the same seven beats I&apos;d walk through in an interview</li>
+              <li className={bullet}>Sketched the narrative first — the same eight beats I&apos;d walk through in an interview</li>
               <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
               <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
               <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
@@ -401,17 +401,23 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="07"
           title="shipped — client interfaces"
-          kicker="the models become products: scheduling, routing, and more"
+          kicker="the models have to run a business, so someone has to be able to drive them"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Once the models exist, we design custom optimization interfaces around them for
-              clients — staff scheduling, vehicle routing, gate assignment — so an ops team can
-              use a hard optimization model without an optimization background.
+              Aura 2.0 builds the optimization model. Then the model has to run a business.
+              These end up driving daily operations: staff scheduling, vehicle routing, cargo
+              loading, freight and distribution, logistics at the scale where a spreadsheet
+              stopped working years ago.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              So the last step is design work again. We build custom interfaces on top of the
+              models, so an operator can drive a hard optimization model on a Tuesday morning
+              with no optimization background. I designed and built a lot of these.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              Aura is live today as the toolset behind Strangeworks&apos; optimization practice —{' '}
+              Aura is live today as the toolset behind the Strangeworks optimization practice —{' '}
               <a
                 href="https://strangeworks.com/technology/aura"
                 target="_blank"
@@ -424,17 +430,130 @@ const AuraCaseStudy = () => {
             </p>
           </InfoCard>
         </div>
+
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <CaseImage
+            src="/imgs/strangeworks/strange4.webp"
+            alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards"
+            label="client apps"
+          />
+        </div>
+
+        {/* Lufthansa */}
+        <div className="col-span-1 lg:col-span-3 self-stretch">
+          <InfoCard className="h-full">
+            <h3 className="text-xl font-bold mb-1">Lufthansa — gate scheduling</h3>
+            <p className="text-white/50 text-sm font-bold italic mb-4">100x faster gate reallocation</p>
+            <div className="w-full border-b-2 border-white/20 mb-4"></div>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              A gate agent on the ground knows things the model doesn&apos;t: a flight is
+              delayed, an aircraft needs to be closer to passport control, a connection is about
+              to break. We built an interface where they describe the situation to the AI, build
+              scenarios from it, and re-solve the whole gate schedule against them.
+            </p>
+          </InfoCard>
+        </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/strangeworks/strange4.webp"
-          alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards"
-          label="client apps"
+          alt="Lufthansa gate scheduling interface"
+          note="screenshot — Lufthansa gate scheduling: scenario chat and re-solved schedule"
+        />
+
+        {/* Deloitte / TSA */}
+        <div className="col-span-1 lg:col-span-3 self-stretch">
+          <InfoCard className="h-full">
+            <h3 className="text-xl font-bold mb-1">Deloitte — TSA staff scheduling</h3>
+            <p className="text-white/50 text-sm font-bold italic mb-4">certifications, lanes, and terminals</p>
+            <div className="w-full border-b-2 border-white/20 mb-4"></div>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              We consulted for Deloitte, who were consulting for the TSA. An airport runs five or
+              six terminals, each with multiple security lanes, and every lane needs the right
+              people on it: general staff, someone certified on X-ray, a certified K9 handler.
+              We built the interface that schedules against all of those constraints at once.
+            </p>
+          </InfoCard>
+        </div>
+        <CaseImage
+          className="col-span-1 lg:col-span-3"
+          alt="TSA staff scheduling interface"
+          note="screenshot — TSA staff scheduling: terminals, lanes, and certification coverage"
+        />
+      </AnimatedSection>
+
+      <AnimatedBreak />
+
+      {/* 08 STRANGE-UI */}
+      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
+        <ChapterHeader
+          index="08"
+          title="strange-ui — the design system"
+          kicker="building one client interface is a project; building dozens is a system"
+        />
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <InfoCard>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Every client operation is different, but the pieces repeat: schedules, constraints,
+              scenario builders, solver runs, results you have to be able to read at a glance.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              So we built Strange-UI, our internal design system for optimization interfaces. It
+              means a new client app starts from real components instead of a blank file, on
+              brand and production-ready from the first commit. It&apos;s the reason the last
+              step of this process is fast.
+            </p>
+          </InfoCard>
+        </div>
+        <CaseImage
+          className="col-span-1 lg:col-span-3"
+          alt="Strange-UI component library"
+          note="screenshot — Strange-UI components / library overview"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          alt="Gate scheduling demo UI"
-          note="screenshot — gate-schedule demo / airport security client apps"
+          alt="Strange-UI patterns in use across client apps"
+          note="screenshot — Strange-UI patterns composed into a client interface"
         />
+      </AnimatedSection>
+
+      <AnimatedBreak />
+
+      {/* CLOSING — bookends the built-for-you block */}
+      <AnimatedSection className="grid grid-cols-1 gap-12">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <InfoCard>
+            <h2 className="text-3xl md:text-4xl font-bold lowercase">what it added up to</h2>
+            <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5 mb-4">
+              an internal process, turned into a product, turned back into client work
+            </h4>
+            <div className="w-full border-b-2 border-white/20 mb-4"></div>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              We built an app that helps you build an optimization model. Then we built a design
+              system for making client-specific interfaces that run those models.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              And then we sit with each client to design the real thing: interactive visuals,
+              layered navigation, data laid out so it can actually be read — so somebody on the
+              ground in operations can pick it up and run their day with it.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              A process we learned from our own consultants, turned into a product, turned back
+              into how we serve clients. Full circle.
+            </p>
+          </InfoCard>
+
+          <InfoCard className="flex flex-col items-start">
+            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what I did on it</h3>
+            <div className="w-full border-b-2 border-white/20 mb-6"></div>
+            <ul className="list-none space-y-4 w-full">
+              <li className={bullet}>Ran the discovery that surfaced the insight the whole product is built on</li>
+              <li className={bullet}>Presented the product vision to the company and got the science team behind it</li>
+              <li className={bullet}>Designed the end-to-end agent flow two years before the models could run it</li>
+              <li className={bullet}>Built the UIs in production code alongside a ten-person dev team</li>
+              <li className={bullet}>Led the product vision from research through the 2.0 the company ships today</li>
+              <li className={bullet}>Helped build Strange-UI, the design system behind every client interface</li>
+            </ul>
+          </InfoCard>
+        </div>
       </AnimatedSection>
 
       <Footer />
