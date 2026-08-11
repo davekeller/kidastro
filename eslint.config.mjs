@@ -17,6 +17,12 @@ const eslintConfig = defineConfig([
       ".claude/worktrees/**",
     ],
   },
+  {
+    // Standalone Node build scripts (run directly, e.g. `npm run resume:docx`).
+    // They are CommonJS by design, so require() is correct here, not a defect.
+    files: ["scripts/**/*.js"],
+    rules: { "@typescript-eslint/no-require-imports": "off" },
+  },
 ]);
 
 export default eslintConfig;

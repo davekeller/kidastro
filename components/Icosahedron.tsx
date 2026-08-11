@@ -216,7 +216,9 @@ const Icosahedron = () => {
   const [dragDelta, setDragDelta] = React.useState({ x: 0, y: 0 });
   const [velocity, setVelocity] = React.useState({ x: 0, y: 0 });
   const lastMousePos = useRef({ x: 0, y: 0 });
-  const lastTime = useRef(Date.now());
+  // Seeded at 0 rather than Date.now() to keep render pure; the real timestamp
+  // is set in handlePointerDown before anything reads it.
+  const lastTime = useRef(0);
   const velocityHistory = useRef<{ x: number; y: number }[]>([]);
 
   const handlePointerDown = (e: React.PointerEvent) => {

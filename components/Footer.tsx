@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 
 const Footer = ({ minimal = false }: { minimal?: boolean }) => {
@@ -10,15 +10,17 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
   const currentRef = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number | null>(null);
 
-  // Animation loop for smooth lerping - horizontal only
-  const animate = useCallback(() => {
-    currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.05;
-
-    setMouseOffset({ x: currentRef.current.x, y: 0 });
-    animationRef.current = requestAnimationFrame(animate);
-  }, []);
-
   useEffect(() => {
+    // Animation loop for smooth lerping - horizontal only. Declared in here so
+    // it can reference itself for the next frame without a self-referencing
+    // useCallback (which reads `animate` before it is initialized).
+    function animate() {
+      currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.05;
+
+      setMouseOffset({ x: currentRef.current.x, y: 0 });
+      animationRef.current = requestAnimationFrame(animate);
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
 
@@ -42,7 +44,7 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
       window.removeEventListener('mousemove', handleMouseMove);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [animate]);
+  }, []);
 
   return (
     <footer className={`footer text-center text-white py-16 pb-32 mx-auto mt-12 ${minimal ? 'max-w-full' : 'max-w-[90%]'}`}>

@@ -1,6 +1,14 @@
 'use client';
 
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+
+const colors = [
+  '#f4fd7b', // Yellow
+  '#39d5cb', // Teal
+  '#e4416f', // Pink
+  '#fcd34d', // Gold
+  '#6ee7b7', // Mint
+];
 
 const AnimatedBreak = () => {
   const [colorIndex, setColorIndex] = useState(0);
@@ -10,34 +18,26 @@ const AnimatedBreak = () => {
   const currentRef = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number | null>(null);
 
-  const colors = [
-    '#f4fd7b', // Yellow
-    '#39d5cb', // Teal
-    '#e4416f', // Pink
-    '#fcd34d', // Gold
-    '#6ee7b7', // Mint
-  ];
-
-  // Animation loop for smooth lerping
-  const animate = useCallback(() => {
-    currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.05;
-    currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.05;
-
-    setMouseOffset({ x: currentRef.current.x, y: currentRef.current.y });
-    animationRef.current = requestAnimationFrame(animate);
-  }, []);
-
   useEffect(() => {
+    // Animation loop for smooth lerping. Declared in here so it can reference
+    // itself for the next frame without a self-referencing useCallback (which
+    // reads `animate` before it is initialized).
+    function animate() {
+      currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.05;
+      currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.05;
+
+      setMouseOffset({ x: currentRef.current.x, y: currentRef.current.y });
+      animationRef.current = requestAnimationFrame(animate);
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
 
       const rect = containerRef.current.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
 
       // Calculate offset from center, normalized to -1 to 1
       const normalizedX = (e.clientX - centerX) / (window.innerWidth / 2);
-      const normalizedY = (e.clientY - centerY) / (window.innerHeight / 2);
 
       // Set target with movement range (horizontal only)
       targetRef.current.x = normalizedX * 30; // 30px max horizontal
@@ -51,7 +51,7 @@ const AnimatedBreak = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [animate]);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
