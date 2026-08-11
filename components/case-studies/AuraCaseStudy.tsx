@@ -193,8 +193,10 @@ const AuraCaseStudy = () => {
         </div>
       </AnimatedSection>
 
+      <AnimatedBreak tight />
+
       {/* HERO — the case study proper starts here, tight under the note */}
-      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-24 pb-2 text-center">
+      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-2 text-center">
         <FadeUp>
           <div className="mb-5 flex items-center justify-center gap-3">
             <CompanyMark company="strangeworks" className="mt-0" />
@@ -209,8 +211,6 @@ const AuraCaseStudy = () => {
           </p>
         </FadeUp>
       </header>
-
-      <AnimatedBreak tight />
 
       {/* 01 RESEARCH & DISCOVERY */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
