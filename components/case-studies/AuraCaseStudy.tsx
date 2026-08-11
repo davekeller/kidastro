@@ -110,7 +110,7 @@ const AuraCaseStudy = () => {
                 alt="Dave Keller"
                 width={96}
                 height={96}
-                className="h-[72px] w-[72px] shrink-0 rounded-full border-2 border-white/10 object-cover md:h-[88px] md:w-[88px]"
+                className="h-14 w-14 shrink-0 rounded-full object-cover md:h-16 md:w-16"
                 priority
               />
               <div>
