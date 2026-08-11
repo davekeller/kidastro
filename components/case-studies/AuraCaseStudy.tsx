@@ -261,7 +261,7 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="02"
-          title="wireframes &amp; brainstorming"
+          title="workshops &amp; wireframes"
           kicker="finding the line between a digital science binder and a full data science IDE"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
