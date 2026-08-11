@@ -154,8 +154,18 @@ const AuraCaseStudy = () => {
             <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what this is</h3>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              It walks the Aura story the way I&apos;d tell it in the room, and it&apos;s a work
-              sample itself — designed and shipped in production code, same day.
+              Aura is both a product and a client services process, and I&apos;ve led design on it
+              at Strangeworks for the last two years — from the first discovery interview to the
+              production code shipping today.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              It&apos;s also where I became a design engineer in practice: designing the thing,
+              then building it in the front-end myself, and learning to work frontier models into
+              how apps actually get made.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              This page walks that story the way I&apos;d tell it in the room, and it&apos;s a
+              work sample itself — designed and shipped in production code, same day.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               The{' '}
