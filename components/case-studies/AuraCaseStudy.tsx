@@ -405,14 +405,14 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="05"
-          title="custom web apps"
-          kicker="built on Strange-UI, our own design system for standing a client app up fast"
+          title="custom client apps &amp; a design system"
+          kicker="Strange-UI, our own system for standing a client's app up fast"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
             asideTitle="what we build"
             items={[
-              'Custom web apps that operationalize each client model',
+              'Custom client apps that operationalize each model',
               'Staff scheduling, vehicle routing, cargo, freight, and logistics',
               'Strange-UI, our internal design system for optimization interfaces',
               'Shared components: schedules, constraints, scenario builders, solver runs',
@@ -425,12 +425,12 @@ const AuraCaseStudy = () => {
               scheduling, vehicle routing, cargo and freight, logistics.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              So the last step is design work again. We build each client a custom web app for
-              their operation, on top of Strange-UI — our own internal design system. Every
-              operation differs, but the pieces repeat: schedules, constraints, scenario
-              builders, solver runs. Strange-UI carries those components and the rules for
-              assembling them, so a new client app starts production-ready instead of from a
-              blank file.
+              So the last step is design work again. We&apos;re a consultancy, so every
+              engagement ends in a custom client app built for that operation — on top of
+              Strange-UI, our own internal design system. Each operation differs, but the pieces
+              repeat: schedules, constraints, scenario builders, solver runs. Strange-UI carries
+              those components and the rules for assembling them, so a new client app starts
+              production-ready instead of from a blank file.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               Aura is live today behind the Strangeworks optimization practice —{' '}
@@ -449,7 +449,7 @@ const AuraCaseStudy = () => {
 
         <CaseImage
           className="col-span-full lg:col-span-6"
-          src="/imgs/aura/strangeui.webp"
+          src="/imgs/aura/strangeui-v2.webp"
           alt="Strange-UI — the component library behind the client optimization apps"
         />
 
