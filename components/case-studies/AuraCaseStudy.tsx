@@ -121,7 +121,7 @@ const AuraCaseStudy = () => {
       </div>
 
       {/* BUILT FOR YOU — the note that frames the case study */}
-      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28">
+      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-60">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
             <div className="mb-4 flex items-center justify-between gap-4">
@@ -175,11 +175,8 @@ const AuraCaseStudy = () => {
 
           <InfoCard className="flex flex-col items-start">
             <h3 className="text-xl font-bold mt-2 text-balance">how this page came together</h3>
-            <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-(--color-2)/80">
-              11:08 AM — Lucy&apos;s message lands
-            </p>
             <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
-              I read it this morning. Everything below happened today.
+              I read your message this morning. Everything below happened today.
             </p>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
