@@ -498,11 +498,11 @@ const AuraCaseStudy = () => {
       {/* SIGN-OFF */}
       <FadeUp className="w-full">
         <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 text-center">
-          <p className="text-2xl md:text-3xl font-bold lowercase text-balance">
-            that&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit —
-          </p>
-          <p className="mt-3 text-xl text-white/70 text-balance">
-            thanks, Lucy and the Slalom team. I&apos;d love to keep talking.
+          <h2 className="text-3xl md:text-4xl font-bold lowercase text-balance">
+            thanks, Lucy and the Slalom team
+          </h2>
+          <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
+            That&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit.
           </p>
 
           <ul className="mt-8 flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
