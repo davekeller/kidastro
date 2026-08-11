@@ -1,0 +1,542 @@
+import React from 'react';
+import Image from 'next/image';
+import AnimatedSection from '@/components/AnimatedSection';
+import AnimatedBreak from '@/components/AnimatedBreak';
+import Breadcrumb from '@/components/Breadcrumb';
+import CompanyMark from '@/components/CompanyMark';
+import FadeUp from '@/components/FadeUp';
+import Footer from '@/components/Footer';
+import CaseImage from '@/components/case-studies/CaseImage';
+import SlalomMark from '@/components/case-studies/SlalomMark';
+import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
+import ProcessFlow, { type FlowPhase } from '@/components/case-studies/ProcessFlow';
+
+/* Client marks, recolored from the strangeworks.com customer set for the dark
+   background. RTX is Collins Aerospace's parent company mark. */
+const clients: ClientLogo[] = [
+  { name: 'Johnson & Johnson', src: '/imgs/aura/clients/johnson-johnson.svg' },
+  { name: 'Deloitte', src: '/imgs/aura/clients/deloitte.svg' },
+  { name: 'Accenture', src: '/imgs/aura/clients/accenture.svg' },
+  { name: 'BP', src: '/imgs/aura/clients/Bp.svg' },
+  { name: 'RTX (Collins Aerospace)', src: '/imgs/aura/clients/rtx.svg' },
+];
+
+/* Workflows v1 as a phased flow — the manual march the agents later collapsed. */
+const workflowPhases: FlowPhase[] = [
+  {
+    label: 'Define',
+    loop: 'redefine ↔ reanalyze',
+    steps: [
+      { title: 'Research & discovery', detail: 'Understand the business problem and what solving it is worth.' },
+      { title: 'Problem definition', detail: 'Write the problem down precisely enough to model it.' },
+      { title: 'Problem analysis', detail: 'Pressure-test the definition, find the gaps, go again.' },
+    ],
+  },
+  {
+    label: 'Model',
+    steps: [
+      { title: 'Abstract model', detail: 'Get the variables, constraints, and weights right.' },
+      { title: 'Toy data', detail: 'Skeleton datasets to instantiate the model.' },
+      { title: 'Toy instance', detail: 'A concrete instance on toy data that actually runs.' },
+    ],
+  },
+  {
+    label: 'Data',
+    steps: [
+      { title: 'Dataset build-out', detail: 'Assemble the real data, then the long work of cleaning it.' },
+      { title: 'Concrete instances', detail: 'Apply the real data to produce runnable instances.' },
+    ],
+  },
+  {
+    label: 'Run',
+    steps: [
+      { title: 'Solver selection', detail: 'Match the formulation to the solver — QUBOs and BQMs for quantum, HPC for the rest.' },
+      { title: 'Compute & run', detail: 'Run on the hardware solvers and read the results.' },
+    ],
+  },
+];
+
+/** Numbered chapter header — big index, lowercase title, one-line kicker. */
+const ChapterHeader = ({ index, title, kicker }: { index: string; title: string; kicker: string }) => (
+  <div className="col-span-full w-full lg:w-[80%] mx-auto flex items-baseline gap-5 mb-2">
+    <span className="font-mono text-xl md:text-2xl font-bold text-white/30 tracking-widest">{index}</span>
+    <div>
+      <h2 className="text-3xl md:text-4xl font-bold lowercase">{title}</h2>
+      <p className="text-white/50 text-base font-bold italic mt-1.5 text-balance">{kicker}</p>
+    </div>
+  </div>
+);
+
+/** The standard info card used across the folio. */
+const InfoCard = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
+  <div className={`info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg ${className}`}>
+    {children}
+  </div>
+);
+
+const bullet =
+  "pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-(--color-2)/70 text-lg leading-snug text-white/90 text-pretty";
+
+/** Tighter bullet for the sidebar list inside a chapter card. */
+const sideBullet =
+  "pl-5 relative before:content-['+'] before:absolute before:left-0 before:top-px before:font-bold before:text-base before:leading-5 before:text-(--color-2)/70 text-[0.9rem] leading-5 text-white/75 text-pretty";
+
+/**
+ * A chapter card: the narrative in the left two-thirds, and what concretely
+ * happened in a bordered sidebar on the right third.
+ */
+const ChapterCard = ({
+  children,
+  asideTitle,
+  items,
+}: {
+  children: React.ReactNode;
+  asideTitle: string;
+  items: string[];
+}) => (
+  <InfoCard>
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div className="lg:col-span-2">{children}</div>
+      <aside className="lg:col-span-1 lg:border-l-2 lg:border-white/15 lg:pl-8">
+        <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-white/40">
+          {asideTitle}
+        </h4>
+        <ul className="list-none space-y-2">
+          {items.map((item) => (
+            <li key={item} className={sideBullet}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </InfoCard>
+);
+
+const AuraCaseStudy = () => {
+  return (
+    <>
+      <div className="fixed top-6 left-6 z-40">
+        <Breadcrumb label="aura case study" />
+      </div>
+
+      {/* BUILT FOR YOU — the note that frames the case study */}
+      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-[200px]">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mb-2 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
+          <div className="flex items-start gap-5">
+            <Image
+              src="/imgs/dave.jpg"
+              alt="Dave Keller"
+              width={96}
+              height={96}
+              className="mt-1 h-16 w-16 shrink-0 rounded-full object-cover md:h-20 md:w-20"
+              priority
+            />
+            <div>
+              <h1 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
+                Hey Lucy and the Slalom team — I&apos;m Dave, and I built this for you today.
+              </h1>
+              <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
+                You asked for a case study or a code repository. Here&apos;s both.
+              </p>
+            </div>
+          </div>
+          <div className="flex shrink-0 flex-col items-start gap-2 sm:items-end sm:pt-2">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
+              August 11, 2026
+            </p>
+            <SlalomMark className="h-7 w-auto text-white md:h-8" />
+          </div>
+        </div>
+
+        <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <InfoCard>
+            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what this is</h3>
+            <div className="w-full border-b-2 border-white/20 mb-4"></div>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Aura is both a product and a client services process, and I&apos;ve led design on it
+              at Strangeworks for the last two years — from the first discovery interview to the
+              production code shipping today.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              It&apos;s also where I became a design engineer in practice: designing the thing,
+              then building it in the front-end myself, and learning to work frontier models into
+              how apps actually get made.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              This page walks that story the way I&apos;d tell it in the room, and it&apos;s a
+              work sample itself — designed and shipped in production code, same day.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              The{' '}
+              <a
+                href="https://github.com/davekeller/kidastro/pull/51"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-white/40 underline-offset-4 transition-colors hover:text-(--color-2)"
+              >
+                pull request that built it
+              </a>{' '}
+              is open — commits, diffs, and all.
+            </p>
+          </InfoCard>
+
+          <InfoCard className="flex flex-col items-start">
+            <h3 className="text-xl font-bold mt-2 text-balance">how this page came together</h3>
+            <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
+              I read your message this morning. Everything below happened today.
+            </p>
+            <div className="w-full border-b-2 border-white/20 mb-6"></div>
+            <ul className="list-none space-y-4 w-full">
+              <li className={bullet}>Sketched the narrative first — the same five beats I&apos;d walk through in an interview</li>
+              <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
+              <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
+              <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
+              <li className={bullet}>Orchestrated the whole process, reviewed the diff, and shipped it to kidastro.com the same day</li>
+            </ul>
+          </InfoCard>
+        </div>
+      </AnimatedSection>
+
+      <AnimatedBreak tight />
+
+      {/* HERO — the case study proper starts here, tight under the note */}
+      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-2 text-center">
+        <FadeUp>
+          <div className="mb-5 flex items-center justify-center gap-3">
+            <CompanyMark company="strangeworks" className="mt-0" />
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
+              case study
+            </p>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold lowercase">strangeworks aura</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
+            How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
+            workflow, and what I designed and built along the way.
+          </p>
+        </FadeUp>
+      </header>
+
+      <AnimatedBreak tight />
+
+      {/* 01 RESEARCH & DISCOVERY */}
+      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
+        <ChapterHeader
+          index="01"
+          title="research &amp; discovery"
+          kicker="interviewing our own PhD consultants to map how an optimization model actually gets made"
+        />
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <ChapterCard
+            asideTitle="what happened"
+            items={[
+              'Sat with every internal consultant on the science team',
+              'Mapped the process every engagement repeated by hand',
+              'Wrote the project brief and vision in Notion',
+              'Synthesized it into the Problem → Analysis board',
+              'Landed on problem definition as the make-or-break step',
+            ]}
+          >
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Strangeworks formulates hard optimization problems for quantum, quantum-inspired,
+              and HPC solvers. Discovery meant interviewing our own consultants: PhD physicists,
+              a quantum ML scientist, people writing data science code against quantum hardware.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              Two findings. The process repeated across clients, so it could be productized. And
+              the make-or-break step was problem definition — that one steered the whole product.
+            </p>
+          </ChapterCard>
+        </div>
+        <CaseImage
+          className="col-span-1 lg:col-span-3"
+          src="/imgs/aura/research1-v3.webp"
+          alt="Notion research hub — discovery workshop docs, consultant interviews, and insights"
+        />
+        <CaseImage
+          className="col-span-1 lg:col-span-3"
+          src="/imgs/aura/research2-v5.webp"
+          alt="Problem → Analysis — phased flows and standardized formulation components in Figma"
+        />
+      </AnimatedSection>
+
+      <AnimatedBreak />
+
+      {/* 02 WIREFRAMES & BRAINSTORMING */}
+      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
+        <ChapterHeader
+          index="02"
+          title="workshops &amp; wireframes"
+          kicker="finding the line between a digital science binder and a full data science IDE"
+        />
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <ChapterCard
+            asideTitle="what happened"
+            items={[
+              'Wireframed templates across the binder-to-IDE spectrum in Figma',
+              'Built the artboard wall — dead ends, variations, and survivors',
+              'Ran a full-day workshop at the Austin quarterly offsite',
+              'Presented the product vision to the whole company',
+              'Pressure-tested it live with the science team',
+            ]}
+          >
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              The design question was where to land on a spectrum: a digital science binder at
+              one end, a notebook IDE at the other. Too far toward the binder and scientists
+              can&apos;t work. Too far toward the notebook and it&apos;s Jupyter with extra steps.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              I wireframed across that whole range, then presented the vision at our quarterly
+              offsite in Austin. Having the science team argue with it in person is what made
+              the direction stick.
+            </p>
+          </ChapterCard>
+        </div>
+        <CaseImage
+          className="col-span-1 lg:col-span-3"
+          src="/imgs/aura/wireframes-painpoints-v3.webp"
+          alt="Sci Workflow board — pain points and opportunities across every phase, and the offsite deck"
+        />
+        <CaseImage
+          className="col-span-1 lg:col-span-3"
+          src="/imgs/aura/wireframes-flow-v3.webp"
+          alt="Prototype flow board — projects, research and methods, formulation, and solvers"
+        />
+      </AnimatedSection>
+
+      <AnimatedBreak />
+
+      {/* 03 BUILDING IT IN THE FRONT-END (with beta testing folded in) */}
+      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
+        <ChapterHeader
+          index="03"
+          title="building it in the front-end"
+          kicker="straight into the repo, so our scientists could use it while we iterated"
+        />
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <ChapterCard
+            asideTitle="my role"
+            items={[
+              'Design engineer on a team of about ten developers',
+              'Led the product vision alongside the build',
+              'Built the production UIs in code, not handoffs',
+              'Structured the navigation and user experience',
+              'Moved from hand-written Tailwind and Cursor into Claude Code',
+              'Shipped to our own scientists first, then client science teams',
+              'Turned their feedback around in the same repo, same week',
+            ]}
+          >
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              The dev team jumped into the app building agentic reasoning, and I jumped into the
+              code with them. The app was called Workflows back then — it became Aura later.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Going straight to the front-end is what made the loop fast. Our own ten-scientist
+              consulting team used it while we built, then science teams at Deloitte, Accenture,
+              and Johnson &amp; Johnson built their own models in it — people we hadn&apos;t
+              trained, on problems we hadn&apos;t scoped. Their feedback landed back in the repo
+              the same week.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              Version one, Workflows, was a long linear march. Watching it get used showed us
+              exactly where it broke down.
+            </p>
+          </ChapterCard>
+        </div>
+
+        <CaseImage
+          className="col-span-full lg:col-span-6"
+          src="/imgs/aura/frontend-v3.webp"
+          alt="Workflows running in the front-end — the app the science team used"
+        />
+
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mt-12">
+          <ProcessFlow phases={workflowPhases} />
+        </div>
+
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mt-10 border-t-2 border-white/15 pt-10">
+          <p className="mb-4 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+            client science teams building their own models
+          </p>
+          <ClientLogos clients={clients} />
+        </div>
+      </AnimatedSection>
+
+      <AnimatedBreak />
+
+      {/* 04 AURA 2.0 */}
+      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
+        <ChapterHeader
+          index="04"
+          title="aura 2.0 — agents"
+          kicker="the user and a problem analysis agent, back and forth, until the definition holds"
+        />
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <ChapterCard
+            asideTitle="what changed"
+            items={[
+              'Simplified as the agents improved, rather than adding surface',
+              'Dropped agent-per-step for one problem analysis agent',
+              'User and agent work back and forth until the definition holds',
+              'Everything after that runs and reports itself',
+              'Shipping today — it builds the optimization models',
+            ]}
+          >
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              A year of beta testing showed us where the march broke down, and as the agents got
+              better we jumped ahead of our own roadmap. 2.0 simplifies the whole thing, problem
+              definition through to run.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Our first instinct was an agent per step. 2.0 flips it: the user works back and
+              forth with a problem analysis agent until the definition genuinely holds.
+              That&apos;s where the effort goes now. After that, the interface is mostly showing
+              what&apos;s happening — formulation, solver selection, data cleaning, compute, run.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              This is the end product, building optimization models today. And it&apos;s what the
+              consultants told me in discovery two years earlier: the whole thing is that one
+              insight, built.
+            </p>
+          </ChapterCard>
+        </div>
+        <CaseImage
+          className="col-span-full lg:col-span-6 lg:w-[90%] lg:mx-auto"
+          src="/imgs/strangeworks/strange1.webp"
+          alt="Aura 2.0 — the problem-definition agent and AI-assisted results analysis"
+        />
+      </AnimatedSection>
+
+      <AnimatedBreak />
+
+      {/* 05 SHIPPED — CLIENT INTERFACES */}
+      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
+        <ChapterHeader
+          index="05"
+          title="custom client apps &amp; a design system"
+          kicker="Strange-UI, our own system for standing a client's app up fast"
+        />
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <ChapterCard
+            asideTitle="what we build"
+            items={[
+              'Custom client apps that operationalize each model',
+              'Staff scheduling, vehicle routing, cargo, freight, and logistics',
+              'Strange-UI, our internal design system for optimization interfaces',
+              'Shared components: schedules, constraints, scenario builders, solver runs',
+              'Interactive visuals and layered navigation over hard data',
+              'Built for operators with no optimization background',
+            ]}
+          >
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Aura 2.0 builds the model — then the model has to run a business: staff
+              scheduling, vehicle routing, cargo and freight, logistics.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              So the last step is design work again. We&apos;re a consultancy, so every
+              engagement ends in a custom client app built for that operation — on top of
+              Strange-UI, our own internal design system. Each operation differs, but the pieces
+              repeat: schedules, constraints, scenario builders, solver runs. Strange-UI carries
+              those components and the rules for assembling them, so a new client app starts
+              production-ready instead of from a blank file.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              Aura is live today behind the Strangeworks optimization practice —{' '}
+              <a
+                href="https://strangeworks.com/technology/aura"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-white/40 underline-offset-4 transition-colors hover:text-(--color-2)"
+              >
+                see the shipped product
+              </a>
+              .
+            </p>
+          </ChapterCard>
+        </div>
+
+        <CaseImage
+          className="col-span-full lg:col-span-6"
+          src="/imgs/aura/strangeui-v2.webp"
+          alt="Strange-UI — the component library behind the client optimization apps"
+        />
+
+      </AnimatedSection>
+
+      <AnimatedBreak />
+
+      {/* CLOSING — bookends the built-for-you block */}
+      <AnimatedSection className="grid grid-cols-1 gap-12">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <InfoCard>
+            <h2 className="text-3xl md:text-4xl font-bold lowercase">what it added up to</h2>
+            <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5 mb-4">
+              an internal process, turned into a product, turned back into client work
+            </h4>
+            <div className="w-full border-b-2 border-white/20 mb-4"></div>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              We built an app that builds optimization models, and a design system for the
+              interfaces that run them. Then we sit with each client and design the real thing,
+              so somebody on the ground in operations can run their day with it.
+            </p>
+            <p className="text-lg leading-8 text-white/90 text-pretty">
+              A process we learned from our own consultants, turned into a product, turned back
+              into how we serve clients. Full circle.
+            </p>
+          </InfoCard>
+
+          <InfoCard className="flex flex-col items-start">
+            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what I did on it</h3>
+            <div className="w-full border-b-2 border-white/20 mb-6"></div>
+            <ul className="list-none space-y-4 w-full">
+              <li className={bullet}>Ran the discovery that surfaced the insight the whole product is built on</li>
+              <li className={bullet}>Presented the product vision to the company and got the science team behind it</li>
+              <li className={bullet}>Designed the end-to-end agent flow two years before the models could run it</li>
+              <li className={bullet}>Built the UIs in production code alongside a ten-person dev team</li>
+              <li className={bullet}>Led the product vision from research through the 2.0 the company ships today</li>
+              <li className={bullet}>Helped build Strange-UI, the design system behind every client interface</li>
+            </ul>
+          </InfoCard>
+        </div>
+      </AnimatedSection>
+
+      {/* SIGN-OFF */}
+      <FadeUp className="w-full">
+        <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold lowercase text-balance">
+            thanks, Lucy and the Slalom team
+          </h2>
+          <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
+            That&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit.
+          </p>
+
+          <ul className="mt-8 flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
+            <li>
+              <a
+                href="mailto:davekeller@me.com?subject=Hey Dave!"
+                className="transition-colors hover:text-(--color-2)"
+              >
+                davekeller@me.com
+              </a>
+            </li>
+            <li>512.595.6213</li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/dkells/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-(--color-2)"
+              >
+                linkedin/dkells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </FadeUp>
+
+      <Footer minimal />
+    </>
+  );
+};
+
+export default AuraCaseStudy;

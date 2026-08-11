@@ -10,7 +10,9 @@ const colors = [
   '#6ee7b7', // Mint
 ];
 
-const AnimatedBreak = () => {
+// `tight` keeps the drifting glyphs but trims the padding, for a break between
+// two blocks that should read as connected rather than as separate sections.
+const AnimatedBreak = ({ tight = false }: { tight?: boolean }) => {
   const [colorIndex, setColorIndex] = useState(0);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -62,7 +64,12 @@ const AnimatedBreak = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-[200px] flex items-center justify-center py-32 md:py-48">
+    <div
+      ref={containerRef}
+      className={`w-full flex items-center justify-center ${
+        tight ? 'py-24' : 'h-[200px] py-32 md:py-48'
+      }`}
+    >
       <div
         className="flex items-center gap-4 md:gap-6"
         style={{
