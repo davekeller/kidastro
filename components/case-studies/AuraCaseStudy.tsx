@@ -138,7 +138,13 @@ const AuraCaseStudy = () => {
           </InfoCard>
 
           <InfoCard className="flex flex-col items-start">
-            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">how this page came together</h3>
+            <h3 className="text-xl font-bold mt-2 text-balance">how this page came together</h3>
+            <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-(--color-2)/80">
+              11:08 AM — Lucy&apos;s message lands
+            </p>
+            <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
+              I read it this morning. Everything below happened today.
+            </p>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
               <li className={bullet}>Sketched the narrative first — the same eight beats I&apos;d walk through in an interview</li>
