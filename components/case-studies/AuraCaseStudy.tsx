@@ -341,7 +341,7 @@ const AuraCaseStudy = () => {
 
         <CaseImage
           className="col-span-full lg:col-span-6"
-          src="/imgs/aura/frontend1.webp"
+          src="/imgs/aura/frontend1-v2.webp"
           alt="Workflows running in the front-end — the app the science team used"
         />
 
