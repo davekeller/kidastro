@@ -122,39 +122,37 @@ const AuraCaseStudy = () => {
 
       {/* BUILT FOR YOU — the note that frames the case study */}
       <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-[200px]">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mb-2 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
+          <div className="flex items-start gap-5">
+            <Image
+              src="/imgs/dave.jpg"
+              alt="Dave Keller"
+              width={96}
+              height={96}
+              className="mt-1 h-16 w-16 shrink-0 rounded-full object-cover md:h-20 md:w-20"
+              priority
+            />
+            <div>
+              <h1 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
+                Hey Lucy and the Slalom team — I&apos;m Dave, and I built this for you today.
+              </h1>
+              <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
+                You asked for a case study or a code repository. Here&apos;s both.
+              </p>
+            </div>
+          </div>
+          <div className="flex shrink-0 flex-col items-start gap-2 sm:items-end sm:pt-2">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
+              August 11, 2026
+            </p>
+            <SlalomMark className="h-7 w-auto text-white md:h-8" />
+          </div>
+        </div>
+
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <div className="mb-4 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <Image
-                  src="/imgs/dave.jpg"
-                  alt="Dave Keller"
-                  width={96}
-                  height={96}
-                  className="h-14 w-14 shrink-0 rounded-full object-cover"
-                  priority
-                />
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
-                    built for
-                  </p>
-                  <p className="mt-1 text-xl md:text-2xl font-bold tracking-tight text-white text-balance">
-                    Lucy and the Slalom team
-                  </p>
-                </div>
-              </div>
-              <div className="flex shrink-0 flex-col items-end gap-2">
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
-                  August 11, 2026
-                </p>
-                <SlalomMark className="h-[22px] w-auto text-white md:h-[26px]" />
-              </div>
-            </div>
+            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what this is</h3>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Hey Lucy, and the Slalom team: I&apos;m Dave, and I built this for you today. You
-              asked for a case study or a code repository. Here&apos;s both.
-            </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               It walks the Aura story the way I&apos;d tell it in the room, and it&apos;s a work
               sample itself — designed and shipped in production code, same day.
@@ -201,7 +199,7 @@ const AuraCaseStudy = () => {
               case study
             </p>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold lowercase">strangeworks aura</h1>
+          <h2 className="text-5xl md:text-7xl font-bold lowercase">strangeworks aura</h2>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
             How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
             workflow, and what I designed and built along the way.
