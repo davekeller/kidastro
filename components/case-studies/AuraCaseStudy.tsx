@@ -83,25 +83,8 @@ const AuraCaseStudy = () => {
         <Breadcrumb label="aura case study" />
       </div>
 
-      {/* HERO */}
-      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-32 pb-16 text-center">
-        <FadeUp>
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <CompanyMark company="strangeworks" className="mt-0" />
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
-              case study — strangeworks
-            </p>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold lowercase">aura</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
-            How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
-            workflow, and what I designed and built along the way.
-          </p>
-        </FadeUp>
-      </header>
-
-      {/* BUILT FOR YOU — the meta block */}
-      <AnimatedSection className="grid grid-cols-1 gap-12">
+      {/* BUILT FOR YOU — the note that frames the case study */}
+      <AnimatedSection className="grid grid-cols-1 gap-12 pt-28">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
             <div className="mb-4 flex items-center gap-5">
@@ -167,6 +150,23 @@ const AuraCaseStudy = () => {
       </AnimatedSection>
 
       <AnimatedBreak />
+
+      {/* HERO — the case study proper starts here */}
+      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-8 pb-16 text-center">
+        <FadeUp>
+          <div className="mb-5 flex items-center justify-center gap-3">
+            <CompanyMark company="strangeworks" className="mt-0" />
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
+              case study — strangeworks
+            </p>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold lowercase">aura</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
+            How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
+            workflow, and what I designed and built along the way.
+          </p>
+        </FadeUp>
+      </header>
 
       {/* 01 RESEARCH & DISCOVERY */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
