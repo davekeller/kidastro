@@ -138,9 +138,9 @@ const AuraCaseStudy = () => {
                   <p className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                     built for
                   </p>
-                  <h2 className="mt-1 text-xl md:text-2xl font-bold tracking-tight text-white text-balance">
+                  <p className="mt-1 text-xl md:text-2xl font-bold tracking-tight text-white text-balance">
                     Lucy and the Slalom team
-                  </h2>
+                  </p>
                 </div>
               </div>
               <div className="flex shrink-0 flex-col items-end gap-2 pt-0.5">
@@ -225,8 +225,8 @@ const AuraCaseStudy = () => {
           <ChapterCard
             asideTitle="what happened"
             items={[
-              'Interviewed every internal consultant — PhD physicists and a quantum ML scientist',
-              'Mapped the five beats every engagement repeated by hand',
+              'Sat with every internal consultant on the science team',
+              'Mapped the process every engagement repeated by hand',
               'Wrote the project brief and vision in Notion',
               'Synthesized it into the Problem → Analysis board',
               'Landed on problem definition as the make-or-break step',
@@ -351,7 +351,7 @@ const AuraCaseStudy = () => {
 
         <div className="col-span-full w-full lg:w-[80%] mx-auto mt-10 border-t-2 border-white/15 pt-10">
           <p className="mb-4 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
-            science teams building models in it
+            client science teams building their own models
           </p>
           <ClientLogos clients={clients} />
         </div>
@@ -370,8 +370,7 @@ const AuraCaseStudy = () => {
           <ChapterCard
             asideTitle="what changed"
             items={[
-              'A year of beta testing showed where the linear march broke',
-              'As the agents got better, we simplified rather than added',
+              'Simplified as the agents improved, rather than adding surface',
               'Dropped agent-per-step for one problem analysis agent',
               'User and agent work back and forth until the definition holds',
               'Everything after that runs and reports itself',
@@ -502,7 +501,9 @@ const AuraCaseStudy = () => {
           <p className="text-2xl md:text-3xl font-bold lowercase text-balance">
             that&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit —
           </p>
-          <p className="mt-3 text-xl text-white/70">let me know if you want to talk.</p>
+          <p className="mt-3 text-xl text-white/70 text-balance">
+            thanks, Lucy and the Slalom team. I&apos;d love to keep talking.
+          </p>
 
           <ul className="mt-8 flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
             <li>
