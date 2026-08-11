@@ -396,7 +396,6 @@ const AuraCaseStudy = () => {
           className="col-span-full lg:col-span-6"
           src="/imgs/strangeworks/strange1.webp"
           alt="Aura 2.0 — the problem-definition agent and AI-assisted results analysis"
-          label="aura 2.0"
         />
       </AnimatedSection>
 
@@ -498,14 +497,9 @@ const AuraCaseStudy = () => {
           </p>
         </div>
         <CaseImage
-          className="col-span-1 lg:col-span-3"
-          alt="Strange-UI component library"
-          note="screenshot — Strange-UI components / library overview"
-        />
-        <CaseImage
-          className="col-span-1 lg:col-span-3"
-          alt="Strange-UI patterns in use across client apps"
-          note="screenshot — Strange-UI patterns composed into a client interface"
+          className="col-span-full lg:col-span-6"
+          src="/imgs/aura/strangeui.webp"
+          alt="Strange-UI — the component library behind the client optimization apps"
         />
       </AnimatedSection>
 
