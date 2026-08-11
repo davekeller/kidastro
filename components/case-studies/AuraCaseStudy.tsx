@@ -304,7 +304,7 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/wireframes2.webp"
+          src="/imgs/aura/wireframes-painpoints.webp"
           alt="Sci Workflow board — pain points and opportunities across every phase, and the offsite deck"
           label="pain points &amp; opportunities"
         />
