@@ -8,74 +8,61 @@ export interface FlowStep {
 export interface FlowPhase {
   label: string;
   steps: FlowStep[];
-  /** Renders the phase's steps inside a loop bracket with this caption. */
+  /** Annotates the phase as a cycle rather than a straight run. */
   loop?: string;
 }
 
-const StepNode = ({ n, step }: { n: number; step: FlowStep }) => (
-  <li className="rounded-md border border-white/15 bg-white/[0.05] px-3 py-2.5">
-    <div className="flex items-baseline gap-2">
-      <span className="font-mono text-[0.7rem] font-bold text-white/35">
-        {String(n).padStart(2, '0')}
-      </span>
-      <h4 className="text-sm font-bold leading-tight text-white">{step.title}</h4>
-    </div>
-    <p className="mt-1 text-xs leading-5 text-white/60 text-pretty">{step.detail}</p>
-  </li>
-);
-
 /**
- * The original Workflows process as a phased flowchart: phases run left to
- * right on desktop and top to bottom on mobile, with an arrow between each.
- * A phase carrying `loop` wraps its steps in an accent bracket — the
- * define/analyze cycle is the part that never ran straight through.
+ * The original Workflows process as a phase rail: a single rule runs across the
+ * top with a node per phase, and each phase's steps hang beneath it as plain
+ * type. Deliberately unboxed — ten bordered cards read as a grid of containers
+ * rather than as one process moving left to right.
  */
 const ProcessFlow = ({ phases, className = '' }: { phases: FlowPhase[]; className?: string }) => {
-  // Global step numbers, derived up front: each phase starts where the last ended.
   const starts = phases.reduce<number[]>((acc, phase) => {
     acc.push((acc[acc.length - 1] ?? 0) + phase.steps.length);
     return acc;
   }, []);
 
   return (
-    <div className={`flex flex-col items-stretch gap-3 lg:flex-row ${className}`}>
+    <div className={`grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 ${className}`}>
       {phases.map((phase, pi) => {
         const phaseStart = pi === 0 ? 0 : starts[pi - 1];
-        const node = (
-          <div
-            key={phase.label}
-            className="flex-1 rounded-lg border-2 border-white/15 bg-white/[0.03] p-4"
-          >
-            <p className="mb-3 font-mono text-[0.7rem] font-bold uppercase tracking-[0.25em] text-(--color-2)/80">
-              {phase.label}
-            </p>
-            <ol
-              className={`space-y-2 ${
-                phase.loop ? 'border-l-2 border-(--color-2)/50 pl-3' : ''
-              }`}
-            >
-              {phase.steps.map((step, si) => (
-                <StepNode key={step.title} n={phaseStart + si + 1} step={step} />
-              ))}
-            </ol>
-            {phase.loop && (
-              <p className="mt-2 pl-3 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-(--color-2)/80">
-                ↺ {phase.loop}
-              </p>
-            )}
-          </div>
-        );
-
-        if (pi === phases.length - 1) return node;
 
         return (
-          <React.Fragment key={phase.label}>
-            {node}
-            <div aria-hidden="true" className="flex items-center justify-center text-2xl text-white/25">
-              <span className="lg:hidden">↓</span>
-              <span className="hidden lg:inline">→</span>
+          <div key={phase.label} className="relative pt-6">
+            {/* Rail: a rule across the top with a node marking this phase. */}
+            <span aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-white/15" />
+            <span
+              aria-hidden="true"
+              className="absolute top-0 left-0 h-2 w-2 -translate-y-1/2 rounded-full bg-(--color-2)"
+            />
+
+            <div className="mb-5 flex items-baseline gap-2">
+              <h4 className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-(--color-2)">
+                {phase.label}
+              </h4>
+              {phase.loop && (
+                <span className="font-mono text-[0.65rem] lowercase tracking-wide text-white/35">
+                  ↺ {phase.loop}
+                </span>
+              )}
             </div>
-          </React.Fragment>
+
+            <ol className="space-y-5">
+              {phase.steps.map((step, si) => (
+                <li key={step.title} className="grid grid-cols-[1.75rem_1fr] gap-x-1">
+                  <span className="font-mono text-xs leading-6 text-white/30">
+                    {String(phaseStart + si + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h5 className="text-[0.95rem] font-bold leading-6 text-white">{step.title}</h5>
+                    <p className="mt-0.5 text-sm leading-6 text-white/55 text-pretty">{step.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         );
       })}
     </div>

@@ -453,13 +453,6 @@ const AuraCaseStudy = () => {
           </p>
           <ClientLogos clients={clients} />
         </div>
-
-        <CaseImage
-          className="col-span-full lg:col-span-6"
-          src="/imgs/strangeworks/strange1.webp"
-          alt="Aura — optimization job details with AI-assisted results analysis"
-          label="aura in use"
-        />
       </AnimatedSection>
 
       <AnimatedBreak />
@@ -500,14 +493,10 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
         <CaseImage
-          className="col-span-1 lg:col-span-3"
-          alt="Aura 2.0 — refining a natural-language problem into a robust definition"
-          note="screenshot — the problem-definition agent: natural language in, gaps closed"
-        />
-        <CaseImage
-          className="col-span-1 lg:col-span-3"
-          alt="Aura 2.0 — agents building formulation, model, and solver selection"
-          note="screenshot — agents running formulation / solver selection / compute"
+          className="col-span-full lg:col-span-6"
+          src="/imgs/strangeworks/strange1.webp"
+          alt="Aura 2.0 — the problem-definition agent and AI-assisted results analysis"
+          label="aura 2.0"
         />
       </AnimatedSection>
 
@@ -555,13 +544,12 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
 
-        <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <CaseImage
-            src="/imgs/strangeworks/strange4.webp"
-            alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards"
-            label="client apps"
-          />
-        </div>
+        <CaseImage
+          className="col-span-full lg:col-span-6"
+          src="/imgs/strangeworks/strange4.webp"
+          alt="Client optimization apps — nurse scheduling and last-mile dispatch dashboards"
+          label="client apps"
+        />
 
         {/* Lufthansa */}
         <div className="col-span-1 lg:col-span-3 self-stretch">
