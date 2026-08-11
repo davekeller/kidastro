@@ -6,7 +6,16 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   {
-    ignores: ["_legacy/**"],
+    // Flat config doesn't read .gitignore, so build output has to be listed
+    // here or it drowns out real findings. .claude/worktrees/ matters because
+    // git worktrees live inside the repo — each one carries its own .next/out.
+    ignores: [
+      "_legacy/**",
+      "public/themes/**",
+      "**/.next/**",
+      "**/out/**",
+      ".claude/worktrees/**",
+    ],
   },
 ]);
 
