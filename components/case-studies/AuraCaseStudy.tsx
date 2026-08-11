@@ -397,7 +397,7 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
         <CaseImage
-          className="col-span-full lg:col-span-4 lg:col-start-2"
+          className="col-span-full lg:col-span-6 lg:w-[90%] lg:mx-auto"
           src="/imgs/strangeworks/strange1.webp"
           alt="Aura 2.0 — the problem-definition agent and AI-assisted results analysis"
         />
