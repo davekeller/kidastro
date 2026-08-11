@@ -26,48 +26,48 @@ export default function Home() {
       {/* STRANGEWORKS */}
       <Strangeworks />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={1} />
 
       {/* QUOTAPATH */}
       <QuotaPath />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={2} />
 
       {/* OPENCOURT */}
       <OpenCourt />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={3} />
 
       {/* RODIO */}
       <Rodio />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={4} />
 
       {/* BNB */}
       <BnbFinder />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={5} />
 
       <FadeUp>
         <Accomplishments />
       </FadeUp>
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={6} />
 
       {/* ROCKET */}
       <Rocket />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={7} />
 
       {/* DANCEFIGHT */}
       <Dancefight />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={8} />
 
       {/* TIMEBOMB */}
       <Timebomb />
 
-      <AnimatedBreak />
+      <AnimatedBreak mark={9} />
 
       {/* A little personality */}
       <FadeUp className="w-full">

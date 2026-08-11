@@ -1,146 +1,52 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 
-const colors = [
-  '#f4fd7b', // Yellow
-  '#39d5cb', // Teal
-  '#e4416f', // Pink
-  '#fcd34d', // Gold
-  '#6ee7b7', // Mint
-];
+import { BREAK_MARKS } from './breaks/BreakMarks';
+import { useBreakParallax } from './breaks/useBreakParallax';
 
-const AnimatedBreak = () => {
-  const [colorIndex, setColorIndex] = useState(0);
-  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
-  const targetRef = useRef({ x: 0, y: 0 });
-  const currentRef = useRef({ x: 0, y: 0 });
-  const animationRef = useRef<number | null>(null);
+interface AnimatedBreakProps {
+  /** Which mark to draw. Indexes into BREAK_MARKS and wraps, so callers can
+      just number the breaks down the page and let the set repeat. */
+  mark?: number;
+}
 
-  useEffect(() => {
-    // Animation loop for smooth lerping. Declared in here so it can reference
-    // itself for the next frame without a self-referencing useCallback (which
-    // reads `animate` before it is initialized).
-    function animate() {
-      currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.05;
-      currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.05;
+/* The rule between sections: one wireframe body pointing down, swaying in
+   perspective, flanked by two small satellites that keep the airy horizontal
+   rhythm the old row of glyphs had.
 
-      setMouseOffset({ x: currentRef.current.x, y: currentRef.current.y });
-      animationRef.current = requestAnimationFrame(animate);
-    }
+   Color comes from .accent-text — the site's shared 100s palette clock, the
+   same one driving the top bar and the footer — and every stroke in the mark
+   is currentColor, so tinting the row tints the geometry. */
+const AnimatedBreak = ({ mark = 0 }: AnimatedBreakProps) => {
+  useBreakParallax();
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-
-      // Calculate offset from center, normalized to -1 to 1
-      const normalizedX = (e.clientX - centerX) / (window.innerWidth / 2);
-
-      // Set target with movement range (horizontal only)
-      targetRef.current.x = normalizedX * 30; // 30px max horizontal
-      targetRef.current.y = 0; // No vertical movement to avoid overlapping content
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setColorIndex((prev) => (prev + 1) % colors.length);
-    }, 5000); // Change color every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+  const { Mark, sway, depth } = BREAK_MARKS[mark % BREAK_MARKS.length];
 
   return (
-    <div ref={containerRef} className="w-full h-[200px] flex items-center justify-center py-32 md:py-48">
+    <div className="flex w-full items-center justify-center py-32 md:py-48">
       <div
-        className="flex items-center gap-4 md:gap-6"
-        style={{
-          transform: `translate(${mouseOffset.x}px, ${mouseOffset.y}px)`,
-        }}
+        className="accent-text flex items-center gap-8 md:gap-12 break-parallax"
+        style={{ '--parallax-depth': depth } as React.CSSProperties}
       >
-        <span 
-          className="text-2xl md:text-3xl animate-float opacity-80 transition-colors duration-[2000ms]"
-          style={{ color: colors[colorIndex] }}
-        >
-          +
+        <span className="break-satellite break-satellite-a" aria-hidden>
+          <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 md:h-3 md:w-3" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+            <path d="M6 1.5 V10.5 M1.5 6 H10.5" />
+          </svg>
         </span>
-        <span 
-          className="text-2xl md:text-3xl animate-float-delayed opacity-80 transition-colors duration-[2000ms]" 
-          style={{ animationDelay: '0.2s', color: colors[colorIndex] }}
-        >
-          /
+
+        <span className="break-mark" style={{ opacity: 0.85 }}>
+          <span className="break-mark-inner" data-sway={sway}>
+            <Mark className="h-14 w-14 md:h-[72px] md:w-[72px]" />
+          </span>
         </span>
-        <span
-          className="text-2xl md:text-3xl animate-float-triangle opacity-80 transition-colors duration-[2000ms]"
-          style={{ animationDelay: '0.4s', color: colors[colorIndex] }}
-        >
-          ▵
-        </span>
-        <span 
-          className="text-2xl md:text-3xl animate-float-delayed opacity-80 transition-colors duration-[2000ms]" 
-          style={{ animationDelay: '0.6s', color: colors[colorIndex] }}
-        >
-          \
-        </span>
-        <span 
-          className="text-2xl md:text-3xl animate-float opacity-80 transition-colors duration-[2000ms]" 
-          style={{ animationDelay: '0.8s', color: colors[colorIndex] }}
-        >
-          +
+
+        <span className="break-satellite break-satellite-b" aria-hidden>
+          <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 md:h-3 md:w-3" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
+            <path d="M6 1.5 L10.5 6 L6 10.5 L1.5 6 Z" />
+          </svg>
         </span>
       </div>
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(5deg);
-          }
-        }
-        
-        @keyframes float-delayed {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-15px) rotate(-5deg);
-          }
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-          animation: float-delayed 3s ease-in-out infinite;
-        }
-
-        .animate-float-triangle {
-          animation: float-triangle 3s ease-in-out infinite;
-          display: inline-block;
-        }
-
-        @keyframes float-triangle {
-          0%, 100% {
-            transform: translateY(0px) rotate(180deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(185deg);
-          }
-        }
-      `}</style>
     </div>
   );
 };

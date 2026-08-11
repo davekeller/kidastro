@@ -405,6 +405,106 @@ h4, h6 {
   }
 }
 
+/* ---------- Section break marks (homepage dividers) ---------- */
+
+/* Horizontal pointer drift, shared by every break on the page. The offset is
+   written once per frame to --break-parallax by useBreakParallax; each break
+   scales it by its own --parallax-depth so the marks don't all slide as one
+   sheet. */
+.break-parallax {
+  transform: translateX(calc(var(--break-parallax, 0px) * var(--parallax-depth, 1)));
+}
+
+/* The mark sways in perspective rather than spinning through a full turn: a
+   flat SVG rotated past edge-on collapses to a hairline and pops, which the
+   header icosahedron never does because it's real geometry. A pendulum arc
+   that stops short of 90deg keeps the solid read the whole way through.
+   Perspective sits on the outer element, which also carries the bob, so the
+   two transforms never fight — same split as .float-drift. */
+.break-mark {
+  display: inline-block;
+  perspective: 260px;
+  animation: break-bob 7s ease-in-out infinite;
+}
+
+.break-mark-inner {
+  display: inline-block;
+  transform-style: preserve-3d;
+}
+
+@keyframes break-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* One keyframe set per mark. Written out rather than driven by custom
+   properties: the arc, the axis mix and the period all differ, and the page
+   draws ten breaks from five marks — shared timing would make every repeat
+   obvious. */
+@keyframes break-sway-0 {
+  0%, 100% { transform: rotateY(-34deg) rotateX(7deg); }
+  50% { transform: rotateY(34deg) rotateX(-5deg); }
+}
+
+@keyframes break-sway-1 {
+  0%, 100% { transform: rotateY(26deg) rotateX(-9deg); }
+  50% { transform: rotateY(-26deg) rotateX(9deg); }
+}
+
+@keyframes break-sway-2 {
+  0%, 100% { transform: rotateY(-40deg) rotateZ(-4deg); }
+  50% { transform: rotateY(40deg) rotateZ(4deg); }
+}
+
+@keyframes break-sway-3 {
+  0%, 100% { transform: rotateX(14deg) rotateY(-18deg); }
+  50% { transform: rotateX(-10deg) rotateY(18deg); }
+}
+
+@keyframes break-sway-4 {
+  0%, 100% { transform: rotateY(30deg) rotateX(-12deg); }
+  50% { transform: rotateY(-30deg) rotateX(6deg); }
+}
+
+.break-mark-inner[data-sway="0"] { animation: break-sway-0 17s ease-in-out infinite; }
+.break-mark-inner[data-sway="1"] { animation: break-sway-1 21s ease-in-out infinite; }
+.break-mark-inner[data-sway="2"] { animation: break-sway-2 15s ease-in-out infinite; }
+.break-mark-inner[data-sway="3"] { animation: break-sway-3 23s ease-in-out infinite; }
+.break-mark-inner[data-sway="4"] { animation: break-sway-4 19s ease-in-out infinite; }
+
+/* Satellites: the last trace of the old row of glyphs, kept small and dim so
+   the break still spans a comfortable width. Offset periods so they never
+   bob in lockstep with the mark between them. */
+.break-satellite {
+  display: inline-block;
+  opacity: 0.45;
+}
+
+.break-satellite-a {
+  animation: break-bob 5.5s ease-in-out infinite;
+  animation-delay: -1.8s;
+}
+
+.break-satellite-b {
+  animation: break-bob 6.5s ease-in-out infinite;
+  animation-delay: -3.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .break-mark,
+  .break-mark-inner,
+  .break-satellite-a,
+  .break-satellite-b {
+    animation: none;
+  }
+
+  /* Straight-on is flat and lifeless; hold a fixed three-quarter view so the
+     mark still reads as a solid when nothing is moving. */
+  .break-mark-inner {
+    transform: rotateY(-22deg) rotateX(6deg);
+  }
+}
+
 @media print {
   @page {
     size: letter;
