@@ -345,7 +345,7 @@ const AuraCaseStudy = () => {
           alt="Workflows running in the front-end — the app the science team used"
         />
 
-        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mt-12">
           <ProcessFlow phases={workflowPhases} />
         </div>
 
