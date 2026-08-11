@@ -196,7 +196,7 @@ const AuraCaseStudy = () => {
       <AnimatedBreak tight />
 
       {/* HERO — the case study proper starts here, tight under the note */}
-      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-2 text-center">
+      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-24 text-center md:pb-28">
         <FadeUp>
           <div className="mb-5 flex items-center justify-center gap-3">
             <CompanyMark company="strangeworks" className="mt-0" />
