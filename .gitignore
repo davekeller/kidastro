@@ -47,3 +47,7 @@ next-env.d.ts
 # prebuild step on every `npm run build`. zip embeds timestamps, so
 # committing it churns the working tree after every build.
 public/downloads/dave-claude-skills.zip
+
+# Local-only: the kidastro-themes build, dropped in so /themes works in dev.
+# CI builds it from its own repo into out/themes instead (see deploy.yml).
+public/themes/
