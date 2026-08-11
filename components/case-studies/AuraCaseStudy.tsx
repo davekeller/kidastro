@@ -43,8 +43,8 @@ const AuraCaseStudy = () => {
           </p>
           <h1 className="text-5xl md:text-7xl font-bold lowercase">aura</h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
-            How we turned optimization modeling — a slow, expert-only craft — into an
-            AI-assisted workflow, and what I designed and built along the way.
+            How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
+            workflow, and what I designed and built along the way.
           </p>
         </FadeUp>
       </header>
@@ -104,19 +104,28 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="01"
           title="research &amp; discovery"
-          kicker="sitting with the science team to map how optimization models actually get made"
+          kicker="interviewing our own PhD consultants to map how an optimization model actually gets made"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Before Aura, building an optimization model was a hand-crafted process. A data
-              scientist would research the problem, define it, formulate the math, test, and
-              finally run it on compute — step by step, every time.
+              Strangeworks is a data science consulting company. We take on hard optimization
+              problems and formulate them to run on quantum, quantum-inspired, and HPC solvers,
+              and we built the platform that connects a science team to the right solver for
+              their formulation type.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              So discovery meant interviewing our own consultants: PhD physicists, a quantum
+              machine learning scientist, people writing production data science code against
+              quantum hardware. Every engagement ran the same five beats: research, problem
+              definition, formulation, testing, then compute and run. Every one was hand-built
+              from scratch.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              The insight from discovery: the make-or-break step is problem definition. When
-              the problem is defined well, everything downstream gets dramatically easier.
-              That insight ended up steering the whole product.
+              Two things came out of that. The process repeated across clients, which meant it
+              could be refined and productized. And the make-or-break step was problem
+              definition — define it well and everything downstream gets dramatically easier.
+              That second insight ended up steering the whole product.
             </p>
           </InfoCard>
         </div>
@@ -140,14 +149,22 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="02"
           title="wireframes &amp; brainstorming"
-          kicker="sketching wide before narrowing — the whole wall of ideas"
+          kicker="finding the line between a digital science binder and a full data science IDE"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              The central design question was where to land on a spectrum. At one end, a digital
+              science binder: a structured, legible record of a science project that anyone on
+              the engagement could follow. At the other, a full notebook IDE where a data
+              scientist writes real code. Too far toward the binder and the scientists
+              can&apos;t actually work. Too far toward the notebook and it&apos;s Jupyter with
+              extra steps.
+            </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              I brainstormed the workflow in Figma — wireframing competing structures for how a
-              scientist would move from a vague business problem to a running model. Zoomed out,
-              the boards show the churn: dead ends, variations, and the ideas that survived.
+              I built templates and wireframes across that whole range in Figma. Zoomed out, the
+              boards show the churn: dead ends, variations, and the handful of ideas that
+              survived.
             </p>
           </InfoCard>
         </div>
