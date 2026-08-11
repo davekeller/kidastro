@@ -67,7 +67,7 @@ const AnimatedBreak = ({ tight = false }: { tight?: boolean }) => {
     <div
       ref={containerRef}
       className={`w-full flex items-center justify-center ${
-        tight ? 'py-16' : 'h-[200px] py-32 md:py-48'
+        tight ? 'py-24' : 'h-[200px] py-32 md:py-48'
       }`}
     >
       <div
