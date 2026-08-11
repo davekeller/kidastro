@@ -120,43 +120,47 @@ const AuraCaseStudy = () => {
         <Breadcrumb label="aura case study" />
       </div>
 
+      {/* Date + Slalom mark pinned opposite the breadcrumb */}
+      <div className="fixed top-6 right-6 z-40 hidden flex-col items-end gap-2 sm:flex">
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
+          August 11, 2026
+        </p>
+        <SlalomMark className="h-6 w-auto text-white" />
+      </div>
+
       {/* BUILT FOR YOU — the note that frames the case study */}
-      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-[200px]">
-        <div className="col-span-full w-full lg:w-[80%] mx-auto mb-2 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
-          <div className="flex items-start gap-5">
-            <Image
-              src="/imgs/dave.jpg"
-              alt="Dave Keller"
-              width={96}
-              height={96}
-              className="mt-1 h-16 w-16 shrink-0 rounded-full object-cover md:h-20 md:w-20"
-              priority
-            />
-            <div>
-              <h1 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
-                Hey Lucy and the Slalom team — I&apos;m Dave, and I built this for you today.
-              </h1>
-              <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
-                You asked for a case study or a code repository. Here&apos;s both.
-              </p>
-            </div>
-          </div>
-          <div className="flex shrink-0 flex-col items-start gap-2 sm:items-end sm:pt-2">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
-              August 11, 2026
+      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-36">
+        <div className="col-span-full mx-auto flex w-full max-w-3xl items-start justify-center gap-5 px-4 lg:w-[80%]">
+          <Image
+            src="/imgs/dave.jpg"
+            alt="Dave Keller"
+            width={96}
+            height={96}
+            className="mt-1 h-16 w-16 shrink-0 rounded-full object-cover md:h-20 md:w-20"
+            priority
+          />
+          <div>
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
+              Hey Lucy and the Slalom team — I&apos;m Dave, and I built this for you today.
+            </h1>
+            <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
+              You asked for a case study or a code repository. Here&apos;s both.
             </p>
-            <SlalomMark className="h-7 w-auto text-white md:h-8" />
           </div>
         </div>
+
+        <AnimatedBreak tight />
 
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
             <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what this is</h3>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Aura is both a product and a client services process, and I&apos;ve led design on it
-              at Strangeworks for the last two years — from the first discovery interview to the
-              production code shipping today.
+              Aura is our internal app at Strangeworks: an agentic process science teams work
+              through to build optimization models. Around it sit Strange-UI, our design system,
+              and the custom client apps it powers. I&apos;ve led design across all of it for the
+              last two years — from the first discovery interview to the production code
+              shipping today.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               It&apos;s also where I became a design engineer in practice: designing the thing,
@@ -434,11 +438,12 @@ const AuraCaseStudy = () => {
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               So the last step is design work again. We&apos;re a consultancy, so every
-              engagement ends in a custom client app built for that operation — on top of
-              Strange-UI, our own internal design system. Each operation differs, but the pieces
-              repeat: schedules, constraints, scenario builders, solver runs. Strange-UI carries
-              those components and the rules for assembling them, so a new client app starts
-              production-ready instead of from a blank file.
+              engagement ends in its own custom web app, built for that client&apos;s operation.
+              Powering them is Strange-UI, a separate design system we built for exactly this:
+              each operation differs, but the pieces repeat — schedules, constraints, scenario
+              builders, solver runs. Strange-UI carries those components and the rules for
+              assembling them, so a new client app starts production-ready instead of from a
+              blank file.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               Aura is live today behind the Strangeworks optimization practice —{' '}
