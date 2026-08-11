@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedBreak from '@/components/AnimatedBreak';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -74,9 +75,12 @@ const AuraCaseStudy = () => {
       {/* HERO */}
       <header className="mx-auto w-[96%] max-w-4xl px-4 pt-32 pb-16 text-center">
         <FadeUp>
-          <p className="mb-5 font-mono text-xs uppercase tracking-[0.35em] text-white/50">
-            case study — strangeworks
-          </p>
+          <div className="mb-5 flex items-center justify-center gap-3">
+            <CompanyMark company="strangeworks" className="mt-0" />
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
+              case study — strangeworks
+            </p>
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold lowercase">aura</h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
             How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
@@ -89,21 +93,30 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 gap-12">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <div className="flex items-start gap-4 mb-4">
-              <CompanyMark company="strangeworks" />
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold">built for you</h2>
-                <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5">
-                  made for Slalom — August 11, 2026
-                </h4>
-              </div>
+            <div className="mb-4">
+              <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+                built for
+              </p>
+              <Image
+                src="/imgs/aura/slalom-logo-white.svg"
+                alt="Slalom"
+                width={216}
+                height={56}
+                className="h-9 w-auto md:h-11"
+              />
+              <h4 className="text-white/50 text-balance text-base font-bold italic mt-3">
+                for Lucy and the Slalom team — August 11, 2026
+              </h4>
             </div>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Hi, I&apos;m Dave. Lucy — this morning you passed along that the Slalom team wanted
-              a case study or a code repository, something that shows my process. Here&apos;s
-              both. This page walks the Aura story the way I&apos;d tell it in the room, and
-              it&apos;s a work sample itself: designed and shipped in production code, same day.
+              Hey Lucy, and the Slalom team: I&apos;m Dave, and I built this for you today. You
+              asked for a case study or a code repository — something that shows my process.
+              Here&apos;s both.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              This page walks the Aura story the way I&apos;d tell it in the room, and it&apos;s
+              a work sample itself: designed and shipped in production code, same day.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               The{' '}
