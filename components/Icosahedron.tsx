@@ -85,7 +85,18 @@ const Particles = ({ colorRef }: { colorRef: React.MutableRefObject<THREE.Color>
   );
 };
 
-const IcosahedronShape = ({ isDragging, dragDelta, velocity }: { isDragging: boolean; dragDelta: { x: number; y: number }; velocity: { x: number; y: number } }) => {
+const IcosahedronShape = ({
+  isDragging,
+  dragDelta,
+  velocity,
+  variant = 'hero',
+}: {
+  isDragging: boolean;
+  dragDelta: { x: number; y: number };
+  velocity: { x: number; y: number };
+  variant?: 'hero' | 'icon';
+}) => {
+  const isIcon = variant === 'icon';
   const groupRef = useRef<THREE.Group>(null);
   const floatGroupRef = useRef<THREE.Group>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -141,11 +152,13 @@ const IcosahedronShape = ({ isDragging, dragDelta, velocity }: { isDragging: boo
       groupRef.current.rotation.y = autoY + dragRotation.current.y;
     }
 
-    // Subtle mouse following for the whole shape
+    // Subtle mouse following for the whole shape (damped way down at icon size
+    // so the shape stays put inside its small canvas)
     if (floatGroupRef.current) {
+      const follow = isIcon ? 0.25 : 1;
       // Update target based on mouse position
-      mouseTarget.current.x = state.mouse.x * 4; // Horizontal movement
-      mouseTarget.current.y = state.mouse.y * 3; // Vertical movement
+      mouseTarget.current.x = state.mouse.x * 4 * follow; // Horizontal movement
+      mouseTarget.current.y = state.mouse.y * 3 * follow; // Vertical movement
 
       // Smooth lerp towards target
       currentMouse.current.x += (mouseTarget.current.x - currentMouse.current.x) * 0.05;
@@ -197,7 +210,7 @@ const IcosahedronShape = ({ isDragging, dragDelta, velocity }: { isDragging: boo
             <Line
               points={points}
               color="#f4fd7b" // Initial color
-              lineWidth={3} // Thick lines
+              lineWidth={isIcon ? 2 : 3} // Thick lines
               segments // Render as segments (pairs of points)
               transparent
               opacity={0.8}
@@ -206,12 +219,19 @@ const IcosahedronShape = ({ isDragging, dragDelta, velocity }: { isDragging: boo
           </group>
         </Float>
       </group>
-      <Particles colorRef={colorRef} />
+      {!isIcon && <Particles colorRef={colorRef} />}
     </>
   );
 };
 
-const Icosahedron = () => {
+const Icosahedron = ({
+  variant = 'hero',
+  className,
+}: {
+  /** 'hero' is the full-bleed homepage canvas; 'icon' is a small inline mark. */
+  variant?: 'hero' | 'icon';
+  className?: string;
+}) => {
   const [isDragging, setIsDragging] = React.useState(false);
   const [dragDelta, setDragDelta] = React.useState({ x: 0, y: 0 });
   const [velocity, setVelocity] = React.useState({ x: 0, y: 0 });
@@ -270,17 +290,26 @@ const Icosahedron = () => {
     }
   };
 
+  const isIcon = variant === 'icon';
+
   return (
     <div
-      className="w-full h-[500px] mb-4 overflow-hidden"
+      className={`overflow-hidden ${
+        className ?? (isIcon ? 'h-28 w-28 md:h-32 md:w-32' : 'w-full h-[500px] mb-4')
+      }`}
       style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerUp}
     >
-      <Canvas camera={{ position: [0, 0, 22] }}>
-        <IcosahedronShape isDragging={isDragging} dragDelta={dragDelta} velocity={velocity} />
+      <Canvas camera={{ position: [0, 0, isIcon ? 12 : 22] }}>
+        <IcosahedronShape
+          isDragging={isDragging}
+          dragDelta={dragDelta}
+          velocity={velocity}
+          variant={variant}
+        />
       </Canvas>
     </div>
   );

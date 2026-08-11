@@ -6,6 +6,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import CompanyMark from '@/components/CompanyMark';
 import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
+import Icosahedron from '@/components/Icosahedron';
 import CaseImage from '@/components/case-studies/CaseImage';
 import SlalomMark from '@/components/case-studies/SlalomMark';
 import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
@@ -56,12 +57,12 @@ const workflowPhases: FlowPhase[] = [
   },
 ];
 
-/** Numbered chapter header — big index, lowercase title, one-line kicker. */
+/** Numbered chapter header — big index, title, one-line kicker. */
 const ChapterHeader = ({ index, title, kicker }: { index: string; title: string; kicker: string }) => (
   <div className="col-span-full w-full lg:w-[80%] mx-auto flex items-baseline gap-5 mb-2">
     <span className="font-mono text-xl md:text-2xl font-bold text-white/30 tracking-widest">{index}</span>
     <div>
-      <h2 className="text-3xl md:text-4xl font-bold lowercase">{title}</h2>
+      <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
       <p className="text-white/50 text-base font-bold italic mt-1.5 text-balance">{kicker}</p>
     </div>
   </div>
@@ -120,8 +121,9 @@ const AuraCaseStudy = () => {
         <Breadcrumb label="aura case study" />
       </div>
 
-      {/* Date + Slalom mark pinned opposite the breadcrumb */}
-      <div className="fixed top-6 right-6 z-40 hidden flex-col items-end gap-2 sm:flex">
+      {/* Date + Slalom mark opposite the breadcrumb — scrolls with the page so it
+          never overlaps the case images */}
+      <div className="absolute top-6 right-6 z-40 hidden flex-col items-end gap-2 sm:flex">
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
           August 11, 2026
         </p>
@@ -129,21 +131,21 @@ const AuraCaseStudy = () => {
       </div>
 
       {/* BUILT FOR YOU — the note that frames the case study */}
-      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-36">
-        <div className="col-span-full mx-auto flex w-full max-w-5xl items-start justify-center gap-6 px-4">
+      <AnimatedSection className="grid grid-cols-1 gap-8 pt-38 lg:pt-46">
+        <div className="col-span-full mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-4 text-center">
           <Image
             src="/imgs/dave.jpg"
             alt="Dave Keller"
             width={96}
             height={96}
-            className="mt-1 h-16 w-16 shrink-0 rounded-full object-cover md:h-20 md:w-20"
+            className="h-20 w-20 shrink-0 rounded-full object-cover md:h-24 md:w-24"
             priority
           />
           <div>
             <h1 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
-              Hey Lucy and the Slalom team — I&apos;m Dave, and I built this for you today.
+              Hey Lucy and the Slalom Team — I&apos;m Dave, and I built this for you today.
             </h1>
-            <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
+            <p className="mx-auto mt-4 max-w-2xl text-xl leading-8 text-white/75 text-balance">
               You asked for a case study or a code repository. Here&apos;s both.
             </p>
           </div>
@@ -151,15 +153,29 @@ const AuraCaseStudy = () => {
 
         <AnimatedBreak tight />
 
+        {/* CASE STUDY TITLE — sits above the intro cards */}
+        <div className="col-span-full mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-8 text-center">
+          <div className="mb-5 flex items-center justify-center gap-3">
+            <CompanyMark company="strangeworks" className="mt-0" />
+            <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
+              case study
+            </p>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold">Strangeworks Aura</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
+            How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
+            workflow, and what I designed and built along the way.
+          </p>
+        </div>
+
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what this is</h3>
-            <div className="w-full border-b-2 border-white/20 mb-4"></div>
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Aura is our internal app at Strangeworks: an agentic process science teams work
-              through to build optimization models. Around it sit Strange-UI, our design system,
-              and the custom client apps it powers. I&apos;ve led design across all of it for the
-              last two years — from the first discovery interview to the production code
+            <p className="mt-2 mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Aura is Strangeworks&apos; proprietary toolset for solving complex optimization
+              challenges: an agentic process science teams work through to take a problem from
+              precise definition to production deployment. Around it sit Strange-UI, our design
+              system, and the custom client apps it powers. I&apos;ve led design across all of it
+              for the last two years — from the first discovery interview to the production code
               shipping today.
             </p>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
@@ -186,7 +202,7 @@ const AuraCaseStudy = () => {
           </InfoCard>
 
           <InfoCard className="flex flex-col items-start">
-            <h3 className="text-xl font-bold mt-2 text-balance">how this page came together</h3>
+            <h3 className="text-xl font-bold mt-2 text-balance">How This Page Came Together</h3>
             <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
               I read your message this morning. Everything below happened today.
             </p>
@@ -204,31 +220,12 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak tight />
 
-      {/* HERO — the case study proper starts here, tight under the note */}
-      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-2 text-center">
-        <FadeUp>
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <CompanyMark company="strangeworks" className="mt-0" />
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
-              case study
-            </p>
-          </div>
-          <h2 className="text-5xl md:text-7xl font-bold lowercase">strangeworks aura</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
-            How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
-            workflow, and what I designed and built along the way.
-          </p>
-        </FadeUp>
-      </header>
-
-      <AnimatedBreak tight />
-
       {/* 01 RESEARCH & DISCOVERY */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="01"
-          title="research &amp; discovery"
-          kicker="interviewing our own PhD consultants to map how an optimization model actually gets made"
+          title="Research &amp; Discovery"
+          kicker="Interviewing our own PhD consultants to map how an optimization model actually gets made"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
@@ -270,8 +267,8 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="02"
-          title="workshops &amp; wireframes"
-          kicker="finding the line between a digital science binder and a full data science IDE"
+          title="Workshops &amp; Wireframes"
+          kicker="Finding the line between a digital science binder and a full data science IDE"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
@@ -314,8 +311,8 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="03"
-          title="building it in the front-end"
-          kicker="straight into the repo, so our scientists could use it while we iterated"
+          title="Building It in the Front-End"
+          kicker="Straight into the repo, so our scientists could use it while we iterated"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
@@ -372,8 +369,8 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="04"
-          title="aura 2.0 — agents"
-          kicker="the user and a problem analysis agent, back and forth, until the definition holds"
+          title="Aura 2.0 — Agents"
+          kicker="The user and a problem analysis agent, back and forth, until the definition holds"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
@@ -387,7 +384,7 @@ const AuraCaseStudy = () => {
             ]}
           >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              A year of beta testing showed us where the march broke down, and as the agents got
+              A year of beta testing showed us where users got stuck, and as the agents got
               better we jumped ahead of our own roadmap. 2.0 simplifies the whole thing, problem
               definition through to run.
             </p>
@@ -417,7 +414,7 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="05"
-          title="custom client apps &amp; a design system"
+          title="Custom Client Apps Powered by a Design System"
           kicker="Strange-UI, our own system for standing a client's app up fast"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
@@ -474,9 +471,9 @@ const AuraCaseStudy = () => {
       <AnimatedSection className="grid grid-cols-1 gap-12">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
-            <h2 className="text-3xl md:text-4xl font-bold lowercase">what it added up to</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">What It Added Up To</h2>
             <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5 mb-4">
-              an internal process, turned into a product, turned back into client work
+              An internal process, turned into a product, turned back into client work
             </h4>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
@@ -491,7 +488,7 @@ const AuraCaseStudy = () => {
           </InfoCard>
 
           <InfoCard className="flex flex-col items-start">
-            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">what I did on it</h3>
+            <h3 className="text-xl font-bold mt-2 mb-4 text-balance">What I Did on It</h3>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
               <li className={bullet}>Ran the discovery that surfaced the insight the whole product is built on</li>
@@ -505,17 +502,22 @@ const AuraCaseStudy = () => {
         </div>
       </AnimatedSection>
 
-      {/* SIGN-OFF */}
+      {/* SIGN-OFF — mirrors the intro header: centered mark on top, same type scale */}
       <FadeUp className="w-full">
-        <div className="mx-auto w-[96%] max-w-2xl px-4 pt-20 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold lowercase text-balance">
-            thanks, Lucy and the Slalom team
-          </h2>
-          <p className="mt-4 text-xl leading-8 text-white/75 text-balance">
-            That&apos;s the story. I&apos;d love to tell you the parts that didn&apos;t fit.
-          </p>
+        <div className="mx-auto flex w-[96%] max-w-4xl flex-col items-center gap-6 px-4 pt-20 text-center">
+          <Icosahedron variant="icon" />
+          <div>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
+              Thanks, Lucy and the Slalom Team
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-xl leading-8 text-white/75 text-balance">
+              That&apos;s the story. Would love to talk.
+            </p>
+          </div>
 
-          <ul className="mt-8 flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
+          <div className="w-16 border-b-2 border-white/20" aria-hidden="true" />
+
+          <ul className="flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
             <li>
               <a
                 href="mailto:davekeller@me.com?subject=Hey Dave!"
