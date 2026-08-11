@@ -7,6 +7,7 @@ import CompanyMark from '@/components/CompanyMark';
 import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
 import CaseImage from '@/components/case-studies/CaseImage';
+import SlalomMark from '@/components/case-studies/SlalomMark';
 import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
 import ProcessFlow, { type FlowPhase } from '@/components/case-studies/ProcessFlow';
 
@@ -84,7 +85,7 @@ const AuraCaseStudy = () => {
       </div>
 
       {/* BUILT FOR YOU — the note that frames the case study */}
-      <AnimatedSection className="grid grid-cols-1 gap-8 pt-20">
+      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
             <div className="mb-4 flex items-start justify-between gap-4">
@@ -101,7 +102,7 @@ const AuraCaseStudy = () => {
                   <p className="font-mono text-xs uppercase tracking-[0.3em] text-white/40">
                     built for
                   </p>
-                  <h2 className="mt-1 text-2xl md:text-3xl font-bold text-white text-balance">
+                  <h2 className="mt-1 text-xl md:text-2xl font-bold text-white text-balance">
                     Lucy and the Slalom team
                   </h2>
                 </div>
@@ -110,13 +111,7 @@ const AuraCaseStudy = () => {
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-white/35">
                   August 11, 2026
                 </p>
-                <Image
-                  src="/imgs/aura/slalom-logo-white.svg"
-                  alt="Slalom"
-                  width={216}
-                  height={56}
-                  className="h-6 w-auto md:h-7"
-                />
+                <SlalomMark className="h-9 w-auto text-white md:h-11" />
               </div>
             </div>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
@@ -156,10 +151,8 @@ const AuraCaseStudy = () => {
         </div>
       </AnimatedSection>
 
-      <AnimatedBreak />
-
-      {/* HERO — the case study proper starts here */}
-      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-12 text-center">
+      {/* HERO — the case study proper starts here, tight under the note */}
+      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-14 pb-12 text-center">
         <FadeUp>
           <div className="mb-5 flex items-center justify-center gap-3">
             <CompanyMark company="strangeworks" className="mt-0" />
