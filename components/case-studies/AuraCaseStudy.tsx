@@ -58,19 +58,28 @@ const AuraCaseStudy = () => {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold">built for you</h2>
                 <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5">
-                  a case study, made the way I make product
+                  made for Slalom — August 11, 2026
                 </h4>
               </div>
             </div>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Hi, I&apos;m Dave. You asked for a case study ahead of the skills interview — so
-              instead of a deck, I built you this page. It walks the same story I&apos;d tell in
-              the room, with the real artifacts.
+              Hi, I&apos;m Dave. Lucy — this morning you passed along that the Slalom team wanted
+              a case study or a code repository, something that shows my process. Here&apos;s
+              both. This page walks the Aura story the way I&apos;d tell it in the room, and
+              it&apos;s a work sample itself: designed and shipped in production code, same day.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              It also doubles as a work sample: designed and shipped in my portfolio codebase,
-              in production code.
+              The{' '}
+              <a
+                href="https://github.com/davekeller/kidastro/pull/51"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-white/40 underline-offset-4 transition-colors hover:text-(--color-2)"
+              >
+                pull request that built it
+              </a>{' '}
+              is open — commits, diffs, and all.
             </p>
           </InfoCard>
 
@@ -78,10 +87,11 @@ const AuraCaseStudy = () => {
             <h3 className="text-xl font-bold mt-2 mb-4 text-balance">how this page came together</h3>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
-              <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR</li>
-              <li className={bullet}>Built the page in Next.js, Tailwind, and Framer Motion, designing in Claude Code</li>
-              <li className={bullet}>Pulled the visuals straight from the original Figma boards and product repos</li>
-              <li className={bullet}>Wrote, art-directed, and shipped it to kidastro.com</li>
+              <li className={bullet}>Sketched the narrative first — the same seven beats I&apos;d walk through in an interview</li>
+              <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
+              <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
+              <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
+              <li className={bullet}>Wrote every word, reviewed the diff, and shipped it to kidastro.com the same day</li>
             </ul>
           </InfoCard>
         </div>
