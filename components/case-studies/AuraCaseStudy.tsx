@@ -183,7 +183,7 @@ const AuraCaseStudy = () => {
             </p>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
-              <li className={bullet}>Sketched the narrative first — the same seven beats I&apos;d walk through in an interview</li>
+              <li className={bullet}>Sketched the narrative first — the same six beats I&apos;d walk through in an interview</li>
               <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
               <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
               <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
@@ -289,7 +289,7 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/wireframes-painpoints.webp"
+          src="/imgs/aura/wireframes-painpoints-v2.webp"
           alt="Sci Workflow board — pain points and opportunities across every phase, and the offsite deck"
         />
         <CaseImage
@@ -301,12 +301,12 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak />
 
-      {/* 03 THE FLOW AND THE FRONT-END */}
+      {/* 03 BUILDING IT IN THE FRONT-END (with beta testing folded in) */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
           index="03"
           title="building it in the front-end"
-          kicker="into the repo with the dev team, as the tooling changed underneath us"
+          kicker="straight into the repo, so our scientists could use it while we iterated"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ChapterCard
@@ -316,52 +316,21 @@ const AuraCaseStudy = () => {
               'Led the product vision alongside the build',
               'Built the production UIs in code, not handoffs',
               'Structured the navigation and user experience',
-              'Evolved the Strangeworks look and feel with our brand designer',
               'Moved from hand-written Tailwind and Cursor into Claude Code',
+              'Shipped to our own scientists first, then client science teams',
+              'Turned their feedback around in the same repo, same week',
             ]}
           >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               The dev team jumped into the app building agentic reasoning, and I jumped into the
               code with them. We called them workflows back then.
             </p>
-            <p className="text-lg leading-8 text-white/90 text-pretty">
-              Over that year the tooling changed underneath us. I started hand-writing HTML and
-              Tailwind; as Claude Code shipped I moved into the terminal, and so did the rest of
-              the team.
-            </p>
-          </ChapterCard>
-        </div>
-        <CaseImage
-          className="col-span-full lg:col-span-6"
-          alt="Aura running in the front-end"
-          note="drop-in — the front-end build (name it build1)"
-        />
-      </AnimatedSection>
-
-      <AnimatedBreak />
-
-      {/* 04 BETA TESTING & ITERATION */}
-      <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
-        <ChapterHeader
-          index="04"
-          title="beta testing &amp; iteration"
-          kicker="our own consultants first, then our clients' science teams"
-        />
-        <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <ChapterCard
-            asideTitle="what happened"
-            items={[
-              'Shipped internally to our own ten-scientist consulting team',
-              'Opened it to client science teams at Deloitte, Accenture, and J&J',
-              'Watched untrained users work problems we had not scoped',
-              'Iterated on their feedback between every step',
-              'Found exactly where the linear march broke down',
-            ]}
-          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              Our own ten-scientist consulting team used it first. Then science teams at
-              Deloitte, Accenture, and Johnson &amp; Johnson built their own models in it —
-              people we hadn&apos;t trained, on problems we hadn&apos;t scoped.
+              Going straight to the front-end is what made the loop fast. Our own ten-scientist
+              consulting team used it while we built, then science teams at Deloitte, Accenture,
+              and Johnson &amp; Johnson built their own models in it — people we hadn&apos;t
+              trained, on problems we hadn&apos;t scoped. Their feedback landed back in the repo
+              the same week.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
               Version one, Workflows, was a long linear march. Watching it get used showed us
@@ -370,12 +339,18 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
 
+        <CaseImage
+          className="col-span-full lg:col-span-6"
+          alt="Aura running in the front-end"
+          note="drop-in — the front-end build (name it build1)"
+        />
+
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <ProcessFlow phases={workflowPhases} />
         </div>
 
-        <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <p className="mb-2 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mt-10 border-t-2 border-white/15 pt-10">
+          <p className="mb-4 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
             science teams building models in it
           </p>
           <ClientLogos clients={clients} />
@@ -384,10 +359,10 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak />
 
-      {/* 05 AURA 2.0 */}
+      {/* 04 AURA 2.0 */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
-          index="05"
+          index="04"
           title="aura 2.0 — agents"
           kicker="one agent to get the problem definition right; trained agents do the rest"
         />
@@ -427,10 +402,10 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak />
 
-      {/* 06 SHIPPED — CLIENT INTERFACES */}
+      {/* 05 SHIPPED — CLIENT INTERFACES */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
-          index="06"
+          index="05"
           title="shipped — client interfaces"
           kicker="the models have to run a business, so someone has to be able to drive them"
         />
@@ -515,10 +490,10 @@ const AuraCaseStudy = () => {
 
       <AnimatedBreak />
 
-      {/* 07 STRANGE-UI */}
+      {/* 06 STRANGE-UI */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
         <ChapterHeader
-          index="07"
+          index="06"
           title="strange-ui — the design system"
           kicker="building one client interface is a project; building dozens is a system"
         />
