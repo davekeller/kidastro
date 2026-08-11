@@ -296,7 +296,7 @@ const AuraCaseStudy = () => {
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/wireframes-flow.webp"
+          src="/imgs/aura/wireframes-flow-v2.webp"
           alt="Prototype flow board — projects, research and methods, formulation, and solvers"
         />
       </AnimatedSection>
