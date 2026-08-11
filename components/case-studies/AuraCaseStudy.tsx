@@ -121,7 +121,7 @@ const AuraCaseStudy = () => {
       </div>
 
       {/* BUILT FOR YOU — the note that frames the case study */}
-      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-60">
+      <AnimatedSection className="grid grid-cols-1 gap-8 pt-28 lg:pt-[200px]">
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
             <div className="mb-4 flex items-center justify-between gap-4">
@@ -147,7 +147,7 @@ const AuraCaseStudy = () => {
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
                   August 11, 2026
                 </p>
-                <SlalomMark className="h-5 w-auto text-white md:h-6" />
+                <SlalomMark className="h-[22px] w-auto text-white md:h-[26px]" />
               </div>
             </div>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
