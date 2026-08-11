@@ -244,12 +244,12 @@ const AuraCaseStudy = () => {
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/research1-v2.webp"
+          src="/imgs/aura/research1-v3.webp"
           alt="Notion research hub — discovery workshop docs, consultant interviews, and insights"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/aura/research2-v4.webp"
+          src="/imgs/aura/research2-v5.webp"
           alt="Problem → Analysis — phased flows and standardized formulation components in Figma"
         />
       </AnimatedSection>
