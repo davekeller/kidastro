@@ -229,17 +229,28 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="04"
           title="building it in the front-end"
-          kicker="from flows to a running repo — designing in production code"
+          kicker="into the repo with the dev team, as the tooling changed underneath us"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              With the flow validated, we started the repo and I moved my design work into the
-              front-end — building screens in production code and refining them there, where
-              real data and real latency live.
+              While the Figma work was still warm, the dev team jumped straight into the app and
+              started building agentic reasoning, with the front-end going up alongside it. I
+              jumped into the code with them. We called them workflows back then.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              That ran for about a year, and the way we built changed underneath us. Early on it
+              was mostly hand-written code — I was writing front-end HTML and Tailwind, reaching
+              for Cursor in small doses. As Claude got better and Claude Code shipped, I moved
+              into the terminal, and so did the rest of the team.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              Iterating in code meant every design decision shipped as a PR, not a handoff.
+              We&apos;re about ten developers: AI specialists, backend, full-stack, and one other
+              full-stack developer focused on the front-end. I was the design engineer on that
+              team and led the product vision — designing where it was going, building the UIs in
+              code, structuring the navigation and the user experience, and working with our
+              brand designer to bring the Strangeworks look and feel into the product and evolve
+              it as we went.
             </p>
           </InfoCard>
         </div>
