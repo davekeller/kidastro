@@ -77,6 +77,42 @@ const InfoCard = ({ children, className = '' }: { children: React.ReactNode; cla
 const bullet =
   "pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty";
 
+/** Tighter bullet for the sidebar list inside a chapter card. */
+const sideBullet =
+  "pl-5 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-xl before:leading-none before:text-(--color-2)/70 text-base leading-6 text-white/75 text-pretty";
+
+/**
+ * A chapter card: the narrative in the left two-thirds, and what concretely
+ * happened in a bordered sidebar on the right third.
+ */
+const ChapterCard = ({
+  children,
+  asideTitle,
+  items,
+}: {
+  children: React.ReactNode;
+  asideTitle: string;
+  items: string[];
+}) => (
+  <InfoCard>
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div className="lg:col-span-2">{children}</div>
+      <aside className="lg:col-span-1 lg:border-l-2 lg:border-white/15 lg:pl-8">
+        <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-white/40">
+          {asideTitle}
+        </h4>
+        <ul className="list-none space-y-3">
+          {items.map((item) => (
+            <li key={item} className={sideBullet}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </InfoCard>
+);
+
 const AuraCaseStudy = () => {
   return (
     <>
@@ -158,21 +194,23 @@ const AuraCaseStudy = () => {
       </AnimatedSection>
 
       {/* HERO — the case study proper starts here, tight under the note */}
-      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-14 pb-12 text-center">
+      <header className="mx-auto w-[96%] max-w-4xl px-4 pt-24 pb-2 text-center">
         <FadeUp>
           <div className="mb-5 flex items-center justify-center gap-3">
             <CompanyMark company="strangeworks" className="mt-0" />
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
-              case study — strangeworks
+              case study
             </p>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold lowercase">aura</h1>
+          <h1 className="text-5xl md:text-7xl font-bold lowercase">strangeworks aura</h1>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
             How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
             workflow, and what I designed and built along the way.
           </p>
         </FadeUp>
       </header>
+
+      <AnimatedBreak compact />
 
       {/* 01 RESEARCH & DISCOVERY */}
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-6 gap-12 items-center">
@@ -182,7 +220,16 @@ const AuraCaseStudy = () => {
           kicker="interviewing our own PhD consultants to map how an optimization model actually gets made"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
-          <InfoCard>
+          <ChapterCard
+            asideTitle="what happened"
+            items={[
+              'Interviewed every internal consultant — PhD physicists and a quantum ML scientist',
+              'Mapped the five beats every engagement repeated by hand',
+              'Wrote the project brief and vision in Notion',
+              'Synthesized it into the Problem → Analysis board',
+              'Landed on problem definition as the make-or-break step',
+            ]}
+          >
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
               Strangeworks is a data science consulting company. We formulate hard optimization
               problems to run on quantum, quantum-inspired, and HPC solvers, and we built the
@@ -199,7 +246,7 @@ const AuraCaseStudy = () => {
               the make-or-break step was problem definition — define it well and everything
               downstream gets easier. That second one steered the whole product.
             </p>
-          </InfoCard>
+          </ChapterCard>
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
