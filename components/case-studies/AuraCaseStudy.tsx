@@ -6,6 +6,42 @@ import CompanyMark from '@/components/CompanyMark';
 import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
 import CaseImage from '@/components/case-studies/CaseImage';
+import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
+import ProcessSteps, { type ProcessStep } from '@/components/case-studies/ProcessSteps';
+
+/* Clients whose science teams the work was built for. Drop logo SVGs into
+   /public/imgs/aura/clients/ and add `src` to swap a wordmark for real art. */
+const clients: ClientLogo[] = [
+  { name: 'Johnson & Johnson' },
+  { name: 'Deloitte' },
+  { name: 'Accenture' },
+  { name: 'BP' },
+  { name: 'Collins Aerospace' },
+];
+
+/* Workflows v1 — the manual process, before the agents collapsed it. */
+const workflowSteps: ProcessStep[] = [
+  { title: 'Research & discovery', detail: 'Understand the business problem and what solving it is worth.' },
+  { title: 'Problem definition', detail: 'Write the problem down precisely enough to model it.' },
+  {
+    title: 'Problem analysis',
+    detail: 'Pressure-test the definition, find the gaps, redefine, analyze again.',
+    loops: true,
+  },
+  {
+    title: 'Abstract model',
+    detail: 'Get the variables, constraints, and weights right against abstract data.',
+  },
+  { title: 'Toy data', detail: 'Skeleton datasets to instantiate the model and see if it holds up.' },
+  { title: 'Toy instance', detail: 'Build a concrete instance on toy data and make it actually run.' },
+  { title: 'Dataset build-out', detail: 'Assemble the real data, then the long work of cleaning it.' },
+  { title: 'Concrete instances', detail: 'Apply the real data to the model to produce runnable instances.' },
+  {
+    title: 'Solver selection',
+    detail: 'Match the formulation to the solver — QUBOs and BQMs for quantum, HPC for the rest.',
+  },
+  { title: 'Compute & run', detail: 'Run the instances on the selected hardware solvers and read the results.' },
+];
 
 /** Numbered chapter header — big index, lowercase title, one-line kicker. */
 const ChapterHeader = ({ index, title, kicker }: { index: string; title: string; kicker: string }) => (
@@ -273,17 +309,38 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="05"
           title="beta testing &amp; iteration"
-          kicker="our own science team as the first users"
+          kicker="our own consultants first, then our clients' science teams"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              It started as an internal app. Our own consulting team — about ten scientists who
+              run these engagements for client science teams — used it first, testing whether it
+              actually helped in the gaps between steps.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Then it went outside. Science teams at Deloitte, Accenture, and Johnson &amp;
+              Johnson started building and testing their own models in it. That was the real
+              proof: people we hadn&apos;t trained, on problems we hadn&apos;t scoped.
+            </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              Our science team beta-tested Aura on live client problems while we iterated.
-              Their feedback tightened the loop between what the workflow promised and what a
-              working scientist actually needed next.
+              Version one was called Workflows, and it was a long linear march. Watching it get
+              used showed us exactly where the march broke down.
             </p>
           </InfoCard>
         </div>
+
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <ProcessSteps steps={workflowSteps} />
+        </div>
+
+        <div className="col-span-full w-full lg:w-[80%] mx-auto">
+          <p className="mb-2 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+            science teams building models in it
+          </p>
+          <ClientLogos clients={clients} />
+        </div>
+
         <CaseImage
           className="col-span-full lg:col-span-6"
           src="/imgs/strangeworks/strange1.webp"
@@ -299,31 +356,41 @@ const AuraCaseStudy = () => {
         <ChapterHeader
           index="06"
           title="aura 2.0 — agents"
-          kicker="the leap: nail the problem definition, and agents do the rest"
+          kicker="one agent to get the problem definition right; trained agents do the rest"
         />
         <div className="col-span-full w-full lg:w-[80%] mx-auto">
           <InfoCard>
             <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              We first tried building an agent for each manual step. The real unlock was
-              flipping the order: one agent works with the user until the problem definition is
-              genuinely robust — then the rest of the agents build the formulation, the
-              optimization model, and the tests from it.
+              While we were building Workflows, the models kept getting better, and we ended up
+              moving faster than our own roadmap. What exists today is Aura 2.0, and it collapses
+              that whole linear march.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Our first instinct had been an agent for each step. 2.0 flips it. There&apos;s one
+              agent at the front, and its only job is the problem definition. You start with the
+              problem in plain language. It refines that into something sharper, then asks
+              questions until every critical gap is closed.
+            </p>
+            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+              Once the definition is genuinely robust, the hard part is done. We trained the
+              agents to take it from there: formulation, solver selection, data cleaning,
+              compute, run. Every step past understanding the problem.
             </p>
             <p className="text-lg leading-8 text-white/90 text-pretty">
-              The insight from discovery, shipped as architecture: great problem definition
-              first, automation after.
+              Which is what the consultants told me in discovery two years earlier. The whole
+              product is that one insight, built.
             </p>
           </InfoCard>
         </div>
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          alt="Aura 2.0 agent workflow"
-          note="screenshot — aura 2.0 agentic problem-definition flow"
+          alt="Aura 2.0 — refining a natural-language problem into a robust definition"
+          note="screenshot — the problem-definition agent: natural language in, gaps closed"
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          alt="Aura 2.0 formulation and testing agents"
-          note="screenshot — formulation / testing agents building the model"
+          alt="Aura 2.0 — agents building formulation, model, and solver selection"
+          note="screenshot — agents running formulation / solver selection / compute"
         />
       </AnimatedSection>
 
