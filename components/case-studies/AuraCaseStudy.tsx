@@ -203,8 +203,8 @@ const AuraCaseStudy = () => {
         />
         <CaseImage
           className="col-span-1 lg:col-span-3"
-          src="/imgs/strangeworks/strange2.webp"
-          alt="Figma research and template library, zoomed out"
+          alt="Problem → Analysis — phased flows and standardized formulation components in Figma"
+          note="drop-in — the Problem → Analysis board (phases, flows, formulation components)"
         />
       </AnimatedSection>
 
@@ -246,8 +246,8 @@ const AuraCaseStudy = () => {
         />
         <CaseImage
           className="col-span-full lg:col-span-6"
-          alt="Zoomed-out Figma boards of wireframe explorations"
-          note="figma pull — big zoomed-out artboard wall of wireframe explorations"
+          src="/imgs/strangeworks/strange2.webp"
+          alt="Figma wireframe and flow template library, zoomed out"
         />
       </AnimatedSection>
 
