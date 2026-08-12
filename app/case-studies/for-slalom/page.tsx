@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import AuraCaseStudy from '@/components/case-studies/AuraCaseStudy';
+import SlalomMark from '@/components/case-studies/SlalomMark';
 
-// Shared by link with recruiters — noindex while it's a working draft, and not
-// in the sitemap. Flip robots + add a sitemap entry when it's ready to be public.
+// The addressed copy of the Aura case study, shared by link with one team —
+// noindex and not in the sitemap. The public version lives at
+// /case-studies/strangeworks.
 export const metadata: Metadata = {
   title: 'Aura — Case Study',
   description:
@@ -10,10 +12,16 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function AuraCaseStudyPage() {
+export default function AuraCaseStudyForSlalomPage() {
   return (
     <main className="relative flex min-h-screen flex-col items-center overflow-x-hidden z-10">
-      <AuraCaseStudy />
+      <AuraCaseStudy
+        audience={{
+          name: 'Lucy and the Slalom Team',
+          date: 'August 11, 2026',
+          mark: <SlalomMark className="h-10 w-auto text-white" />,
+        }}
+      />
     </main>
   );
 }

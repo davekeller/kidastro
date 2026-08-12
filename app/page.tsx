@@ -13,6 +13,7 @@ import Accomplishments from '@/components/Accomplishments';
 import AboutPhotos from '@/components/AboutPhotos';
 import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
+import SiteLogo from '@/components/SiteLogo';
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -20,61 +21,69 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-between overflow-x-hidden z-10">
-      <Intro />
+    <>
+      {/* Sits between the background chrome (z-0) and the page itself (z-10),
+          so the folio scrolls over the top of the mark rather than under it. */}
+      <div className="fixed top-6 left-6 z-0 print:hidden">
+        <SiteLogo />
+      </div>
 
-      {/* STRANGEWORKS */}
-      <Strangeworks />
+      <main className="relative flex min-h-screen flex-col items-center justify-between overflow-x-hidden z-10">
+        <Intro />
 
-      <AnimatedBreak />
+        {/* STRANGEWORKS */}
+        <Strangeworks />
 
-      {/* QUOTAPATH */}
-      <QuotaPath />
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        {/* QUOTAPATH */}
+        <QuotaPath />
 
-      {/* OPENCOURT */}
-      <OpenCourt />
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        {/* OPENCOURT */}
+        <OpenCourt />
 
-      {/* RODIO */}
-      <Rodio />
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        {/* RODIO */}
+        <Rodio />
 
-      {/* BNB */}
-      <BnbFinder />
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        {/* BNB */}
+        <BnbFinder />
 
-      <FadeUp>
-        <Accomplishments />
-      </FadeUp>
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        <FadeUp>
+          <Accomplishments />
+        </FadeUp>
 
-      {/* ROCKET */}
-      <Rocket />
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        {/* ROCKET */}
+        <Rocket />
 
-      {/* DANCEFIGHT */}
-      <Dancefight />
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        {/* DANCEFIGHT */}
+        <Dancefight />
 
-      {/* TIMEBOMB */}
-      <Timebomb />
+        <AnimatedBreak />
 
-      <AnimatedBreak />
+        {/* TIMEBOMB */}
+        <Timebomb />
 
-      {/* A little personality */}
-      <FadeUp className="w-full">
-        <AboutPhotos />
-      </FadeUp>
+        <AnimatedBreak />
 
-      <Footer />
-    </main>
+        {/* A little personality */}
+        <FadeUp className="w-full">
+          <AboutPhotos />
+        </FadeUp>
+
+        <Footer />
+      </main>
+    </>
   );
 }
