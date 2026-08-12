@@ -100,7 +100,7 @@ function newSim(): Sim {
   };
 }
 
-export default function MoonGarden({ onExit }: { onExit: () => void }) {
+export default function MoonGarden({ onExit, exitLabel = '← All games' }: { onExit: () => void; exitLabel?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [phase, setPhase] = useState<Phase>('ready');
   const [finalScore, setFinalScore] = useState(0);
@@ -729,7 +729,7 @@ export default function MoonGarden({ onExit }: { onExit: () => void }) {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center">
       <button onClick={onExit} className={`absolute top-4 left-4 z-10 ${btn}`}>
-        ← All games
+        {exitLabel}
       </button>
       <div className="relative">
         <canvas
