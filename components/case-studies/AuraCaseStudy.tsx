@@ -199,7 +199,7 @@ const AuraCaseStudy = () => {
               >
                 pull request that built it
               </a>{' '}
-              is open — commits, diffs, and all.
+              is public — commits, diffs, and all.
             </p>
           </InfoCard>
 
