@@ -201,7 +201,8 @@ const Starfield = () => {
       // Create new elements
       const now = Date.now();
       
-      if (now - lastShootingStarTime > 4000 && Math.random() > 0.985) {
+      // ~one every 10s on average (min gap + per-frame roll) — half the old rate
+      if (now - lastShootingStarTime > 9000 && Math.random() > 0.985) {
         createShootingStar();
         lastShootingStarTime = now;
       }

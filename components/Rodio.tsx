@@ -13,7 +13,7 @@ const Rodio = () => {
             <CompanyMark company="rodio" />
             <div>
               <h2 className="text-3xl md:text-4xl font-bold">Rodio</h2>
-              <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5">Workforce communication for big retail</h4>
+              <h4 className="text-white/50 text-balance text-base font-normal! italic mt-1.5">Workforce communication for big retail</h4>
             </div>
           </div>
           <div className="w-full border-b-2 border-white/20 mb-4"></div>
