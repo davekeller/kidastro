@@ -3,7 +3,22 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 
-const Footer = ({ minimal = false }: { minimal?: boolean }) => {
+/**
+ * `minimal` drops the "thanks for stopping by" headline for sub-pages. The two
+ * arrow links default off each other — portfolio on minimal, resume on the
+ * folio — but either can be forced on, e.g. a case study that wants both.
+ */
+const Footer = ({
+  minimal = false,
+  portfolio = minimal,
+  resume = !minimal,
+}: {
+  minimal?: boolean;
+  portfolio?: boolean;
+  resume?: boolean;
+}) => {
+  // Five links wrap centered rather than squeezing into the four-up mobile grid.
+  const linkCount = 3 + (portfolio ? 1 : 0) + (resume ? 1 : 0);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLUListElement>(null);
   const targetRef = useRef({ x: 0, y: 0 });
@@ -61,12 +76,18 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
       )}
       <ul
         ref={containerRef}
-        className="contact mt-12 grid grid-cols-4 sm:flex sm:flex-wrap sm:justify-center border-t-2 border-white/10 py-8"
+        className={`contact mt-12 ${
+          linkCount > 4
+            ? // Five links: the four-up mobile grid can't hold them, so they
+              // flow centered with slightly smaller labels to stay one row.
+              'flex flex-wrap justify-center [&_p]:text-sm sm:[&_p]:text-base'
+            : 'grid grid-cols-4'
+        } sm:flex sm:flex-wrap sm:justify-center border-t-2 border-white/10 py-8`}
         style={{
           transform: `translate(${mouseOffset.x}px, ${mouseOffset.y}px)`,
         }}
       >
-        {minimal && (
+        {portfolio && (
           <li className="px-1 py-4 sm:p-4 animate-float">
             <Link href="/" className="group flex flex-col items-center transition-transform duration-200 will-change-transform hover:-translate-y-1.5">
               <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!text-white/40">
@@ -95,7 +116,7 @@ const Footer = ({ minimal = false }: { minimal?: boolean }) => {
             <p className="accent-text font-semibold transition-colors group-hover:[animation:none] group-hover:!text-white/40">email</p>
           </a>
         </li>
-        {!minimal && (
+        {resume && (
           <li className="px-1 py-4 sm:p-4 animate-float-delayed" style={{ animationDelay: '0.45s' }}>
             <Link href="/resume" className="group flex flex-col items-center transition-transform duration-200 will-change-transform hover:-translate-y-1.5">
               <svg width={40} height={40} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="accent-text mb-2 transition-transform duration-200 group-hover:scale-110 group-hover:[animation:none] group-hover:!text-white/40">

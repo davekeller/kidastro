@@ -8,9 +8,23 @@ import FadeUp from '@/components/FadeUp';
 import Footer from '@/components/Footer';
 import Icosahedron from '@/components/Icosahedron';
 import CaseImage from '@/components/case-studies/CaseImage';
-import SlalomMark from '@/components/case-studies/SlalomMark';
 import ClientLogos, { type ClientLogo } from '@/components/case-studies/ClientLogos';
 import ProcessFlow, { type FlowPhase } from '@/components/case-studies/ProcessFlow';
+
+/**
+ * Who the page is addressed to. Omit it for the standalone case study at
+ * /case-studies/strangeworks — the page then opens on the title and closes on a
+ * plain sign-off. Pass one (see /case-studies/for-slalom) and the page gains a
+ * greeting, a "made for" mark in the corner, and a closing note to that team.
+ */
+export type CaseStudyAudience = {
+  /** Named in the opening and closing headings, e.g. "Lucy and the Slalom Team". */
+  name: string;
+  /** Their mark, shown top-right beside the date it was built. */
+  mark: React.ReactNode;
+  /** The day it was made for them, e.g. "August 11, 2026". */
+  date: string;
+};
 
 /* Client marks, recolored from the strangeworks.com customer set for the dark
    background. RTX is Collins Aerospace's parent company mark. */
@@ -114,56 +128,81 @@ const ChapterCard = ({
   </InfoCard>
 );
 
-const AuraCaseStudy = () => {
+const AuraCaseStudy = ({ audience }: { audience?: CaseStudyAudience }) => {
+  /* Without an audience the title block is the page's hero, so it carries the
+     top padding and a little more air beneath it before the intro cards. */
+  const Title = audience ? 'h2' : 'h1';
+
   return (
     <>
       <div className="fixed top-6 left-6 z-40">
         <Breadcrumb label="aura case study" />
       </div>
 
-      {/* Date + Slalom mark opposite the breadcrumb — scrolls with the page so it
-          never overlaps the case images */}
-      <div className="absolute top-6 right-6 z-40 hidden items-center gap-3 sm:flex">
-        <div className="flex flex-col items-end gap-0 text-right font-mono text-[0.7rem] leading-tight uppercase tracking-[0.1em] text-white/55">
-          <span>August 11, 2026</span>
-          <span>Made for</span>
-        </div>
-        <SlalomMark className="h-10 w-auto text-white" />
-      </div>
-
-      {/* BUILT FOR YOU — the note that frames the case study */}
-      <AnimatedSection className="grid grid-cols-1 gap-8 pt-38 lg:pt-46">
-        <div className="col-span-full mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 text-center">
-          <Image
-            src="/imgs/dave.jpg"
-            alt="Dave Keller"
-            width={96}
-            height={96}
-            className="h-20 w-20 shrink-0 rounded-full object-cover md:h-24 md:w-24"
-            priority
-          />
-          <div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance">
-              Hey Lucy and the Slalom Team.{' '}
-              <span className="block">I&apos;m Dave, and I built this for you today.</span>
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-xl leading-8 text-white/75 text-balance">
-              You asked for a case study or a code repository. Here&apos;s both.
-            </p>
+      {/* Date + audience mark opposite the breadcrumb — scrolls with the page so
+          it never overlaps the case images */}
+      {audience && (
+        <div className="absolute top-6 right-6 z-40 hidden items-center gap-3 sm:flex">
+          <div className="flex flex-col items-end gap-0 text-right font-mono text-[0.7rem] leading-tight uppercase tracking-[0.1em] text-white/55">
+            <span>{audience.date}</span>
+            <span>Made for</span>
           </div>
+          {audience.mark}
         </div>
+      )}
 
-        <AnimatedBreak tight />
+      {/* BUILT FOR YOU — the note that frames the case study, when it's addressed */}
+      <AnimatedSection
+        className={`grid grid-cols-1 gap-8 ${
+          audience ? 'pt-38 lg:pt-46' : 'pt-24 lg:pt-28'
+        }`}
+      >
+        {audience && (
+          <>
+            <div className="col-span-full mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 text-center">
+              <Image
+                src="/imgs/dave.jpg"
+                alt="Dave Keller"
+                width={96}
+                height={96}
+                className="h-20 w-20 shrink-0 rounded-full object-cover md:h-24 md:w-24"
+                priority
+              />
+              <div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance">
+                  Hey {audience.name}.{' '}
+                  <span className="block">I&apos;m Dave, and I built this for you today.</span>
+                </h1>
+                <p className="mx-auto mt-4 max-w-2xl text-xl leading-8 text-white/75 text-balance">
+                  You asked for a case study or a code repository. Here&apos;s both.
+                </p>
+              </div>
+            </div>
+
+            <AnimatedBreak tight />
+          </>
+        )}
 
         {/* CASE STUDY TITLE — sits above the intro cards */}
-        <div className="col-span-full mx-auto w-[96%] max-w-4xl px-4 pt-2 pb-8 text-center">
+        <div
+          className={`col-span-full mx-auto w-[96%] max-w-4xl px-4 text-center ${
+            audience ? 'pt-2 pb-8' : 'pb-12'
+          }`}
+        >
+          {/* Standalone: the folio's icosahedron opens the page, bookending the
+              one above the sign-off. The addressed copy leads with the photo. */}
+          {!audience && (
+            <div className="mb-4 flex justify-center">
+              <Icosahedron variant="icon" />
+            </div>
+          )}
           <div className="mb-5 flex items-center justify-center gap-3">
             <CompanyMark company="strangeworks" className="mt-0" />
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-white/50">
               case study
             </p>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold">Strangeworks Aura</h2>
+          <Title className="text-5xl md:text-7xl font-bold">Strangeworks Aura</Title>
           <p className="mx-auto mt-6 max-w-2xl text-xl leading-9 text-white/85 text-balance">
             How we turned optimization modeling — a slow, PhD-only craft — into an AI-assisted
             workflow, and what I designed and built along the way.
@@ -206,7 +245,9 @@ const AuraCaseStudy = () => {
           <InfoCard className="flex flex-col items-start">
             <h3 className="text-xl font-bold mt-2 text-balance">How This Page Came Together</h3>
             <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
-              I read your message this morning. Everything below happened today.
+              {audience
+                ? 'I read your message this morning. Everything below happened today.'
+                : 'Written, designed, and shipped in a single day.'}
             </p>
             <div className="w-full border-b-2 border-white/20 mb-6"></div>
             <ul className="list-none space-y-4 w-full">
@@ -356,13 +397,6 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto mt-12">
           <ProcessFlow phases={workflowPhases} />
         </div>
-
-        <div className="col-span-full w-full lg:w-[80%] mx-auto mt-10 border-t-2 border-white/15 pt-10">
-          <p className="mb-4 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
-            client science teams building their own models
-          </p>
-          <ClientLogos clients={clients} />
-        </div>
       </AnimatedSection>
 
       <AnimatedBreak />
@@ -408,6 +442,15 @@ const AuraCaseStudy = () => {
           src="/imgs/strangeworks/strange1.webp"
           alt="Aura 2.0 — the problem-definition agent and AI-assisted results analysis"
         />
+
+        {/* Sits under 2.0 rather than under v1 — these are the teams building in
+            the product as it ships today. */}
+        <div className="col-span-full w-full lg:w-[80%] mx-auto mt-10 border-t-2 border-white/15 pt-10">
+          <p className="mb-4 text-center font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+            client science teams building their own models
+          </p>
+          <ClientLogos clients={clients} />
+        </div>
       </AnimatedSection>
 
       <AnimatedBreak />
@@ -504,46 +547,54 @@ const AuraCaseStudy = () => {
         </div>
       </AnimatedSection>
 
-      {/* SIGN-OFF — mirrors the intro header: centered mark on top, same type scale */}
-      <FadeUp className="w-full">
-        <div className="mx-auto flex w-[96%] max-w-4xl flex-col items-center gap-6 px-4 pt-20 text-center">
-          <Icosahedron variant="icon" />
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
-              Thanks, Lucy and the Slalom Team
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-xl leading-8 text-white/75 text-balance">
-              That&apos;s the story. Would love to talk.
-            </p>
+      {/* SIGN-OFF — only on the addressed copy, mirroring its intro header:
+          centered mark on top, same type scale, direct contact details. The
+          public page ends on the folio footer instead, and its icosahedron
+          opens the page rather than closing it. */}
+      {audience && (
+        <FadeUp className="w-full">
+          <div className="mx-auto flex w-[96%] max-w-4xl flex-col items-center gap-6 px-4 pt-20 text-center">
+            <Icosahedron variant="icon" />
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
+                Thanks, {audience.name}
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-xl leading-8 text-white/75 text-balance">
+                That&apos;s the story. Would love to talk.
+              </p>
+            </div>
+
+            <div className="w-16 border-b-2 border-white/20" aria-hidden="true" />
+
+            <ul className="flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
+              <li>
+                <a
+                  href="mailto:davekeller@me.com?subject=Hey Dave!"
+                  className="transition-colors hover:text-(--color-2)"
+                >
+                  davekeller@me.com
+                </a>
+              </li>
+              <li>512.595.6213</li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/dkells/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-(--color-2)"
+                >
+                  linkedin/dkells
+                </a>
+              </li>
+            </ul>
           </div>
+        </FadeUp>
+      )}
 
-          <div className="w-16 border-b-2 border-white/20" aria-hidden="true" />
-
-          <ul className="flex flex-col items-center gap-1.5 text-base text-white/80 sm:flex-row sm:justify-center sm:gap-7">
-            <li>
-              <a
-                href="mailto:davekeller@me.com?subject=Hey Dave!"
-                className="transition-colors hover:text-(--color-2)"
-              >
-                davekeller@me.com
-              </a>
-            </li>
-            <li>512.595.6213</li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/dkells/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-(--color-2)"
-              >
-                linkedin/dkells
-              </a>
-            </li>
-          </ul>
-        </div>
-      </FadeUp>
-
-      <Footer minimal />
+      {/* The addressed copy keeps the minimal footer — it ends on the note to
+          them, not on the folio's sign-off. Both copies carry both arrows:
+          back to the portfolio on the left, on to the resume on the right. */}
+      <Footer minimal={!!audience} portfolio resume />
     </>
   );
 };
