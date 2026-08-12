@@ -15,7 +15,7 @@ const Project = ({ title, subtitle, description, images, highlights, className =
     <div className={`project-container ${className}`}>
       <div className="info text-left text-white z-20 px-8 py-4">
         <h2 className="text-4xl font-bold mb-2">{title}</h2>
-        <h4 className="text-teal-400 text-lg font-bold italic border-b-2 border-white/10 pb-4 mb-4">{subtitle}</h4>
+        <h4 className="text-teal-400 text-lg font-normal! italic border-b-2 border-white/10 pb-4 mb-4">{subtitle}</h4>
         {description.map((desc, index) => (
           <p key={index} className="mb-4 text-lg leading-8 text-white/90">
             {desc}

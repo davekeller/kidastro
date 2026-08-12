@@ -134,7 +134,7 @@ const Arcade = () => {
       <div className="mb-12 text-center">
         <AstroHelmet />
         <h1 className="text-4xl md:text-5xl font-bold mb-4 [text-shadow:0_0_32px_rgba(255,255,255,0.25)]">The Kid Astro Arcade</h1>
-        <p className="text-white/50 text-lg font-bold italic text-balance">
+        <p className="text-white/50 text-lg font-normal italic text-balance">
           Three tiny space games, drawn and coded from scratch — no engines, no sprites, just canvas.
           Best played with a keyboard.
         </p>
@@ -155,7 +155,7 @@ const Arcade = () => {
               {g.icon}
             </span>
             <span className="block text-2xl font-bold mb-2">{g.name}</span>
-            <span className="block text-white/50 text-sm font-bold italic mb-3">{g.inspiredBy}</span>
+            <span className="block text-white/50 text-sm font-normal italic mb-3">{g.inspiredBy}</span>
             <span className="block text-white/90 leading-7 text-pretty mb-6">{g.tagline}</span>
             <span className="inline-flex items-center gap-2 text-sm font-bold border border-white/20 rounded-lg px-4 py-2 bg-white/5 group-hover:bg-white/10 group-hover:border-white/40 transition-colors">
               ▶ Play

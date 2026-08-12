@@ -63,7 +63,7 @@ const ChapterHeader = ({ index, title, kicker }: { index: string; title: string;
     <span className="font-mono text-xl md:text-2xl font-bold text-white/30 tracking-widest">{index}</span>
     <div>
       <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
-      <p className="text-white/50 text-base font-bold italic mt-1.5 text-balance">{kicker}</p>
+      <p className="text-white/50 text-base font-normal italic mt-1.5 text-balance">{kicker}</p>
     </div>
   </div>
 );
@@ -123,16 +123,17 @@ const AuraCaseStudy = () => {
 
       {/* Date + Slalom mark opposite the breadcrumb — scrolls with the page so it
           never overlaps the case images */}
-      <div className="absolute top-6 right-6 z-40 hidden flex-col items-end gap-2 sm:flex">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-white/55">
-          August 11, 2026
-        </p>
+      <div className="absolute top-6 right-6 z-40 hidden items-center gap-3 sm:flex">
+        <div className="flex flex-col items-end gap-0 text-right font-mono text-[0.7rem] leading-tight uppercase tracking-[0.1em] text-white/55">
+          <span>August 11, 2026</span>
+          <span>Made for</span>
+        </div>
         <SlalomMark className="h-10 w-auto text-white" />
       </div>
 
       {/* BUILT FOR YOU — the note that frames the case study */}
       <AnimatedSection className="grid grid-cols-1 gap-8 pt-38 lg:pt-46">
-        <div className="col-span-full mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-4 text-center">
+        <div className="col-span-full mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 text-center">
           <Image
             src="/imgs/dave.jpg"
             alt="Dave Keller"
@@ -142,8 +143,9 @@ const AuraCaseStudy = () => {
             priority
           />
           <div>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
-              Hey Lucy and the Slalom Team — I&apos;m Dave, and I built this for you today.
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance">
+              Hey Lucy and the Slalom Team.{' '}
+              <span className="block">I&apos;m Dave, and I built this for you today.</span>
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-xl leading-8 text-white/75 text-balance">
               You asked for a case study or a code repository. Here&apos;s both.
@@ -211,7 +213,7 @@ const AuraCaseStudy = () => {
               <li className={bullet}>Sketched the narrative first — the same five beats I&apos;d walk through in an interview</li>
               <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
               <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
-              <li className={bullet}>Art-directed the visuals from the original Figma boards and the product repos themselves</li>
+              <li className={bullet}>Designed and built every visual in Figma, from the original product boards and the repos themselves</li>
               <li className={bullet}>Orchestrated the whole process, reviewed the diff, and shipped it to kidastro.com the same day</li>
             </ul>
           </InfoCard>
@@ -402,7 +404,7 @@ const AuraCaseStudy = () => {
           </ChapterCard>
         </div>
         <CaseImage
-          className="col-span-full lg:col-span-6 lg:w-[90%] lg:mx-auto"
+          className="col-span-full lg:col-span-6"
           src="/imgs/strangeworks/strange1.webp"
           alt="Aura 2.0 — the problem-definition agent and AI-assisted results analysis"
         />
@@ -472,7 +474,7 @@ const AuraCaseStudy = () => {
         <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <InfoCard>
             <h2 className="text-3xl md:text-4xl font-bold">What It Added Up To</h2>
-            <h4 className="text-white/50 text-balance text-base font-bold italic mt-1.5 mb-4">
+            <h4 className="text-white/50 text-balance text-base font-normal! italic mt-1.5 mb-4">
               An internal process, turned into a product, turned back into client work
             </h4>
             <div className="w-full border-b-2 border-white/20 mb-4"></div>
