@@ -32,7 +32,7 @@ const Rocket = () => {
 
         {/* Highlights */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg flex flex-col items-start">
-          <h3 className="text-xl font-bold mt-2 mb-4 text-balance">Co-Founder + Product Designer + Front-End Developer</h3>
+          <h3 className="text-xl font-bold mt-2 mb-4 text-balance">Co-Founder &amp; Product Designer</h3>
           <div className="w-full border-b-2 border-white/20 mb-6"></div>
           <ul className="list-none space-y-4 w-full">
              <li className="pl-6 relative before:content-['+'] before:absolute before:left-0 before:top-0 before:font-bold before:text-2xl before:leading-none before:text-white/50 text-lg leading-snug text-white/90 text-pretty">Hired and led a 20-person team across product, back-end, front-end, iOS, and Android</li>

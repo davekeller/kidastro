@@ -11,7 +11,7 @@ const Timebomb = () => {
           <CompanyMark company="timebomb" />
           <div>
             <h2 className="text-3xl md:text-4xl font-bold">Timebomb</h2>
-            <p className="text-lg font-bold mt-1">Co-Founder + Product Design Lead</p>
+            <p className="text-lg font-bold mt-1">Co-Founder &amp; Lead Product Designer</p>
             <h4 className="text-white/50 text-balance text-base font-normal! italic mt-1.5">A conditional messaging app</h4>
           </div>
         </div>
