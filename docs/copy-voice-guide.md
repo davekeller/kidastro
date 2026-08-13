@@ -87,7 +87,7 @@ correct.
 **Resume summary** (the page only — the PDF and DOCX go straight from the header
 into Highlights)
 
-> Strategic product thinker, Figma expert, and front-end/design engineer. I was writing front-end code before AI — now primarily designing in the browser with Claude Code, Codex and Tailwind — validating functional prototypes and shipping production code in days, not weeks.
+> Strategic product thinker, Figma expert, and front-end/design engineer. I was writing front-end code before AI — now primarily designing in the browser with Claude Code, Codex, and Tailwind — validating functional prototypes and shipping production code in days, not weeks.
 
 **Resume header tagline:** principal product designer & design engineer
 (Mirrored in `components/resume/Header.tsx`, `scripts/make-resume-pdf.py`, and
