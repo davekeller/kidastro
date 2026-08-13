@@ -21,7 +21,7 @@ export const fullJobs: FullJob[] = [
     company: 'Strangeworks',
     dates: 'Oct 2023 – Present',
     location: 'Remote / Austin, TX',
-    role: 'Principal Product Designer / Design Engineer',
+    role: 'Principal Product Designer & Design Engineer',
     summary:
       'Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.',
     bullets: [
@@ -47,7 +47,7 @@ export const fullJobs: FullJob[] = [
     company: 'OneAssembly',
     dates: 'Feb 2021 – Jan 2022',
     location: 'Austin, TX',
-    role: 'Product Design Lead · Front-End Developer',
+    role: 'Lead Product Designer & Front-End Developer',
     summary:
       'Designed and built this B2B device auction platform from idea to launch in a year, grossing $3M+ in the first beta month and $33M+ in year one.',
     bullets: [
@@ -59,7 +59,7 @@ export const fullJobs: FullJob[] = [
     company: 'BnbFinder (now Savvy.com)',
     dates: 'May 2019 – Feb 2021',
     location: 'Austin, TX',
-    role: 'Product Design Lead · Front-End Developer',
+    role: 'Lead Product Designer & Front-End Developer',
     summary:
       'Designed and built this travel listings platform to 8K subscribers (4K+ paid) in under a year on a 3-person team.',
     bullets: [
@@ -86,7 +86,7 @@ export const condensedJobs: CondensedJob[] = [
     company: 'Timebomb',
     dates: 'Sep 2015 – Dec 2017',
     location: 'Austin, TX',
-    role: 'Co-Founder · Product Design Lead',
+    role: 'Co-Founder & Lead Product Designer',
     summary:
       'Co-founded and designed this conditional messaging app (iOS and Android). Raised $3M from angels including Katy Perry and Warner Bros., with a marketing partnership from Ellen.',
     bullets: [
@@ -98,7 +98,7 @@ export const condensedJobs: CondensedJob[] = [
     company: 'Made by Rocket',
     dates: 'Aug 2009 – Nov 2017',
     location: 'Austin, TX',
-    role: 'Co-Founder · Product Designer · Front-End Developer',
+    role: 'Co-Founder & Product Designer',
     summary:
       'Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.',
     bullets: [

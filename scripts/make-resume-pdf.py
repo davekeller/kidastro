@@ -193,7 +193,7 @@ def circle_avatar():
 
 # ---- Content (mirrors components/resume/resumeData.ts + Header.tsx) --------
 
-TITLE = "principal product designer / design engineer"
+TITLE = "principal product designer &amp; design engineer"
 CONTACT = (
     f'Portfolio: <font name="{EMPHASIS_FONT}"><a href="https://kidastro.com">kidastro.com</a></font>'
     '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/dkells/">linkedin/dkells</a><br/>'
@@ -240,7 +240,7 @@ tools = [
 
 jobs = [
     ("Strangeworks", "Oct 2023 – Present", "Remote / Austin, TX",
-     "Principal Product Designer / Design Engineer",
+     "Principal Product Designer &amp; Design Engineer",
      "Lead product strategy and design at this data-science consulting company, building a suite of tools, apps, and optimization interfaces for Fortune 500 science teams running AI and quantum/HPC compute.",
      [
          "Promoted to Principal Product Designer in 6 months. Researched internal processes and designed the vision for our workflow app Aura — hands-on from business strategy to production code",
@@ -256,14 +256,14 @@ jobs = [
          "Co-created a product-development process across 4 cross-functional teams and mentored its designers",
      ]),
     ("OneAssembly", "Feb 2021 – Jan 2022", "Austin, TX",
-     "Product Design Lead &middot; Front-End Developer",
+     "Lead Product Designer &amp; Front-End Developer",
      "Designed and built this B2B device auction platform from idea to launch in a year, grossing $3M+ in the first beta month and $33M+ in year one.",
      [
          "Took the product from whiteboard to production launch on a 3-person dev team",
          "Designed most of it directly in code (React, Tailwind), plus the brand, marketing site, and go-to-market",
      ]),
     ("BnbFinder (now Savvy.com)", "May 2019 – Feb 2021", "Austin, TX",
-     "Product Design Lead &middot; Front-End Developer",
+     "Lead Product Designer &amp; Front-End Developer",
      "Designed and built this travel listings platform to 8K subscribers (4K+ paid) in under a year on a 3-person team.",
      [
          "Built the consumer, owner, and admin apps in Elixir and React/Next.js on a custom Tailwind framework",
@@ -277,14 +277,14 @@ jobs = [
          "Designed and pitched the demo that closed the Kronos and Form.com contracts and led to acquisition",
      ]),
     ("Timebomb", "Sep 2015 – Dec 2017", "Austin, TX",
-     "Co-Founder &middot; Product Design Lead",
+     "Co-Founder &amp; Lead Product Designer",
      "Co-founded and designed this conditional messaging app (iOS and Android). Raised $3M from angels including Katy Perry and Warner Bros., with a marketing partnership from Ellen.",
      [
          "Led a product team of 10 from concept to launch and 20K+ users",
          "Designed the pitch decks behind the $3M raise",
      ]),
     ("Made by Rocket", "Aug 2009 – Nov 2017", "Austin, TX",
-     "Co-Founder &middot; Product Designer &middot; Front-End Developer",
+     "Co-Founder &amp; Product Designer",
      "Co-founded and grew this agency to 20 people across 30+ projects, including a #1 Paid iPhone app and work for Ellen, Need for Speed, DreamWorks, and The Economist. Became an ideation and prototyping lab for Warner Bros.",
      [
          "Designed and shipped A Beautiful Mess, a photo editing app that hit #1 Paid on the App Store and held top-100 for over a year",
