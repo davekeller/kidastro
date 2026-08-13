@@ -14,7 +14,7 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 - **Personable and human.** First person and warm on the folio ("Hi, I'm Dave", "thanks for poking around", "hit me up"). A little wry is welcome.
 - **Lowercase headlines.** e.g. "so nice to meet you", the resume tagline.
 - **Resume = tight fragments.** Impersonal (no "I"), one clean idea per bullet. Two-sentence bullets are fine when they earn it.
-- **Slashes for combos.** "product designer / design engineer / inventor", "HTML/CSS", "product/dev teams", "agile/sprint".
+- **Slashes for combos, "&" for job titles.** Combos take a slash: "product designer / design engineer / inventor", "HTML/CSS", "product/dev teams", "agile/sprint". A *title* — anything that names a role someone held — takes an ampersand: "Principal Product Designer & Design Engineer", "Co-Founder & Product Designer". Every resume title row uses "&"; middots and slashes were retired from them on 2026-08-13.
 - **Outcomes and proof.** Lead with real results (#1 Paid iPhone app, $33M in year one, $3M raised, 0→1). Show, don't tell.
 - **Honest.** Present-tense "designs and ships code" is fair — he codes daily with Claude Code and has a production front-end history. Never overstate scope.
 
@@ -29,8 +29,11 @@ The through-line: a designer who does the strategy and the craft for hard, techn
 - No ASCII emoticons (`:)`, `:P`). The site is meticulously designed; an emoticon
   is the one undesigned element on the page, and `:P` reads young for the roles
   being targeted. Get the humor from the words.
-- Don't lead with the past. "I was writing front-end before agentic coding" opens
-  defensively, on what came before. Lead with current practice instead.
+- Don't *open* on the past. "I was writing front-end code before AI" as the first
+  thing read is defensive. Placed mid-sentence, after the positioning has landed,
+  it's earned context — it frames agentic coding as continuity rather than a
+  recent conversion, which is the point. That's the shape the resume summary and
+  the folio hero use now. The rule is about position, not the fact.
 
 ## Writing the "who I am" description
 
@@ -45,10 +48,11 @@ its shape, at their own length.
 2. **State tenure plainly.** "I've been leading design at early-stage startups
    for over a decade." Don't editorialize the years — "I've developed a
    superpower:" was cut for exactly this reason.
-3. **Present tense, forward-facing.** "Riding the front of the agentic coding
-   wave, I now design primarily in Claude Code, Codex, and Tailwind." Agentic
-   coding is momentum and method — never an identity ("agentic designer"), never
-   a defense of the past.
+3. **Present tense, forward-facing.** "I was writing front-end code before AI —
+   now primarily designing in the browser with Claude Code, Codex, and Tailwind."
+   Agentic coding is momentum and method — never an identity ("agentic
+   designer"). The pre-AI clause is allowed to set up the present, never to
+   defend it; the sentence still has to land on current practice.
 4. **Tools, then outcome — one verb each.** Claude Code, Codex, and Tailwind are
    the how; "validating functional prototypes and shipping production code" is
    the what. Prototypes get *validated*, code gets *shipped*. Don't collapse two
@@ -78,9 +82,14 @@ correct.
 >
 > Hi, I'm Dave — a strategic product thinker, Figma expert, and pixel-perfect front-end/design engineer. I've been leading design at early-stage startups for over a decade.
 >
-> Riding the front of the agentic coding wave, I now design primarily in Claude Code, Codex, and Tailwind — validating functional prototypes and shipping production code in days, not weeks. Now scroll. I'll wait.
+> I was writing front-end code before AI — now primarily designing in the browser with Claude Code, Codex, and Tailwind, validating functional prototypes and shipping production code in days, not weeks. Now scroll. I'll wait.
 
-**Resume header tagline:** principal product designer / design engineer
+**Resume summary** (the page only — the PDF and DOCX go straight from the header
+into Highlights)
+
+> Strategic product thinker, Figma expert, and front-end/design engineer. I was writing front-end code before AI — now primarily designing in the browser with Claude Code, Codex and Tailwind — validating functional prototypes and shipping production code in days, not weeks.
+
+**Resume header tagline:** principal product designer & design engineer
 (Mirrored in `components/resume/Header.tsx`, `scripts/make-resume-pdf.py`, and
 `scripts/make-resume-docx.js` — update all three together.)
 
@@ -88,9 +97,9 @@ correct.
 
 **Resume highlights** (the voice benchmark)
 
-> - 15+ years leading design at early-stage startups. From 0 → 1 through 2.0 and GTM, across AI, data science, entertainment, messaging, ecommerce, and fintech.
-> - A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in the front-end.
-> - Design system architect and process builder. Architected multi-platform design systems. Built a process that organized a ~45-developer company into 4 cross-functional teams shipping on a steady cadence.
+> - 15+ years leading design at early-stage startups — from 0 → 1 through 2.0 and GTM. Across AI, data science, entertainment, messaging, ecommerce, and fintech.
+> - A pixel-perfect designer who ships in code. Sweating the visual details — prototyping end-to-end flows and refining high-fidelity production UIs directly in front-end code.
+> - Design systems architect and process builder. Architected multi-platform design systems. Built a product process that organized a ~45-developer company into 4 cross-functional teams shipping on a steady cadence.
 > - Track record. 40+ products across web, iOS, and Android — including a #1 Paid iPhone app and a 0 → 1 platform that grossed $33M in year one.
 > - Founder & client services. Co-founded a 20-person design/dev agency and a $3M-funded messaging app. The agency became a concepting and prototyping shop for Warner Bros. — with work for Ellen, DreamWorks, and The Economist along the way.
 
