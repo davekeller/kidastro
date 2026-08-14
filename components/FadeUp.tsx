@@ -19,7 +19,7 @@ const FadeUp = ({ children, className = '', delay = 0 }: FadeUpProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.8, delay, ease: 'easeOut' }}
-      className={`motion-print-safe ${className}`}
+      className={`motion-print-safe motion-reveal ${className}`}
     >
       {children}
     </motion.div>

@@ -36,7 +36,7 @@ const SkillsView = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="mb-5 font-(family-name:--font-jetbrains) text-xs uppercase tracking-[0.35em] text-[#39d5cb]"
+          className="motion-reveal mb-5 font-(family-name:--font-jetbrains) text-xs uppercase tracking-[0.35em] text-[#39d5cb]"
         >
           you found the hidden page
         </motion.p>
@@ -44,7 +44,7 @@ const SkillsView = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl text-white md:text-7xl"
+          className="motion-reveal text-5xl text-white md:text-7xl"
         >
           the skills vault
         </motion.h1>
@@ -52,7 +52,7 @@ const SkillsView = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-5 max-w-xl text-lg text-white/80"
+          className="motion-reveal mx-auto mt-5 max-w-xl text-lg text-white/80"
         >
           The Claude Code skills I run every day, the best practices baked into
           them, and a few frames from{' '}
@@ -70,7 +70,7 @@ const SkillsView = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-8 flex flex-col items-center gap-3"
+          className="motion-reveal mt-8 flex flex-col items-center gap-3"
         >
           <a
             href={BUNDLE_PATH}
@@ -93,7 +93,7 @@ const SkillsView = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: 'easeOut' }}
-            className="mb-6 break-inside-avoid"
+            className="motion-reveal mb-6 break-inside-avoid"
           >
             {tile.kind === 'skill' ? (
               <SkillCard skill={tile.skill} />

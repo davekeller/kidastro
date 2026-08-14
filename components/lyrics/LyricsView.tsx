@@ -154,7 +154,7 @@ const LyricsView = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mt-1 text-4xl tracking-tight text-white uppercase sm:text-5xl"
+          className="motion-reveal mt-1 text-4xl tracking-tight text-white uppercase sm:text-5xl"
         >
           Paper Fang
         </motion.h1>
@@ -162,7 +162,7 @@ const LyricsView = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-(family-name:--font-jetbrains) text-[11px] uppercase tracking-[0.2em] text-white/45"
+          className="motion-reveal mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-(family-name:--font-jetbrains) text-[11px] uppercase tracking-[0.2em] text-white/45"
         >
           <span style={{ color: PINK }}>the lyric book</span>
           <span aria-hidden className="text-white/20">/</span>
@@ -180,7 +180,7 @@ const LyricsView = () => {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.18 }}
-        className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center"
+        className="motion-reveal mt-6 flex flex-col gap-3 sm:flex-row sm:items-center"
       >
         <input
           type="search"
@@ -220,7 +220,7 @@ const LyricsView = () => {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.26 }}
-        className="mt-6"
+        className="motion-reveal mt-6"
       >
         {results ? (
           <>
