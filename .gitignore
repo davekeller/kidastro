@@ -42,6 +42,10 @@ next-env.d.ts
 
 # playwright / browser automation artifacts
 .playwright-mcp/
+/test-results/
+/playwright-report/
+/blob-report/
+guard-results.json
 
 # generated skills bundle — rebuilt from skills-library/ by the
 # prebuild step on every `npm run build`. zip embeds timestamps, so
