@@ -70,4 +70,15 @@ export const IGNORED_REQUEST_FAILURES = [
   // are treated as breakage (enforced separately in the spec).
 ];
 
+/**
+ * Paths that exist on kidastro.com but cannot exist in a local build.
+ *
+ * `deploy.yml` builds kidastro-themes and kidastro-songs from their own repos
+ * into `out/themes` and `out/songs` at deploy time. Nothing links to them from
+ * a protected page today — but if something ever does, a local run would report
+ * a dead link that is perfectly fine in production. Skipped locally, still
+ * checked against the live site, where they genuinely should resolve.
+ */
+export const ONLY_IN_DEPLOYED_BUILD = [/^\/themes(\/|$)/, /^\/songs(\/|$)/];
+
 export const isLive = Boolean(process.env.SITE_BASE_URL);

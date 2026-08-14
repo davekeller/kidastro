@@ -1,0 +1,173 @@
+name: Live site check
+
+# Checks the real kidastro.com after it deploys, and files an issue if a page a
+# recruiter would open is broken.
+#
+# There is deliberately no `schedule:` here. A cron would be a watcher waking up
+# to do billable work on its own, which is Dave's call to make rather than a
+# thing a workflow quietly acquires. This runs when a deploy happens, and when
+# someone asks for it.
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: live-check
+  cancel-in-progress: false
+
+env:
+  ISSUE_TITLE_PREFIX: "kidastro.com is broken"
+
+jobs:
+  check:
+    name: kidastro.com
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # A failed deploy has its own alarm; checking the site it never published
+    # would just report the previous version.
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Resolve Playwright version
+        id: playwright
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      # Pages needs a moment to finish propagating after the deploy job reports
+      # success; the suite itself also retries (see playwright.config.ts).
+      - name: Let the deploy settle
+        if: github.event_name == 'workflow_run'
+        run: sleep 45
+
+      - name: Check the live site
+        id: guard
+        continue-on-error: true
+        env:
+          SITE_BASE_URL: https://kidastro.com
+        run: npm run guard:live
+
+      - name: Summarise the result
+        id: summary
+        if: always()
+        env:
+          SITE_BASE_URL: https://kidastro.com
+        run: |
+          {
+            echo 'body<<GUARD_EOF'
+            node scripts/guard-summary.mjs guard-results.json || true
+            echo ''
+            echo "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo 'GUARD_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Upload failure evidence
+        if: steps.guard.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-check-failure
+          path: |
+            playwright-report/
+            test-results/
+            guard-results.json
+          retention-days: 14
+
+      - name: Open or update the issue
+        if: steps.guard.outcome == 'failure'
+        uses: actions/github-script@v7
+        env:
+          SUMMARY: ${{ steps.summary.outputs.body }}
+        with:
+          script: |
+            const prefix = process.env.ISSUE_TITLE_PREFIX;
+            const body = process.env.SUMMARY;
+
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const existing = open.find((issue) => issue.title.startsWith(prefix));
+
+            if (existing) {
+              // One issue, many comments — a new issue per deploy would bury the
+              // original diagnosis under duplicates.
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Still failing.\n\n${body}`,
+              });
+              core.notice(`Updated issue #${existing.number}`);
+              return;
+            }
+
+            const { data: created } = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `${prefix} — ${new Date().toISOString().slice(0, 10)}`,
+              body,
+            });
+            core.notice(`Opened issue #${created.number}`);
+
+      - name: Close the issue once the site recovers
+        if: steps.guard.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prefix = process.env.ISSUE_TITLE_PREFIX;
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            for (const issue of open.filter((i) => i.title.startsWith(prefix))) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Recovered — every check passed against https://kidastro.com.\n\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+              });
+            }
+
+      # The step above swallowed the failure so the issue could be filed. Fail
+      # the run now, so the red X and GitHub's email still happen.
+      - name: Report the failure
+        if: steps.guard.outcome == 'failure'
+        run: |
+          echo "The live site check failed. See the issue and the artifacts above."
+          exit 1

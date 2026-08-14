@@ -3,6 +3,8 @@ import {
   PROTECTED_PAGES,
   IGNORED_CONSOLE,
   IGNORED_REQUEST_FAILURES,
+  ONLY_IN_DEPLOYED_BUILD,
+  isLive,
   type ProtectedPage,
 } from './protected';
 import { paintedState } from './visibility';
@@ -148,6 +150,8 @@ for (const target of PROTECTED_PAGES) {
 
       const broken: string[] = [];
       for (const link of links) {
+        const path = new URL(link).pathname;
+        if (!isLive && ONLY_IN_DEPLOYED_BUILD.some((pattern) => pattern.test(path))) continue;
         // Exact URL on purpose. A static export has no server to normalise a
         // trailing slash, so `/resume/` really is a 404 on the live site.
         const result = await page.request.get(link, { failOnStatusCode: false });
