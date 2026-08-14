@@ -5,6 +5,7 @@ import {
   IGNORED_REQUEST_FAILURES,
   type ProtectedPage,
 } from './protected';
+import { paintedState } from './visibility';
 
 /**
  * Does this page work for someone who has never been here before?
@@ -75,20 +76,18 @@ for (const target of PROTECTED_PAGES) {
       const heading = page.locator('h1').first();
       await expect(heading).toHaveText(target.heading);
 
-      const painted = await heading.evaluate((el) => {
-        const box = el.getBoundingClientRect();
-        return {
-          opacity: Number(getComputedStyle(el).opacity),
-          width: box.width,
-          height: box.height,
-          visibility: getComputedStyle(el).visibility,
-        };
-      });
+      // Poll rather than sample: the entrance animation is a 0.8s fade, so a
+      // single read right after `load` catches the heading mid-way and reports
+      // a healthy page as blank. What matters is that it *arrives* — a page
+      // that is genuinely broken never does, and fails on the timeout.
+      await expect
+        .poll(async () => (await heading.evaluate(paintedState)).opacity, {
+          message: `<h1> on ${target.path} never became visible — this is the blank page a recruiter sees`,
+          timeout: 10_000,
+        })
+        .toBeGreaterThan(0.9);
 
-      expect(
-        painted.opacity,
-        `<h1> on ${target.path} is transparent (opacity ${painted.opacity}) — this is the blank page a recruiter sees`,
-      ).toBeGreaterThan(0.9);
+      const painted = await heading.evaluate(paintedState);
       expect(painted.width, `<h1> on ${target.path} has no width`).toBeGreaterThan(0);
       expect(painted.height, `<h1> on ${target.path} has no height`).toBeGreaterThan(0);
       expect(painted.visibility).toBe('visible');

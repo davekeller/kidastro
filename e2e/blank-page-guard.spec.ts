@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { PROTECTED_PAGES, isLive } from './protected';
+import { paintedState } from './visibility';
 
 /**
  * Re-tests the two failures PR #61 fixed, both of which served HTTP 200 and
@@ -23,17 +24,18 @@ test.describe('blank-page guard', () => {
 
       try {
         await page.goto(target.path, { waitUntil: 'load' });
-        // The fallback animation starts at 1.2s and runs 0.4s.
-        await page.waitForTimeout(2_200);
 
         const heading = page.locator('h1').first();
         await expect(heading).toHaveText(target.heading);
 
-        const opacity = await heading.evaluate((el) => Number(getComputedStyle(el).opacity));
-        expect(
-          opacity,
-          `${target.path} is blank without JavaScript — the globals.css blank-page guard has regressed`,
-        ).toBeGreaterThan(0.9);
+        // The CSS fallback waits 1.2s before it starts and runs for 0.4s, so
+        // give it comfortably past that. Without the guard it never arrives.
+        await expect
+          .poll(async () => (await heading.evaluate(paintedState)).opacity, {
+            message: `${target.path} is blank without JavaScript — the globals.css blank-page guard has regressed`,
+            timeout: 8_000,
+          })
+          .toBeGreaterThan(0.9);
       } finally {
         await context.close();
       }
@@ -78,11 +80,13 @@ test.describe('blank-page guard', () => {
       );
       expect(backgroundImage, 'the recovered page still has no stylesheet').not.toBe('none');
 
-      const opacity = await page
-        .locator('h1')
-        .first()
-        .evaluate((el) => Number(getComputedStyle(el).opacity));
-      expect(opacity, 'the recovered page is still blank').toBeGreaterThan(0.9);
+      const heading = page.locator('h1').first();
+      await expect
+        .poll(async () => (await heading.evaluate(paintedState)).opacity, {
+          message: 'the recovered page is still blank',
+          timeout: 8_000,
+        })
+        .toBeGreaterThan(0.9);
     } finally {
       await context.close();
     }
