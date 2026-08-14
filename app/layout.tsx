@@ -5,6 +5,8 @@ import ColorBar from "@/components/ColorBar";
 import Starfield from "@/components/Starfield";
 import NorthernLights from "@/components/NorthernLights";
 import MissionControl from "@/components/mission-control/MissionControl";
+import AssetRecovery from "@/components/AssetRecovery";
+import MotionReady from "@/components/MotionReady";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,7 +83,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <AssetRecovery />
+      </head>
       <body className={`${inter.variable} ${bricolage.variable} antialiased`}>
+        <MotionReady />
         <div className="site-chrome">
           <NorthernLights />
           <Starfield />

@@ -389,6 +389,34 @@ h4, h6 {
   }
 }
 
+/* Blank-page guard. Every scroll-in section ships in the static HTML at inline
+   `opacity:0` (framer-motion's `initial`), so the page has nothing visible on it
+   until the motion runtime hydrates AND gets animation frames. A browser that
+   loads us in a hidden or prerendered tab — Arc does this for new windows and
+   preloaded links — suspends rAF, the entrance animation never starts, and it
+   does not recover once frames resume. That's a blank page until you refresh.
+
+   So if nothing arms the runtime shortly after load, CSS reveals the content
+   itself. Animation declarations outrank inline styles in the cascade, and the
+   document timeline advances while rAF is suspended, so this still fires in a
+   hidden tab — and with JS broken, blocked, or disabled entirely. On a healthy
+   load `data-motion-ready` lands within a frame, long before the delay below
+   elapses, so the rule detaches without ever having painted. */
+@keyframes motion-fallback-reveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Any framer-motion element that ships hidden in the static HTML wants this class
+   — it's the hook the guard reveals on. (Matching the inline `opacity:0` instead
+   is tempting and doesn't hold: motion rewrites the style attribute on hydration,
+   and the rule stops matching mid-failure.) */
+html:not([data-motion-ready]) .motion-reveal {
+  animation: motion-fallback-reveal 0.4s ease-out 1.2s forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mc-star,
   .mc-orbit,
