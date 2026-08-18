@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, type CSSProperties } from 'react';
 import dynamic from 'next/dynamic';
 import Breadcrumb from '@/components/Breadcrumb';
 import GameStage from '@/components/games/GameStage';
@@ -17,43 +17,105 @@ const Arcade = () => {
   const [selected, setSelected] = useState<GameId | null>(null);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 py-16 text-white">
+    <div className="arcade-page w-full text-white">
+      <div aria-hidden className="arcade-page-grid" />
+      <div aria-hidden className="arcade-page-glow arcade-page-glow-one" />
+      <div aria-hidden className="arcade-page-glow arcade-page-glow-two" />
+
       <div className="fixed top-6 left-6 z-40">
         <Breadcrumb label="games" />
       </div>
 
-      <div className="mb-12 text-center">
-        <AstroHelmet />
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 [text-shadow:0_0_32px_rgba(255,255,255,0.25)]">The Kid Astro Arcade</h1>
-        <p className="text-white/50 text-lg font-normal italic text-balance">
-          Three tiny space games, drawn and coded from scratch — no engines, no sprites, just canvas.
-          Best played with a keyboard.
-        </p>
-      </div>
+      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-5 pb-20 pt-28 sm:px-8 lg:px-12">
+        <header className="arcade-hero">
+          <div className="arcade-hero-copy">
+            <div className="arcade-kicker">
+              <span className="arcade-live-dot" />
+              independent games division
+              <span aria-hidden>·</span>
+              build 03
+            </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {games.map((g) => (
-          <button
-            key={g.id}
-            onClick={() => setSelected(g.id)}
-            className={`group relative text-left border border-white/15 rounded-xl bg-white/[0.04] backdrop-blur-md p-8 hover:bg-white/[0.07] hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] ${g.glowClasses}`}
-          >
-            <span aria-hidden className="color-bar absolute top-0 inset-x-6 h-[2px] rounded-full" />
-            <span
-              className="block mb-6 opacity-90 group-hover:opacity-100 transition-all duration-300"
-              style={{ filter: `drop-shadow(0 0 6px ${g.accent})` }}
-            >
-              {g.icon}
-            </span>
-            <span className="block text-2xl font-bold mb-2">{g.name}</span>
-            <span className="block text-white/50 text-sm font-normal italic mb-3">{g.inspiredBy}</span>
-            <span className="block text-white/90 leading-7 text-pretty mb-6">{g.tagline}</span>
-            <span className="inline-flex items-center gap-2 text-sm font-bold border border-white/20 rounded-lg px-4 py-2 bg-white/5 group-hover:bg-white/10 group-hover:border-white/40 transition-colors">
-              ▶ Play
-            </span>
-            <span className="block text-white/40 text-xs font-bold mt-4 uppercase tracking-wider">{g.controls}</span>
-          </button>
-        ))}
+            <h1 className="arcade-title">
+              <span>Kid Astro</span>
+              <span className="arcade-title-outline">Arcade</span>
+            </h1>
+
+            <p className="arcade-intro">
+              Three tiny space games, drawn and coded from scratch. No engines. No sprites.
+              Just canvas, strange creatures, and one kid with a helmet.
+            </p>
+
+            <div className="arcade-specs" aria-label="Arcade details">
+              <span>03 games online</span>
+              <span>100% handmade</span>
+              <span>keyboard ready</span>
+            </div>
+          </div>
+
+          <div className="arcade-helmet-wrap">
+            <div aria-hidden className="arcade-orbit arcade-orbit-one" />
+            <div aria-hidden className="arcade-orbit arcade-orbit-two" />
+            <div aria-hidden className="arcade-crosshair arcade-crosshair-x" />
+            <div aria-hidden className="arcade-crosshair arcade-crosshair-y" />
+            <AstroHelmet />
+            <span className="arcade-helmet-label">drag to inspect</span>
+          </div>
+        </header>
+
+        <section className="arcade-lineup" aria-labelledby="arcade-lineup-title">
+          <div className="arcade-section-heading">
+            <div>
+              <span className="arcade-section-number">01 / Game library</span>
+              <h2 id="arcade-lineup-title">Select a transmission</h2>
+            </div>
+            <span className="arcade-online"><i /> all systems online</span>
+          </div>
+
+          <div className="arcade-card-grid">
+            {games.map((g) => (
+              <button
+                key={g.id}
+                onClick={() => setSelected(g.id)}
+                className="arcade-game-card group"
+                style={{ '--game-accent': g.accentHex } as CSSProperties}
+                aria-label={`Play ${g.name}`}
+              >
+                <span className="arcade-card-topline">
+                  <span>KA—{g.number}</span>
+                  <span className="arcade-card-status"><i /> ready</span>
+                </span>
+
+                <span className="arcade-card-visual" aria-hidden>
+                  <span className="arcade-card-radar" />
+                  <span className="arcade-card-icon">{g.icon}</span>
+                  <span className="arcade-card-coordinates">34° 12&apos; N<br />118° 14&apos; W</span>
+                </span>
+
+                <span className="arcade-card-body">
+                  <span className="arcade-card-genre">{g.genre}</span>
+                  <span className="arcade-card-name">{g.name}</span>
+                  <span className="arcade-card-inspired">{g.inspiredBy}</span>
+                  <span className="arcade-card-tagline">{g.tagline}</span>
+                </span>
+
+                <span className="arcade-card-footer">
+                  <span className="arcade-controls">{g.controls}</span>
+                  <span className="arcade-launch">
+                    launch <b aria-hidden>↗</b>
+                  </span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <div className="arcade-ticker" aria-hidden>
+          <span>no engines</span><i />
+          <span>no sprites</span><i />
+          <span>all canvas</span><i />
+          <span>made in austin, tx</span>
+        </div>
       </div>
 
       <GameStage selected={selected} onExit={() => setSelected(null)} />

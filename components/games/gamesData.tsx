@@ -4,6 +4,8 @@ export type GameId = 'moon-garden' | 'star-swarm' | 'rocket-climb';
 
 export interface Game {
   id: GameId;
+  number: string;
+  genre: string;
   name: string;
   tagline: string;
   inspiredBy: string;
@@ -13,14 +15,19 @@ export interface Game {
   glowClasses: string;
   /** Accent color for the icon's phosphor drop-shadow. */
   accent: string;
+  /** Solid accent used by the arcade card's local color system. */
+  accentHex: string;
 }
 
 /** The arcade lineup. Shared by the arcade page and the 404 easter egg. */
 export const games: Game[] = [
   {
     id: 'moon-garden',
+    number: '01',
+    genre: 'lunar defense',
     glowClasses: 'hover:border-[#39d5cb]/40 hover:shadow-[0_0_60px_rgba(57,213,203,0.16)]',
     accent: 'rgba(57,213,203,0.55)',
+    accentHex: '#39d5cb',
     name: 'Moon Garden',
     tagline: 'Aliens are coming for the greenhouse. Plant starflowers, zap sprouts, and hold every lane.',
     inspiredBy: 'a tiny homage to Plants vs. Zombies',
@@ -44,8 +51,11 @@ export const games: Game[] = [
   },
   {
     id: 'star-swarm',
+    number: '02',
+    genre: 'deep-space shooter',
     glowClasses: 'hover:border-[#E4416F]/40 hover:shadow-[0_0_60px_rgba(228,65,111,0.16)]',
     accent: 'rgba(228,65,111,0.55)',
+    accentHex: '#e4416f',
     name: 'Star Swarm',
     tagline: 'A wiggling fleet of alien blobs descends. You, a kid, a rocket, and two bolts at a time.',
     inspiredBy: 'a tiny homage to Space Invaders',
@@ -69,8 +79,11 @@ export const games: Game[] = [
   },
   {
     id: 'rocket-climb',
+    number: '03',
+    genre: 'tower platformer',
     glowClasses: 'hover:border-[#F4FD7B]/40 hover:shadow-[0_0_60px_rgba(244,253,123,0.14)]',
     accent: 'rgba(244,253,123,0.55)',
+    accentHex: '#f4fd7b',
     name: 'Rocket Climb',
     tagline: 'A grumpy alien is rolling moon rocks down the launch tower. Climb, jump, and reach your ride.',
     inspiredBy: 'a tiny homage to Donkey Kong',

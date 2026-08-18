@@ -42,7 +42,8 @@ const GameStage = ({
   if (!selected) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#05070f]">
+    <div className="arcade-stage fixed inset-0 z-50 bg-[#05070f]">
+      <div aria-hidden className="arcade-stage-grid" />
       {selected === 'moon-garden' && <MoonGarden onExit={onExit} exitLabel={exitLabel} />}
       {selected === 'star-swarm' && <StarSwarm onExit={onExit} exitLabel={exitLabel} />}
       {selected === 'rocket-climb' && <RocketClimb onExit={onExit} exitLabel={exitLabel} />}
