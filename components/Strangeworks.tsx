@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import CompanyMark from '@/components/CompanyMark';
 import GithubActivity from '@/components/GithubActivity';
@@ -24,6 +25,20 @@ const Strangeworks = () => {
           <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
             I design primarily in Claude Code, Codex, and Tailwind — validating functional prototypes, then shipping the production code myself.
           </p>
+          <Link
+            href="/case-studies/strangeworks"
+            className="group inline-flex items-center gap-2 text-lg leading-8 text-white/90 transition-colors hover:text-(--color-2)"
+          >
+            <span className="underline decoration-white/40 underline-offset-4">
+              Read the Aura case study
+            </span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
         </div>
 
         {/* Highlights */}

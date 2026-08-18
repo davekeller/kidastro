@@ -13,9 +13,13 @@ import ProcessFlow, { type FlowPhase } from '@/components/case-studies/ProcessFl
 
 /**
  * Who the page is addressed to. Omit it for the standalone case study at
- * /case-studies/strangeworks — the page then opens on the title and closes on a
- * plain sign-off. Pass one (see /case-studies/for-slalom) and the page gains a
- * greeting, a "made for" mark in the corner, and a closing note to that team.
+ * /case-studies/strangeworks — the page then opens on the title, leads with an
+ * At a Glance card, and closes on a plain sign-off. Pass one (see
+ * /case-studies/for-slalom) and the page gains a greeting, a "made for" mark in
+ * the corner, a closing note to that team, and the "built this for you today"
+ * framing: the How This Page Came Together card and the link to the PR behind
+ * it. That framing is deliberately addressed-only — on the standalone page the
+ * subject is Aura, not the page itself.
  */
 export type CaseStudyAudience = {
   /** Named in the opening and closing headings, e.g. "Lucy and the Slalom Team". */
@@ -224,40 +228,64 @@ const AuraCaseStudy = ({ audience }: { audience?: CaseStudyAudience }) => {
               then building it in the front-end myself, and learning to work frontier models into
               how apps actually get made.
             </p>
-            <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
-              This page walks that story the way I&apos;d tell it in the room, and it&apos;s a
-              work sample itself — designed and shipped in production code, same day.
-            </p>
-            <p className="text-lg leading-8 text-white/90 text-pretty">
-              The{' '}
-              <a
-                href="https://github.com/davekeller/kidastro/pull/51"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-white/40 underline-offset-4 transition-colors hover:text-(--color-2)"
-              >
-                pull request that built it
-              </a>{' '}
-              is public — commits, diffs, and all.
-            </p>
+            {audience ? (
+              <>
+                <p className="mb-4 text-lg leading-8 text-white/90 text-pretty">
+                  This page walks that story the way I&apos;d tell it in the room, and it&apos;s a
+                  work sample itself — designed and shipped in production code, same day.
+                </p>
+                <p className="text-lg leading-8 text-white/90 text-pretty">
+                  The{' '}
+                  <a
+                    href="https://github.com/davekeller/kidastro/pull/51"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/40 underline-offset-4 transition-colors hover:text-(--color-2)"
+                  >
+                    pull request that built it
+                  </a>{' '}
+                  is public — commits, diffs, and all.
+                </p>
+              </>
+            ) : (
+              <p className="text-lg leading-8 text-white/90 text-pretty">
+                What follows is that story the way I&apos;d tell it in the room: the research it
+                started from, the vision it turned into, and the product shipping today.
+              </p>
+            )}
           </InfoCard>
 
-          <InfoCard className="flex flex-col items-start">
-            <h3 className="text-xl font-bold mt-2 text-balance">How This Page Came Together</h3>
-            <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
-              {audience
-                ? 'I read your message this morning. Everything below happened today.'
-                : 'Written, designed, and shipped in a single day.'}
-            </p>
-            <div className="w-full border-b-2 border-white/20 mb-6"></div>
-            <ul className="list-none space-y-4 w-full">
-              <li className={bullet}>Sketched the narrative first — the same five beats I&apos;d walk through in an interview</li>
-              <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
-              <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
-              <li className={bullet}>Designed and built every visual in Figma, from the original product boards and the repos themselves</li>
-              <li className={bullet}>Orchestrated the whole process, reviewed the diff, and shipped it to kidastro.com the same day</li>
-            </ul>
-          </InfoCard>
+          {audience ? (
+            <InfoCard className="flex flex-col items-start">
+              <h3 className="text-xl font-bold mt-2 text-balance">How This Page Came Together</h3>
+              <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
+                I read your message this morning. Everything below happened today.
+              </p>
+              <div className="w-full border-b-2 border-white/20 mb-6"></div>
+              <ul className="list-none space-y-4 w-full">
+                <li className={bullet}>Sketched the narrative first — the same five beats I&apos;d walk through in an interview</li>
+                <li className={bullet}>Spun up a git worktree off my portfolio repo and opened a draft PR to work in</li>
+                <li className={bullet}>Built it in Next.js, Tailwind, and Framer Motion, designing in Claude Code against a live dev server</li>
+                <li className={bullet}>Designed and built every visual in Figma, from the original product boards and the repos themselves</li>
+                <li className={bullet}>Orchestrated the whole process, reviewed the diff, and shipped it to kidastro.com the same day</li>
+              </ul>
+            </InfoCard>
+          ) : (
+            <InfoCard className="flex flex-col items-start">
+              <h3 className="text-xl font-bold mt-2 text-balance">At a Glance</h3>
+              <p className="mt-1.5 mb-4 text-base text-white/60 text-pretty">
+                Role, team, and where Aura stands today.
+              </p>
+              <div className="w-full border-b-2 border-white/20 mb-6"></div>
+              <ul className="list-none space-y-4 w-full">
+                <li className={bullet}>Principal Product Designer &amp; Design Engineer, leading design across Aura, Strange-UI, and the client apps</li>
+                <li className={bullet}>Two years in — from the first discovery interview to the 2.0 shipping today</li>
+                <li className={bullet}>Embedded with about ten developers and our own science team of PhD consultants</li>
+                <li className={bullet}>Designed in Figma, then built in the repo with Tailwind, Cursor, and Claude Code</li>
+                <li className={bullet}>In production with science teams at Deloitte, Accenture, and Johnson &amp; Johnson</li>
+              </ul>
+            </InfoCard>
+          )}
         </div>
       </AnimatedSection>
 
