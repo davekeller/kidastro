@@ -1,0 +1,68 @@
+name: Guard
+
+# The gate on the pages recruiters read. Runs on every pull request, before
+# anything can reach main and deploy itself to kidastro.com.
+#
+# Free: this repository is public, so Actions minutes are not billed on it.
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: guard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  recruiter-pages:
+    name: Recruiter-facing pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Pinning the cache to the installed Playwright version means a version
+      # bump fetches fresh browsers instead of silently reusing stale ones.
+      - name: Resolve Playwright version
+        id: playwright
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      # Builds the site and serves out/ the way GitHub Pages does — see
+      # playwright.config.ts and scripts/serve-out.mjs.
+      - name: Run the guard
+        run: npm run guard
+
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: guard-failure
+          path: |
+            playwright-report/
+            test-results/
+            guard-results.json
+          retention-days: 14
