@@ -7,7 +7,15 @@ import FadeUp from './FadeUp';
 const Intro = () => {
   return (
     <div className="relative flex flex-col items-center justify-start bg-transparent text-center -mt-10 pb-0 md:pb-48">
-      <Icosahedron />
+      {/* The 500px canvas centres the shape within itself, but the text block's
+          -mt-48 eats only the canvas's bottom half — on a phone that left the
+          mark 145px below the top of the screen and 17px above the headline.
+          The headline lands at a fixed 284px, so -68px sets the shape's centre
+          on the middle of that band. Desktop composes differently
+          (md:-mt-[136px]) and keeps its own spacing. */}
+      <div className="w-full relative -top-[68px] md:top-0">
+        <Icosahedron />
+      </div>
       <div className="intro flex flex-col items-center max-w-[1010px] mx-auto px-6 z-10 -mt-48 md:-mt-[136px]">
         <FadeUp className="flex flex-col items-center">
         <h1 className="mb-8 text-4xl md:text-6xl text-white tracking-tight font-extrabold">
