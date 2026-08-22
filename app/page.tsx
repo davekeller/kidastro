@@ -23,8 +23,12 @@ export default function Home() {
   return (
     <>
       {/* Sits between the background chrome (z-0) and the page itself (z-10),
-          so the folio scrolls over the top of the mark rather than under it. */}
-      <div className="fixed top-6 left-6 z-0 print:hidden">
+          so the folio scrolls over the top of the mark rather than under it.
+          Hidden below `md`: on a phone the hero already opens with the
+          icosahedron, and the wordmark only crowded it. Nothing navigational
+          goes with it — this mark is decorative, unlike the sub-pages'
+          Breadcrumb, whose icon links home and stays visible at every width. */}
+      <div className="hidden md:block fixed top-6 left-6 z-0 print:hidden">
         <SiteLogo />
       </div>
 
