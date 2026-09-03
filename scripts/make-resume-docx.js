@@ -210,7 +210,7 @@ const jobs = [
       "Took the product from whiteboard to production launch on a 3-person dev team",
       "Designed most of it directly in code (React, Tailwind), plus the brand, marketing site, and go-to-market",
     ]],
-  ["BnbFinder (now Savvy.com)", "May 2019 – Feb 2021", "Austin, TX",
+  ["Savvy (was BnbFinder)", "May 2019 – Feb 2021", "Austin, TX",
     "Lead Product Designer & Front-End Developer",
     "Designed and built this travel listings platform to 8K subscribers (4K+ paid) in under a year on a 3-person team.",
     [

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Monochrome company marks for the work-card headers.
-// Strangeworks, QuotaPath, OpenCourt, and BnbFinder are traced from the real
+// Strangeworks, QuotaPath, OpenCourt, and Savvy are traced from the real
 // logo assets; the rest are idea icons for brands whose sites are gone
 // (Rodio, Rocket, Timebomb, Dancefight).
 
@@ -47,7 +47,7 @@ const glyphs: Record<string, React.ReactNode> = {
       <path d="M28.65 7.35 C34.5 13.2 34.5 22.8 28.65 28.65" />
     </svg>
   ),
-  bnbfinder: (
+  savvy: (
     <svg viewBox="6.8 4.3 17 20.6" fill="currentColor" aria-hidden="true" className="w-[88%] h-[88%]">
       <g clipRule="evenodd" fillRule="evenodd">
         <path d="m8.50195 5.12195h1.02242l-.21808.37383c-.08785.15036-.15978.32796-.14784.50389.0145.21124.15893.38884.31275.52281l.02986.02557.01108.00917c.03611.02641.06938.05197.1072.08283l.05771.04892c.33835.29489.57545.65954.60615 1.11064.0182.26571-.0403.52308-.1481.766l-.0671.15036h-1.01617l.21096-.37133c.08303-.14647.14984-.3174.1379-.4875-.01422-.21123-.15894-.38884-.31247-.5228l-.02985-.02557-.01081-.0089c-.03639-.02668-.06965-.05253-.10719-.0831l-.058-.04864c-.33834-.29489-.57547-.65983-.60646-1.11064-.01848-.27405.04407-.53892.15837-.78768z" />

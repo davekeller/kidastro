@@ -4,7 +4,7 @@ import OpenCourt from '@/components/Opencourt';
 import Strangeworks from '@/components/Strangeworks';
 import Rodio from '@/components/Rodio';
 import QuotaPath from '@/components/Quotapath';
-import BnbFinder from '@/components/Bnbfinder';
+import Savvy from '@/components/Savvy';
 import Rocket from '@/components/Rocket';
 import Timebomb from '@/components/Timebomb';
 import Dancefight from '@/components/Dancefight';
@@ -51,8 +51,8 @@ export default function Home() {
 
         <AnimatedBreak />
 
-        {/* BNB */}
-        <BnbFinder />
+        {/* SAVVY */}
+        <Savvy />
 
         <AnimatedBreak />
 

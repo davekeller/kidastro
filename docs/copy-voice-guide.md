@@ -118,7 +118,7 @@ Serial commas throughout; the resume uses them everywhere.
 ## Where copy lives
 
 - **Folio hero:** `components/Intro.tsx`
-- **Folio projects:** `components/{Quotapath,Rodio,Bnbfinder,Rocket,Timebomb,Dancefight}.tsx`
+- **Folio projects:** `components/{Quotapath,Rodio,Savvy,Rocket,Timebomb,Dancefight}.tsx`
 - **Accomplishments / Footer:** `components/{Accomplishments,Footer}.tsx`
 - **Resume:** `components/resume/Header.tsx` + `components/resume/resumeData.ts`
 - **Hidden skills page:** `components/skills/SkillsView.tsx` + `skillsData.ts`

@@ -3,17 +3,17 @@ import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 import CompanyMark from '@/components/CompanyMark';
 
-const BnbFinder = () => {
+const Savvy = () => {
   return (
-    <AnimatedSection className="bnb grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
+    <AnimatedSection className="savvy grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 items-start">
       <div className="col-span-full w-full lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
         {/* Description */}
         <div className="info text-left text-white px-8 py-8 border-2 border-white/20 rounded-lg">
           <div className="flex items-start gap-4 mb-4">
-            <CompanyMark company="bnbfinder" />
+            <CompanyMark company="savvy" />
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold">BnbFinder</h2>
-              <h4 className="text-white/50 text-balance text-base font-normal! italic mt-1.5">A niche travel-listings platform (now Savvy.com)</h4>
+              <h2 className="text-3xl md:text-4xl font-bold">Savvy</h2>
+              <h4 className="text-white/50 text-balance text-base font-normal! italic mt-1.5">A niche travel-listings platform (was BnbFinder)</h4>
             </div>
           </div>
           <div className="w-full border-b-2 border-white/20 mb-4"></div>
@@ -38,25 +38,25 @@ const BnbFinder = () => {
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-5 relative">
-         <Image src="/imgs/bnb/bnb1.webp" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/bnb/bnb1.webp" alt="Savvy example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-2 lg:col-span-3 relative lg:rounded-r-md overflow-hidden">
           <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
-            <h5 className="text-black font-bold text-xl">bnbfinder design system</h5>
+            <h5 className="text-black font-bold text-xl">savvy design system</h5>
           </div>
-         <Image src="/imgs/bnb/bnb3.webp" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/bnb/bnb3.webp" alt="Savvy example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
       <div className="col-span-1 md:col-span-1 lg:col-span-3 relative lg:rounded-l-md overflow-hidden">
            <div className="absolute top-1/2 left-0 right-0 mx-auto max-w-max bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg shadow-xl z-10 text-center">
             <h5 className="text-black font-bold text-xl">pitch decks</h5>
           </div>
-         <Image src="/imgs/bnb/bnb5.webp" alt="BnbFinder example" width={800} height={600} className="w-full rounded shadow-2xl" />
+         <Image src="/imgs/bnb/bnb5.webp" alt="Savvy example" width={800} height={600} className="w-full rounded shadow-2xl" />
       </div>
 
     </AnimatedSection>
   );
 };
 
-export default BnbFinder;
+export default Savvy;
