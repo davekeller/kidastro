@@ -1,9 +1,23 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+
+/* Pages where shooting stars are a distraction rather than a flourish. The
+   resume gets read slowly and closely; a streak across it every few seconds
+   pulls the eye off the text. The twinkling backdrop stays. */
+const QUIET_PATHS = ['/resume'];
 
 const Starfield = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pathname = usePathname();
+
+  /* Read by the animation loop, which is set up once and must not restart on
+     navigation — reinitialising would reshuffle every star on a route change. */
+  const quietRef = useRef(false);
+  useEffect(() => {
+    quietRef.current = QUIET_PATHS.includes(pathname ?? '');
+  }, [pathname]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -105,7 +119,9 @@ const Starfield = () => {
     };
 
     // Initial elements
-    setTimeout(createShootingStar, 1000);
+    setTimeout(() => {
+      if (!quietRef.current) createShootingStar();
+    }, 1000);
 
     let animationFrameId: number;
     let lastShootingStarTime = Date.now();
@@ -201,9 +217,10 @@ const Starfield = () => {
       // Create new elements
       const now = Date.now();
       
-      // ~one every 10s on average (min gap + per-frame roll) — half the old rate
-      if (now - lastShootingStarTime > 9000 && Math.random() > 0.985) {
-        createShootingStar();
+      // ~one every 17s on average (min gap + per-frame roll) — 40% fewer than
+      // the ~10s cadence before. Quiet pages get none.
+      if (now - lastShootingStarTime > 15500 && Math.random() > 0.985) {
+        if (!quietRef.current) createShootingStar();
         lastShootingStarTime = now;
       }
 
