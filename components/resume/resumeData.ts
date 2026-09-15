@@ -56,7 +56,7 @@ export const fullJobs: FullJob[] = [
     ],
   },
   {
-    company: 'BnbFinder (now Savvy.com)',
+    company: 'Savvy (was BnbFinder)',
     dates: 'May 2019 – Feb 2021',
     location: 'Austin, TX',
     role: 'Lead Product Designer & Front-End Developer',
