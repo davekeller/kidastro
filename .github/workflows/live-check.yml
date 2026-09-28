@@ -9,9 +9,8 @@ name: Live site check
 # someone asks for it.
 
 on:
-  workflow_run:
-    workflows: ["Deploy to GitHub Pages"]
-    types: [completed]
+  # Vercel reports each deploy back to GitHub as a deployment status.
+  deployment_status:
   workflow_dispatch:
 
 permissions:
@@ -30,9 +29,14 @@ jobs:
     name: kidastro.com
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    # Vercel reports every deploy, previews included, and each one twice (pending,
+    # then done). Only a finished production deploy changes what recruiters see.
     # A failed deploy has its own alarm; checking the site it never published
     # would just report the previous version.
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       startsWith(github.event.deployment.environment, 'Production'))
 
     steps:
       - name: Checkout
@@ -60,11 +64,12 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      # Pages needs a moment to finish propagating after the deploy job reports
-      # success; the suite itself also retries (see playwright.config.ts).
+      # Vercel reports success as the deploy goes live; give its edge a few
+      # seconds to catch up. The suite itself also retries (see
+      # playwright.config.ts).
       - name: Let the deploy settle
-        if: github.event_name == 'workflow_run'
-        run: sleep 45
+        if: github.event_name == 'deployment_status'
+        run: sleep 15
 
       - name: Check the live site
         id: guard

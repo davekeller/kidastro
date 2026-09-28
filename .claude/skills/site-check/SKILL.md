@@ -24,8 +24,9 @@ Check a local branch before it can ship:
 npm run guard
 ```
 
-`npm run guard` builds the site first and serves `out/` the way GitHub Pages
-serves it. Add `GUARD_SKIP_BUILD=1` to reuse an existing build while iterating,
+`npm run guard` builds the site first and serves `out/` the way Vercel serves
+it (`scripts/serve-out.mjs`: exact URLs, 308 on a trailing slash, the same
+cache headers). Add `GUARD_SKIP_BUILD=1` to reuse an existing build while iterating,
 and `GUARD_PORT=…` if 4321 is taken.
 
 Both need Node 22 on PATH (`/Users/dk/.nvm/versions/node/v22.14.0/bin`) and
@@ -33,8 +34,8 @@ Chromium installed (`npx playwright install chromium`).
 
 ## Read the split, not the colour
 
-A live run reports something like `11 passed, 6 skipped`. **That is correct and
-healthy.** Six specs simulate conditions a live site cannot be put into — a
+A live run reports something like `12 passed, 5 skipped`. **That is correct and
+healthy.** Five specs simulate conditions a live site cannot be put into — a
 build with JavaScript disabled, a stale load whose stylesheet 404s — so they
 skip against `SITE_BASE_URL` and run only against a local build.
 
@@ -49,15 +50,19 @@ opacity, not the element's own — opacity composites, so an `<h1>` reads 1 whil
 the wrapper above it sits at 0), that the stylesheet actually applied, that no
 section is stranded invisible after scrolling, that there are no console errors
 or failed same-origin requests, and that every internal link resolves at its
-exact URL. Screenshots are attached to look at. They are never diffed — the site
+exact URL without a redirect. Site-wide, it also checks that `/resume/`
+redirects to `/resume`, which proves `vercel.json` is live. Screenshots are
+attached to look at. They are never diffed — the site
 is under active redesign, and a check that fails on intended changes gets
 ignored.
 
-**The live run cannot reproduce PR #61's real trigger.** That was a browser
-holding ten-minute-stale HTML pointing at asset filenames the deploy had already
-replaced. A CI runner with a cold cache never reaches that state. The simulated
-version lives in `e2e/blank-page-guard.spec.ts` and runs against a local build.
-Say so rather than implying the live green tick covers it.
+**The live run cannot reproduce PR #61's trigger.** On GitHub Pages that was a
+browser holding ten-minute-stale HTML pointing at asset filenames the deploy had
+already replaced. Vercel revalidates HTML on every load, so today it takes a tab
+left open across a deploy — still possible, and still a state a CI runner with a
+cold cache never reaches. The simulated version lives in
+`e2e/blank-page-guard.spec.ts` and runs against a local build. Say so rather
+than implying the live green tick covers it.
 
 ## Adding a page
 

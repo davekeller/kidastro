@@ -1,12 +1,13 @@
 /**
  * Self-heals a stale page load.
  *
- * GitHub Pages serves index.html with `cache-control: max-age=600` and we can't
- * change that header. Every deploy replaces the content-hashed files under
- * /_next/static/, so for up to ten minutes after a deploy a browser (or the Fastly
- * edge) can hand back an index.html whose stylesheet and chunks no longer exist.
- * They 404, no CSS and no JS apply, and you get a white page with a stray
- * "kidastro" in the corner — until you refresh, which revalidates the HTML.
+ * Every deploy replaces the content-hashed files under /_next/static/, and the
+ * new deployment doesn't serve the old ones. Vercel revalidates HTML on every
+ * load, so a fresh visit always matches, but a page opened before a deploy can
+ * still reach for a stylesheet or chunk that no longer exists. (GitHub Pages
+ * made this worse by caching HTML for ten minutes, which is how PR #61 began.)
+ * The request 404s, no CSS and no JS apply, and you get a white page with a
+ * stray "kidastro" in the corner — until you refresh.
  *
  * This runs before the chunks and reloads once when it sees that happen: on a 404
  * from any /_next/static/ asset, or on a finished load where globals.css clearly

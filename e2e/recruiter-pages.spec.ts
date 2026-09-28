@@ -3,8 +3,6 @@ import {
   PROTECTED_PAGES,
   IGNORED_CONSOLE,
   IGNORED_REQUEST_FAILURES,
-  ONLY_IN_DEPLOYED_BUILD,
-  isLive,
   type ProtectedPage,
 } from './protected';
 import { paintedState } from './visibility';
@@ -150,12 +148,11 @@ for (const target of PROTECTED_PAGES) {
 
       const broken: string[] = [];
       for (const link of links) {
-        const path = new URL(link).pathname;
-        if (!isLive && ONLY_IN_DEPLOYED_BUILD.some((pattern) => pattern.test(path))) continue;
-        // Exact URL on purpose. A static export has no server to normalise a
-        // trailing slash, so `/resume/` really is a 404 on the live site.
-        const result = await page.request.get(link, { failOnStatusCode: false });
-        if (result.status() >= 400) broken.push(`${result.status()} ${link}`);
+        // Exact URL on purpose, redirects not followed. Vercel would rescue
+        // `/resume/` with a 308, but a link that only lands via a redirect is a
+        // link nobody checked.
+        const result = await page.request.get(link, { failOnStatusCode: false, maxRedirects: 0 });
+        if (result.status() >= 300) broken.push(`${result.status()} ${link}`);
       }
 
       expect(broken, `dead links on ${target.path}`).toEqual([]);
@@ -177,4 +174,16 @@ test('the protected list still covers every case study that exists', async ({ pa
     unguarded,
     'case study pages linked from the home page but missing from e2e/protected.ts',
   ).toEqual([]);
+});
+
+test('a trailing slash redirects to the exact path', async ({ request, baseURL }) => {
+  // vercel.json sets `trailingSlash: false`, so a link pasted with a slash still
+  // lands, one redirect later. This runs against the live site too, which is
+  // what proves the setting is actually on.
+  const response = await request.get(new URL('/resume/', baseURL).toString(), {
+    failOnStatusCode: false,
+    maxRedirects: 0,
+  });
+  expect(response.status()).toBe(308);
+  expect(new URL(response.headers()['location'], baseURL).pathname).toBe('/resume');
 });
