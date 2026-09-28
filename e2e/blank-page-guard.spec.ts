@@ -6,10 +6,12 @@ import { paintedState } from './visibility';
  * Re-tests the two failures PR #61 fixed, both of which served HTTP 200 and
  * painted nothing.
  *
- * These run against a local build only. The real trigger is a browser holding
- * ten-minute-stale HTML that points at asset filenames the deploy already
- * replaced — a state a CI runner with a cold cache will never reach on its own.
- * Simulating it here is honest; claiming the live check covers it would not be.
+ * These run against a local build only. PR #61's trigger was GitHub Pages
+ * holding HTML for ten minutes after a deploy. Vercel revalidates HTML on every
+ * load, but a tab left open across a deploy can still ask for asset filenames
+ * that no longer exist — a state a CI runner with a cold cache will never reach
+ * on its own. Simulating it here is honest; claiming the live check covers it
+ * would not be.
  */
 test.describe('blank-page guard', () => {
   test.skip(isLive, 'simulates conditions a live check cannot create');
@@ -90,16 +92,5 @@ test.describe('blank-page guard', () => {
     } finally {
       await context.close();
     }
-  });
-
-  test('a trailing slash still 404s, so links must not grow one', async ({ request, baseURL }) => {
-    // Not a bug to fix — it is how a static export behaves, and the reason the
-    // link check above compares exact URLs. This test exists so that if the
-    // hosting ever changes, the assumption gets revisited rather than silently
-    // becoming wrong.
-    const response = await request.get(new URL('/resume/', baseURL).toString(), {
-      failOnStatusCode: false,
-    });
-    expect(response.status()).toBe(404);
   });
 });

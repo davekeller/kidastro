@@ -1,15 +1,16 @@
 /**
- * Serves `out/` the way GitHub Pages serves it, so the guard suite tests the
- * thing that actually ships.
+ * Serves `out/` the way Vercel serves it, so the guard suite tests the thing
+ * that actually ships.
  *
- * The resolution rules matter more than they look. A static export has no
- * server, so `/resume` is a *file* (`out/resume.html`) and `/resume/` is a
- * *directory* that has no `index.html` in it — meaning the trailing slash 404s
- * on the real site. A dev server that helpfully redirects one to the other
- * would hide exactly the broken-link class this suite exists to catch.
+ * The resolution rules matter more than they look. `/resume` is a *file*
+ * (`out/resume.html`). `/resume/` is a 308 to `/resume`, because vercel.json
+ * sets `trailingSlash: false`. And `/resume.html` is a 404, not the page. A dev
+ * server that quietly served all three would hide links that only work by
+ * accident.
  *
- * Also mirrors the header that caused PR #61: HTML goes out with
- * `cache-control: max-age=600`, same as Pages.
+ * Headers match Vercel's too: everything goes out with `max-age=0,
+ * must-revalidate` except the fingerprinted files under /_next/static/, which
+ * are cached for a year.
  */
 import { createServer } from 'node:http';
 import { createReadStream } from 'node:fs';
@@ -44,6 +45,8 @@ const TYPES = {
 async function resolve(pathname) {
   // Reject traversal before it reaches the filesystem.
   const clean = normalize(decodeURIComponent(pathname)).replace(/^(\.\.[/\\])+/, '');
+  // A page only answers at its extensionless URL; Vercel 404s `/resume.html`.
+  if (clean.endsWith('.html')) return null;
   const target = join(ROOT, clean);
   if (!target.startsWith(ROOT)) return null;
 
@@ -60,23 +63,34 @@ async function resolve(pathname) {
   return null;
 }
 
+const REVALIDATE = 'public, max-age=0, must-revalidate';
+
 const server = createServer(async (req, res) => {
-  const { pathname } = new URL(req.url, `http://localhost:${PORT}`);
+  const { pathname, search } = new URL(req.url, `http://localhost:${PORT}`);
+
+  // vercel.json `trailingSlash: false`: a relative 308 that keeps the query.
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    res.writeHead(308, { location: pathname.replace(/\/+$/, '') + search, 'content-type': 'text/plain' });
+    return res.end('Redirecting...');
+  }
+
   const file = await resolve(pathname);
 
   if (!file) {
     const notFound = join(ROOT, '404.html');
     const has404 = await stat(notFound).catch(() => null);
-    res.writeHead(404, { 'content-type': 'text/html; charset=utf-8' });
+    res.writeHead(404, { 'content-type': 'text/html; charset=utf-8', 'cache-control': REVALIDATE });
     if (has404?.isFile() && req.method !== 'HEAD') return createReadStream(notFound).pipe(res);
     return res.end('Not Found');
   }
 
   const ext = extname(file);
   const headers = { 'content-type': TYPES[ext] || 'application/octet-stream' };
-  // Pages caches HTML for ten minutes and fingerprinted assets forever. That
-  // asymmetry is the whole cause of the stale-asset blank page.
-  headers['cache-control'] = ext === '.html' ? 'max-age=600' : 'public, max-age=31536000, immutable';
+  // Vercel revalidates everything on every load except the content-hashed
+  // build output, which never changes under the same name.
+  headers['cache-control'] = pathname.startsWith('/_next/static/')
+    ? 'public,max-age=31536000,immutable'
+    : REVALIDATE;
 
   const info = await stat(file);
   headers['content-length'] = info.size;

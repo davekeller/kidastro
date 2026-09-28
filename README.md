@@ -34,4 +34,6 @@ npm run build
 
 ## Deploy
 
-Pushes to `main` deploy to **GitHub Pages** via `.github/workflows/deploy.yml` (custom domain: [kidastro.com](https://kidastro.com)). Feature branches don't deploy — open a PR and merge to ship.
+Pushes to `main` deploy to **Vercel** in production at [kidastro.com](https://kidastro.com). Every other branch gets a Vercel preview, linked from its PR. `vercel.json` handles the redirects (trailing slashes, `/themes` → themes.kidastro.com).
+
+The **Guard** workflow checks the recruiter pages on every PR. The **Live site check** runs after each production deploy and opens an issue if a page breaks.

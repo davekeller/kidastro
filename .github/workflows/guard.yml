@@ -51,7 +51,7 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      # Builds the site and serves out/ the way GitHub Pages does — see
+      # Builds the site and serves out/ the way Vercel does — see
       # playwright.config.ts and scripts/serve-out.mjs.
       - name: Run the guard
         run: npm run guard

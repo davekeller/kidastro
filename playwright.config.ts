@@ -21,9 +21,9 @@ export default defineConfig({
   // bailing on the first failure.
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
-  // A live check retries: GitHub Pages holds HTML for ten minutes, so a page
-  // fetched seconds after a deploy can legitimately be mid-swap. Local runs get
-  // no retries — a flaky gate is a gate people learn to ignore.
+  // A live check retries: it runs seconds after a deploy, over a real network,
+  // and one dropped request shouldn't file an issue. Local runs get no
+  // retries — a flaky gate is a gate people learn to ignore.
   retries: isLive ? 3 : 0,
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI
@@ -41,8 +41,8 @@ export default defineConfig({
 
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
 
-  // Live runs point at Pages; local runs need the site built and served the way
-  // Pages serves it.
+  // Live runs point at Vercel; local runs need the site built and served the
+  // way Vercel serves it.
   webServer: isLive
     ? undefined
     : {
