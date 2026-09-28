@@ -19,8 +19,8 @@ export interface Destination {
       Deliberately unordered — a monotonic run reads as a ramp, not a system. */
   depth: number;
   /** `page` lives in this Next app and client-navigates. `satellite` is its own
-      repo and deployment stitched in under kidastro.com at build time, so it
-      needs a real page load. See the note below. */
+      repo and deployment on a kidastro.com subdomain, so it needs a real page
+      load and a full URL. See the note below. */
   kind: 'page' | 'satellite';
 }
 
@@ -32,9 +32,8 @@ export interface Destination {
    is its own repo, its own stack, its own experiment. kidastro.com stays the
    portfolio. Adding one takes two steps:
 
-     1. An entry here with `kind: 'satellite'`.
-     2. A checkout + build + copy step in .github/workflows/deploy.yml, which
-        drops the app's build output into out/<path>.
+     1. Its own Vercel project on a subdomain, like themes.kidastro.com.
+     2. An entry here with `kind: 'satellite'` and that full URL as `href`.
 
    Mission Control stays unlinked and unlisted — the only way in is the ghost
    pill in the corner. That's on purpose. */
@@ -88,7 +87,7 @@ export const destinations: Destination[] = [
     id: 'themes',
     title: 'Themes',
     blurb: 'portable ui themes — react / tailwind',
-    href: '/themes',
+    href: 'https://themes.kidastro.com',
     icon: ThemesIcon,
     depth: 0.7,
     kind: 'satellite',
