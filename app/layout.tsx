@@ -7,6 +7,7 @@ import NorthernLights from "@/components/NorthernLights";
 import MissionControl from "@/components/mission-control/MissionControl";
 import AssetRecovery from "@/components/AssetRecovery";
 import MotionReady from "@/components/MotionReady";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -95,6 +96,7 @@ export default function RootLayout({
         </div>
         {children}
         <MissionControl />
+        <Analytics />
       </body>
     </html>
   );
