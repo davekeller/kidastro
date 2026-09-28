@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/themes/:path*",
+      "destination": "https://themes.kidastro.com/:path*",
+      "permanent": true
+    }
+  ]
+}
