@@ -96,7 +96,9 @@ export default function RootLayout({
         </div>
         {children}
         <MissionControl />
-        <Analytics />
+        {/* Vercel serves the analytics script itself, so only a Vercel build
+            asks for it. Anywhere else — CI, `npm run guard` — it can only 404. */}
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );
